@@ -12,7 +12,7 @@ public class clockCntrl : MonoBehaviour
     // Start is called before the first frame update 
     void Start()
     {
-        endTime = 60.0f; //set endtime, to however long we want it to run - Adjust to full time
+        endTime = 10.0f; //set endtime, to however long we want it to run - Adjust to full time
     }
 
     // Update is called once per frame
@@ -23,6 +23,7 @@ public class clockCntrl : MonoBehaviour
 
         if (Time.time >= endTime) //Check if sys time is beyond end time, if so quit
         {
+            FindObjectOfType<AudioManager>().play("Ding"); //testing audio manager
             Application.Quit();
             Debug.Log("Would have stopped there"); //Logs to console that application would have ended, not necessary in final version just for tracking in editor
         }
@@ -32,4 +33,5 @@ public class clockCntrl : MonoBehaviour
     {
         endTime += tta;
     }
+
 }
