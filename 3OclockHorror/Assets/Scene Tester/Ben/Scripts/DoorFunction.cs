@@ -9,32 +9,33 @@ public class DoorFunction : MonoBehaviour
     private Vector3 playerPosition;
     private Scene currentScene;
 
-    public GameObject TestObject;
+    public GameObject playerPrefab;
+    private GameObject controllablePlayer;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        Instantiate(playerPrefab);
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
-            TestObject = GameObject.FindWithTag("Player");
+            controllablePlayer = GameObject.FindWithTag("Player");
 
-            StartCoroutine(LoadYourAsyncScene());
-        }*/
+            StartCoroutine(LoadYourAsyncScene(controllablePlayer));
+        }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other) //Changes the scene or "Room" the player is when it hits this GameObject
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player") // checks to see if the object is the player
         {
-            StartCoroutine(LoadYourAsyncScene(other)); //Changes the scene or "Room" the player is when it hits this GameObject
+            StartCoroutine(LoadYourAsyncScene(other.gameObject));
 
-            other.transform.position = gameObject.transform.position; //Changes the position of the player so that it sits in the door way
+            other.transform.position = gameObject.transform.position;
         }
     }
 
