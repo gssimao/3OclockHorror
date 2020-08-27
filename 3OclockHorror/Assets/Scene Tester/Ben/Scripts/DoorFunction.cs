@@ -32,13 +32,13 @@ public class DoorFunction : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            StartCoroutine(LoadYourAsyncScene()); //Changes the scene or "Room" the player is when it hits this GameObject
+            StartCoroutine(LoadYourAsyncScene(other)); //Changes the scene or "Room" the player is when it hits this GameObject
 
             other.transform.position = gameObject.transform.position; //Changes the position of the player so that it sits in the door way
         }
     }
 
-    IEnumerator LoadYourAsyncScene()
+    IEnumerator LoadYourAsyncScene(GameObject Instance)
     {
         currentScene = SceneManager.GetActiveScene();
 
@@ -49,7 +49,7 @@ public class DoorFunction : MonoBehaviour
             yield return null;
         }
 
-        SceneManager.MoveGameObjectToScene(TestObject, SceneManager.GetSceneByName(roomName));
+        SceneManager.MoveGameObjectToScene(Instance, SceneManager.GetSceneByName(roomName));
 
         SceneManager.UnloadSceneAsync(currentScene);
     }
