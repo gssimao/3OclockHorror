@@ -10,6 +10,7 @@ public class Inventory : MonoBehaviour
     private void Start()
     {
         GiveItem("Test Object");
+        RemoveItem("Test Object");
     }
 
     public void GiveItem(int id)
@@ -24,5 +25,35 @@ public class Inventory : MonoBehaviour
         Item itemToAdd = itemDatabase.GetItem(itemName);
         characterItems.Add(itemToAdd);
         Debug.Log("Added Item: " + itemToAdd.title);
+    }
+
+    public Item CheckForItem(int id)
+    {
+        return characterItems.Find(item => item.id == id);
+    }
+
+    public Item CheckForItem(string itemName)
+    {
+        return characterItems.Find(item => item.title == itemName);
+    }
+
+    public void RemoveItem(int id)
+    {
+        Item item = CheckForItem(id);
+        if(item != null)
+        {
+            characterItems.Remove(item);
+            Debug.Log("Item Removed: " + item.title);
+        }
+    }
+
+    public void RemoveItem(string itemName)
+    {
+        Item item = CheckForItem(itemName);
+        if(item != null)
+        {
+            characterItems.Remove(item);
+            Debug.Log("Item Removed: " + item.title);
+        }
     }
 }
