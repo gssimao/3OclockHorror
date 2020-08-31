@@ -15,11 +15,11 @@ public class AudioManager : MonoBehaviour
 	{
 		if (instance != null)
 		{
-			Destroy(gameObject); //Is there a manager? If not I'm it
+			Destroy(gameObject); //Is there a manager? If yes then I'm gone
 		}
 		else
 		{
-			instance = this;  //There is a manager? I'm not needed anymore
+			instance = this;  //There isnt a manager? I'm it
 			DontDestroyOnLoad(gameObject);
 		}
 

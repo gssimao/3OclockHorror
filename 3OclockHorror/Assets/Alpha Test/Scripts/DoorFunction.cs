@@ -15,7 +15,7 @@ public class DoorFunction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(playerPrefab);
+        //Instantiate(playerPrefab);
     }
 
     // Update is called once per frame
@@ -29,8 +29,10 @@ public class DoorFunction : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other) //Changes the scene or "Room" the player is when it hits this GameObject
+    void OnTriggerEnter(Collider other) //Changes the scene or "Room" the player is when it hits this GameObject
     {
+        Debug.Log("Collider entered");
+
         if (other.tag == "Player") // checks to see if the object is the player
         {
             StartCoroutine(LoadYourAsyncScene(other.gameObject));
