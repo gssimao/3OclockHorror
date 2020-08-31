@@ -23,13 +23,12 @@ public class clockCntrl : MonoBehaviour
 
         if (Time.time >= endTime) //Check if sys time is beyond end time, if so quit
         {
-            FindObjectOfType<AudioManager>().play("Ding"); //testing audio manager
             Application.Quit();
             Debug.Log("Would have stopped there"); //Logs to console that application would have ended, not necessary in final version just for tracking in editor
         }
     }
 
-    public void adjustEndTime(float tta) //Takes time to adjust by, adjusts time by that amount
+    public void adjustEndTime(float tta) //Takes time to adjust by, adjusts time by that amount - likely only neg values but takes either or
     {
         endTime += tta;
     }
