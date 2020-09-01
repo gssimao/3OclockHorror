@@ -1,23 +1,3 @@
-<<<<<<< Updated upstream
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class rotate : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-}
-=======
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -25,7 +5,7 @@ using System.Security.Cryptography;
 using System.Threading;
 using UnityEngine;
 
-public class rotate : MonoBehaviour
+public class rotateRight : MonoBehaviour
 {
     public bool canRotate;
 
@@ -33,7 +13,7 @@ public class rotate : MonoBehaviour
     {
         if (canRotate)
         {
-            StartCoroutine(Rotate( Vector3.forward, 90, 1.0f));
+            StartCoroutine(Rotate(Vector3.back, 90, 1.0f));
         }
     }
 
@@ -42,7 +22,7 @@ public class rotate : MonoBehaviour
         canRotate = true;
     }
 
-    IEnumerator Rotate( Vector3 axis, float angle, float duration = 1.0f)
+    IEnumerator Rotate(Vector3 axis, float angle, float duration = 1.0f)
     {
         Quaternion from = transform.rotation;
 
@@ -52,7 +32,7 @@ public class rotate : MonoBehaviour
 
         float elapsed = 0.0f;
 
-        while( elapsed < duration && canRotate)
+        while (elapsed < duration && canRotate)
         {
             transform.rotation = Quaternion.Slerp(from, to, elapsed / duration);
             elapsed += Time.deltaTime;
@@ -62,4 +42,3 @@ public class rotate : MonoBehaviour
         canRotate = false;
     }
 }
->>>>>>> Stashed changes
