@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DoorFunction : MonoBehaviour
+public class Door3D : MonoBehaviour
 {
     public string roomName; //name of the scene to transfer too
     private Vector3 playerPosition;
@@ -15,13 +15,13 @@ public class DoorFunction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(playerPrefab);
+        //Instantiate(playerPrefab);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             controllablePlayer = GameObject.FindWithTag("Player");
 
@@ -29,9 +29,8 @@ public class DoorFunction : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other) //Changes the scene or "Room" the player is when it hits this GameObject
+    void OnTriggerEnter(Collider other) //Changes the scene or "Room" the player is when it hits this GameObject
     {
-        Debug.Log("Collider entered");
 
         if (other.tag == "Player") // checks to see if the object is the player
         {
