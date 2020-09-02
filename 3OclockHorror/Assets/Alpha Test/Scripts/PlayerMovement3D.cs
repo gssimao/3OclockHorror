@@ -4,25 +4,23 @@ using UnityEngine;
 
 public class PlayerMovement3D : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed = 5f; //Move speed
 
-    public Rigidbody rb;
+    public Rigidbody rb; //The rigidbody to act on
 
-    Vector3 movement;
+    Vector3 movement; //The actual movement
 
     // Update is called once per frame
     void Update()
     {
-        // Input
-
+        // Register Input
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
     }
 
     void FixedUpdate()
     {
-        // Movement
-
+        // Move the object
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 }
