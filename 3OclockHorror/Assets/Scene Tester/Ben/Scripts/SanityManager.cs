@@ -6,8 +6,6 @@ public class SanityManager : MonoBehaviour
 {
     public float sanityValue;
 
-    public float changeValue;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +18,12 @@ public class SanityManager : MonoBehaviour
         
     }
 
-    public void ChangeSanity()
+    private void OnTriggerEnter(Collider other)
+    {
+        
+    }
+
+    public void ChangeSanity(float changeValue)
     {
         sanityValue = sanityValue + changeValue;
     }
