@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemDatabase : MonoBehaviour
+/*public class ItemDatabase : MonoBehaviour
 {
     public List<Item> items = new List<Item>();
     private void Awake()
@@ -26,4 +26,4 @@ public class ItemDatabase : MonoBehaviour
             new Item(0, "Test Object", "A test of the constructor")
         };
     }
-}
+}*/

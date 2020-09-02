@@ -1,59 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
-    public List<Item> characterItems = new List<Item>();
-    public ItemDatabase itemDatabase;
-
-    private void Start()
+    public Image[] itemImages = new Image[numItemSlots];
+    public Item[] items = new Item[numItemSlots];
+    public const int numItemSlots = 4;
+    public void AddItem(Item itemToAdd)
     {
-        GiveItem("Test Object");
-        RemoveItem("Test Object");
-    }
-
-    public void GiveItem(int id)
-    {
-        Item itemToAdd = itemDatabase.GetItem(id);
-        characterItems.Add(itemToAdd);
-        Debug.Log("Added item: " + itemToAdd.title);
-    }
-
-    public void GiveItem(string itemName)
-    {
-        Item itemToAdd = itemDatabase.GetItem(itemName);
-        characterItems.Add(itemToAdd);
-        Debug.Log("Added Item: " + itemToAdd.title);
-    }
-
-    public Item CheckForItem(int id)
-    {
-        return characterItems.Find(item => item.id == id);
-    }
-
-    public Item CheckForItem(string itemName)
-    {
-        return characterItems.Find(item => item.title == itemName);
-    }
-
-    public void RemoveItem(int id)
-    {
-        Item item = CheckForItem(id);
-        if(item != null)
+        for (int i = 0; i < items.Length; i++)
         {
-            characterItems.Remove(item);
-            Debug.Log("Item Removed: " + item.title);
+            if (items[i] == null)
+            {
+                items[i] = itemToAdd;
+                itemImages[i].sprite = itemToAdd.sprite;
+                itemImages[i].enabled = true;
+                return;
+            }
         }
     }
-
-    public void RemoveItem(string itemName)
+    public void RemoveItem(Item itemToRemove)
     {
-        Item item = CheckForItem(itemName);
-        if(item != null)
+        for (int i = 0; i < items.Length; i++)
         {
-            characterItems.Remove(item);
-            Debug.Log("Item Removed: " + item.title);
+            if (items[i] == itemToRemove)
+            {
+                items[i] = null;
+                itemImages[i].sprite = null;
+                itemImages[i].enabled = false;
+                return;
+            }
         }
     }
 }
