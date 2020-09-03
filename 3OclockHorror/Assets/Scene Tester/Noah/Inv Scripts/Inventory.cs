@@ -4,9 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
-    public Image[] itemImages = new Image[numItemSlots];
+    public const int numItemSlots = 4; //Per instance code for controlling number of items attached.
+    public Image[] itemImages = new Image[numItemSlots]; //Arrays to hold items and item images
     public Item[] items = new Item[numItemSlots];
-    public const int numItemSlots = 4;
+
+    void Awake()
+    {
+        for(int i = 0; i < numItemSlots; i++) //Init inventory and make sure everything is properly set to null
+        {
+            itemImages[i] = null;
+            items[i] = null;
+        }
+    }
 
     public void AddItem(Item itemToAdd)
     {
