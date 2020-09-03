@@ -5,15 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class EndScreen : MonoBehaviour
 {
-    public string gameScene;
-    public string menuScene;
+    public string gameScene; //Name of the game
+    public string menuScene; //The scene the menu is in
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(gameScene);
+        SceneManager.LoadScene(gameScene);//loads the game scene
     }
     public void ReturnToMenu()
     {
-        SceneManager.LoadScene(menuScene);
+        SceneManager.LoadScene(menuScene);//loads the menu scene
     }
 }

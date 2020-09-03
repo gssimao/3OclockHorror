@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SanityManager : MonoBehaviour
 {
-    public float sanityValue;
+    public float sanityValue; //Variable that holds how much sanity the player has
 
     // Start is called before the first frame update
     void Start()
