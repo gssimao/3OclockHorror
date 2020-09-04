@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class clockCntrl : MonoBehaviour
 {
@@ -12,19 +13,21 @@ public class clockCntrl : MonoBehaviour
     // Start is called before the first frame update 
     void Start()
     {
-        endTime = 10.0f; //set endtime, to however long we want it to run - Adjust to full time
+        endTime = 1200.0f; //set endtime, to however long we want it to run - Adjust to full time
     }
 
     // Update is called once per frame
     void Update()
     {
-        timePercent = Time.time / endTime;
-        timeHud.value = timePercent;    //Both lines also are soley for purpose of clock ui - will be changed / removed when proper ui is devised
-
         if (Time.time >= endTime) //Check if sys time is beyond end time, if so quit
         {
-            Application.Quit();
-            Debug.Log("Would have stopped there"); //Logs to console that application would have ended, not necessary in final version just for tracking in editor
+            SceneManager.LoadScene(2); //Load the Game Over scene
+            Destroy(gameObject);
+        }
+        else
+        {
+            timePercent = Time.time / endTime;
+            timeHud.value = timePercent;    //Both lines also are soley for purpose of clock ui - will be changed / removed when proper ui is devised
         }
     }
 

@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public string mMenuScene;
+    public AudioManager menuAudio;
+
+    void Awake()
+    {
+        menuAudio.Play("wind");
+    }
 
    public void PlayGame()
     {
