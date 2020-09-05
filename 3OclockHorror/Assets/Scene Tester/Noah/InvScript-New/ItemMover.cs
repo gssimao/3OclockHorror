@@ -63,25 +63,25 @@ public class ItemMover : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) && grabDelay == 0 && grabbed)
         {
+            int slotCount = 0;
             foreach(inventorySlot slot in inventory.slots)
             {
-                /*
-                float dist = Vector3.Distance(slot.transform.position, gameObject.transform.position);
-                Debug.Log("Dist: " + dist);
-                */
 
-                Vector3 obj1 = slot.transform.localPosition;
-                Vector3 obj2 = gameObject.transform.position;
-                Vector3 obj1Cast = Camera.main.ScreenToWorldPoint(obj1);
-                Debug.Log("Canv X: " + obj1.x + " Y: " + obj1.y);;
-                Vector3 obj2Cast = Camera.main.ScreenToWorldPoint(obj2);
-                Debug.Log("Obj X:" + obj2.x + " Y: " + obj2.y);
-                float dist = Vector3.Distance(obj1, obj2);
+                Vector2 obj = Camera.main.WorldToViewportPoint(gameObject.transform.position);
+                Vector2 objScaled = new Vector2(obj.x * inventory.UI.sizeDelta.x, obj.y * inventory.UI.sizeDelta.y);
+                //Vector2 obj = gameObject.transform.position;
+                //Vector2 ui = new Vector2(slot.transform.position.x/inventory.UI.sizeDelta.x, slot.transform.position.y / inventory.UI.sizeDelta.y);
+                Vector2 ui = slot.transform.position;
 
-                if(dist < 1)
+                float dist = Vector2.Distance(obj, ui);
+
+                Debug.Log("Coords: " + objScaled.x + " " + objScaled.y + " UI Coords: (Slot: "+slotCount+" ) " + ui.x + " " + ui.y + " Dist: " + dist);
+
+                if (dist < 150f && !slot.inUse)
                 {
                     inventory.AddItem(myItem);
-                    gameObject.transform.position = new Vector3(obj1Cast.x, obj1Cast.y, gameObject.transform.position.z);
+                    //Vector3 objPos = Camera.main.WorldToViewportPoint(ui);
+                    gameObject.transform.position = ui;
 
                     grabbed = false;
                     stored = true;
@@ -89,6 +89,7 @@ public class ItemMover : MonoBehaviour
 
                     return;
                 }
+                slotCount++;
             }
         }
     }

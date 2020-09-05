@@ -9,6 +9,7 @@ public class Inventory : MonoBehaviour
     public List<Item> items; //List of items - size is managed by editor. This allows dynamic per instance sizes without complicated stuff.
     public inventorySlot[] slots; //List of slots
     public Transform itemsParent;
+    public RectTransform UI;
 
     public delegate void onItemChanged();
     public onItemChanged onItemChangedCallback;
