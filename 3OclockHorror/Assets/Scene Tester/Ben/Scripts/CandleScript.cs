@@ -34,7 +34,7 @@ public class CandleScript : MonoBehaviour
 
         if(other.tag == "Player")
         {
-            temp = DistanceFunction(other.transform.position, gameObject.transform.position);
+            temp = Vector3.Distance(other.transform.position, gameObject.transform.position);
 
             if(temp <= interactableRange && Input.GetKeyDown("e"))
             {
@@ -52,18 +52,5 @@ public class CandleScript : MonoBehaviour
         {
 
         }
-    }
-
-    float DistanceFunction(Vector3 A, Vector3 B)// The iconic distance formula but for three coordinates
-    {
-        float ans, x, y, z;
-
-        x = Mathf.Pow(A.x - B.x, 2);
-        y = Mathf.Pow(A.y - B.y, 2);
-        z = Mathf.Pow(A.z - B.z, 2);
-
-        ans = Mathf.Sqrt(x + y + z);
-
-        return ans;
     }
 }
