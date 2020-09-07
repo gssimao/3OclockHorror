@@ -1,20 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ItemMover : MonoBehaviour
 {
-    bool grabbed;
-    bool stored;
-    public Item myItem;
-    public SpriteRenderer myIcon;
-    Inventory inventory;
-    int grabDelay;
+    bool grabbed; //Am I being held by the mouse currently
+    bool stored; //Am I being stored
+    public Item myItem; //The item I represent
+    public SpriteRenderer myIcon; //The icon of that item
+    Inventory inventory; //The inventory I belong to
+    int grabDelay; //Delay to allow unity to register changes in grab state
+    int slotImIn; //The item slot I'm in.
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() //Init the item state - set the various state conditions as well as the inventoy I belong to
+    { 
         grabbed = false;
+        stored = false;
+        slotImIn = 10000; //Set this to huge number as it cannot be nulled so anything this large will act as a null state
         myIcon.sprite = myItem.sprite;
         grabDelay = 0;
 
@@ -23,12 +24,12 @@ public class ItemMover : MonoBehaviour
 
     private void Update()
     {
-        //Use any/all of the below items.
+        //Move depending on state, update grabbed state
         move();
         grab();
         place();
-        
-        if(grabDelay > 0)
+
+        if (grabDelay > 0) //Decrement the geab timer if active
         {
             grabDelay--;
         }
@@ -36,23 +37,24 @@ public class ItemMover : MonoBehaviour
 
     public void grab()
     {
-        if (Input.GetMouseButtonDown(0) && grabDelay == 0 && !grabbed)
+        if (Input.GetMouseButtonDown(0) && grabDelay == 0 && !grabbed) //If the mouse is down, grab delay is gone, and I'm not grabbed - grab me
         {
 
-            RaycastHit hit;
+            RaycastHit hit;   //Use a raycast to hit the item and allow it to update state
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform.name == "ItemObject")
+                if (hit.collider.gameObject.tag == "ItemObject") //Grabs the tag of the gameobject we hit, and will move it if it's an ItemObject
                 {
-                    grabbed = true;
+                    grabbed = true; //Update states
                     grabDelay = 5;
 
-                    if(stored)
+                    if (stored) //If stored, apply changes to the inventory as well
                     {
-                        inventory.RemoveItem(myItem);
+                        inventory.RemoveItem(myItem, slotImIn);
                         stored = false;
+                        slotImIn = 10000;
                     }
                 }
             }
@@ -61,46 +63,41 @@ public class ItemMover : MonoBehaviour
 
     public void place()
     {
-        if(Input.GetMouseButtonDown(0) && grabDelay == 0 && grabbed)
+        if (Input.GetMouseButtonDown(0) && grabDelay == 0 && grabbed) //Checks for mouse input, inactive grab delay, and if object is grabbed
         {
-            int slotCount = 0;
-            foreach(inventorySlot slot in inventory.slots)
+            int slotCount = 0; //Starts an incremental counter for which slot the item goes in
+            foreach (inventorySlot slot in inventory.slots) //Runs through each slot in the inventory's slot list
             {
-
-                Vector2 obj = Camera.main.WorldToViewportPoint(gameObject.transform.position);
-                Vector2 objScaled = new Vector2(obj.x * inventory.UI.sizeDelta.x, obj.y * inventory.UI.sizeDelta.y);
-                //Vector2 obj = gameObject.transform.position;
-                //Vector2 ui = new Vector2(slot.transform.position.x/inventory.UI.sizeDelta.x, slot.transform.position.y / inventory.UI.sizeDelta.y);
+                Vector2 obj = gameObject.transform.position; //Grabs the position of the item and the slot that we are on
                 Vector2 ui = slot.transform.position;
 
-                float dist = Vector2.Distance(obj, ui);
+                float dist = Vector2.Distance(obj, ui); //Calculates the distance between them to see if the item is in range of the slot *Note - Is a little buggy. Range can be adjusted down, but that causes item to not always register slot. For now, best left as is*
 
-                Debug.Log("Coords: " + objScaled.x + " " + objScaled.y + " UI Coords: (Slot: "+slotCount+" ) " + ui.x + " " + ui.y + " Dist: " + dist);
-
-                if (dist < 150f && !slot.inUse)
+                if (dist < 10f) //Checks the distance
                 {
-                    inventory.AddItem(myItem);
-                    //Vector3 objPos = Camera.main.WorldToViewportPoint(ui);
-                    gameObject.transform.position = ui;
+                    inventory.AddItem(myItem, slotCount); //Adds the item into the items list
+                    Vector3 slotSpace = new Vector3(ui.x, ui.y, gameObject.transform.position.z); //Adjusts the item's position to be in line with the position of the slot
+                    gameObject.transform.position = slotSpace; //Places the item at that location
 
-                    grabbed = false;
+                    grabbed = false; //Update states
                     stored = true;
+                    slotImIn = slotCount;
                     grabDelay = 5;
 
                     return;
                 }
-                slotCount++;
+                slotCount++; //If we didn't match with a slot, increment the slot counter
             }
         }
     }
 
     public void move()
     {
-        if(grabbed)
+        if (grabbed) //If it's grabbed, it should move with the mouse - this makes it do that
         {
-            Vector3 temp = Input.mousePosition;
-            temp.z = 10f; // Set this to be the distance you want the object to be placed in front of the camera.
-            this.transform.position = Camera.main.ScreenToWorldPoint(temp);
+            Vector3 temp = Input.mousePosition; //Grab mouse pos
+            temp.z = gameObject.transform.position.z + (Camera.main.transform.position.z * -1f); //Adjust zPos to represent the current item z pos with respect to the camera
+            this.transform.position = Camera.main.ScreenToWorldPoint(temp); //Transform position to move with mouse
         }
     }
 }

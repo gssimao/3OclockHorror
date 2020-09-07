@@ -1,20 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    public static Inventory instance;
+    public static Inventory instance; //This specific inventory. Will need to be adjusted eventually
     public List<Item> items; //List of items - size is managed by editor. This allows dynamic per instance sizes without complicated stuff.
     public inventorySlot[] slots; //List of slots
-    public Transform itemsParent;
-    public RectTransform UI;
+    public Transform itemsParent; //The parent from which we get the number of slots.
 
     public delegate void onItemChanged();
     public onItemChanged onItemChangedCallback;
 
-    void Awake()
+    void Awake() //Some stuff here will need to be removed - eventually multiple inventories will exist, meaning the first chunk is unnecessary
     {
         if(instance != null)
         {
@@ -34,18 +31,20 @@ public class Inventory : MonoBehaviour
     }
 
     
-    public void AddItem(Item itemToAdd)
+    public void AddItem(Item itemToAdd, int slotNum) //Adds an item in to the inventory.
     {
-        if(items[0] == null)
+        if(!slots[slotNum].inUse && items[slotNum] == null) //Checks if the slot we want to use is empty, if yes then just place it. Other states will be needed.
         {
-            items[0] = itemToAdd;
+            items[slotNum] = itemToAdd;
+            slots[slotNum].inUse = true;
         }
     }
-    public void RemoveItem(Item itemToRemove)
+    public void RemoveItem(Item itemToRemove, int slotNum) //Removes an item from the list
     {
-        if (items[0] != null)
+        if(slots[slotNum].inUse && items[slotNum] != null) //Grabs the item out of the slot and removes it.
         {
-            items[0] = null;
+            items[slotNum] = null;
+            slots[slotNum].inUse = false;
         }
     }   
 }
