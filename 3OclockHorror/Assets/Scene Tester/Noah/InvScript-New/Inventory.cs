@@ -38,6 +38,12 @@ public class Inventory : MonoBehaviour
             items[slotNum] = itemToAdd;
             slots[slotNum].inUse = true;
         }
+        else if(slots[slotNum].inUse && items[slotNum] != null)
+        {
+            items[slotNum].itemObject.GetComponent<ItemMover>().grabSet(true);
+            items[slotNum] = itemToAdd;
+            slots[slotNum].inUse = true;
+        }
     }
     public void RemoveItem(Item itemToRemove, int slotNum) //Removes an item from the list
     {
@@ -46,5 +52,5 @@ public class Inventory : MonoBehaviour
             items[slotNum] = null;
             slots[slotNum].inUse = false;
         }
-    }   
+    }
 }

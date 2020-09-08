@@ -100,4 +100,11 @@ public class ItemMover : MonoBehaviour
             this.transform.position = Camera.main.ScreenToWorldPoint(temp); //Transform position to move with mouse
         }
     }
+
+    public void grabSet(bool set)
+    {
+        grabbed = set;
+        stored = false;
+        grabDelay = 5;
+    }
 }
