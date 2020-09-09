@@ -4,7 +4,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public static Inventory instance; //This specific inventory. Will need to be adjusted eventually
-    public List<Item> items; //List of items - size is managed by editor. This allows dynamic per instance sizes without complicated stuff.
+    public List<ItemMover> items; //List of items - size is managed by editor. This allows dynamic per instance sizes without complicated stuff.
     public inventorySlot[] slots; //List of slots
     public Transform itemsParent; //The parent from which we get the number of slots.
 
@@ -31,7 +31,7 @@ public class Inventory : MonoBehaviour
     }
 
     
-    public void AddItem(Item itemToAdd, int slotNum) //Adds an item in to the inventory.
+    public void AddItem(ItemMover itemToAdd, int slotNum) //Adds an item in to the inventory.
     {
         if(!slots[slotNum].inUse && items[slotNum] == null) //Checks if the slot we want to use is empty, if yes then just place it. Other states will be needed.
         {
@@ -40,12 +40,12 @@ public class Inventory : MonoBehaviour
         }
         else if(slots[slotNum].inUse && items[slotNum] != null)
         {
-            items[slotNum].itemObject.GetComponent<ItemMover>().grabSet(true);
+            items[slotNum].grabSet(true);
             items[slotNum] = itemToAdd;
             slots[slotNum].inUse = true;
         }
     }
-    public void RemoveItem(Item itemToRemove, int slotNum) //Removes an item from the list
+    public void RemoveItem(ItemMover itemToRemove, int slotNum) //Removes an item from the list
     {
         if(slots[slotNum].inUse && items[slotNum] != null) //Grabs the item out of the slot and removes it.
         {
