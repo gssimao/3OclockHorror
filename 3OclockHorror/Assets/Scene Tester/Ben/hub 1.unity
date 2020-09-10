@@ -1438,11 +1438,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b33cff841cbc93246a63885a97e455b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLocked: 0
-  hasKey: 0
+  isLocked: 1
+  hasKey: 1
   haveKey: 0
+  time: 0
   player: {fileID: 2123432593}
   axis: {fileID: 8326204}
+  textBox: {fileID: 1976290174}
 --- !u!1 &570518556
 GameObject:
   m_ObjectHideFlags: 0
@@ -4273,7 +4275,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: bruh
+  m_Text: 
 --- !u!222 &1976290175
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4410,24 +4412,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2123432593}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7692f214ee4f1b41b572c54ae0bb460, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeHud: {fileID: 500637910}
---- !u!114 &2123432595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2123432593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3360c4227eb24541982f13be9ae9aef, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f481ccdc64e1fa4481f798537fb6acb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 1976290174}
-  displayText: bruh
+  timer: 7
 --- !u!65 &2123432600
 BoxCollider:
   m_ObjectHideFlags: 0

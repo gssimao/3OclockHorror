@@ -1,23 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LockUnlock : MonoBehaviour
 {
     public bool isLocked; // variable that determines whether the door is locked our not
     public bool hasKey; // variable that determines if you need key for this door
     public bool haveKey; // variable that determines if the player has the key
+    public float time;
 
     public GameObject player; //the player game object
     public GameObject axis;
+    public Text textBox;
 
     float dist;
-    float angle = 0;
+    float angle = 0f;
+    float timer = 5f;
+    float ov;
     Vector3 OP; //original position of the door;
     // Start is called before the first frame update
     void Start()
     {
         OP = gameObject.transform.position;
+        ov = timer;
     }
 
     // Update is called once per frame
@@ -33,6 +39,13 @@ public class LockUnlock : MonoBehaviour
                     if (haveKey == true)
                     {
                         //future
+                    }
+                    else
+                    {
+                        if (Input.GetKeyDown("e"))
+                        {
+                            textBox.text = "The door is locked";
+                        }
                     }
                 }
                 else
@@ -57,6 +70,7 @@ public class LockUnlock : MonoBehaviour
                     isLocked = true;// locks the door
                 }
             }
+            
         }
         else
         {
