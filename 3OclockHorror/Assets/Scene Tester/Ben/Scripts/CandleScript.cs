@@ -41,30 +41,4 @@ public class CandleScript : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(gameObject.transform.position, interRange);
     }
-
-    /*void OnTriggerStay(Collider other)
-    {
-        float temp;
-
-        if(other.tag == "Player")
-        {
-            temp = Vector3.Distance(other.transform.position, gameObject.transform.position);
-
-            if(temp <= interactableRange && Input.GetKeyDown("e"))
-            {
-                if(Light.activeSelf)
-                {
-                    Light.SetActive(false);
-                }
-                else
-                {
-                    Light.SetActive(true);
-                }
-            }
-        }
-        if(other.tag == "Blind Creep")
-        {
-
-        }
-    }*/
 }

@@ -5,24 +5,21 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory instance; //This specific inventory. Will need to be adjusted eventually
     public List<ItemMover> items; //List of items - size is managed by editor. This allows dynamic per instance sizes without complicated stuff.
+    public GameObject itemsParent; //The parent from which we get the number of slots.
     public inventorySlot[] slots; //List of slots
-    public Transform itemsParent; //The parent from which we get the number of slots.
+    public GameObject workbenchParent;
+    public inventorySlot[] workbenchSlots;
+    
 
     public delegate void onItemChanged();
     public onItemChanged onItemChangedCallback;
 
     void Awake() //Some stuff here will need to be removed - eventually multiple inventories will exist, meaning the first chunk is unnecessary
     {
-        if(instance != null)
-        {
-            Debug.LogError("More than one Inventory");
-        }
-        else
-        {
-            instance = this;
-        }
+        instance = this;
 
         slots = itemsParent.GetComponentsInChildren<inventorySlot>();
+        workbenchSlots = workbenchParent.GetComponentsInChildren<inventorySlot>();
 
         if(slots.Length != items.Count)
         {
@@ -53,4 +50,5 @@ public class Inventory : MonoBehaviour
             slots[slotNum].inUse = false;
         }
     }
+
 }
