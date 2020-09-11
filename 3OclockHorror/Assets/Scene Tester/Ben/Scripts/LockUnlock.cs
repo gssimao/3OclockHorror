@@ -11,11 +11,9 @@ public class LockUnlock : MonoBehaviour
     public float time;
 
     public GameObject player; //the player game object
-    public GameObject axis;
     public Text textBox;
 
     float dist;
-    float angle = 0f;
     float timer = 5f;
     float ov;
     Vector3 OP; //original position of the door;
@@ -34,6 +32,7 @@ public class LockUnlock : MonoBehaviour
         {
             if (isLocked == true)// checks if the door is "locked"
             {
+
                 if (hasKey == true)// checks if the door needs a key
                 {
                     if (haveKey == true)
@@ -58,12 +57,12 @@ public class LockUnlock : MonoBehaviour
             }
             else
             {
-                if (angle < 90)
+                /*if (angle < 90)
                 {
                     gameObject.transform.RotateAround(axis.transform.position, Vector3.forward, angle);// rotates the object around an axis
 
                     angle = angle + 10 * Time.deltaTime;// the angle that the door turns to
-                }
+                }*/
 
                 if (Input.GetKeyDown("e"))
                 {
@@ -75,7 +74,16 @@ public class LockUnlock : MonoBehaviour
         else
         {
             gameObject.transform.position = new Vector3(OP.x, OP.y, OP.z);// sets the door back to it's original position when the player is far enough away
-            angle = 0;
+        }
+
+        if (textBox.text != "")
+        {
+            timer -= Time.deltaTime;
+        }
+        if (timer <= 0f)
+        {
+            textBox.text = "";
+            timer = ov;
         }
     }
 }
