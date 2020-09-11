@@ -84,6 +84,20 @@ public class Inventory : MonoBehaviour
             puzzleCanvas.gameObject.SetActive(true);
             workbenchParent.SetActive(false);
             itemsParent.SetActive(false);
+            foreach(ItemMover item in items)
+            {
+                if (item != null)
+                {
+                    item.gameObject.SetActive(false);
+                }
+            }
+            foreach (ItemMover item in workbenchItems)
+            {
+                if (item != null)
+                {
+                    item.gameObject.SetActive(false);
+                }
+            }
         }
     }
 
