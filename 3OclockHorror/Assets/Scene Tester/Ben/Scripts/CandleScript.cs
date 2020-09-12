@@ -15,7 +15,7 @@ public class CandleScript : MonoBehaviour
     void Start()
     {
         flame = Light.GetComponent<Light>(); //gets the light component of the child of this game object and sets it to the variable
-        interRange = flame.range / flame.range + 1;
+        //interRange = flame.range / flame.range + 1;
     }
 
     // Update is called once per frame
@@ -23,15 +23,15 @@ public class CandleScript : MonoBehaviour
     {
         dist = Vector3.Distance(player.transform.position, this.transform.position);
 
-        if(dist <= interRange && Input.GetKeyDown("e"))
+        if(dist <= interRange && Input.GetKeyDown("q"))
         {
-            if (Light.activeSelf)
+            if (flame.isActiveAndEnabled)
             {
-                Light.SetActive(false);
+                flame.enabled = false;
             }
             else
             {
-                Light.SetActive(true);
+                flame.enabled = true;
             }
         }
     }
