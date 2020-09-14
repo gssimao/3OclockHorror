@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+<<<<<<< Updated upstream
     public float moveSpeed;
+=======
+    public float moveSpeed = 5f;
+>>>>>>> Stashed changes
     public GameObject invUI;
     public Animator anim;
 
