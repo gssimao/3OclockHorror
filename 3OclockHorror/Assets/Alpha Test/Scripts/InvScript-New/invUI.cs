@@ -12,7 +12,7 @@ public class invUI : MonoBehaviour
     public GameObject workbenchInv;
     public GameObject puzzleUI;
     public GameObject slotParent;
-    bool active;
+    public bool active;
 
     // Start is called before the first frame update
     void Start()
