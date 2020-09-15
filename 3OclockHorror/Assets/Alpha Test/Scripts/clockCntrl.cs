@@ -36,7 +36,7 @@ public class clockCntrl : MonoBehaviour
         //Check for events
         if(Time.time >= 120)
         {
-            blindCreep.activate();
+            //blindCreep.activate();
         }
     }
 
