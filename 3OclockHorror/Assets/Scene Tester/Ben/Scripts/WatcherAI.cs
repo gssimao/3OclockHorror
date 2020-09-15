@@ -1,37 +1,47 @@
-﻿using System.Collections;
+﻿using System.CodeDom.Compiler;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WatcherAI : MonoBehaviour
 {
     public GameObject[] Rooms;
-    public GameObject[] Candles;
+    public Light[] Candles;
 
-    public bool candlesOut;
+    public GameObject player;
     public bool playerInRoom;
-    public bool playerInBench;
     public int emptyRoomCount = 0;
     public float coolDownTimer;
+    public invUI inventoryUI;
 
     int randInd;
+    bool playerInBench;
+    bool candlesOut;
+    int candleNum;
+    int[] candlesOn;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        candleNum = Candles.Length;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(candlesOut && !playerInRoom)
-        {
-            MoveWatcher();
-        }
-        else if(!candlesOut && playerInBench && coolDownTimer == 0)
-        {
+       if(inventoryUI.active == true)
+       {
+            candlesOut = CheckCandles();
 
-        }
+            if(!candlesOut)// candles are not out
+            {
+                
+            }
+            else
+            {
+
+            }
+       }
     }
     
     void MoveWatcher()
@@ -58,9 +68,35 @@ public class WatcherAI : MonoBehaviour
 
     void BlowOutCandle()
     {
-        //Get how many candles are lit in room, as well as their locations
+        int selectedNum = Random.Range(1, candlesOn.Length);
 
-        //Use random.range to select from 1 to all of the candles in the room to blow out
+        for(int i = 0; i <= selectedNum; i++)
+        {
+            Candles[candlesOn[Random.Range(0, selectedNum)]].enabled = false;
+        }
+    }
 
+    bool CheckCandles()
+    {  
+        for(int i = 0; i <= candleNum; i++)
+        {
+            if(Candles[i].isActiveAndEnabled)
+            {
+                candlesOn[i] = i;
+            }
+        }
+        if (candlesOn[0] != 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    void activate()
+    {
+        gameObject.SetActive(true);
     }
 }
