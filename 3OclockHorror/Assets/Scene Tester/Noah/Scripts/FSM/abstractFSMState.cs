@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public enum ExecutionState
 {
@@ -12,6 +13,8 @@ public enum ExecutionState
 
 public abstract class abstractFSMState : ScriptableObject
 {
+    protected NavMeshAgent myAgent;
+
     public ExecutionState ExecutionState { get; protected set; }
 
     public virtual void OnEnable()
@@ -21,8 +24,10 @@ public abstract class abstractFSMState : ScriptableObject
 
     public virtual bool enterState()
     {
+        bool success = true;
         ExecutionState = ExecutionState.ACTIVE;
-        return true;
+        success = (myAgent != null);
+        return success;
     }
 
     public abstract void updateState();
@@ -31,5 +36,13 @@ public abstract class abstractFSMState : ScriptableObject
     {
         ExecutionState = ExecutionState.COMPLETED;
         return true;
+    }
+
+    public virtual void setNavMeshAgent(NavMeshAgent agent)
+    {
+        if (agent != null)
+        {
+            myAgent = agent;
+        }
     }
 }
