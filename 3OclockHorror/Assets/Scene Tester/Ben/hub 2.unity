@@ -132,7 +132,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 73646817}
-  - component: {fileID: 73646816}
   - component: {fileID: 73646815}
   - component: {fileID: 73646814}
   - component: {fileID: 73646813}
@@ -159,13 +158,13 @@ MonoBehaviour:
   Rooms:
   - {fileID: 1351249083}
   Candles:
-  - {fileID: 467411960}
-  - {fileID: 344888942}
-  - {fileID: 475766924}
+  - {fileID: 467411963}
+  - {fileID: 344888945}
+  - {fileID: 475766926}
   player: {fileID: 1619042889}
-  playerInRoom: 0
+  playerInRoom: 1
   emptyRoomCount: 0
-  coolDownTimer: 0
+  coolDownTimer: 20
   inventoryUI: {fileID: 0}
 --- !u!212 &73646813
 SpriteRenderer:
@@ -265,18 +264,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.25, y: 0.25}
   m_EdgeRadius: 0
---- !u!114 &73646816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 73646811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 986ffabfadc101a45be0f57d20d2de88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &73646817
 Transform:
   m_ObjectHideFlags: 0
@@ -3131,7 +3118,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1351249083}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1002.613, y: -7.921, z: -5.206164}
+  m_LocalPosition: {x: 1002.62, y: -7.92, z: -4.130942}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3670,6 +3657,7 @@ GameObject:
   - component: {fileID: 1619042891}
   - component: {fileID: 1619042890}
   - component: {fileID: 1619042893}
+  - component: {fileID: 1619042898}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -3791,9 +3779,9 @@ MonoBehaviour:
   invCamera: {fileID: 514030240}
   Main: {fileID: 1825635318}
   timeUI: {fileID: 518385670}
-  workbenchInv: {fileID: 0}
-  puzzleUI: {fileID: 0}
-  slotParent: {fileID: 0}
+  workbenchInv: {fileID: 1031396036}
+  puzzleUI: {fileID: 535352361}
+  slotParent: {fileID: 1536879069}
   active: 0
 --- !u!114 &1619042894
 MonoBehaviour:
@@ -3834,8 +3822,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  invUI: {fileID: 0}
-  anim: {fileID: 0}
+  invUI: {fileID: 2122994333}
+  anim: {fileID: 1619042898}
   rb: {fileID: 1619042891}
 --- !u!4 &1619042897
 Transform:
@@ -3851,6 +3839,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1619042898
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619042889}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bb056003cccb20b4a92b6be3de1c4107, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1645132590
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4054,7 +4061,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1723478979}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
@@ -4064,7 +4071,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -20}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!1 &1738024823
