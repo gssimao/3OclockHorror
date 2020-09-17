@@ -37,13 +37,13 @@ public class WatcherAI : MonoBehaviour
 
        if(inventoryUI.active == true)
        {
-
             if(!candlesOut && timerLock)// candles are not out
             {
                 BlowOutCandle();
                 timerLock = false;
             }
        }
+
        if (!candlesOut && !playerInRoom)// all candles are out and the player is not in the room
        {
             BlowOutCandle();
@@ -52,8 +52,6 @@ public class WatcherAI : MonoBehaviour
        {
             MoveWatcher();
        }
-
-       Debug.Log("the value of timerLock is " + timerLock);
 
        if (timerLock == false)
        {
@@ -74,14 +72,37 @@ public class WatcherAI : MonoBehaviour
             randInd = Random.Range(0, Rooms.Length-1);
 
             this.transform.position = Rooms[randInd].transform.position;
+
+            if(!playerInRoom)
+            {
+                emptyRoomCount++;
+            }
+            else
+            {
+                emptyRoomCount = 0;
+            }
         }
         else if(emptyRoomCount == 1)
         {
-            
+            if (!playerInRoom)
+            {
+                emptyRoomCount++;
+            }
+            else
+            {
+                emptyRoomCount = 0;
+            }
         }
         else if(emptyRoomCount == 2)
         {
-
+            if (!playerInRoom)
+            {
+                emptyRoomCount++;
+            }
+            else
+            {
+                emptyRoomCount = 0;
+            }
         }
         else// if emptyRoomCount >= 3
         {
@@ -91,17 +112,21 @@ public class WatcherAI : MonoBehaviour
 
     void BlowOutCandle()
     {
-        int selectedNum = Random.Range(1, candlesOn.Length);
+        int selectedAmt = Random.Range(1, candlesOn.Length + 1);
+        int temp;
+        Debug.Log(selectedAmt);
 
-        for(int i = 0; i <= selectedNum; i++)
+        for (int i = 0; i <= selectedAmt; i++)
         {
-            Candles[candlesOn[Random.Range(0, selectedNum)]].enabled = false;
+            temp = candlesOn[Random.Range(0, selectedAmt - 1)];
+            Candles[temp].enabled = false;
         }
     }
 
     bool CheckCandles()
     {
         int candleCount = 0;
+        int j = 0;
 
         for(int i = 0; i < candleNum; i++)
         {
@@ -113,14 +138,12 @@ public class WatcherAI : MonoBehaviour
 
         candlesOn = new int[candleCount];
 
-        Debug.Log("This is the value of candleCount " + candleCount);
-        Debug.Log("The size of the candlesOn array is " + candlesOn.Length);
-
-        for(int i = 0; i < candleCount; i++)
+        for(int i = 0; i < candleNum; i++)
         {
             if (Candles[i].isActiveAndEnabled)
             {
-                candlesOn[i] = i;
+                candlesOn[j] = i;
+                j++;
             }
         }
         if (candleCount > 0)
