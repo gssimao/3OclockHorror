@@ -6,11 +6,9 @@ using UnityEngine.AI;
 public class NPCMove : MonoBehaviour
 {
     [SerializeField]
-    List<GameObject> waypoints = new List<GameObject>();
+    Transform destination;
 
     NavMeshAgent navMeshAgent;
-    int prevIndex;
-    Transform destination;
 
 
 
@@ -40,16 +38,14 @@ public class NPCMove : MonoBehaviour
 
     private void SetDestination()
     {
-        int index;
-        do
+        if (destination != null)
         {
-            index = (int)Random.Range(0, waypoints.Count);
-        } while (index == prevIndex);
-
-        destination = waypoints[index].transform;
-        Vector3 targetVector = waypoints[index].transform.position;
-        prevIndex = index;
-        navMeshAgent.SetDestination(targetVector);
-
+            Vector3 targetVector = destination.position;
+            navMeshAgent.SetDestination(targetVector);
+        }
+        else
+        {
+            Debug.LogError("No destination set for " + this.gameObject.name);
+        }
     }
 }

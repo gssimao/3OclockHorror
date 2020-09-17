@@ -6,12 +6,12 @@ using UnityEngine;
 public class patrolState : abstractFSMState
 {
     //NPCPatrolPoint[] patrolpoints;
-    int patrolPoinrIndex;
+    int patrolPointIndex;
 
     public override void OnEnable()
     {
         base.OnEnable();
-        patrolPoinrIndex = -1;
+        patrolPointIndex = -1;
     }
     public override bool enterState()
     {
