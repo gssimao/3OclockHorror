@@ -10,9 +10,6 @@ public class clockCntrl : MonoBehaviour
     float timePercent; //Hud controller variable, not necessary beyond using slider to display time - will be oudated once clock is added
     public Slider timeHud; //Slider itself, used to display time
 
-    //Event References
-    public BlindCreepCntrl blindCreep;
-
     // Start is called before the first frame update 
     void Start()
     {

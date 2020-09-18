@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public enum ExecutionState
+public enum ExecutionState //Enum for all of the possible state points
 {
     NONE, 
     ACTIVE,
@@ -11,38 +11,62 @@ public enum ExecutionState
     TERMINATED,
 };
 
+public enum FSMStateType //Types of valid states, also must add state to valid states array on FiniteStateMachine class
+{
+    IDLE,
+    PATROL,
+};
+
 public abstract class abstractFSMState : ScriptableObject
 {
-    protected NavMeshAgent myAgent;
+    protected NavMeshAgent myAgent; //Nav mesh agent
+    protected NPC executor; //NPC controlling this state instance
+    protected FiniteStateMachine fsm; //The fsm controlling this state
 
-    public ExecutionState ExecutionState { get; protected set; }
+    public bool enteredState { get; protected set; } //Entered state?
+    public ExecutionState ExecutionState { get; protected set; } //Current execution state
+    public FSMStateType StateType { get; protected set; } //Current state
 
     public virtual void OnEnable()
     { 
-        ExecutionState = ExecutionState.NONE;
+        ExecutionState = ExecutionState.NONE; //Set state point to none
     }
 
-    public virtual bool enterState()
+    public virtual bool enterState() //Basic version of entering a state
     {
         bool success = true;
         ExecutionState = ExecutionState.ACTIVE;
         success = (myAgent != null);
+        success = (executor != null);
         return success;
     }
 
-    public abstract void updateState();
+    public abstract void updateState(); //Update state
 
-    public virtual bool exitState()
+    public virtual bool exitState() //Exit a state
     {
         ExecutionState = ExecutionState.COMPLETED;
         return true;
     }
 
-    public virtual void setNavMeshAgent(NavMeshAgent agent)
+    #region Setters
+    public virtual void setNavMeshAgent(NavMeshAgent agent) //Set the nav mesh
     {
         if (agent != null)
         {
             myAgent = agent;
         }
     }
+    public virtual void setExecutingAgent(NPC npc) //Set NPC
+    {
+        if(npc != null)
+        {
+            executor = npc;
+        }
+    }
+    public virtual void setExecutingFSM(FiniteStateMachine exFSM) //Set FSM
+    {
+        fsm = exFSM;
+    }
+    #endregion //Things to set various control variables
 }

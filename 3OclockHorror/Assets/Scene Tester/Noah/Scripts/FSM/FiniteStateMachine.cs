@@ -1,26 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 
 public class FiniteStateMachine : MonoBehaviour
 {
     [SerializeField]
-    abstractFSMState startingState;
-    abstractFSMState currentState;
-    abstractFSMState prevState;
+    abstractFSMState startingState; //Default starting state - default idle, set in editor
+    abstractFSMState currentState; //Current state being executed
+    abstractFSMState prevState; //previous state that was executed
+
+    [SerializeField]
+    List<abstractFSMState> validStates; //List of valid states, set in editor
+    Dictionary<FSMStateType, abstractFSMState> fsmStates; //Container to correlate enum states to an actual state
+    
 
     public void Awake()
     {
-        currentState = null;
+        currentState = null; //Set state to null
+
+        fsmStates = new Dictionary<FSMStateType, abstractFSMState>(); //Initialize state container
+        NavMeshAgent agent = this.GetComponent<NavMeshAgent>(); //Set navmesh agent
+        NPC npc = this.GetComponent<NPC>(); //Set NPC executor
+        
+        foreach(abstractFSMState state in validStates) //Grab each state in validStates, add it to valid states container and set control variables
+        {
+            state.setExecutingFSM(this);
+            state.setExecutingAgent(npc);
+            state.setNavMeshAgent(agent);
+            fsmStates.Add(state.StateType, state);
+        }
     }
 
-    public void Start()
+    public void Start() //Enter a state
     {
         enterState(startingState);
     }
 
-    public void Update()
+    public void Update() //Update a state
     {
         if (currentState != null)
         {
@@ -30,7 +48,7 @@ public class FiniteStateMachine : MonoBehaviour
 
     #region STATE MANAGEMENT
 
-    public void enterState(abstractFSMState nextState)
+    public void enterState(abstractFSMState nextState) //Enter the next desired state
     {
         if(nextState == null)
         {
@@ -39,11 +57,24 @@ public class FiniteStateMachine : MonoBehaviour
         else
         {
             prevState = currentState;
+            if(currentState != null)
+            {
+                currentState.exitState();
+            }
             currentState = nextState;
             currentState.enterState();
         }
     }
 
-    #endregion
+    public void enterState(FSMStateType stateType) //Checks that listed state is valid, then calls previous funtion according to entry
+    {
+        if (fsmStates.ContainsKey(stateType))
+        {
+            abstractFSMState nextState = fsmStates[stateType];
+            enterState(nextState);
+        }
+    }
+
+    #endregion //manage state
 }
 
