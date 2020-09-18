@@ -156,11 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rooms:
-  - {fileID: 1351249083}
-  Candles:
-  - {fileID: 467411963}
-  - {fileID: 344888945}
-  - {fileID: 475766926}
+  - {fileID: 1351249085}
   player: {fileID: 1619042889}
   playerInRoom: 1
   emptyRoomCount: 0
@@ -3103,6 +3099,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1351249084}
+  - component: {fileID: 1351249085}
   m_Layer: 0
   m_Name: BedroomWatcherSpawnPoint
   m_TagString: Untagged
@@ -3124,6 +3121,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1351249085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351249083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 879b04561a564fa48882ea8a7360e5ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomObject: {fileID: 1924318161}
+  watcherSpawn: {fileID: 1351249083}
+  entrancePoint: {fileID: 0}
+  entrance: {fileID: 0}
+  roomName: Bedroom
 --- !u!1001 &1415800000
 PrefabInstance:
   m_ObjectHideFlags: 0

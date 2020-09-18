@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class room : MonoBehaviour
 {
-    //This class is just for maintinence of rooms and relavent variables, in order to allow quick and easy access to any of the necessary aspects of a room a charachter is in
+    //This class is just for maintinence of rooms and relavent variables, in order to allow quick and easy access to any of the necessary aspects of a room a character is in
     //All variables are enterable within the editor, best to maintain them there.
     [SerializeField]
     GameObject roomObject; //Object that actually serves as the room parent.

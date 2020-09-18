@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomBehavior : MonoBehaviour
+public class RoomBehavior : room
 {
     public Light[] Candles;
 
@@ -11,10 +11,12 @@ public class RoomBehavior : MonoBehaviour
     public GameObject maxPos;
     public GameObject minPos;
 
+    GameObject roomObject;
     // Start is called before the first frame update
     void Start()
     {
-        
+        roomObject = getRoomObject();
+        Candles = roomObject.GetComponentsInChildren<Light>();
     }
 
     // Update is called once per frame

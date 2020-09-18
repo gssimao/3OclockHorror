@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class WatcherAI : MonoBehaviour
 {
-    public GameObject[] Rooms;
-    public Light[] Candles;
+    public room[] Rooms;
 
     public GameObject player;
     public bool playerInRoom;
@@ -15,16 +14,25 @@ public class WatcherAI : MonoBehaviour
     public invUI inventoryUI;
 
     int randInd;
-    //bool playerInBench;
     bool candlesOut;
     bool timerLock = true;
     int candleNum;
     int[] candlesOn;
     float ovTimer;
 
+    //Room Specific variables
+    room currentRoom;
+    Vector3 spawnPoint;
+    Light[] Candles;
+    room playerRoom;
+
     // Start is called before the first frame update
     void Start()
     {
+        currentRoom = Rooms[0];
+        Candles = currentRoom.getRoomObject().GetComponentsInChildren<Light>();
+        spawnPoint = currentRoom.getWatcherSpawn().transform.position;
+
         candleNum = Candles.Length;
         ovTimer = coolDownTimer;
         inventoryUI = player.GetComponent<invUI>();
@@ -33,45 +41,50 @@ public class WatcherAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       candlesOut = CheckCandles();
+        GetPlayerRoom();
+        CheckRoom();
+        candlesOut = CheckCandles();
 
-       if(inventoryUI.active == true)
-       {
+        if(inventoryUI.active == true)
+        {
             if(!candlesOut && timerLock)// candles are not out
             {
                 BlowOutCandle();
                 timerLock = false;
             }
-       }
+        }
 
-       if (!candlesOut && !playerInRoom)// all candles are out and the player is not in the room
-       {
+        if (!candlesOut && !playerInRoom)// all candles are out and the player is not in the room
+        {
             BlowOutCandle();
-       }
-       else if(candlesOut && !playerInRoom)
-       {
+        }
+        else if(candlesOut && !playerInRoom)
+        {
             MoveWatcher();
-       }
+        }
 
-       if (timerLock == false)
-       {
+        if (timerLock == false)
+        {
             coolDownTimer -= Time.deltaTime;
-       }
-       if(coolDownTimer <= 0)
-       {
+        }
+        if(coolDownTimer <= 0)
+        {
             timerLock = true;
             coolDownTimer = ovTimer;
-       }
+        }
 
     }
     
     void MoveWatcher()
     {
+        int plyIndex;
+
         if (emptyRoomCount == 0)
         {
             randInd = Random.Range(0, Rooms.Length-1);
 
-            this.transform.position = Rooms[randInd].transform.position;
+            this.transform.position = Rooms[randInd].getWatcherSpawn().transform.position;
+            currentRoom = Rooms[randInd];
 
             if(!playerInRoom)
             {
@@ -84,6 +97,13 @@ public class WatcherAI : MonoBehaviour
         }
         else if(emptyRoomCount == 1)
         {
+            plyIndex = FindPlayerRoom();
+
+            randInd = Random.Range(plyIndex - 2, plyIndex + 3);
+
+            this.transform.position = Rooms[randInd].getWatcherSpawn().transform.position;
+            currentRoom = Rooms[randInd];
+
             if (!playerInRoom)
             {
                 emptyRoomCount++;
@@ -95,6 +115,13 @@ public class WatcherAI : MonoBehaviour
         }
         else if(emptyRoomCount == 2)
         {
+            plyIndex = FindPlayerRoom();
+
+            randInd = Random.Range(plyIndex - 1, plyIndex + 2);
+
+            this.transform.position = Rooms[randInd].getWatcherSpawn().transform.position;
+            currentRoom = Rooms[randInd];
+
             if (!playerInRoom)
             {
                 emptyRoomCount++;
@@ -106,7 +133,8 @@ public class WatcherAI : MonoBehaviour
         }
         else// if emptyRoomCount >= 3
         {
-
+            this.transform.position = playerRoom.getWatcherSpawn().transform.position;
+            currentRoom = playerRoom;
         }
     }
 
@@ -154,6 +182,42 @@ public class WatcherAI : MonoBehaviour
         {
             return true;
         }
+    }
+
+    int FindPlayerRoom()
+    {
+        int plyIndex = 0;
+
+        for(int i = 0; i <= Rooms.Length; i++)
+        {
+            if(Rooms[i].getName() == playerRoom.getName())
+            {
+                plyIndex = i;
+            }
+        }
+
+        return plyIndex;
+    }
+
+    void CheckRoom()
+    {
+        string plyRoomName, watcherRoomName;
+        plyRoomName = playerRoom.getName();
+        watcherRoomName = currentRoom.getName();
+
+        if (watcherRoomName == plyRoomName)
+        {
+            playerInRoom = true;
+        }
+        else
+        {
+            playerInRoom = false;
+        }
+    }
+    
+    void GetPlayerRoom()
+    {
+        playerRoom = player.GetComponent<room>();
     }
 
     void activate()
