@@ -14,7 +14,7 @@ public class FiniteStateMachine : MonoBehaviour
     [SerializeField]
     List<abstractFSMState> validStates; //List of valid states, set in editor
     Dictionary<FSMStateType, abstractFSMState> fsmStates; //Container to correlate enum states to an actual state
-    
+    public PlayerMovement player;
 
     public void Awake()
     {
@@ -29,6 +29,7 @@ public class FiniteStateMachine : MonoBehaviour
             state.setExecutingFSM(this);
             state.setExecutingAgent(npc);
             state.setNavMeshAgent(agent);
+            state.setPlayer(player);
             fsmStates.Add(state.StateType, state);
         }
     }

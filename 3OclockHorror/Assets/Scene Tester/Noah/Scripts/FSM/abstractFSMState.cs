@@ -15,6 +15,7 @@ public enum FSMStateType //Types of valid states, also must add state to valid s
 {
     IDLE,
     PATROL,
+    CHASE,
 };
 
 public abstract class abstractFSMState : ScriptableObject
@@ -22,6 +23,7 @@ public abstract class abstractFSMState : ScriptableObject
     protected NavMeshAgent myAgent; //Nav mesh agent
     protected NPC executor; //NPC controlling this state instance
     protected FiniteStateMachine fsm; //The fsm controlling this state
+    protected PlayerMovement player;
 
     public bool enteredState { get; protected set; } //Entered state?
     public ExecutionState ExecutionState { get; protected set; } //Current execution state
@@ -67,6 +69,10 @@ public abstract class abstractFSMState : ScriptableObject
     public virtual void setExecutingFSM(FiniteStateMachine exFSM) //Set FSM
     {
         fsm = exFSM;
+    }
+    public virtual void setPlayer(PlayerMovement p) //Set the player movement conmponent
+    {
+        player = p;
     }
     #endregion //Things to set various control variables
 }
