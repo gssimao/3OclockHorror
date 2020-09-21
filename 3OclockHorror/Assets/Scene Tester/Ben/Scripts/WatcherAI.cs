@@ -12,6 +12,7 @@ public class WatcherAI : MonoBehaviour
     public int emptyRoomCount = 0;
     public float coolDownTimer;
     public invUI inventoryUI;
+    public SanityManager sanityManager;
 
     int randInd;
     bool candlesOut;
@@ -19,6 +20,7 @@ public class WatcherAI : MonoBehaviour
     int candleNum;
     int[] candlesOn;
     float ovTimer;
+    float distance;
 
     //Room Specific variables
     room currentRoom;
@@ -36,12 +38,14 @@ public class WatcherAI : MonoBehaviour
         candleNum = Candles.Length;
         ovTimer = coolDownTimer;
         inventoryUI = player.GetComponent<invUI>();
+        sanityManager = player.GetComponent<SanityManager>();
+        playerRoom = player.GetComponent<PlayerMovement>().myRoom;
     }
 
     // Update is called once per frame
     void Update()
     {
-        GetPlayerRoom();
+        playerRoom = player.GetComponent<PlayerMovement>().myRoom;
         CheckRoom();
         candlesOut = CheckCandles();
 
@@ -58,9 +62,10 @@ public class WatcherAI : MonoBehaviour
         {
             BlowOutCandle();
         }
-        else if(candlesOut && !playerInRoom)
+        else if(candlesOut && !playerInRoom && timerLock)
         {
             MoveWatcher();
+            timerLock = false;
         }
 
         if (timerLock == false)
@@ -73,76 +78,79 @@ public class WatcherAI : MonoBehaviour
             coolDownTimer = ovTimer;
         }
 
+        if (playerInRoom)
+        {
+            distance = Vector3.Distance(this.transform.position, player.transform.position);
+
+            if (distance <= 0.4)
+            {
+                sanityManager.ChangeSanity(-2 * Time.deltaTime);
+            }
+        }
     }
     
-    void MoveWatcher()
+    void MoveWatcher() //Moves the watcher between the rooms
     {
         int plyIndex;
 
         if (emptyRoomCount == 0)
         {
-            randInd = Random.Range(0, Rooms.Length-1);
+            randInd = Random.Range(0, Rooms.Length);
+            while (currentRoom == Rooms[randInd])
+            {
+                randInd = Random.Range(0, Rooms.Length);
+            }
 
             this.transform.position = Rooms[randInd].getWatcherSpawn().transform.position;
             currentRoom = Rooms[randInd];
-
-            if(!playerInRoom)
-            {
-                emptyRoomCount++;
-            }
-            else
-            {
-                emptyRoomCount = 0;
-            }
         }
         else if(emptyRoomCount == 1)
         {
             plyIndex = FindPlayerRoom();
 
             randInd = Random.Range(plyIndex - 2, plyIndex + 3);
+            while (currentRoom == Rooms[randInd])
+            {
+                randInd = Random.Range(plyIndex - 2, plyIndex + 3);
+            }
 
             this.transform.position = Rooms[randInd].getWatcherSpawn().transform.position;
             currentRoom = Rooms[randInd];
-
-            if (!playerInRoom)
-            {
-                emptyRoomCount++;
-            }
-            else
-            {
-                emptyRoomCount = 0;
-            }
         }
         else if(emptyRoomCount == 2)
         {
             plyIndex = FindPlayerRoom();
 
             randInd = Random.Range(plyIndex - 1, plyIndex + 2);
+            while (currentRoom == Rooms[randInd])
+            {
+                randInd = Random.Range(plyIndex - 1, plyIndex + 2);
+            }
 
             this.transform.position = Rooms[randInd].getWatcherSpawn().transform.position;
             currentRoom = Rooms[randInd];
-
-            if (!playerInRoom)
-            {
-                emptyRoomCount++;
-            }
-            else
-            {
-                emptyRoomCount = 0;
-            }
         }
         else// if emptyRoomCount >= 3
         {
             this.transform.position = playerRoom.getWatcherSpawn().transform.position;
             currentRoom = playerRoom;
         }
+
+        CheckRoom();
+        if (!playerInRoom)
+        {
+            emptyRoomCount++;
+        }
+        else
+        {
+            emptyRoomCount = 0;
+        }
     }
 
-    void BlowOutCandle()
+    void BlowOutCandle()// Blows out the candles, from 1 candle to all the candles
     {
         int selectedAmt = Random.Range(1, candlesOn.Length + 1);
         int temp;
-        Debug.Log(selectedAmt);
 
         for (int i = 0; i <= selectedAmt; i++)
         {
@@ -151,7 +159,7 @@ public class WatcherAI : MonoBehaviour
         }
     }
 
-    bool CheckCandles()
+    bool CheckCandles()// Checks to see if there is any candles that are on, and if there are it finds out how many there are
     {
         int candleCount = 0;
         int j = 0;
@@ -184,22 +192,19 @@ public class WatcherAI : MonoBehaviour
         }
     }
 
-    int FindPlayerRoom()
+    int FindPlayerRoom() //Finds the index of the room the player is in
     {
         int plyIndex = 0;
 
-        for(int i = 0; i <= Rooms.Length; i++)
+        for(int i = 0; Rooms[i] != playerRoom; i++)
         {
-            if(Rooms[i].getName() == playerRoom.getName())
-            {
-                plyIndex = i;
-            }
+            plyIndex = i;
         }
 
         return plyIndex;
     }
 
-    void CheckRoom()
+    void CheckRoom() //Checks to see if the room the watcher is in has the player
     {
         string plyRoomName, watcherRoomName;
         plyRoomName = playerRoom.getName();
@@ -214,13 +219,8 @@ public class WatcherAI : MonoBehaviour
             playerInRoom = false;
         }
     }
-    
-    void GetPlayerRoom()
-    {
-        playerRoom = player.GetComponent<room>();
-    }
 
-    void activate()
+    void activate() //Turns on the Watcher
     {
         gameObject.SetActive(true);
     }
