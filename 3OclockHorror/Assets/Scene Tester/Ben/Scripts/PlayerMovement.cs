@@ -7,9 +7,9 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     public GameObject invUI;
     public Animator anim;
-
+    public room myRoom;
     public Rigidbody2D rb;
-
+    public bool walking;
     Vector2 movement;
 
     // Update is called once per frame
@@ -56,6 +56,15 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             anim.SetBool("walkingBackwards", false);
+        }
+
+        if(movement.x != 0 || movement.y != 0)
+        {
+            walking = true;
+        }
+        else
+        {
+            walking = false;
         }
     }
 

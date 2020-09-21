@@ -19,7 +19,6 @@ public class patrolState : abstractFSMState
             {
                 executor.setDestination();
                 enteredState = true;
-                Debug.Log("Entering Patrol State");
             }
         }
         return enteredState;

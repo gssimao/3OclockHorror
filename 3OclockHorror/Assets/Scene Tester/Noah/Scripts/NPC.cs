@@ -18,6 +18,8 @@ public class NPC : MonoBehaviour
     public connectedPatrolPoint curPoint { get; protected set; } //Current nav point
     int pointsVisited = 0;
 
+    public room myRoom;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -64,5 +66,11 @@ public class NPC : MonoBehaviour
         }
         Vector3 targ = curPoint.transform.position; //Start moving towards that point
         meshAgent.SetDestination(targ);
+    }
+
+    public void setDestination(GameObject targ)
+    {
+        Vector3 target = targ.transform.position;
+        meshAgent.SetDestination(target);
     }
 }
