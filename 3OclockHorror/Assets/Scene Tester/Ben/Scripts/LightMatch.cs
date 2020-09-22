@@ -5,21 +5,36 @@ using UnityEngine;
 public class LightMatch : MonoBehaviour
 {
 
-    public GameObject Match;
+    public Light match;
 
+    bool timerLock = true;
+    public float lifeTime;
+    float ov;
     // Start is called before the first frame update
     void Start()
     {
-        Match = new GameObject("Match", typeof(Light));
+        ov = lifeTime;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("q"))
+        if (Input.GetKeyDown("q") && timerLock == true)
         {
-            Instantiate(Match, this.transform.position, this.transform.rotation);
+            match.enabled = true;
+            timerLock = false;
         }
-        Destroy(Match, 5.0f);
+
+        if(timerLock == false)
+        {
+            lifeTime -= Time.deltaTime;
+        }
+
+        if (lifeTime <= 0)
+        {
+            timerLock = true;
+            match.enabled = false;
+            lifeTime = ov;
+        }
     }
 }
