@@ -9,7 +9,10 @@ public class invUI : MonoBehaviour
     public Camera invCamera;
     public Camera Main;
     public Canvas timeUI;
-    bool active;
+    public GameObject workbenchInv;
+    public GameObject puzzleUI;
+    public GameObject slotParent;
+    public bool active;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +42,9 @@ public class invUI : MonoBehaviour
         timeUI.gameObject.SetActive(false);
         invCamera.gameObject.SetActive(true);
         myUI.gameObject.SetActive(true);
+        workbenchInv.SetActive(false);
+        puzzleUI.SetActive(false);
+        slotParent.SetActive(true);
 
         active = true;
     }

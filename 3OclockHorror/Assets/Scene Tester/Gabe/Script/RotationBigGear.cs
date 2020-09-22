@@ -93,7 +93,6 @@ public class RotationBigGear : MonoBehaviour
             case 3:
                 for (int i = 0; i < 2; i++)
                 {
-                    Debug.Log(moviment);
                     if (addOrSubtract == true)
                     {
                         moviment++;

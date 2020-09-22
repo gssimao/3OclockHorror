@@ -29,6 +29,12 @@ public class clockCntrl : MonoBehaviour
             timePercent = Time.time / endTime;
             timeHud.value = timePercent;    //Both lines also are soley for purpose of clock ui - will be changed / removed when proper ui is devised
         }
+
+        //Check for events
+        if(Time.time >= 120)
+        {
+            //blindCreep.activate();
+        }
     }
 
     public void adjustEndTime(float tta) //Takes time to adjust by, adjusts time by that amount - likely only neg values but takes either or
