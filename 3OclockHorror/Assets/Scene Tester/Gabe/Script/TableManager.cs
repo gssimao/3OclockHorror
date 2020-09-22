@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Runtime.ExceptionServices;
 using System.Runtime.InteropServices;
 using UnityEngine;
@@ -32,7 +33,10 @@ public class TableManager : MonoBehaviour
     public int[] coin2Pos = new int[] { 1, 2 };
     public int[] coin3Pos = new int[] { 2, 2 };
     public int[] coin4Pos = new int[] { 3, 2 };
-
+    public bool coin1Updated = true;
+    public bool coin2Updated = true;
+    public bool coin3Updated = true;
+    public bool coin4Updated = true;
 
     public GameObject coin1;
     public GameObject coin2;
@@ -75,40 +79,7 @@ public class TableManager : MonoBehaviour
 
     }
 
-   /* private GameObject whereToStart() //make the cue
-    {
-        int current;
-        int comparing;
-
-        switch (tablePosition)
-        {
-            case 0: // this is Horizontal 1: ONLY MOVING HORIZONTAL  
-                current = coin1Pos[1];
-                for(int i=0; i<2; i++)
-                {
-                    if(current< )
-                }
-                break;
-            case 1: // this is Vertical 1: ONLY MOVING VERTICAL 
-
-                break;
-            case 2: // this is Horizontal 2: ONLY MOVING HORIZONTAL BUT BACKWARDS   
-
-                break;
-            case 3: // this is Vertical 2: ONLY MOVING VERTICAL BUT BACKWARDS 
-
-                break;
-            default:
-                Debug.Log("The tablePosition is out of bounds");
-                break;
-        }
-
-
-        GameObject start;
-        //return start;
-    }*/
-
-
+ 
 
 
     // float[] coinPositionH = new float[4] // left to right ( 0 , 1 , 2 , 3 )
@@ -124,6 +95,8 @@ public class TableManager : MonoBehaviour
 
                 break;
             case 1: // this is Vertical 1: ONLY MOVING VERTICAL  // coinPositionH ADDING one and stoping at 3
+                //I should check who should go first before anything
+
 
                 break;
             case 2: // this is Horizontal 2: ONLY MOVING HORIZONTAL BUT BACKWARDS   // coinPositionV SUBTRACTING one and stoping at 0
@@ -138,4 +111,112 @@ public class TableManager : MonoBehaviour
         }
         return 0;
     }
+
+    private int[] cueCoinUpdate()
+    {
+        int[] order = new int[] {0,0,0,0};
+        int orderCue = 0;
+        switch (tablePosition)
+        {
+            case 0: // this is Horizontal 1
+
+                for (int i = 2; i >= 0; i--)
+                {
+                    for (int j = 0; j <= 3; j++)
+                    {
+                        if (allCoinsPos[j, i] != 0)
+                        {
+                            order[orderCue] = allCoinsPos[j, i];
+                            orderCue++;
+                        }
+                    }
+                }
+
+                break;
+            case 1: // this is Vertical 1
+                for (int i = 3; i >= 0; i--)
+                {
+                    for (int j = 0; j <= 2; j++)
+                    {
+                        if (allCoinsPos[j, i] != 0)
+                        {
+                            order[orderCue] = allCoinsPos[j, i];
+                            orderCue++;
+                        }
+                    }
+                }
+                break;
+            case 2: // this is Horizontal 2
+               
+               
+
+                break;
+            case 3: // this is Vertical 2
+                for (int i = 0; i <= 3; i++)
+                {
+                    for (int j = 0; j <= 2; j++)
+                    {
+                        if (allCoinsPos[j, i] != 0)
+                        {
+                            order[orderCue] = allCoinsPos[j, i];
+                            orderCue++;
+                        }
+                    }
+                }
+                break;
+            default:
+                Debug.Log("The tablePosition is out of bounds");
+                break;
+        }
+        return order;
+    }
+
+    /*public int[,] allCoinsPos = new int[3, 4]
+    {
+    {0, 0, 0, 0},  03
+    {0, 0, 0, 0},  13
+    {1, 2, 3, 4}   23
+    };*/
+
+
+
+
+    /* private GameObject whereToStart() //make the cue
+  {
+      int current;
+      int comparing;
+
+      switch (tablePosition)
+      {
+          case 0: // this is Horizontal 1: ONLY MOVING HORIZONTAL  
+              current = coin1Pos[1];
+              for(int i=0; i<2; i++)
+              {
+                  if(current< )
+              }
+              break;
+          case 1: // this is Vertical 1: ONLY MOVING VERTICAL 
+
+              break;
+          case 2: // this is Horizontal 2: ONLY MOVING HORIZONTAL BUT BACKWARDS   
+
+              break;
+          case 3: // this is Vertical 2: ONLY MOVING VERTICAL BUT BACKWARDS 
+
+              break;
+          default:
+              Debug.Log("The tablePosition is out of bounds");
+              break;
+      }
+
+
+      GameObject start;
+      //return start;
+  }*/
+
+
+
+
+
+
 }
