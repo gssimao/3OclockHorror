@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+using Pathfinding;
 
-[RequireComponent(typeof(NavMeshAgent), typeof(FiniteStateMachine))]
+[RequireComponent(typeof(FiniteStateMachine), typeof(Seeker), typeof(Rigidbody2D))]
 public class NPC : MonoBehaviour
 {
     //Public (editor assigned) Variables
@@ -11,7 +11,6 @@ public class NPC : MonoBehaviour
     //Watcher reference as well perhaps?
 
     //Internals
-    NavMeshAgent meshAgent; //Navigation Agent
     FiniteStateMachine fsm; //Finite state machine reference
 
     public connectedPatrolPoint prevPoint {get; protected set;} //Previous nav point
@@ -20,12 +19,23 @@ public class NPC : MonoBehaviour
 
     public room myRoom;
 
+    public float speed = 5f;
+    public float nWPD = 0.1f;
+
+    Path path;
+    int currWP = 0;
+    Seeker seeker;
+    Rigidbody2D rb;
+
+
     // Start is called before the first frame update
     void Awake()
     {
         fsm = this.GetComponent<FiniteStateMachine>(); //get the mesh anf fsm components
-        meshAgent = this.GetComponent<NavMeshAgent>();
-        if (meshAgent == null || fsm == null) //Double check for nullness 
+        seeker = GetComponent<Seeker>();
+        rb = GetComponent<Rigidbody2D>();
+
+        if (fsm == null) //Double check for nullness 
         {
             Debug.LogError("Critical component missing on " + gameObject.name);
         }
@@ -64,13 +74,69 @@ public class NPC : MonoBehaviour
             prevPoint = curPoint; //Set the prev point
             curPoint = nextPoint; //Set the current point
         }
-        Vector3 targ = curPoint.transform.position; //Start moving towards that point
-        meshAgent.SetDestination(targ);
+        UpdatePath(curPoint.gameObject.transform);
+
     }
 
     public void setDestination(GameObject targ)
     {
-        Vector3 target = targ.transform.position;
-        meshAgent.SetDestination(target);
+        UpdatePath(targ.transform);
     }
+    void UpdatePath(Transform targ)
+    {
+        seeker.StartPath(gameObject.transform.position, targ.position, OnPathComplete);
+    }
+    void OnPathComplete(Path p)
+    {
+        if (!p.error)
+        {
+            path = p;
+            currWP = 0;
+        }
+        else
+        {
+            Debug.LogError("No path given.");
+        }
+    }
+
+    public bool move()
+    {
+        if (path == null)
+        {
+            return false;
+        }
+
+        if (currWP >= path.vectorPath.Count)
+        {
+            return false;
+        }
+        else
+        {
+            Vector2 dir = ((Vector2)path.vectorPath[currWP] - rb.position).normalized;
+            Vector2 force = dir * speed * Time.deltaTime;
+            rb.AddForce(force);
+
+            float dist = Vector2.Distance(rb.position, path.vectorPath[currWP]);
+            if (dist < nWPD)
+            {
+                currWP++;
+            }
+
+            return true;
+        }
+
+    }
+
+    public void hit(GameObject target)
+    {
+        SanityManager targSAN = target.GetComponent<SanityManager>();
+        clockCntrl clock = target.GetComponent<clockCntrl>();
+
+        if(clock != null && targSAN != null)
+        {
+            targSAN.ChangeSanity(-10);
+            clock.adjustEndTime(-60);
+        }
+    }
+
 }

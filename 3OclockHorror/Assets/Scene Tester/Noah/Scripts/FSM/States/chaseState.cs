@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ChaseState", menuName = "FSM/States/Chase", order = 3)] //Allow creation in project area
 public class chaseState : abstractFSMState
 {
+    float tmr = 0f;
     public override void OnEnable() //overide onEnable to set state type
     {
         base.OnEnable();
@@ -27,14 +28,24 @@ public class chaseState : abstractFSMState
     {
         if (enteredState)
         {
-            //Determine if player is within range of an attack or has left room, either will trigger state change
-            if (Vector3.Distance(myAgent.transform.position, player.gameObject.transform.position) <= 0.5f || executor.myRoom != player.myRoom)
+            //Update player posiiton
+            if (tmr > 2f)
             {
+                executor.setDestination(player.gameObject);
+                tmr = 0f;
+            }
+            bool cnt = executor.move();
+            tmr += Time.deltaTime;
+
+            //Determine if player is within range of an attack or has left room, either will trigger state change
+            if (!cnt || executor.myRoom != player.myRoom)
+            {
+                if (cnt && executor.myRoom == player.myRoom)
+                {
+                    executor.hit(player.gameObject);
+                }
                 fsm.enterState(FSMStateType.IDLE);
             }
-
-            //Update player posiiton
-            executor.setDestination(player.gameObject);
         }
     }
 }

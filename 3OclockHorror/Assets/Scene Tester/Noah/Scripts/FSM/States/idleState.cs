@@ -33,7 +33,7 @@ public class idleState : abstractFSMState
             {
                 fsm.enterState(FSMStateType.PATROL);
             }
-            if (player.myRoom == executor.myRoom && player.walking && duration > 0.5f)
+            if (player.myRoom == executor.myRoom && player.walking && duration > 1f)
             {
                 fsm.enterState(FSMStateType.CHASE);
             }
