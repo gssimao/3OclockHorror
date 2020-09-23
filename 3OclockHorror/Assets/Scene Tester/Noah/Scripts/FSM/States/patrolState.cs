@@ -28,7 +28,8 @@ public class patrolState : abstractFSMState
     {
         if (enteredState)
         {
-            if(Vector3.Distance(myAgent.transform.position, executor.curPoint.transform.position) <= 0.5f)
+            bool cnt = executor.move();
+            if (!cnt)
             {
                 fsm.enterState(FSMStateType.IDLE);
             }

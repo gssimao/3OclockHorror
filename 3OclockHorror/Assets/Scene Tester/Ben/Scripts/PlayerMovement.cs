@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public room myRoom;
     public Rigidbody2D rb;
     public bool walking;
+    public Camera camera;
     Vector2 movement;
 
     // Update is called once per frame
@@ -73,5 +74,7 @@ public class PlayerMovement : MonoBehaviour
         // Movement
 
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+
+        camera.transform.position = myRoom.getCameraPoint().transform.position;
     }
 }

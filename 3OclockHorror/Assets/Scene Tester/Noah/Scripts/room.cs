@@ -13,6 +13,8 @@ public class room : MonoBehaviour
     [SerializeField]
     GameObject entrancePoint; //Stores gameobject at door, for purposes of spawning hunter/creep
     [SerializeField]
+    GameObject cameraPoint;
+    [SerializeField]
     Collider entrance; //Collider for entrance/exit - Might be depreciated alongside entrance.
     [SerializeField]
     string roomName; //Name for the room, can serve as a way to sort them
@@ -39,6 +41,10 @@ public class room : MonoBehaviour
     {
         return roomName;
     }
-
+    
+    public GameObject getCameraPoint()
+    {
+        return cameraPoint;
+    }
     #endregion
 }
