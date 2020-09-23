@@ -13,7 +13,7 @@ public class room : MonoBehaviour
     [SerializeField]
     GameObject entrancePoint; //Stores gameobject at door, for purposes of spawning hunter/creep
     [SerializeField]
-    Collider entrance; //Collider for entrance/exit - Might be depreciated alongside entrance.
+    Collider2D entrance; //Collider for entrance/exit - Might be depreciated alongside entrance.
     [SerializeField]
     string roomName; //Name for the room, can serve as a way to sort them
 
@@ -31,7 +31,7 @@ public class room : MonoBehaviour
     {
         return entrancePoint;
     }
-    public Collider getEntrance()
+    public Collider2D getEntrance()
     {
         return entrance;
     }
@@ -40,5 +40,23 @@ public class room : MonoBehaviour
         return roomName;
     }
 
+
+    public void setRoomObject(GameObject obj)
+    {
+        roomObject = obj;
+    }
+    public void setWatcherSpawn(GameObject obj)
+    {
+        watcherSpawn = obj;
+    }
+    public void setEntrancePoint(GameObject obj)
+    {
+        entrancePoint = obj;
+        entrance = obj.GetComponent<Collider2D>();
+    }
+    public void setRoomName(string name)
+    {
+        roomName = name;
+    }
     #endregion
 }
