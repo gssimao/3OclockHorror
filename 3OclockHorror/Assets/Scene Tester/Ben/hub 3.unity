@@ -2323,8 +2323,14 @@ MonoBehaviour:
   roomObject: {fileID: 836601223}
   watcherSpawn: {fileID: 115798902}
   entrancePoint: {fileID: 0}
+  cameraPoint: {fileID: 0}
   entrance: {fileID: 0}
   roomName: HubRoom
+--- !u!1 &843373857 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 152921291538769043, guid: 21472b4f9662f064eadaf6bf45c6ea1a, type: 3}
+  m_PrefabInstance: {fileID: 3387838130179309521}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &853169831
 GameObject:
   m_ObjectHideFlags: 0
@@ -4077,6 +4083,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeHud: {fileID: 500637910}
+  watcher: {fileID: 0}
+  creep: {fileID: 0}
 --- !u!114 &1619042895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4107,6 +4115,7 @@ MonoBehaviour:
   myRoom: {fileID: 836601227}
   rb: {fileID: 1619042891}
   walking: 0
+  camera: {fileID: 1825635318}
 --- !u!4 &1619042897
 Transform:
   m_ObjectHideFlags: 0
@@ -4240,7 +4249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 007f1470ae133ea44bc5416c03c2919f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jounralUI: {fileID: 3387838130179309522}
+  jounralUI: {fileID: 843373857}
 --- !u!1001 &1640887957
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4894,6 +4903,7 @@ MonoBehaviour:
   roomObject: {fileID: 1924318161}
   watcherSpawn: {fileID: 1381445341}
   entrancePoint: {fileID: 0}
+  cameraPoint: {fileID: 0}
   entrance: {fileID: 0}
   roomName: ArtRoom
 --- !u!1 &1953187072
@@ -5273,9 +5283,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 152921291538769043, guid: 21472b4f9662f064eadaf6bf45c6ea1a, type: 3}
+      propertyPath: m_Name
+      value: ActualUI
+      objectReference: {fileID: 0}
     - target: {fileID: 7847370487226369796, guid: 21472b4f9662f064eadaf6bf45c6ea1a, type: 3}
       propertyPath: m_Name
       value: JournalUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847370487226369796, guid: 21472b4f9662f064eadaf6bf45c6ea1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7847370487226369800, guid: 21472b4f9662f064eadaf6bf45c6ea1a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5361,18 +5379,21 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7847370488868737757, guid: 21472b4f9662f064eadaf6bf45c6ea1a, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -10.11084
+    - target: {fileID: 7847370488189426992, guid: 21472b4f9662f064eadaf6bf45c6ea1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1619042902}
+    - target: {fileID: 7847370488189426992, guid: 21472b4f9662f064eadaf6bf45c6ea1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetJounralToggle
       objectReference: {fileID: 0}
-    - target: {fileID: 7847370488868737757, guid: 21472b4f9662f064eadaf6bf45c6ea1a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 18
+    - target: {fileID: 7847370488189426992, guid: 21472b4f9662f064eadaf6bf45c6ea1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: JournalFunction, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847370488189426992, guid: 21472b4f9662f064eadaf6bf45c6ea1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21472b4f9662f064eadaf6bf45c6ea1a, type: 3}
---- !u!1 &3387838130179309522 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7847370487226369796, guid: 21472b4f9662f064eadaf6bf45c6ea1a, type: 3}
-  m_PrefabInstance: {fileID: 3387838130179309521}
-  m_PrefabAsset: {fileID: 0}
