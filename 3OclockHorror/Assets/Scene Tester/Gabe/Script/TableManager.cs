@@ -11,24 +11,25 @@ public class TableManager : MonoBehaviour
     int[] table = new int[] { 0, 90, 180, 270 };
     public int tablePosition = 0;
 
-    float[] coinPositionH = new float[4] // left to right  // this is the position where they can go
+    float[] coinPositionH = new float[4] // left to right  // This is a number refering to a position in the game where any coin can be placed at
     {-5, -2, 2, 5};
     //    0,  1,  2, 3
     // 0 is most left and 3 is most right
 
-    float[] coinPositionV = new float[3] // top to bottom  // this is the position where they can go
+    float[] coinPositionV = new float[3] // top to bottom  // This is a number refering to a position in the game where any coin can be placed at
     { 3, 0, -3};
     // (top) 0, (Mid) 1, (bot) 2
 
 
+    public int[] coinCue = new int[] { 1, 2, 3, 4 }; //tells a fuction what coin should be updated first
 
-    public int[,] allCoinsPos = new int[3,4] 
+    public int[,] allCoinsPos = new int[3,4] // this store the current position of the coins in a 2d array for easy scanning //  this is being used on the cueCoinUpdate() function
     {
     {0, 0, 0, 0},
     {0, 0, 0, 0},
     {1, 2, 3, 4}
     };
-
+                      //{Horizonta , Vertical}
     public int[] coin1Pos = new int[] { 0, 2 }; //first number is PositionH // second number is PoitionV
     public int[] coin2Pos = new int[] { 1, 2 };
     public int[] coin3Pos = new int[] { 2, 2 };
@@ -45,10 +46,10 @@ public class TableManager : MonoBehaviour
 
     private void Start()
     {
-        coin1.transform.position = new Vector3(coinPositionH[coin1Pos[0]], coinPositionV[coin1Pos[1]], -2);
-        coin2.transform.position = new Vector3(coinPositionH[coin2Pos[0]], coinPositionV[coin2Pos[1]], -2);
+        coin1.transform.position = new Vector3(coinPositionH[coin1Pos[0]], coinPositionV[coin1Pos[1]], -2); // coinPositionH and coinPositionV are just numbers 
+        coin2.transform.position = new Vector3(coinPositionH[coin2Pos[0]], coinPositionV[coin2Pos[1]], -2); //      to where to coins are going to be placed on
         coin3.transform.position = new Vector3(coinPositionH[coin3Pos[0]], coinPositionV[coin3Pos[1]], -2);
-        coin4.transform.position = new Vector3(coinPositionH[coin4Pos[0]], coinPositionV[coin4Pos[1]], -2);
+        coin4.transform.position = new Vector3(coinPositionH[coin4Pos[0]], coinPositionV[coin4Pos[1]], -2);// coin4Pos keeps track of coin Number 4 position
     }
 
 
@@ -62,8 +63,14 @@ public class TableManager : MonoBehaviour
             {
                 tablePosition = 0;
             }
-
+           
             LeanTween.rotateZ(gameObject, table[tablePosition], 1); // move big gear
+            
+            //Add coins to a cue to be update
+            coinCue = cueCoinUpdate();
+
+
+
         }
         if (Input.GetMouseButtonUp(1)) //this should turn the big to the right
         {
@@ -72,8 +79,15 @@ public class TableManager : MonoBehaviour
             {
                 tablePosition = 3;
             }
-
+            
             LeanTween.rotateZ(gameObject, table[tablePosition], 1); // move big gear
+            
+            //Add coins to a cue to be update
+            coinCue = cueCoinUpdate();
+
+
+
+
         }
 
 
@@ -128,13 +142,18 @@ public class TableManager : MonoBehaviour
                         {
                             order[orderCue] = allCoinsPos[j, i];
                             orderCue++;
+                            /*if (orderCue == 3)
+                            {
+                                break;
+                            }*/
+                                
                         }
                     }
                 }
 
                 break;
             case 1: // this is Vertical 1
-                for (int i = 3; i >= 0; i--)
+                for (int i = 0; i <= 3; i++)
                 {
                     for (int j = 0; j <= 2; j++)
                     {
@@ -147,12 +166,28 @@ public class TableManager : MonoBehaviour
                 }
                 break;
             case 2: // this is Horizontal 2
-               
-               
+                for (int i = 0; i <= 2; i++)
+                {
+                    for (int j = 0; j <= 3; j++)
+                    {
+                        if (allCoinsPos[j, i] != 0)
+                        {
+                            order[orderCue] = allCoinsPos[j, i];
+                            orderCue++;
+                            /*if (orderCue == 3)
+                            {
+                                break;
+                            }*/
+
+                        }
+                    }
+                }
+
 
                 break;
             case 3: // this is Vertical 2
-                for (int i = 0; i <= 3; i++)
+                
+                for (int i = 3; i >= 0; i--)
                 {
                     for (int j = 0; j <= 2; j++)
                     {
@@ -160,6 +195,10 @@ public class TableManager : MonoBehaviour
                         {
                             order[orderCue] = allCoinsPos[j, i];
                             orderCue++;
+                            /*if (orderCue == 3)
+                            {
+                                break;
+                            }*/
                         }
                     }
                 }
@@ -181,7 +220,7 @@ public class TableManager : MonoBehaviour
 
 
 
-    /* private GameObject whereToStart() //make the cue
+  private void updateCoinLocation()
   {
       int current;
       int comparing;
@@ -189,11 +228,7 @@ public class TableManager : MonoBehaviour
       switch (tablePosition)
       {
           case 0: // this is Horizontal 1: ONLY MOVING HORIZONTAL  
-              current = coin1Pos[1];
-              for(int i=0; i<2; i++)
-              {
-                  if(current< )
-              }
+              
               break;
           case 1: // this is Vertical 1: ONLY MOVING VERTICAL 
 
@@ -210,9 +245,9 @@ public class TableManager : MonoBehaviour
       }
 
 
-      GameObject start;
+
       //return start;
-  }*/
+  }
 
 
 

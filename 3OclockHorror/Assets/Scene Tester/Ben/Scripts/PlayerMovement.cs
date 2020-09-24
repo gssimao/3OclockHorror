@@ -75,6 +75,6 @@ public class PlayerMovement : MonoBehaviour
 
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
-        camera.transform.position = myRoom.getCameraPoint().transform.position;
+        /*camera.transform.position = myRoom.getCameraPoint().transform.position;*/
     }
 }
