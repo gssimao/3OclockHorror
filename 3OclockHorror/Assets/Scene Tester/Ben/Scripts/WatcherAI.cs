@@ -11,7 +11,7 @@ public class WatcherAI : MonoBehaviour
     public bool playerInRoom;
     public int emptyRoomCount = 0;
     public float coolDownTimer;
-    public invUI inventoryUI;
+    //public invUI inventoryUI;
     public SanityManager sanityManager;
 
     int randInd;
@@ -37,7 +37,7 @@ public class WatcherAI : MonoBehaviour
 
         candleNum = Candles.Length;
         ovTimer = coolDownTimer;
-        inventoryUI = player.GetComponent<invUI>();
+        //inventoryUI = player.GetComponent<invUI>();
         sanityManager = player.GetComponent<SanityManager>();
         playerRoom = player.GetComponent<PlayerMovement>().myRoom;
     }
@@ -49,6 +49,7 @@ public class WatcherAI : MonoBehaviour
         CheckRoom();
         candlesOut = CheckCandles();
 
+        /*
         if(inventoryUI.active == true)
         {
             if(!candlesOut && timerLock)// candles are not out
@@ -57,6 +58,7 @@ public class WatcherAI : MonoBehaviour
                 timerLock = false;
             }
         }
+        */
 
         if (!candlesOut && !playerInRoom)// all candles are out and the player is not in the room
         {

@@ -8,13 +8,12 @@ public class workbench_cntrl : MonoBehaviour
     public GameObject timeUI; //Time UI, used to deactivate for screenclutter.
     public GameObject myWorkspace; //The canvas for this specific workbench to work with.
 
-    invUI invUI;
     bool active;
 
     //public GameObject ePrompt; //Prompt to press E - Will likely depreciate beyond alpha
     private void Start()
     {
-        invUI = player.GetComponent<invUI>();
+        
     }
 
 
@@ -28,7 +27,6 @@ public class workbench_cntrl : MonoBehaviour
             {
                 if (!active) 
                 {
-                    invUI.activateUI();
                     myWorkspace.SetActive(true);
 
                     timeUI.SetActive(false);
@@ -37,7 +35,6 @@ public class workbench_cntrl : MonoBehaviour
                 else
                 {
                     myWorkspace.SetActive(false);
-                    invUI.deactivateUI();
 
                     timeUI.SetActive(true);
                     active = false;
