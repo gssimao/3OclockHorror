@@ -6,33 +6,42 @@ using System;
 public class Inventory : MonoBehaviour
 {
     [SerializeField]
-    List<Item> items;
+    List<Item> items; //Only for starting with items in this inventory. Therefore mostly depreciated.
     [SerializeField]
     ItemSlot[] itemSlots;
     [Space]
     [SerializeField]
     Transform itemsParent;
 
-    public event Action<Item> onItemRightClickedEvent;
+    public event Action<ItemSlot> onPointerEnterEvent;
+    public event Action<ItemSlot> onPointerExitEvent;
+    public event Action<ItemSlot> onRightClickEvent;
+    public event Action<ItemSlot> onBeginDragEvent;
+    public event Action<ItemSlot> onEndDragEvent;
+    public event Action<ItemSlot> onDragEvent;
+    public event Action<ItemSlot> onDropEvent;
 
     private void Awake()
     {
-        for(int i = 0; i < itemSlots.Length; i++)
-        {
-            itemSlots[i].onRightClickEvent += onItemRightClickedEvent;
-        }
-    }
 
-    private void OnValidate()
-    {
-        if(itemsParent != null)
+        if (itemsParent != null)
         {
             itemSlots = itemsParent.GetComponentsInChildren<ItemSlot>();
         }
-        RefreshUI();
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            itemSlots[i].onPointerEnterEvent += onPointerEnterEvent;
+            itemSlots[i].onPointerEnterEvent += onPointerExitEvent;
+            itemSlots[i].onRightClickEvent += onRightClickEvent;
+            itemSlots[i].onBeginDragEvent += onBeginDragEvent;
+            itemSlots[i].onEndDragEvent += onEndDragEvent;
+            itemSlots[i].onDragEvent += onDragEvent;
+            itemSlots[i].onDropEvent += onDropEvent;
+        }
+        SetStartingItems();
     }
 
-    public void RefreshUI()
+    public void SetStartingItems()
     {
         int i = 0;
         for(i = 0; i < items.Count && i < itemSlots.Length; i++)
@@ -48,18 +57,25 @@ public class Inventory : MonoBehaviour
 
     public bool AddItem(Item item)
     {
-        if (IsFull())
-            return false;
-        items.Add(item);
-        RefreshUI();
-        return true;
+        for(int i = 0; i < itemSlots.Length; i++)
+        {
+            if(itemSlots[i].item == null)
+            {
+                itemSlots[i].item = item;
+                return true;
+            }
+        }
+        return false;
     }
     public bool RemoveItem(Item item)
     {
-        if (items.Remove(item))
+        for (int i = 0; i < itemSlots.Length; i++)
         {
-            RefreshUI();
-            return true;
+            if (itemSlots[i].item == item)
+            {
+                itemSlots[i].item = null;
+                return true;
+            }
         }
         return false;
     }
@@ -67,10 +83,13 @@ public class Inventory : MonoBehaviour
 
     public bool IsFull()
     {
-        if(items.Count >= itemSlots.Length)
+        for (int i = 0; i < itemSlots.Length; i++)
         {
-            return true;
+            if (itemSlots[i].item == null)
+            {
+                return false;
+            }
         }
-        return false;
+        return true;
     }
 }
