@@ -42,5 +42,10 @@ public class room : MonoBehaviour
         return roomName;
     }
 
+    public GameObject getCameraPoint()
+    {
+        return cameraPoint;
+    }
+
     #endregion
 }
