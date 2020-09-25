@@ -9,6 +9,8 @@ public class InventoryManager : MonoBehaviour
     [SerializeField]
     Inventory inventory;
     [SerializeField]
+    Inventory craftinventory;
+    [SerializeField]
     ItemTooltip itemTooltip;
     [SerializeField]
     Image draggableItem;
@@ -26,20 +28,25 @@ public class InventoryManager : MonoBehaviour
         //Pointer Enter/Exit:
         inventory.onPointerEnterEvent += ShowTooltip;
         inventory.onPointerExitEvent += HideTooltip;
+        craftinventory.onPointerEnterEvent += ShowTooltip;
+        craftinventory.onPointerExitEvent += HideTooltip;
 
         //Drag Handlers:
         inventory.onBeginDragEvent += BeginDrag;
         inventory.onEndDragEvent += EndDrag;
+        craftinventory.onBeginDragEvent += BeginDrag;
+        craftinventory.onEndDragEvent += EndDrag;
 
         //Drag/Drop handlers:
         inventory.onDragEvent += Drag;
         inventory.onDropEvent += Drop;
+        craftinventory.onDragEvent += Drag;
+        craftinventory.onDropEvent += Drop;
     }
 
 
     private void ShowTooltip(ItemSlot slot)
     {
-        Debug.Log("Showtooltip");
         if (slot.item != null)
         {
             itemTooltip.ShowTooltip(slot.item);

@@ -57,7 +57,6 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Entered");
         onPointerEnterEvent?.Invoke(this);
     }
 

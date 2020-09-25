@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Inventory : MonoBehaviour
+public class Inventory : MonoBehaviour, IItemContainer
 {
     [SerializeField]
     List<Item> items; //Only for starting with items in this inventory. Therefore mostly depreciated.
@@ -30,13 +30,13 @@ public class Inventory : MonoBehaviour
         }
         for (int i = 0; i < itemSlots.Length; i++)
         {
-            itemSlots[i].onPointerEnterEvent += onPointerEnterEvent;
-            itemSlots[i].onPointerEnterEvent += onPointerExitEvent;
-            itemSlots[i].onRightClickEvent += onRightClickEvent;
-            itemSlots[i].onBeginDragEvent += onBeginDragEvent;
-            itemSlots[i].onEndDragEvent += onEndDragEvent;
-            itemSlots[i].onDragEvent += onDragEvent;
-            itemSlots[i].onDropEvent += onDropEvent;
+            itemSlots[i].onPointerEnterEvent += slot => onPointerEnterEvent(slot);
+            itemSlots[i].onPointerExitEvent += slot => onPointerExitEvent(slot);
+            itemSlots[i].onRightClickEvent += slot => onRightClickEvent(slot);
+            itemSlots[i].onBeginDragEvent += slot => onBeginDragEvent(slot);
+            itemSlots[i].onEndDragEvent += slot => onEndDragEvent(slot);
+            itemSlots[i].onDragEvent += slot => onDragEvent(slot);
+            itemSlots[i].onDropEvent += slot => onDropEvent(slot);
         }
         SetStartingItems();
     }
@@ -91,5 +91,30 @@ public class Inventory : MonoBehaviour
             }
         }
         return true;
+    }
+
+    public bool ContainsItem(Item item)
+    {
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            if (itemSlots[i].item == item)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int CountItems(Item item)
+    {
+        int c = 0;
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            if (itemSlots[i].item == item)
+            {
+                c++;
+            }
+        }
+        return c;
     }
 }
