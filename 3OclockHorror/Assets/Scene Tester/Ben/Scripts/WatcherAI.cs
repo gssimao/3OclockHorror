@@ -23,9 +23,9 @@ public class WatcherAI : MonoBehaviour
     float distance;
 
     //Room Specific variables
-    room currentRoom;
+    public room currentRoom;
     Vector3 spawnPoint;
-    Light[] Candles;
+    public Light[] Candles;
     room playerRoom;
 
     // Start is called before the first frame update
@@ -103,6 +103,7 @@ public class WatcherAI : MonoBehaviour
 
             this.transform.position = Rooms[randInd].getWatcherSpawn().transform.position;
             currentRoom = Rooms[randInd];
+            Candles = currentRoom.getRoomObject().GetComponentsInChildren<Light>();
         }
         else if(emptyRoomCount == 1)
         {
@@ -116,6 +117,7 @@ public class WatcherAI : MonoBehaviour
 
             this.transform.position = Rooms[randInd].getWatcherSpawn().transform.position;
             currentRoom = Rooms[randInd];
+            Candles = currentRoom.getRoomObject().GetComponentsInChildren<Light>();
         }
         else if(emptyRoomCount == 2)
         {
@@ -129,11 +131,13 @@ public class WatcherAI : MonoBehaviour
 
             this.transform.position = Rooms[randInd].getWatcherSpawn().transform.position;
             currentRoom = Rooms[randInd];
+            Candles = currentRoom.getRoomObject().GetComponentsInChildren<Light>();
         }
         else// if emptyRoomCount >= 3
         {
             this.transform.position = playerRoom.getWatcherSpawn().transform.position;
             currentRoom = playerRoom;
+            Candles = currentRoom.getRoomObject().GetComponentsInChildren<Light>();
         }
 
         CheckRoom();
