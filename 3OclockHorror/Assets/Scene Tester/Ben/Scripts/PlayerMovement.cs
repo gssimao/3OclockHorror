@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public bool walking;
     public Camera camera;
-    Vector2 movement;
+    public Vector2 movement;
 
     // Update is called once per frame
     void Update()
