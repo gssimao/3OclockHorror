@@ -20,23 +20,13 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
 
 
     private Color normColor = Color.white;
-    private Color disabledColor = Color.clear;
+    private Color disabledColor = new Color(255, 255, 255, 0.1f);
 
     private Item _item;
-    public Item item
+    public Item Item
     {
         get { return _item; }
-        set { _item = value;
-            if(_item == null)
-            {
-                image.color = disabledColor;
-            }
-            else
-            {
-                image.sprite = _item.Icon;
-                image.color = normColor;
-            }
-        }
+        set { _item = value;}
     }
 
     public void Awake()
@@ -44,6 +34,19 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
         if (image == null)
         {
             image = GetComponent<Image>();
+        }
+    }
+    public void Update()
+    {
+        if(Item == null)
+        {
+            image.sprite = null;
+            image.color = disabledColor;
+        }
+        else
+        {
+            image.sprite = _item.Icon;
+            image.color = normColor;
         }
     }
 

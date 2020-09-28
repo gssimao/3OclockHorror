@@ -46,11 +46,11 @@ public class Inventory : MonoBehaviour, IItemContainer
         int i = 0;
         for(i = 0; i < items.Count && i < itemSlots.Length; i++)
         {
-            itemSlots[i].item = items[i];
+            itemSlots[i].Item = items[i];
         }
         for(; i < itemSlots.Length; i++)
         {
-            itemSlots[i].item = null;
+            itemSlots[i].Item = null;
         }
     }
 
@@ -59,9 +59,9 @@ public class Inventory : MonoBehaviour, IItemContainer
     {
         for(int i = 0; i < itemSlots.Length; i++)
         {
-            if(itemSlots[i].item == null)
+            if(itemSlots[i].Item == null)
             {
-                itemSlots[i].item = item;
+                itemSlots[i].Item = item;
                 return true;
             }
         }
@@ -71,9 +71,9 @@ public class Inventory : MonoBehaviour, IItemContainer
     {
         for (int i = 0; i < itemSlots.Length; i++)
         {
-            if (itemSlots[i].item == item)
+            if (itemSlots[i].Item == item)
             {
-                itemSlots[i].item = null;
+                itemSlots[i].Item = null;
                 return true;
             }
         }
@@ -85,7 +85,7 @@ public class Inventory : MonoBehaviour, IItemContainer
     {
         for (int i = 0; i < itemSlots.Length; i++)
         {
-            if (itemSlots[i].item == null)
+            if (itemSlots[i].Item == null)
             {
                 return false;
             }
@@ -97,7 +97,7 @@ public class Inventory : MonoBehaviour, IItemContainer
     {
         for (int i = 0; i < itemSlots.Length; i++)
         {
-            if (itemSlots[i].item == item)
+            if (itemSlots[i].Item == item)
             {
                 return true;
             }
@@ -110,11 +110,22 @@ public class Inventory : MonoBehaviour, IItemContainer
         int c = 0;
         for (int i = 0; i < itemSlots.Length; i++)
         {
-            if (itemSlots[i].item == item)
+            if (itemSlots[i].Item == item)
             {
                 c++;
             }
         }
         return c;
+    }
+    public void CloseInv()
+    {
+        items.Clear();
+        foreach(ItemSlot slot in itemSlots)
+        {
+            if(slot.Item != null)
+            {
+                items.Add(slot.Item);
+            }
+        }
     }
 }
