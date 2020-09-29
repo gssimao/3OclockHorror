@@ -31,7 +31,6 @@ public class WatcherAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentRoom = Rooms[0];
         Candles = currentRoom.getRoomObject().GetComponentsInChildren<Light>();
         spawnPoint = currentRoom.getWatcherSpawn().transform.position;
 
