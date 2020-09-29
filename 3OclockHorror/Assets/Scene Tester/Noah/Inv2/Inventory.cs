@@ -30,13 +30,13 @@ public class Inventory : MonoBehaviour, IItemContainer
         }
         for (int i = 0; i < itemSlots.Length; i++)
         {
-            itemSlots[i].onPointerEnterEvent += slot => onPointerEnterEvent(slot);
-            itemSlots[i].onPointerExitEvent += slot => onPointerExitEvent(slot);
-            itemSlots[i].onRightClickEvent += slot => onRightClickEvent(slot);
-            itemSlots[i].onBeginDragEvent += slot => onBeginDragEvent(slot);
-            itemSlots[i].onEndDragEvent += slot => onEndDragEvent(slot);
-            itemSlots[i].onDragEvent += slot => onDragEvent(slot);
-            itemSlots[i].onDropEvent += slot => onDropEvent(slot);
+            itemSlots[i].onPointerEnterEvent += onPointerEnterEvent;
+            itemSlots[i].onPointerExitEvent += onPointerExitEvent;
+            itemSlots[i].onRightClickEvent += onRightClickEvent;
+            itemSlots[i].onBeginDragEvent += onBeginDragEvent;
+            itemSlots[i].onEndDragEvent += onEndDragEvent;
+            itemSlots[i].onDragEvent += onDragEvent;
+            itemSlots[i].onDropEvent += onDropEvent;
         }
         SetStartingItems();
     }
@@ -117,6 +117,25 @@ public class Inventory : MonoBehaviour, IItemContainer
         }
         return c;
     }
+
+    //Properly open a dynamic inventory.
+    public void OpenInv()
+    {
+        itemSlots = itemsParent.GetComponentsInChildren<ItemSlot>();
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            itemSlots[i].onPointerEnterEvent += onPointerEnterEvent;
+            itemSlots[i].onPointerExitEvent += onPointerExitEvent;
+            itemSlots[i].onRightClickEvent += onRightClickEvent;
+            itemSlots[i].onBeginDragEvent += onBeginDragEvent;
+            itemSlots[i].onEndDragEvent += onEndDragEvent;
+            itemSlots[i].onDragEvent += onDragEvent;
+            itemSlots[i].onDropEvent += onDropEvent;
+        }
+        SetStartingItems();
+    }
+
+    //Properly close a dynamic inventory.
     public void CloseInv()
     {
         items.Clear();
@@ -127,5 +146,16 @@ public class Inventory : MonoBehaviour, IItemContainer
                 items.Add(slot.Item);
             }
         }
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            itemSlots[i].onPointerEnterEvent += onPointerEnterEvent;
+            itemSlots[i].onPointerExitEvent += onPointerExitEvent;
+            itemSlots[i].onRightClickEvent += onRightClickEvent;
+            itemSlots[i].onBeginDragEvent += onBeginDragEvent;
+            itemSlots[i].onEndDragEvent += onEndDragEvent;
+            itemSlots[i].onDragEvent += onDragEvent;
+            itemSlots[i].onDropEvent += onDropEvent;
+        }
+        itemSlots = null;
     }
 }

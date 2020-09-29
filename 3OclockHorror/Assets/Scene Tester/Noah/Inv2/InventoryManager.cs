@@ -60,6 +60,7 @@ public class InventoryManager : MonoBehaviour
     }
     public void DeactivateInventory(Inventory inv)
     {
+        inv.CloseInv();
         workbenchInv = null;
         RemoveEvents(inv);
     }

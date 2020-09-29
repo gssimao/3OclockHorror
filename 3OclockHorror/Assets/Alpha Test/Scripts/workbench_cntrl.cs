@@ -15,7 +15,6 @@ public class workbench_cntrl : MonoBehaviour
     InventoryManager IM;
     bool active; //Am I the active workbench inventory?
 
-    //public GameObject ePrompt; //Prompt to press E - Will likely depreciate beyond alpha
     private void Start()
     {
         if(myInv == null)
@@ -23,6 +22,7 @@ public class workbench_cntrl : MonoBehaviour
             myInv = gameObject.GetComponent<Inventory>();
         }
         active = false;
+        myInv.CloseInv();
     }
 
 
@@ -35,7 +35,7 @@ public class workbench_cntrl : MonoBehaviour
             if (Input.GetKeyDown("e") && !active)
             {
                 IM.ActivateInventory(myInv);
-                myInv.SetStartingItems(); //Update the items to be in accordance with the items array
+                myInv.OpenInv(); //Update the items to be in accordance with the items array
                 active = true;
                 myInvDisplay.SetActive(true);
                 IM.craftField.SetActive(true);
@@ -46,7 +46,6 @@ public class workbench_cntrl : MonoBehaviour
                 active = false;
                 myInvDisplay.SetActive(false);
                 IM.craftField.SetActive(false);
-                myInv.CloseInv();
             }
         }
     }
