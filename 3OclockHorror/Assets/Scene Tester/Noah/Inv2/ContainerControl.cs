@@ -19,6 +19,10 @@ public class ContainerControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(cntnrDisp == null)
+        {
+            Debug.LogError("hey wtf wheres the container display");
+        }
         if (myInv == null)
         {
             myInv = gameObject.GetComponent<Inventory>();
@@ -46,14 +50,12 @@ public class ContainerControl : MonoBehaviour
                 myInv.OpenInv(); //Update the items to be in accordance with the items array
                 active = true;
                 cntnrDisp.SetActive(true);
-                IM.craftField.SetActive(true);
             }
             else if (Input.GetKeyDown("e") && active)
             {
                 IM.DeactivateInventory(myInv);
                 active = false;
                 cntnrDisp.SetActive(false);
-                IM.craftField.SetActive(false);
             }
         }
     }
