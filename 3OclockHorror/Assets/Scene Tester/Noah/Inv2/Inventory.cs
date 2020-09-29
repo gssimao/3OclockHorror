@@ -158,4 +158,9 @@ public class Inventory : MonoBehaviour, IItemContainer
         }
         itemSlots = null;
     }
+
+    public void AddStartingItem(Item item)
+    {
+        items.Add(item);
+    }
 }
