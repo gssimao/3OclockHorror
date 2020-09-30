@@ -5,6 +5,7 @@ using UnityEngine;
 public class SightScript : MonoBehaviour
 {
     public Light candle;
+    public Light playerMatch;
 
     public GameObject[] Furniture;
     // Start is called before the first frame update
@@ -20,11 +21,18 @@ public class SightScript : MonoBehaviour
 
         if (!candle.isActiveAndEnabled)
         {
-            for (int i = 0; i < Furniture.Length; i++)
+            if (Vector3.Distance(this.transform.position, playerMatch.transform.position) <= candle.range && playerMatch.isActiveAndEnabled)
             {
-                if (Vector3.Distance(this.transform.position, Furniture[i].transform.position) <= candle.range)
+
+            }
+            else
+            {
+                for (int i = 0; i < Furniture.Length; i++)
                 {
-                    Furniture[i].gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                    if (Vector3.Distance(this.transform.position, Furniture[i].transform.position) <= candle.range)
+                    {
+                        Furniture[i].gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                    }
                 }
             }
         }
@@ -37,6 +45,10 @@ public class SightScript : MonoBehaviour
                     Furniture[i].gameObject.GetComponent<SpriteRenderer>().enabled = true;
                 }
             }
+        }
+        if(Vector3.Distance(this.transform.position, playerMatch.transform.position) <= candle.range && playerMatch.isActiveAndEnabled)
+        {
+
         }
     }
 }
