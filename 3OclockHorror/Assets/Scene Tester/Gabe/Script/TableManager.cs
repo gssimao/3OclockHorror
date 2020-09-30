@@ -22,8 +22,8 @@ public class TableManager : MonoBehaviour
 
     public int[,] allCoinsPos = new int[3,4] // this store the current position of the coins in a 2d array for easy scanning //  this is being used on the cueCoinUpdate() function
     {
-    {5, 0, 0, 0},
-    {0, 0, 5, 5},
+    {0, 0, 0, 5},
+    {0, 5, 0, 0}, //this is very important add 5 to creat blocked space
     {1, 2, 3, 4}
     };
                       //{Horizonta , Vertical}
@@ -36,6 +36,9 @@ public class TableManager : MonoBehaviour
     public GameObject coin2;
     public GameObject coin3;
     public GameObject coin4;
+    public GameObject blackaqr1;
+    public GameObject blackaqr2;
+    public GameObject blackaqr3;
 
     private void Start()
     {
@@ -806,6 +809,16 @@ public class TableManager : MonoBehaviour
     {0, 0, 0, 0},  13
     {1, 2, 3, 4}   23
     };*/
+    private bool checkAnswer(int[,]allCoinsPos, int[,] answer) // work in progress
+    {
+        for(int i=0; i <= 3; i++)
+        {
+            for (int j = 0; j <= 3; j++)
+            {
 
+            }
+        }
+        return false;
+    }
 
 }
