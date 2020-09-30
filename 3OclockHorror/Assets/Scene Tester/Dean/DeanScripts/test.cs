@@ -8,6 +8,7 @@ public class test : MonoBehaviour
     private bool pillar2 = false;
     private bool pillar3 = false;
     private bool pillar4 = false;
+    public bool didYaWin = false;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +48,7 @@ public class test : MonoBehaviour
         if(pillar1 == true && pillar2 == true && pillar3 == true && pillar4 == true)
         {
             Debug.Log("Puzzle solved");
+            didYaWin = true;
         }
     }
 
