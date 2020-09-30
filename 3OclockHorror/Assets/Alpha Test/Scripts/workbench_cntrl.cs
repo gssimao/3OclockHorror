@@ -2,30 +2,51 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Inventory))]
 public class workbench_cntrl : MonoBehaviour
 {
-    public GameObject player;
-    public GameObject timeUI; //Time UI, used to deactivate for screenclutter.
-    public GameObject myWorkspace; //The canvas for this specific workbench to work with.
-    public GameObject ePrompt; //Prompt to press E - Will likely depreciate beyond alpha
+    [SerializeField]
+    GameObject player;
+    [SerializeField]
+    Inventory myInv;
+    [SerializeField]
+    GameObject myInvDisplay;
+    [SerializeField]
+    InventoryManager IM;
+    bool active; //Am I the active workbench inventory?
+
+    private void Start()
+    {
+        if(myInv == null)
+        {
+            myInv = gameObject.GetComponent<Inventory>();
+        }
+        active = false;
+        myInv.CloseInv();
+    }
+
 
     // Update is called once per frame
     void Update()
     {
         float dist = Vector3.Distance(player.transform.position, transform.position); //Get the position of player
-        if(dist <= 1.5f) //If the player is in range
-        { 
-            ePrompt.SetActive(true); //Show the prompt
-
-            if (Input.GetKeyDown("e")) //if E is pressed
-            {
-                timeUI.SetActive(false); //Change the active UI around
-                myWorkspace.SetActive(true);
-            }
-        }
-        else
+        if(dist <= 0.25f) //If the player is in range
         {
-            ePrompt.SetActive(false); //If out of range, deactivate the prompt.
+            if (Input.GetKeyDown("e") && !active)
+            {
+                IM.ActivateInventory(myInv);
+                myInv.OpenInv(); //Update the items to be in accordance with the items array
+                active = true;
+                myInvDisplay.SetActive(true);
+                IM.craftField.SetActive(true);
+            }
+            else if(Input.GetKeyDown("e") && active)
+            {
+                IM.DeactivateInventory(myInv);
+                active = false;
+                myInvDisplay.SetActive(false);
+                IM.craftField.SetActive(false);
+            }
         }
     }
 }

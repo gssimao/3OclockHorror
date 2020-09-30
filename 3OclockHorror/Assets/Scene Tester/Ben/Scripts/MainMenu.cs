@@ -15,6 +15,7 @@ public class MainMenu : MonoBehaviour
 
    public void PlayGame()
     {
+        menuAudio.Stop("wind");
         SceneManager.LoadScene(mMenuScene);
     }
 
