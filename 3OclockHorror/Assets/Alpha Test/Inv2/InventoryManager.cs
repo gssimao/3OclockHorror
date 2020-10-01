@@ -19,6 +19,7 @@ public class InventoryManager : MonoBehaviour
 
     Inventory workbenchInv;
     ItemSlot orgSlot;
+    bool dropped = false;
     
     private void Awake()
     {
@@ -68,7 +69,6 @@ public class InventoryManager : MonoBehaviour
     #region Event Functions
     private void ShowTooltip(ItemSlot slot)
     {
-        Debug.LogError("Entered");
         if (slot.Item != null)
         {
             //itemTooltip.ShowTooltip(slot.item);
@@ -89,12 +89,18 @@ public class InventoryManager : MonoBehaviour
             draggableSlot.gameObject.SetActive(true);
             orgSlot = slot;
             slot.Item = null;
+            dropped = false;
         }
     }
 
     private void EndDrag(ItemSlot slot)
     {
         draggableSlot.gameObject.SetActive(false);
+
+        if (!dropped)
+        {
+            orgSlot.Item = draggableSlot.Item;
+        }
     }
 
     private void Drag(ItemSlot slot)
@@ -113,6 +119,8 @@ public class InventoryManager : MonoBehaviour
             Item draggedItem = draggableSlot.Item;
             orgSlot.Item = dropItemSlot.Item;
             dropItemSlot.Item = draggedItem;
+
+            dropped = true;
         }
     }
     #endregion

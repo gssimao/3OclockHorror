@@ -7,7 +7,7 @@ public class Inventory : MonoBehaviour, IItemContainer
 {
     [SerializeField]
     List<Item> items; //Only for starting with items in this inventory. Therefore mostly depreciated.
-    [SerializeField]
+    [SerializeField] 
     ItemSlot[] itemSlots;
     [Space]
     [SerializeField]
@@ -28,16 +28,13 @@ public class Inventory : MonoBehaviour, IItemContainer
         {
             itemSlots = itemsParent.GetComponentsInChildren<ItemSlot>();
         }
+
+
         for (int i = 0; i < itemSlots.Length; i++)
         {
-            itemSlots[i].onPointerEnterEvent += onPointerEnterEvent;
-            itemSlots[i].onPointerExitEvent += onPointerExitEvent;
-            itemSlots[i].onRightClickEvent += onRightClickEvent;
-            itemSlots[i].onBeginDragEvent += onBeginDragEvent;
-            itemSlots[i].onEndDragEvent += onEndDragEvent;
-            itemSlots[i].onDragEvent += onDragEvent;
-            itemSlots[i].onDropEvent += onDropEvent;
+            AddInvokers(itemSlots[i]);
         }
+
         SetStartingItems();
     }
 
@@ -162,5 +159,16 @@ public class Inventory : MonoBehaviour, IItemContainer
     public void AddStartingItem(Item item)
     {
         items.Add(item);
+    }
+
+    public void AddInvokers(ItemSlot slot)
+    {
+        slot.onPointerEnterEvent += onPointerEnterEvent;
+        slot.onPointerExitEvent += onPointerExitEvent;
+        slot.onRightClickEvent += onRightClickEvent;
+        slot.onBeginDragEvent += onBeginDragEvent;
+        slot.onEndDragEvent += onEndDragEvent;
+        slot.onDragEvent += onDragEvent;
+        slot.onDropEvent += onDropEvent;
     }
 }
