@@ -113,7 +113,6 @@ public class InventoryManager : MonoBehaviour
 
     private void Drop(ItemSlot dropItemSlot)
     {
-        Debug.Log("Dropped slot: " + dropItemSlot.gameObject.name);
         if (dropItemSlot.CanRecieveItem(draggableSlot.Item) && orgSlot.CanRecieveItem(dropItemSlot.Item))
         {
             Item draggedItem = draggableSlot.Item;
