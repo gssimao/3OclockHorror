@@ -9,12 +9,12 @@ public class TableManager : MonoBehaviour
     public int tablePosition = 0;
 
     float[] coinPositionH = new float[4] // left to right  // This is a number refering to a position in the game where any coin can be placed at
-    {-5, -2, 2, 5};
+    {-4.18f, -1.62f, 1.25f, 4.08f};
     //    0,  1,  2, 3
     // 0 is most left and 3 is most right
 
     float[] coinPositionV = new float[3] // top to bottom  // This is a number refering to a position in the game where any coin can be placed at
-    { 2, 0, -2};
+    { 2.01f, 0, -2.01f};
     // (top) 0, (Mid) 1, (bot) 2
 
 
@@ -22,8 +22,8 @@ public class TableManager : MonoBehaviour
 
     public int[,] allCoinsPos = new int[3,4] // this store the current position of the coins in a 2d array for easy scanning //  this is being used on the cueCoinUpdate() function
     {
-    {0, 0, 0, 5},
-    {0, 5, 0, 0}, //this is very important add 5 to creat blocked space
+    {0, 0, 0, 0},
+    {0, 0, 0, 0}, //this is very important add 5 to creat blocked space
     {1, 2, 3, 4}
     };
                       //{Horizonta , Vertical}
@@ -31,6 +31,7 @@ public class TableManager : MonoBehaviour
     public int[] coin2Pos = new int[] { 1, 2 };
     public int[] coin3Pos = new int[] { 2, 2 };
     public int[] coin4Pos = new int[] { 3, 2 };
+
 
     public GameObject coin1;
     public GameObject coin2;
@@ -46,6 +47,7 @@ public class TableManager : MonoBehaviour
         coin2.transform.position = new Vector3(coinPositionH[coin2Pos[0]], coinPositionV[coin2Pos[1]], -2); //      to where to coins are going to be placed on
         coin3.transform.position = new Vector3(coinPositionH[coin3Pos[0]], coinPositionV[coin3Pos[1]], -2);
         coin4.transform.position = new Vector3(coinPositionH[coin4Pos[0]], coinPositionV[coin4Pos[1]], -2);// coin4Pos keeps track of coin Number 4 position
+        //setPosition();
     }
 
 
@@ -811,14 +813,67 @@ public class TableManager : MonoBehaviour
     };*/
     private bool checkAnswer(int[,]allCoinsPos, int[,] answer) // work in progress
     {
-        for(int i=0; i <= 3; i++)
+        
+        for(int i=0; i <= 3; i++) //  [j,here]
         {
-            for (int j = 0; j <= 3; j++)
+            for (int j = 0; j <= 2; j++)//  [here,i]
             {
-
+                
             }
         }
         return false;
     }
+    /*private void setPosition() // work in progress
+    {
+        int square = 0;
+        for (int i = 0; i <= 3; i++)
+        {
+            for (int j = 0; j <= 2; j++)//[j,i]      [3,4]
+            {
+                UnityEngine.Debug.Log("Running fine here");
+                if(allCoinsPos[j,i] == 5)
+                {
+                    if(square == 0)
+                    {
+                        blackaqr1.transform.position = new Vector3(coinPositionH[i], coinPositionV[j], -2);
+                    }
+                    if (square == 1)
+                    {
+                        blackaqr2.transform.position = new Vector3(coinPositionH[i], coinPositionV[j], -2);
+                    }
+                    if (square == 2)
+                    {
+                        blackaqr3.transform.position = new Vector3(coinPositionH[i], coinPositionV[j], -2);
+                    }
+                    square++;
+                }
+                if (allCoinsPos[j, i] == 1)
+                {
+                    coin1.transform.position = new Vector3(coinPositionH[i], coinPositionV[j], -2);
+                    coin1Pos[0] = i;
+                    coin1Pos[1] = j;
+                }
+                if (allCoinsPos[j, i] == 2)
+                {
+                    coin2.transform.position = new Vector3(coinPositionH[i], coinPositionV[j], -2);
+                    coin2Pos[0] = i;
+                    coin2Pos[1] = j;
+                }
+                if (allCoinsPos[j, i] == 3)
+                {
+                    coin3.transform.position = new Vector3(coinPositionH[i], coinPositionV[j], -2);
+                    coin3Pos[0] = i;
+                    coin3Pos[1] = j;
+                }
+                if (allCoinsPos[j, i] == 4)
+                {
+                    coin4.transform.position = new Vector3(coinPositionH[i], coinPositionV[j], -2);
+                    coin4Pos[0] = i;
+                    coin4Pos[1] = j;
+                }
+            }
+        }
+    }*/
+
 
 }
