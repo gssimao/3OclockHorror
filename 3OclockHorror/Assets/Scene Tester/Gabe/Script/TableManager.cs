@@ -19,14 +19,23 @@ public class TableManager : MonoBehaviour
 
 
     public int[] coinCue = new int[] { 1, 2, 3, 4 }; //tells a fuction what coin should be updated first
-
-    public int[,] allCoinsPos = new int[3,4] // this store the current position of the coins in a 2d array for easy scanning //  this is being used on the cueCoinUpdate() function
+                                                     // {j,i}
+    public int[,] allCoinsPos = new int[3, 4] // this store the current position of the coins in a 2d array for easy scanning //  this is being used on the cueCoinUpdate() function
     {
     {0, 0, 0, 0},
     {0, 0, 0, 0}, //this is very important add 5 to creat blocked space
     {1, 2, 3, 4}
     };
-                      //{Horizonta , Vertical}
+
+    public int[,] puzzleAnswer = new int[3, 4] // this store the current position of the coins in a 2d array for easy scanning //  this is being used on the cueCoinUpdate() function
+    {
+    {1, 2, 3, 4},
+    {0, 0, 0, 0}, //this is very important add 5 to creat blocked space
+    {0, 0, 0, 0}
+    };
+
+
+    //{Horizonta , Vertical} {i,j} where they are in the table
     public int[] coin1Pos = new int[] { 0, 2 }; //first number is PositionH // second number is PoitionV
     public int[] coin2Pos = new int[] { 1, 2 };
     public int[] coin3Pos = new int[] { 2, 2 };
@@ -43,11 +52,13 @@ public class TableManager : MonoBehaviour
 
     private void Start()
     {
-        coin1.transform.position = new Vector3(coinPositionH[coin1Pos[0]], coinPositionV[coin1Pos[1]], -2); // coinPositionH and coinPositionV are just numbers 
+        /*coin1.transform.position = new Vector3(coinPositionH[coin1Pos[0]], coinPositionV[coin1Pos[1]], -2); // coinPositionH and coinPositionV are just numbers 
         coin2.transform.position = new Vector3(coinPositionH[coin2Pos[0]], coinPositionV[coin2Pos[1]], -2); //      to where to coins are going to be placed on
         coin3.transform.position = new Vector3(coinPositionH[coin3Pos[0]], coinPositionV[coin3Pos[1]], -2);
         coin4.transform.position = new Vector3(coinPositionH[coin4Pos[0]], coinPositionV[coin4Pos[1]], -2);// coin4Pos keeps track of coin Number 4 position
-        //setPosition();
+        */
+        
+        setPosition();
     }
 
 
@@ -56,52 +67,108 @@ public class TableManager : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0)) //this should turn the big to the left
         {
+            //adjusting table before rotating
             tablePosition++;
             if (tablePosition > 3)
             {
                 tablePosition = 0;
             }
 
-            
+            //rotating table
             LeanTween.rotateZ(gameObject, table[tablePosition], 1); 
             
             //Add coins to a cue to be update
             coinCue = cueCoinUpdate();
 
+            //update coin position with new position
             ManagePosition();
-            
+
             //Debug.Log(allCoinsPos[0, 0]);
+
+            //check for the right answer
+            if(checkAnswer(allCoinsPos, puzzleAnswer))
+            {
+                UnityEngine.Debug.Log("Yaaaaaaaayyyyy you win");
+            }
+
 
         }
         if (Input.GetMouseButtonUp(1)) //this should turn the big to the right
         {
+            //adjusting table before rotating
             tablePosition--;
             if (tablePosition < 0)
             {
                 tablePosition = 3;
             }
-            
+
+            //rotating table
             LeanTween.rotateZ(gameObject, table[tablePosition], 1); // move big gear
             
             //Add coins to a cue to be update
             coinCue = cueCoinUpdate();
 
-           ManagePosition();
+            //update coin position with new position
+            ManagePosition();
+
+
+            //check for the right answer
+            if (checkAnswer(allCoinsPos, puzzleAnswer))
+            {
+                UnityEngine.Debug.Log("Yaaaaaaaayyyyy you win");
+            }
 
         }
 
     }
 
- 
+   /* private void pickPuzzleAnswer() // work in progress // here is where the program will choose what puzzle to go with and the answer for that puzzle.
+    {
+        int randomPick = Random.Range(1,3);
 
 
-    // float[] coinPositionH = new float[4] // left to right ( 0 , 1 , 2 , 3 )
+        //data base of puzzles and answers so far the minimum is 3
+        // puzzle 1 test and answer 1 test
+        int[,] Puzzle1 = new int[3, 4]
+        {
+        {0, 1, 0, 2},
+        {0, 0, 5, 5},
+        {5, 4, 3, 0}
+        };
+        int[,] Answer1 = new int[3, 4]
+        {
+        {0, 1, 0, 2},
+        {0, 0, 5, 5},
+        {5, 4, 3, 0}
+        };
 
-    // float[] coinPositionV = new float[3] // top to bottom ( 0 , 1 , 2 )
+
+        //selecting based on random range results. 
+        if (randomPick == 1)
+        {
+            allCoinsPos = Puzzle1;
+            Answer1 = puzzleAnswer;
+        }
+
+
+        if (randomPick == 3)
+        {
+
+        }
+
+
+        if (randomPick == 2)
+        {
+
+        }
+
+    }*/
+
+
 
     private float ManagePosition() // position
     {
-        bool stop = false;
+        //bool stop = false;
         int newLocation = 0;
         int nextLocation = newLocation + 1;
         //float newPosition;
@@ -292,7 +359,7 @@ public class TableManager : MonoBehaviour
 
                         //Move the coin to the new location
                         LeanTween.moveLocalX(coin1, coinPositionH[coin1Pos[0]], 1);
-                        UnityEngine.Debug.Log("LeanTween is called on " + coinPositionV[coin1Pos[1]]);
+
 
 
                         newLocation = 0;
@@ -326,7 +393,7 @@ public class TableManager : MonoBehaviour
 
                         //Move the coin to the new location
                         LeanTween.moveLocalX(coin2, coinPositionH[coin2Pos[0]], 1);
-                        UnityEngine.Debug.Log("LeanTween is called on " + coinPositionV[coin2Pos[1]]);
+
 
                         newLocation = 0;
                         nextLocation = 0;
@@ -360,7 +427,7 @@ public class TableManager : MonoBehaviour
 
                         //Move the coin to the new location
                         LeanTween.moveLocalX(coin3, coinPositionH[coin3Pos[0]], 1);
-                        UnityEngine.Debug.Log("LeanTween is called on " + coinPositionV[coin3Pos[1]]);
+
 
                         newLocation = 0;
                         nextLocation = 0;
@@ -394,7 +461,7 @@ public class TableManager : MonoBehaviour
 
                         //Move the coin to the new location
                         LeanTween.moveLocalX(coin4, coinPositionH[coin4Pos[0]], 1);
-                        UnityEngine.Debug.Log("LeanTween is called on " + coinPositionV[coin4Pos[1]]);
+
 
                         newLocation = 0;
                         nextLocation = 0;
@@ -565,7 +632,7 @@ public class TableManager : MonoBehaviour
 
                             newLocation = nextLocation;
                             nextLocation++;
-                            UnityEngine.Debug.Log(newLocation + "   this is newLocation LATER");
+
                         }
 
                         //update the location at allCoinsPos[,] and at coin1Pos[]
@@ -579,7 +646,7 @@ public class TableManager : MonoBehaviour
 
                         //Move the coin to the new location
                         LeanTween.moveLocalX(coin1, coinPositionH[coin1Pos[0]], 1);
-                        UnityEngine.Debug.Log("LeanTween is called on " + coinPositionV[coin1Pos[1]]);
+
 
 
                         newLocation = 0;
@@ -601,7 +668,7 @@ public class TableManager : MonoBehaviour
 
                             newLocation = nextLocation;
                             nextLocation++;
-                            UnityEngine.Debug.Log(newLocation + "   this is newLocation LATER");
+
                         }
 
                         allCoinsPos[coin2Pos[1], coin2Pos[0]] = 0; //take the coin out of her previous position
@@ -613,7 +680,7 @@ public class TableManager : MonoBehaviour
 
                         //Move the coin to the new location
                         LeanTween.moveLocalX(coin2, coinPositionH[coin2Pos[0]], 1);
-                        UnityEngine.Debug.Log("LeanTween is called on " + coinPositionV[coin2Pos[1]]);
+
 
 
                         newLocation = 0;
@@ -636,7 +703,7 @@ public class TableManager : MonoBehaviour
 
                             newLocation = nextLocation;
                             nextLocation++;
-                            UnityEngine.Debug.Log(newLocation + "   this is newLocation LATER");
+
                         }
 
                         allCoinsPos[coin3Pos[1], coin3Pos[0]] = 0; //take the coin out of her previous position
@@ -648,7 +715,7 @@ public class TableManager : MonoBehaviour
 
                         //Move the coin to the new location
                         LeanTween.moveLocalX(coin3, coinPositionH[coin3Pos[0]], 1);
-                        UnityEngine.Debug.Log("LeanTween is called on " + coinPositionV[coin3Pos[1]]);
+
 
 
                         newLocation = 0;
@@ -671,7 +738,7 @@ public class TableManager : MonoBehaviour
 
                             newLocation = nextLocation;
                             nextLocation++;
-                            UnityEngine.Debug.Log(newLocation + "   this is newLocation LATER");
+
                         }
 
                         allCoinsPos[coin4Pos[1], coin4Pos[0]] = 0; //take the coin out of her previous position
@@ -683,7 +750,7 @@ public class TableManager : MonoBehaviour
 
                         //Move the coin to the new location
                         LeanTween.moveLocalX(coin4, coinPositionH[coin4Pos[0]], 1);
-                        UnityEngine.Debug.Log("LeanTween is called on " + coinPositionV[coin4Pos[1]]);
+
 
 
                         newLocation = 0;
@@ -704,8 +771,7 @@ public class TableManager : MonoBehaviour
 
     private bool CheckIfOccupied(int HorizontalPos, int VerticalPos)
     {
-        UnityEngine.Debug.Log(VerticalPos + "  this is V");
-        UnityEngine.Debug.Log(HorizontalPos + "   this is H");
+
         if (allCoinsPos[VerticalPos, HorizontalPos] == 0)
         {
             return false;
@@ -811,69 +877,83 @@ public class TableManager : MonoBehaviour
     {0, 0, 0, 0},  13
     {1, 2, 3, 4}   23
     };*/
-    private bool checkAnswer(int[,]allCoinsPos, int[,] answer) // work in progress
+    private bool checkAnswer(int[,]allCoinsPos, int[,] answer) // work in progress // we have to update allCoinPos and coin[number of the coin]Pos
     {
-        
+        int checking = 0;
         for(int i=0; i <= 3; i++) //  [j,here]
         {
             for (int j = 0; j <= 2; j++)//  [here,i]
             {
-                
+                if(allCoinsPos[j,i] == answer[j, i] && allCoinsPos[j, i] != 0 && allCoinsPos[j, i] != 5)
+                {
+                    checking++;
+                    if(checking == 4)
+                    {
+                        return true;
+                    }
+                }
             }
         }
         return false;
     }
-    /*private void setPosition() // work in progress
+    private void setPosition() // work in progress
     {
         int square = 0;
         for (int i = 0; i <= 3; i++)
         {
             for (int j = 0; j <= 2; j++)//[j,i]      [3,4]
             {
-                UnityEngine.Debug.Log("Running fine here");
-                if(allCoinsPos[j,i] == 5)
+                if (allCoinsPos[j, i] == 5)
                 {
-                    if(square == 0)
+                    if (square == 0)
                     {
-                        blackaqr1.transform.position = new Vector3(coinPositionH[i], coinPositionV[j], -2);
+                        blackaqr1.transform.localPosition = new Vector3(coinPositionH[i], coinPositionV[j], -2);
+
                     }
                     if (square == 1)
                     {
-                        blackaqr2.transform.position = new Vector3(coinPositionH[i], coinPositionV[j], -2);
+                        blackaqr2.transform.localPosition = new Vector3(coinPositionH[i], coinPositionV[j], -2);
                     }
                     if (square == 2)
                     {
-                        blackaqr3.transform.position = new Vector3(coinPositionH[i], coinPositionV[j], -2);
+                        blackaqr3.transform.localPosition = new Vector3(coinPositionH[i], coinPositionV[j], -2);
                     }
                     square++;
                 }
                 if (allCoinsPos[j, i] == 1)
                 {
-                    coin1.transform.position = new Vector3(coinPositionH[i], coinPositionV[j], -2);
                     coin1Pos[0] = i;
                     coin1Pos[1] = j;
+                    coin1.transform.localPosition = new Vector3(coinPositionH[i], coinPositionV[j], -2);
+                    allCoinsPos[j, i] = 1;
                 }
                 if (allCoinsPos[j, i] == 2)
                 {
-                    coin2.transform.position = new Vector3(coinPositionH[i], coinPositionV[j], -2);
+                    
                     coin2Pos[0] = i;
                     coin2Pos[1] = j;
+                    coin2.transform.localPosition = new Vector3(coinPositionH[i], coinPositionV[j], -2);
+                    allCoinsPos[j, i] = 2;
                 }
                 if (allCoinsPos[j, i] == 3)
                 {
-                    coin3.transform.position = new Vector3(coinPositionH[i], coinPositionV[j], -2);
+                    
                     coin3Pos[0] = i;
                     coin3Pos[1] = j;
+                    coin3.transform.localPosition = new Vector3(coinPositionH[i], coinPositionV[j], -2);
+                    allCoinsPos[j, i] = 3;
                 }
                 if (allCoinsPos[j, i] == 4)
                 {
-                    coin4.transform.position = new Vector3(coinPositionH[i], coinPositionV[j], -2);
+                    
                     coin4Pos[0] = i;
                     coin4Pos[1] = j;
+                    coin4.transform.localPosition = new Vector3(coinPositionH[i], coinPositionV[j], -2);
+                    allCoinsPos[j, i] = 4;
                 }
             }
         }
-    }*/
+    }
 
 
 }
