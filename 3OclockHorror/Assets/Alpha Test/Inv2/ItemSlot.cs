@@ -22,18 +22,18 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
     private Color normColor = Color.white;
     private Color disabledColor = new Color(255, 255, 255, 0.1f);
 
-    private Item _item;
-    public Item Item
-    {
-        get { return _item; }
-        set { _item = value;}
-    }
+    public Item Item { get; set; }
 
     public void Awake()
     {
         if (image == null)
         {
             image = GetComponent<Image>();
+        }
+
+        if (onPointerEnterEvent == null)
+        {
+            Debug.LogError("OnPointerEnter for " + this.name + " is empty");
         }
     }
     public void Update()
@@ -45,7 +45,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
         }
         else
         {
-            image.sprite = _item.Icon;
+            image.sprite = Item.Icon;
             image.color = normColor;
         }
     }

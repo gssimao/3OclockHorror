@@ -69,6 +69,10 @@ public class InventoryManager : MonoBehaviour
     #region Event Functions
     private void ShowTooltip(ItemSlot slot)
     {
+//<<<<<<< Updated upstream
+//=======
+        Debug.Log("Entered");
+//>>>>>>> Stashed changes
         if (slot.Item != null)
         {
             //itemTooltip.ShowTooltip(slot.item);
@@ -113,7 +117,6 @@ public class InventoryManager : MonoBehaviour
 
     private void Drop(ItemSlot dropItemSlot)
     {
-        Debug.Log("Dropped slot: " + dropItemSlot.gameObject.name);
         if (dropItemSlot.CanRecieveItem(draggableSlot.Item) && orgSlot.CanRecieveItem(dropItemSlot.Item))
         {
             Item draggedItem = draggableSlot.Item;

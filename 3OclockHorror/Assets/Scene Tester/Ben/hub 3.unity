@@ -502,7 +502,7 @@ GameObject:
   - component: {fileID: 161890801}
   m_Layer: 0
   m_Name: Nightstand
-  m_TagString: Furniture
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -982,6 +982,8 @@ MonoBehaviour:
   room2: {fileID: 104749424}
   entrancePointRoom1: {fileID: 205643287}
   entrancePointRoom2: {fileID: 1306585995}
+  transition: {fileID: 0}
+  transitionTime: 1
 --- !u!1 &231067283
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,6 +1088,8 @@ MonoBehaviour:
   room2: {fileID: 1018398366}
   entrancePointRoom1: {fileID: 1180985354}
   entrancePointRoom2: {fileID: 306654020}
+  transition: {fileID: 0}
+  transitionTime: 1
 --- !u!1001 &336754288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1475,6 +1479,8 @@ MonoBehaviour:
   room2: {fileID: 174658330}
   entrancePointRoom1: {fileID: 430267103}
   entrancePointRoom2: {fileID: 954644663}
+  transition: {fileID: 0}
+  transitionTime: 1
 --- !u!4 &430267106
 Transform:
   m_ObjectHideFlags: 0
@@ -2858,6 +2864,8 @@ MonoBehaviour:
   room2: {fileID: 793953345}
   entrancePointRoom1: {fileID: 853169831}
   entrancePointRoom2: {fileID: 715616142}
+  transition: {fileID: 0}
+  transitionTime: 1
 --- !u!1 &720026072
 GameObject:
   m_ObjectHideFlags: 0
@@ -3807,6 +3815,8 @@ MonoBehaviour:
   room2: {fileID: 793953345}
   entrancePointRoom1: {fileID: 853169831}
   entrancePointRoom2: {fileID: 715616142}
+  transition: {fileID: 1739410304}
+  transitionTime: 1
 --- !u!4 &853169834
 Transform:
   m_ObjectHideFlags: 0
@@ -4004,7 +4014,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 926240656}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.05499277, y: -1.16, z: 0.23999955}
+  m_LocalPosition: {x: 0.05499277, y: -1.16, z: -0.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1862660046}
@@ -4052,6 +4062,8 @@ MonoBehaviour:
   room2: {fileID: 1862660047}
   entrancePointRoom1: {fileID: 1921728916}
   entrancePointRoom2: {fileID: 926240656}
+  transition: {fileID: 0}
+  transitionTime: 1
 --- !u!1001 &951750175
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4179,7 +4191,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 954644663}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071069, w: 0.7071069}
-  m_LocalPosition: {x: 0.95, y: -1.11, z: 0.24}
+  m_LocalPosition: {x: 0.95, y: -1.11, z: -0.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 174658329}
@@ -4227,6 +4239,8 @@ MonoBehaviour:
   room2: {fileID: 174658330}
   entrancePointRoom1: {fileID: 430267103}
   entrancePointRoom2: {fileID: 954644663}
+  transition: {fileID: 0}
+  transitionTime: 1
 --- !u!1 &980751527
 GameObject:
   m_ObjectHideFlags: 0
@@ -5038,6 +5052,8 @@ MonoBehaviour:
   room2: {fileID: 1018398366}
   entrancePointRoom1: {fileID: 1180985354}
   entrancePointRoom2: {fileID: 306654020}
+  transition: {fileID: 0}
+  transitionTime: 1
 --- !u!4 &1180985357
 Transform:
   m_ObjectHideFlags: 0
@@ -5296,6 +5312,8 @@ MonoBehaviour:
   room2: {fileID: 104749424}
   entrancePointRoom1: {fileID: 205643287}
   entrancePointRoom2: {fileID: 1306585995}
+  transition: {fileID: 0}
+  transitionTime: 1
 --- !u!4 &1306585998
 Transform:
   m_ObjectHideFlags: 0
@@ -5304,7 +5322,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1306585995}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.49, y: -1.15, z: -0.15}
+  m_LocalPosition: {x: 0.49, y: -1.15, z: -0.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 104749423}
@@ -5426,7 +5444,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317535671}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91483f620e85b6c43b75f25c40a49436, type: 3}
   m_Name: 
@@ -5631,6 +5649,8 @@ MonoBehaviour:
   room2: {fileID: 104749424}
   entrancePointRoom1: {fileID: 1858094732}
   entrancePointRoom2: {fileID: 1370452961}
+  transition: {fileID: 0}
+  transitionTime: 1
 --- !u!4 &1370452964
 Transform:
   m_ObjectHideFlags: 0
@@ -5639,7 +5659,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1370452961}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.0552769, y: -0.2, z: 0.2319543}
+  m_LocalPosition: {x: 3.0552769, y: -0.2, z: -0.57}
   m_LocalScale: {x: 0.9664766, y: 0.9664762, z: 0.9664762}
   m_Children: []
   m_Father: {fileID: 104749423}
@@ -7019,7 +7039,7 @@ GameObject:
   - component: {fileID: 1688331058}
   m_Layer: 0
   m_Name: Candle
-  m_TagString: Furniture
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7128,7 +7148,6 @@ GameObject:
   - component: {fileID: 1739410302}
   - component: {fileID: 1739410301}
   - component: {fileID: 1739410300}
-  - component: {fileID: 1739410305}
   - component: {fileID: 1739410304}
   m_Layer: 5
   m_Name: Crossfade
@@ -7209,8 +7228,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1795938661}
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 1825635319}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7236,18 +7255,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!225 &1739410305
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1739410299}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
-  m_IgnoreParentGroups: 0
 --- !u!4 &1763197946
 Transform:
   m_ObjectHideFlags: 0
@@ -7441,6 +7448,7 @@ GameObject:
   - component: {fileID: 1795938661}
   - component: {fileID: 1795938663}
   - component: {fileID: 1795938662}
+  - component: {fileID: 1795938664}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -7505,6 +7513,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795938660}
   m_CullTransparentMesh: 0
+--- !u!225 &1795938664
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795938660}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1814381909
 GameObject:
   m_ObjectHideFlags: 0
@@ -7599,6 +7619,7 @@ GameObject:
   - component: {fileID: 1825635319}
   - component: {fileID: 1825635318}
   - component: {fileID: 1825635317}
+  - component: {fileID: 1825635320}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7667,10 +7688,25 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1000.02, y: 6.7, z: -3.36}
   m_LocalScale: {x: 0.25, y: 0.24999996, z: 0.25}
-  m_Children: []
+  m_Children:
+  - {fileID: 1739410303}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1825635320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825635316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7bb32631db6f95408154704853d7b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transition: {fileID: 1739410304}
+  transitionTime: 1
 --- !u!1 &1858094732
 GameObject:
   m_ObjectHideFlags: 0
@@ -7697,7 +7733,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1858094732}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.842, y: -0.314, z: 0.23999941}
+  m_LocalPosition: {x: -2.842, y: -0.314, z: -0.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1862660046}
@@ -7745,6 +7781,8 @@ MonoBehaviour:
   room2: {fileID: 104749424}
   entrancePointRoom1: {fileID: 1858094732}
   entrancePointRoom2: {fileID: 1370452961}
+  transition: {fileID: 0}
+  transitionTime: 1
 --- !u!1 &1862660045
 GameObject:
   m_ObjectHideFlags: 0
@@ -8000,6 +8038,8 @@ MonoBehaviour:
   room2: {fileID: 1862660047}
   entrancePointRoom1: {fileID: 1921728916}
   entrancePointRoom2: {fileID: 926240656}
+  transition: {fileID: 0}
+  transitionTime: 1
 --- !u!4 &1921728919
 Transform:
   m_ObjectHideFlags: 0
@@ -8008,7 +8048,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1921728916}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071069, w: 0.7071069}
-  m_LocalPosition: {x: 0.055, y: 0.37, z: 0.24}
+  m_LocalPosition: {x: 0.055, y: 0.37, z: -0.328}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 174658329}

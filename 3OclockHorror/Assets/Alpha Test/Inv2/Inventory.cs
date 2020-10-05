@@ -35,6 +35,11 @@ public class Inventory : MonoBehaviour, IItemContainer
             AddInvokers(itemSlots[i]);
         }
 
+        if(onPointerEnterEvent == null)
+        {
+            Debug.LogError("OnPointerEnter for " + this.name + " is empty");
+        }
+
         SetStartingItems();
     }
 
@@ -121,13 +126,7 @@ public class Inventory : MonoBehaviour, IItemContainer
         itemSlots = itemsParent.GetComponentsInChildren<ItemSlot>();
         for (int i = 0; i < itemSlots.Length; i++)
         {
-            itemSlots[i].onPointerEnterEvent += onPointerEnterEvent;
-            itemSlots[i].onPointerExitEvent += onPointerExitEvent;
-            itemSlots[i].onRightClickEvent += onRightClickEvent;
-            itemSlots[i].onBeginDragEvent += onBeginDragEvent;
-            itemSlots[i].onEndDragEvent += onEndDragEvent;
-            itemSlots[i].onDragEvent += onDragEvent;
-            itemSlots[i].onDropEvent += onDropEvent;
+            AddInvokers(itemSlots[i]);
         }
         SetStartingItems();
     }
@@ -145,13 +144,7 @@ public class Inventory : MonoBehaviour, IItemContainer
         }
         for (int i = 0; i < itemSlots.Length; i++)
         {
-            itemSlots[i].onPointerEnterEvent -= onPointerEnterEvent;
-            itemSlots[i].onPointerExitEvent -= onPointerExitEvent;
-            itemSlots[i].onRightClickEvent -= onRightClickEvent;
-            itemSlots[i].onBeginDragEvent -= onBeginDragEvent;
-            itemSlots[i].onEndDragEvent -= onEndDragEvent;
-            itemSlots[i].onDragEvent -= onDragEvent;
-            itemSlots[i].onDropEvent -= onDropEvent;
+            RemoveInvokers(itemSlots[i]);
         }
         itemSlots = null;
     }
@@ -170,5 +163,15 @@ public class Inventory : MonoBehaviour, IItemContainer
         slot.onEndDragEvent += onEndDragEvent;
         slot.onDragEvent += onDragEvent;
         slot.onDropEvent += onDropEvent;
+    }
+    public void RemoveInvokers(ItemSlot slot)
+    {
+        slot.onPointerEnterEvent -= onPointerEnterEvent;
+        slot.onPointerExitEvent -= onPointerExitEvent;
+        slot.onRightClickEvent -= onRightClickEvent;
+        slot.onBeginDragEvent -= onBeginDragEvent;
+        slot.onEndDragEvent -= onEndDragEvent;
+        slot.onDragEvent -= onDragEvent;
+        slot.onDropEvent -= onDropEvent;
     }
 }
