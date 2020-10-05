@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
 
-public class CameraTransition : MonoBehaviour
+public class StairTransition : MonoBehaviour
 {
     public Animator transition;
 
     public float transitionTime = 1f;
 
-    public void CameraCrossfade()
+    public void PlayTransition()
     {
-        StartCoroutine(ChangeCamera());
+        StartCoroutine(PlayAnimation());
     }
 
-    IEnumerator ChangeCamera()
+    IEnumerator PlayAnimation()
     {
         transition.SetTrigger("Start");
 

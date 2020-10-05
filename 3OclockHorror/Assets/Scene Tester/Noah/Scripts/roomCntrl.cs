@@ -11,8 +11,7 @@ public class roomCntrl : MonoBehaviour
     public GameObject entrancePointRoom2;
 
     public Animator transition;
-    public float transitionTime = 0.5f;
-
+    float transitionTime = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,15 +37,11 @@ public class roomCntrl : MonoBehaviour
             {
                 if(player.myRoom == room1) //Check the room states then update as necessary
                 {
-                    CameraCrossfade();
-                    player.myRoom = room2;
-                    collision.transform.position = entrancePointRoom2.transform.position + tmp;
+                    CameraCrossfade(collision, entrancePointRoom2, tmp, player, room2);
                 }
                 else
                 {
-                    CameraCrossfade();
-                    player.myRoom = room1;
-                    collision.transform.position = entrancePointRoom1.transform.position + tmp;
+                    CameraCrossfade(collision, entrancePointRoom1, tmp, player, room1);
                 }
             }
         }
@@ -65,18 +60,25 @@ public class roomCntrl : MonoBehaviour
                     exe.myRoom = room1;
                 }
             }
+
         }
     }
 
-    public void CameraCrossfade()
+    public void CameraCrossfade(Collider2D player, GameObject entranceP, Vector3 tmp, PlayerMovement play, room RoomNum)
     {
-        StartCoroutine(ChangeCamera());
+        StartCoroutine(ChangeCamera(player, entranceP, tmp, play, RoomNum));
     }
 
-    IEnumerator ChangeCamera()
+    IEnumerator ChangeCamera(Collider2D player, GameObject entranceP, Vector3 tmp, PlayerMovement play, room RoomNum)
     {
         transition.SetTrigger("Start");
 
+        player.transform.position = entranceP.transform.position + tmp;
+
         yield return new WaitForSeconds(transitionTime);
+
+        transition.SetTrigger("End");
+
+        play.myRoom = RoomNum;
     }
 }
