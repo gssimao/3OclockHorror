@@ -22,7 +22,6 @@ public class TableManager : MonoBehaviour
                                                      // {j,i}
     public int[,] allCoinsPos = new int[3, 4] // this store the current position of the coins in a 2d array for easy scanning //  this is being used on the cueCoinUpdate() function
     {
-<<<<<<< HEAD
     {0, 0, 5, 0},
     {0, 0, 0, 0}, //this is very important add 5 to creat blocked space
     {1, 2, 3, 4}
@@ -50,12 +49,13 @@ public class TableManager : MonoBehaviour
      * 
      * 
      */
+    /*
     //{Horizonta , Vertical}
-=======
     {0, 0, 0, 0},
     {0, 0, 0, 0}, //this is very important add 5 to creat blocked space
     {1, 2, 3, 4}
     };
+    */
 
     public int[,] puzzleAnswer = new int[3, 4] // this store the current position of the coins in a 2d array for easy scanning //  this is being used on the cueCoinUpdate() function
     {
@@ -66,7 +66,6 @@ public class TableManager : MonoBehaviour
 
 
     //{Horizonta , Vertical} {i,j} where they are in the table
->>>>>>> master
     public int[] coin1Pos = new int[] { 0, 2 }; //first number is PositionH // second number is PoitionV
     public int[] coin2Pos = new int[] { 1, 2 };
     public int[] coin3Pos = new int[] { 2, 2 };
