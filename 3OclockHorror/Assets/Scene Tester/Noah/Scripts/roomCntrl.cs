@@ -39,7 +39,7 @@ public class roomCntrl : MonoBehaviour
                 {
                     CameraCrossfade(collision, entrancePointRoom2, tmp, player, room2);
                 }
-                else
+                else// player.myRoom == room2
                 {
                     CameraCrossfade(collision, entrancePointRoom1, tmp, player, room1);
                 }
