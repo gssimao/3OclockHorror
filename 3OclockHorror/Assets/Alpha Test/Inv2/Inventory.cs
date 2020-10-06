@@ -35,11 +35,6 @@ public class Inventory : MonoBehaviour, IItemContainer
             AddInvokers(itemSlots[i]);
         }
 
-        if(onPointerEnterEvent == null)
-        {
-            Debug.LogError("OnPointerEnter for " + this.name + " is empty");
-        }
-
         SetStartingItems();
     }
 
@@ -69,6 +64,7 @@ public class Inventory : MonoBehaviour, IItemContainer
         }
         return false;
     }
+
     public bool RemoveItem(Item item)
     {
         for (int i = 0; i < itemSlots.Length; i++)

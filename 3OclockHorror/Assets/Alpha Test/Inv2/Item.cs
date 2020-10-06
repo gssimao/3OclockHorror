@@ -6,12 +6,10 @@ using UnityEngine;
 public class Item : ScriptableObject
 {
     //Name, icon, and descriptions
-    public string ItemName;
-    public Sprite Icon;
-    public string desc;
-    public string text;
+    public string ItemName; //Name of the Item
+    public Sprite Icon; //The Item Icon
+    public string desc; //A description of what the item is
 
     //Location Variables
     public bool rand;
-
 }

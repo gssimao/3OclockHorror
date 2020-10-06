@@ -30,11 +30,6 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
         {
             image = GetComponent<Image>();
         }
-
-        if (onPointerEnterEvent == null)
-        {
-            Debug.LogError("OnPointerEnter for " + this.name + " is empty");
-        }
     }
     public void Update()
     {

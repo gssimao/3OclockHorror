@@ -69,10 +69,6 @@ public class InventoryManager : MonoBehaviour
     #region Event Functions
     private void ShowTooltip(ItemSlot slot)
     {
-//<<<<<<< Updated upstream
-//=======
-        Debug.Log("Entered");
-//>>>>>>> Stashed changes
         if (slot.Item != null)
         {
             //itemTooltip.ShowTooltip(slot.item);
