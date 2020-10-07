@@ -120,6 +120,11 @@ public class InventoryManager : MonoBehaviour
             dropItemSlot.Item = draggedItem;
 
             dropped = true;
+
+            if (draggedItem.Note && dropItemSlot.PlayerInv)
+            {
+                draggedItem.SetNextNote();
+            }
         }
     }
     #endregion

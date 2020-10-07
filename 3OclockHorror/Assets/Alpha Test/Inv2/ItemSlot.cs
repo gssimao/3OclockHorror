@@ -23,6 +23,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
     private Color disabledColor = new Color(255, 255, 255, 0.1f);
 
     public Item Item { get; set; }
+    public bool PlayerInv;
 
     public void Awake()
     {
@@ -55,7 +56,6 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Slot entered");
         onPointerEnterEvent?.Invoke(this);
     }
 

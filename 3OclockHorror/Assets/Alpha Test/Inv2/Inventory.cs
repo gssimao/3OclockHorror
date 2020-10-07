@@ -13,6 +13,9 @@ public class Inventory : MonoBehaviour, IItemContainer
     [SerializeField]
     Transform itemsParent;
 
+    [SerializeField]
+    bool PInv;
+
     public event Action<ItemSlot> onPointerEnterEvent;
     public event Action<ItemSlot> onPointerExitEvent;
     public event Action<ItemSlot> onRightClickEvent;
@@ -33,6 +36,10 @@ public class Inventory : MonoBehaviour, IItemContainer
         for (int i = 0; i < itemSlots.Length; i++)
         {
             AddInvokers(itemSlots[i]);
+            if (PInv)
+            {
+                itemSlots[i].PlayerInv = true;
+            }
         }
 
         SetStartingItems();
