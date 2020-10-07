@@ -1281,14 +1281,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b982c7fca211cd449950ebf61f67d8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixerGroup: {fileID: 24300002, guid: 0943e0b23b5b5294cbc3c5ba8f72c24f, type: 2}
+  mixerGroup: {fileID: 0}
   sounds:
-  - name: wind
+  - name: Player Footsteps
+    clip: {fileID: 8300000, guid: bbbf013c78e1283428f2e3978f81074c, type: 3}
+    volume: 0
+    pitch: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Match Strike
+    clip: {fileID: 8300000, guid: ce8429d568acec943acb26c771321248, type: 3}
+    volume: 0
+    pitch: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Candle Light
+    clip: {fileID: 8300000, guid: 37a9309358c2d664ea12f6a4b5238a16, type: 3}
+    volume: 0
+    pitch: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Heavy Wind
     clip: {fileID: 8300000, guid: 7e37e78550c33d648b81aba03a658387, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 1
-    mixerGroup: {fileID: 24300002, guid: 0943e0b23b5b5294cbc3c5ba8f72c24f, type: 2}
+    volume: 0
+    pitch: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Door Open
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
     source: {fileID: 0}
 --- !u!4 &540872598
 Transform:

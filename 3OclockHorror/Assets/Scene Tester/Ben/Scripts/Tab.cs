@@ -18,7 +18,7 @@ public class Tab : MonoBehaviour
         itemSlots = itemSlotsGrid.GetComponentsInChildren<ItemSlot>();
         for (int i = 0; i < itemSlots.Length; i++)
         {
-            invItems = itemSlots[].Item;
+            invItems = itemSlots[20].Item;
         }
 
         return invItems;
