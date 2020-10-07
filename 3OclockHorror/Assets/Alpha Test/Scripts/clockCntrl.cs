@@ -43,12 +43,10 @@ public class clockCntrl : MonoBehaviour
         {
             watcher.SetActive(true);
         }
-        /* - Enable once we at least have a sprite
         if(Time.time >= 240)
         {
             creep.SetActive(true);
         }
-        */
     }
 
     public void adjustEndTime(float tta) //Takes time to adjust by, adjusts time by that amount - likely only neg values but takes either or

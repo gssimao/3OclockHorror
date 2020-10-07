@@ -22,10 +22,6 @@ public class InvRandomizer : MonoBehaviour
             if (item.rand) //If the item should be randomized (Technically redundant but make sure we're randomizing randomizables)
             {
                 int indx = Random.Range(0, inventories.Length); //Get a random index for the item
-                while (inventories[indx].IsFull()) //Check if its full
-                {
-                    indx = Random.Range(0, inventories.Length); //If so, grab a new one 
-                }
                 inventories[indx].AddStartingItem(item); //Place the item in the selected container
             }
         }
