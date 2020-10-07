@@ -22,7 +22,7 @@ public class TableManager : MonoBehaviour
                                                      // {j,i}
     public int[,] allCoinsPos = new int[3, 4] // this store the current position of the coins in a 2d array for easy scanning //  this is being used on the cueCoinUpdate() function
     {
-    {0, 0, 5, 0},
+    {0, 0, 0, 0},
     {0, 0, 0, 0}, //this is very important add 5 to creat blocked space
     {1, 2, 3, 4}
     };
