@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -95,12 +94,13 @@ public class InventoryManager : MonoBehaviour
 
     private void EndDrag(ItemSlot slot)
     {
-        draggableSlot.gameObject.SetActive(false);
-
-        if (!dropped)
+        if (!dropped && draggableSlot.Item != null)
         {
             orgSlot.Item = draggableSlot.Item;
         }
+
+        draggableSlot.Item = null;
+        draggableSlot.gameObject.SetActive(false);
     }
 
     private void Drag(ItemSlot slot)
