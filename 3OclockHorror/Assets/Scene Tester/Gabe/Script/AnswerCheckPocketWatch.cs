@@ -7,15 +7,26 @@ public class AnswerCheckPocketWatch : MonoBehaviour
     public GameObject bigGear;
     public GameObject medGear;
     public GameObject smallGear;
+    
+    private int answerMed;
+    private int answerBig;
+    private int answerSmall;
 
-    public int answerBig;
-    public int answerMed;
-    public int answerSmall;
+    public int showAnswerMed;
+    public int showAnswerBig;
+    public int showAnswerSmall;
+
     private void Start()
     {
         answerBig = Random.Range(0, 12);
         answerMed = Random.Range(0, 5);
         answerSmall = Random.Range(0, 2);
+
+        showAnswerBig = answerBig + 1;
+        showAnswerMed = answerMed + 1;
+        showAnswerSmall = answerSmall + 1;
+
+
     }
 
     // Update is called once per frame
