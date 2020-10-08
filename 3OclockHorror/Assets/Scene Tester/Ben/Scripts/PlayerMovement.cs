@@ -13,6 +13,11 @@ public class PlayerMovement : MonoBehaviour
     public Camera camera;
     public Vector2 movement;
 
+    void Start()
+    {
+        invUI.SetActive(false);    
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -21,6 +26,11 @@ public class PlayerMovement : MonoBehaviour
         {
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
+        }
+        else
+        {
+            movement.x = 0;
+            movement.y = 0;
         }
 
         if(movement.x < 0)

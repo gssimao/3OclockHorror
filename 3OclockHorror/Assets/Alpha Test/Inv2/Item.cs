@@ -45,15 +45,11 @@ public class Item : ScriptableObject
 
     public void SetContainers()
     {
+        Containers.Clear();
         GameObject[] cnts = GameObject.FindGameObjectsWithTag("Container");
         foreach (GameObject obj in cnts)
         {
             Containers.Add(obj.GetComponent<Inventory>());
-            Debug.Log("Obj Name: " + obj.name);
-        }
-        foreach(Inventory cont in Containers)
-        {
-            Debug.Log("Name: " + cont.name);
         }
     }
 
