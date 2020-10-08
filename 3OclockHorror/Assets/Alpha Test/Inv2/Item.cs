@@ -21,40 +21,51 @@ public class Item : ScriptableObject
     List<Inventory> Containers;
     [SerializeField]
     Item nextNote;
+    [SerializeField]
+    Item Key;
 
+    Inventory lib;
 
     public void SetNextNote()
     {
-        if (nextNote != null)
+        if (nextNote != null) //I am not the last note
         {
-            int indx = Random.Range(0, Containers.Count - 1); //Generate an index for the room
+            int indx = Random.Range(0, Containers.Count); //Generate an index for the room
 
             string room = Containers[indx].gameObject.GetComponentInParent<room>().getName(); //Get the room name
+            Containers[indx].OpenInv();
             Containers[indx].AddItem(nextNote); //Add the item to the inventory
+            Containers[indx].CloseInv();
             Containers.RemoveAt(indx); //Remove the container
-            nextNote.PassContainers(Containers); //Pass along the list for the next item;
+            nextNote.PassContainers(Containers, lib, Key); //Pass along the list for the next item;
 
             text = text.Replace("***", room); //Replace the *** with the room that was selected
         }
+        if(nextNote == null) //I am the last note
+        {
+            text = text.Replace("***", "Library");
+            lib.OpenInv();
+            lib.AddItem(Key);
+            lib.CloseInv();
+        }
     }
 
-    public void PassContainers(List<Inventory> Containers)
+    public void PassContainers(List<Inventory> Containers, Inventory Lib, Item key)
     {
         this.Containers = Containers;
+        this.lib = Lib;
+        this.Key = key;
     }
 
-    public void SetContainers()
+    public void SetContainers(Inventory Lib)
     {
-        GameObject[] cnts = GameObject.FindGameObjectsWithTag("Container");
+        Containers.Clear();
+        GameObject[] cnts = GameObject.FindGameObjectsWithTag("NoteContainer");
         foreach (GameObject obj in cnts)
         {
             Containers.Add(obj.GetComponent<Inventory>());
-            Debug.Log("Obj Name: " + obj.name);
         }
-        foreach(Inventory cont in Containers)
-        {
-            Debug.Log("Name: " + cont.name);
-        }
+        lib = Lib;
     }
 
     #endregion

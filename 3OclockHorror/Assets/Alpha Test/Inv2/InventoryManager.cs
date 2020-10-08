@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -71,7 +70,7 @@ public class InventoryManager : MonoBehaviour
     {
         if (slot.Item != null)
         {
-            //itemTooltip.ShowTooltip(slot.item);
+            //itemTooltip.ShowTooltip(slot.Item);
         }
     }
 
@@ -91,16 +90,21 @@ public class InventoryManager : MonoBehaviour
             slot.Item = null;
             dropped = false;
         }
+        else if(slot.Item == null)
+        {
+            draggableSlot.gameObject.SetActive(false);
+        }
     }
 
     private void EndDrag(ItemSlot slot)
     {
-        draggableSlot.gameObject.SetActive(false);
-
-        if (!dropped)
+        if (!dropped && draggableSlot.Item != null)
         {
             orgSlot.Item = draggableSlot.Item;
         }
+
+        draggableSlot.Item = null;
+        draggableSlot.gameObject.SetActive(false);
     }
 
     private void Drag(ItemSlot slot)
@@ -113,17 +117,20 @@ public class InventoryManager : MonoBehaviour
 
     private void Drop(ItemSlot dropItemSlot)
     {
-        if (dropItemSlot.CanRecieveItem(draggableSlot.Item) && orgSlot.CanRecieveItem(dropItemSlot.Item))
+        if (draggableSlot.Item != null)
         {
-            Item draggedItem = draggableSlot.Item;
-            orgSlot.Item = dropItemSlot.Item;
-            dropItemSlot.Item = draggedItem;
-
-            dropped = true;
-
-            if (draggedItem.Note && dropItemSlot.PlayerInv)
+            if (dropItemSlot.CanRecieveItem(draggableSlot.Item) && orgSlot.CanRecieveItem(dropItemSlot.Item))
             {
-                draggedItem.SetNextNote();
+                Item draggedItem = draggableSlot.Item;
+                orgSlot.Item = dropItemSlot.Item;
+                dropItemSlot.Item = draggedItem;
+
+                dropped = true;
+
+                if (draggedItem.Note && dropItemSlot.PlayerInv)
+                {
+                    draggedItem.SetNextNote();
+                }
             }
         }
     }
