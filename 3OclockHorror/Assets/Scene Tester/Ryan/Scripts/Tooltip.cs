@@ -17,7 +17,7 @@ public class Tooltip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameObject.Find("Player2").GetComponent<PlayerMovement>().walking == false && walked == false)
+        if(GameObject.Find("Player2").GetComponent<PlayerMovement>().walking == true && walked == false)
         {
             TooltipText.text = "";
             walked = true;
