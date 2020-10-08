@@ -16,6 +16,7 @@ public class Inventory : MonoBehaviour, IItemContainer
     [SerializeField]
     bool PInv;
 
+    public bool active;
     public event Action<ItemSlot> onPointerEnterEvent;
     public event Action<ItemSlot> onPointerExitEvent;
     public event Action<ItemSlot> onRightClickEvent;
@@ -132,6 +133,7 @@ public class Inventory : MonoBehaviour, IItemContainer
             AddInvokers(itemSlots[i]);
         }
         SetStartingItems();
+        active = true;
     }
 
     //Properly close a dynamic inventory.
@@ -150,6 +152,7 @@ public class Inventory : MonoBehaviour, IItemContainer
             RemoveInvokers(itemSlots[i]);
         }
         itemSlots = null;
+        active = false;
     }
 
     public void AddStartingItem(Item item)

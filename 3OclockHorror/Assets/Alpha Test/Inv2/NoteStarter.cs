@@ -13,7 +13,7 @@ public class NoteStarter : MonoBehaviour
     {
         if (Note1.Note)
         {
-            Note1.SetContainers(lib);
+            Note1.SetContainers(lib, lib);
         }
     }
 }

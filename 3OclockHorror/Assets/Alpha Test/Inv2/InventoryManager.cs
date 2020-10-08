@@ -9,8 +9,8 @@ public class InventoryManager : MonoBehaviour
     Inventory inventory;
     [SerializeField]
     Inventory craftInventory;
-    //[SerializeField]
-    //ItemTooltip itemTooltip;
+    [SerializeField]
+    ItemTooltip itemTooltip;
     [SerializeField]
     ItemSlot draggableSlot;
 
@@ -70,13 +70,13 @@ public class InventoryManager : MonoBehaviour
     {
         if (slot.Item != null)
         {
-            //itemTooltip.ShowTooltip(slot.Item);
+            itemTooltip.ShowTooltip(slot.Item);
         }
     }
 
     private void HideTooltip(ItemSlot slot)
     {
-        //itemTooltip.HideTooltip();
+        itemTooltip.HideTooltip();
     }
 
     private void BeginDrag(ItemSlot slot)
@@ -130,6 +130,7 @@ public class InventoryManager : MonoBehaviour
                 if (draggedItem.Note && dropItemSlot.PlayerInv)
                 {
                     draggedItem.SetNextNote();
+                    draggedItem.isRead = true;
                 }
             }
         }
