@@ -9,16 +9,16 @@ public class Tab : MonoBehaviour
 
     ItemSlot[] itemSlots;
 
-    Item invItems;
+    Item[] invItems;
 
     #region Get/Set
 
-    public Item getItems()
+    public Item[] getItems()
     {
         itemSlots = itemSlotsGrid.GetComponentsInChildren<ItemSlot>();
         for (int i = 0; i < itemSlots.Length; i++)
         {
-            invItems = itemSlots[20].Item;
+            invItems[i] = itemSlots[i].Item;
         }
 
         return invItems;
