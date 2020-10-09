@@ -9,6 +9,8 @@ public class clockCntrl : MonoBehaviour
     float endTime; //Stores the current end time, allows easier modification than tracking and moding systime directly
     float timePercent; //Hud controller variable, not necessary beyond using slider to display time - will be oudated once clock is added
     public Slider timeHud; //Slider itself, used to display time
+    public int WatcherTime = 120;
+    public int CreepTime = 240;
 
     [SerializeField]
     GameObject watcher;
@@ -39,11 +41,11 @@ public class clockCntrl : MonoBehaviour
         }
 
         //Check for events
-        if(Time.time >= 120)
+        if(Time.time >= WatcherTime)
         {
             watcher.SetActive(true);
         }
-        if(Time.time >= 240)
+        if(Time.time >= CreepTime)
         {
             creep.SetActive(true);
         }

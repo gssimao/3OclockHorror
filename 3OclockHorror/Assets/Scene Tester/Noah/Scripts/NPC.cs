@@ -8,6 +8,7 @@ public class NPC : MonoBehaviour
 {
     //Public (editor assigned) Variables
     public GameObject player; //The player target for the Blind Creep to head towards / check against
+    public Animator anim;
     //Watcher reference as well perhaps?
 
     //Internals
@@ -62,6 +63,26 @@ public class NPC : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+
+    void Update()
+    {
+        if(rb.velocity.x > 0)
+        {
+            anim.SetBool("walkingright", true);
+        }
+        else
+        {
+            anim.SetBool("walkingright", false);
+        }
+        if(rb.velocity.x < 0)
+        {
+            anim.SetBool("walkingleft", true);
+        }
+        else
+        {
+            anim.SetBool("walkingleft", false);
         }
     }
 
