@@ -13,7 +13,7 @@ public class workbench_cntrl : MonoBehaviour
     GameObject myInvDisplay;
     [SerializeField]
     InventoryManager IM;
-    bool active; //Am I the active workbench inventory?
+    bool active; //Am I the active workbench?
 
     private void Start()
     {

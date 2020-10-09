@@ -38,25 +38,16 @@ public class Item : ScriptableObject
             int indx = Random.Range(0, Containers.Count-1); //Generate an index for the room
 
             string room = Containers[indx].gameObject.GetComponentInParent<room>().getName(); //Get the room name
-            Containers[indx].OpenInv();
-            Containers[indx].AddItem(nextNote); //Add the item to the inventory
-            Containers[indx].CloseInv();
-            myInv.OpenInv();
+            Containers[indx].AddStartingItem(nextNote); //Add the item to the inventory
             Containers.RemoveAt(indx); //Remove the container
             nextNote.PassContainers(Containers, lib, Key, Containers[indx]); //Pass along the list for the next item;
-            if (myInv.ContainsItem(nextNote))
-            {
-                myInv.RemoveItem(nextNote);
-            }
 
             text = text.Replace("***", room); //Replace the *** with the room that was selected
         }
         if(nextNote == null) //I am the last note
         {
             text = text.Replace("***", "Library");
-            lib.OpenInv();
-            lib.AddItem(Key);
-            lib.CloseInv();
+            lib.AddStartingItem(Key);
         }
     }
 
@@ -75,6 +66,10 @@ public class Item : ScriptableObject
         foreach (GameObject obj in cnts)
         {
             Containers.Add(obj.GetComponent<Inventory>());
+        }
+        foreach(Inventory inv in Containers)
+        {
+            Debug.Log("Name: " + inv.name);
         }
         lib = Lib;
         isRead = false;
