@@ -23,7 +23,7 @@ public class TableManager : MonoBehaviour
     public int[,] allCoinsPos = new int[3, 4] // this store the current position of the coins in a 2d array for easy scanning //  this is being used on the cueCoinUpdate() function
     {
     {0, 0, 0, 0},
-    {0, 0, 0, 0}, //this is very important add 5 to creat blocked space
+    {5, 5, 5, 0}, //this is very important add 5 to creat blocked space
     {1, 2, 3, 4}
     };
 
@@ -46,8 +46,12 @@ public class TableManager : MonoBehaviour
      * solution 2 path
      * r,r,r,r,l,r,r,r,r,r,l,r,r,r,r,r,r,r,r,l,l,l,r,r,r,r,l,l,r
      * 
-     * 
-     * 
+     * solution 3
+     * {4, 3, 2, 1}
+     * {5, 5, 5, 0}
+     * {0, 0, 0, 0}
+     * solution 3 path
+     * r,r,l,r,l,r,r,l,l,r,l,r,r,l,l,r,r,l,
      */
     /*
     //{Horizonta , Vertical}
