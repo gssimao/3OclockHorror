@@ -31,6 +31,7 @@ public class CandleScript : MonoBehaviour
             }
             else
             {
+                FindObjectOfType<AudioManager>().Play("Candle_Light");
                 flame.enabled = true;
             }
         }

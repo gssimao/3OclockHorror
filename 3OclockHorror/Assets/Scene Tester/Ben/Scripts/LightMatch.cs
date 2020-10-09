@@ -22,6 +22,7 @@ public class LightMatch : MonoBehaviour
         if (Input.GetKeyDown("q") && timerLock == true)
         {
             match.enabled = true;
+            FindObjectOfType<AudioManager>().Play("Match Strike");
             timerLock = false;
         }
 

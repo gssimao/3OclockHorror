@@ -36,12 +36,13 @@ public class LockUnlock : MonoBehaviour
                         timer = ov;
                         textBox.text = "Press E to unlock the door";
 
-                        if (Input.GetKeyDown("e"))
+                        if (Input.GetKeyDown("e")) // **E IS CURRENTLY INVENTORY BUTTON. CHANGE ONE OF THEM**
                         {
                             isLocked = false;
                             hasKey = false;
                             timer = ov;
                             textBox.text = "The door was unlocked";
+                            FindObjectOfType<AudioManager>().Play("LockUnlock");
                         }
                     }
                     else
@@ -50,6 +51,7 @@ public class LockUnlock : MonoBehaviour
                         {
                             timer = ov;
                             textBox.text = "The door is locked, You need a key";
+                            FindObjectOfType<AudioManager>().Play("LockUnlock");
                         }
                     }
                 }
