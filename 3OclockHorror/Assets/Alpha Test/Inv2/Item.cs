@@ -48,10 +48,6 @@ public class Item : ScriptableObject
             {
                 myInv.RemoveItem(nextNote);
             }
-            if (myInv.ContainsItem(this))
-            {
-                myInv.RemoveItem(this);
-            }
 
             text = text.Replace("***", room); //Replace the *** with the room that was selected
         }
