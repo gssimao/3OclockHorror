@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class AnswerCheckPocketWatch : MonoBehaviour
 {
@@ -16,16 +18,32 @@ public class AnswerCheckPocketWatch : MonoBehaviour
     public int showAnswerBig;
     public int showAnswerSmall;
 
+    public Text BigText;
+    public Text MedText;
+    public Text SmallText;
+
     private void Start()
     {
         answerBig = Random.Range(0, 12);
         answerMed = Random.Range(0, 5);
         answerSmall = Random.Range(0, 2);
+        while(answerBig == answerMed || answerSmall == answerMed)
+        {
+            answerMed = Random.Range(0, 5);
+        }
+
+        while (answerBig == answerSmall || answerSmall == answerMed)
+        {
+            answerSmall = Random.Range(0, 2);
+        }
 
         showAnswerBig = answerBig + 1;
         showAnswerMed = answerMed + 1;
         showAnswerSmall = answerSmall + 1;
 
+        BigText.text = showAnswerBig.ToString();
+        MedText.text = showAnswerMed.ToString();
+        SmallText.text = showAnswerSmall.ToString();
 
     }
 

@@ -174,6 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 26492350}
+  PlayerInv: 0
 --- !u!114 &26492350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,6 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 118201360}
+  PlayerInv: 0
 --- !u!114 &118201360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,6 +384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 119239961}
+  PlayerInv: 0
 --- !u!114 &119239961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -712,9 +715,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 11400000, guid: 6336bbc54c39b4e49a59866f27525623, type: 2}
+  - {fileID: 0}
   itemSlots: []
   itemsParent: {fileID: 1073939362}
+  PInv: 0
+  active: 0
 --- !u!61 &219442151
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -934,6 +939,8 @@ MonoBehaviour:
   items: []
   itemSlots: []
   itemsParent: {fileID: 768762544}
+  PInv: 0
+  active: 0
 --- !u!1 &262698618
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,6 +992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 262698621}
+  PlayerInv: 0
 --- !u!114 &262698621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1074,6 +1082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 335393420}
+  PlayerInv: 0
 --- !u!114 &335393420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1462,6 +1471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 402798354}
+  PlayerInv: 0
 --- !u!114 &402798354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1551,6 +1561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 423705972}
+  PlayerInv: 0
 --- !u!114 &423705972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1640,6 +1651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 492904656}
+  PlayerInv: 0
 --- !u!114 &492904656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1916,6 +1928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 521159951}
+  PlayerInv: 0
 --- !u!114 &521159951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2106,6 +2119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 720749571}
+  PlayerInv: 0
 --- !u!114 &720749571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2193,6 +2207,8 @@ MonoBehaviour:
   items: []
   itemSlots: []
   itemsParent: {fileID: 768762544}
+  PInv: 0
+  active: 0
 --- !u!114 &753190289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2718,6 +2734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 885039467}
+  PlayerInv: 0
 --- !u!114 &885039467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2807,6 +2824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 981385689}
+  PlayerInv: 0
 --- !u!114 &981385689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2995,11 +3013,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 11400000, guid: 6336bbc54c39b4e49a59866f27525623, type: 2}
-  - {fileID: 11400000, guid: eb776cc5b60ca41419e4dd84b801a73e, type: 2}
-  - {fileID: 11400000, guid: 30df7da19545cbe479448884f2703e10, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   itemSlots: []
   itemsParent: {fileID: 1038013228}
+  PInv: 0
+  active: 0
 --- !u!114 &1038013230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3432,9 +3452,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1437238703}
+  anim: {fileID: 0}
   myRoom: {fileID: 1117723684}
   speed: 5
   nWPD: 0.1
+  movement: {x: 0, y: 0}
 --- !u!212 &1273056455
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3638,6 +3660,8 @@ MonoBehaviour:
   items: []
   itemSlots: []
   itemsParent: {fileID: 1714609424}
+  PInv: 0
+  active: 0
 --- !u!114 &1323408547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3813,6 +3837,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 1038013229}
   craftInventory: {fileID: 1323408546}
+  itemTooltip: {fileID: 0}
   draggableSlot: {fileID: 2122085561}
   craftField: {fileID: 1323408543}
 --- !u!1 &1409408687
@@ -4151,6 +4176,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeHud: {fileID: 500637910}
+  WatcherTime: 120
+  CreepTime: 240
   watcher: {fileID: 866394752}
   creep: {fileID: 1273056453}
 --- !u!114 &1437238710
@@ -4184,6 +4211,7 @@ MonoBehaviour:
   rb: {fileID: 1437238707}
   walking: 0
   camera: {fileID: 1352317290}
+  movement: {x: 0, y: 0}
 --- !u!4 &1437238712
 Transform:
   m_ObjectHideFlags: 0
@@ -4381,6 +4409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1477737533}
+  PlayerInv: 0
 --- !u!114 &1477737533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4549,6 +4578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1588090862}
+  PlayerInv: 0
 --- !u!114 &1588090862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4638,6 +4668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1685303923}
+  PlayerInv: 0
 --- !u!114 &1685303923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4838,6 +4869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1771318496}
+  PlayerInv: 0
 --- !u!114 &1771318496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4934,7 +4966,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.43529415, b: 0, a: 1}
+  m_Color: {r: 0.6117647, g: 0.30980393, b: 0, a: 1}
   m_Intensity: 4
   m_Range: 10
   m_SpotAngle: 30
@@ -5300,6 +5332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1937103453}
+  PlayerInv: 0
 --- !u!114 &1937103453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5823,6 +5856,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 2122085562}
+  PlayerInv: 0
 --- !u!114 &2122085562
 MonoBehaviour:
   m_ObjectHideFlags: 0

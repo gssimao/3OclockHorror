@@ -15,9 +15,10 @@ public class ItemTooltip : MonoBehaviour
     {
         if (gameObject.activeSelf)
         {
-            Vector2 movePos = new Vector2(Input.mousePosition.x + 150f, Input.mousePosition.y - 75f);
+            Vector2 movePos = new Vector2(Input.mousePosition.x + 200f, Input.mousePosition.y - 100f);
             transform.position = movePos;
-        } 
+        }
+        
     }
 
     public void ShowTooltip(Item item)
