@@ -24,14 +24,7 @@ public class ItemTooltip : MonoBehaviour
     public void ShowTooltip(Item item)
     {
         ItemName.text = item.ItemName;
-        if (item.Note && item.isRead)
-        {
-            Desc.text = item.text;
-        }
-        else
-        {
-            Desc.text = item.desc;
-        }
+        Desc.text = item.desc;
         gameObject.SetActive(true);
     }
     public void HideTooltip()

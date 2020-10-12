@@ -48,7 +48,7 @@ public class Inventory : MonoBehaviour, IItemContainer
 
     public void SetStartingItems()
     {
-        int i = 0;
+        int i;
         for(i = 0; i < items.Count && i < itemSlots.Length; i++)
         {
             itemSlots[i].Item = items[i];
@@ -146,10 +146,7 @@ public class Inventory : MonoBehaviour, IItemContainer
             {
                 items.Add(slot.Item);
             }
-        }
-        for (int i = 0; i < itemSlots.Length; i++)
-        {
-            RemoveInvokers(itemSlots[i]);
+            RemoveInvokers(slot);
         }
         itemSlots = null;
         active = false;

@@ -129,7 +129,7 @@ public class InventoryManager : MonoBehaviour
 
                 if (draggedItem.Note && dropItemSlot.PlayerInv)
                 {
-                    draggedItem.SetNextNote();
+                    draggedItem.NextNoteInit();
                     draggedItem.isRead = true;
                 }
             }

@@ -5,15 +5,40 @@ using UnityEngine;
 public class NoteStarter : MonoBehaviour
 {
     [SerializeField]
-    Item Note1;
-    [SerializeField]
-    Inventory lib;
+    List<Item> Notes;
+
+    List<Inventory> CntInvs;
     // Start is called before the first frame update
     void Start()
     {
-        if (Note1.Note)
+        FindAllContainers();
+
+        foreach(Item Note in Notes)
         {
-            Note1.SetContainers(lib, lib);
+            int rand = Random.Range(0, CntInvs.Count - 1);
+            while(rand < 0)
+            {
+                rand = Random.Range(0, CntInvs.Count - 1);
+            }
+            Note.myInv = CntInvs[rand];
+            CntInvs.Remove(Note.myInv);
+        }
+    }
+    void Update()
+    {
+        
+    }
+
+    void FindAllContainers()
+    {
+
+        GameObject[] NoteContainers = GameObject.FindGameObjectsWithTag("NoteContainer");
+        CntInvs = new List<Inventory>();
+
+        foreach (GameObject cnt in NoteContainers)
+        {
+            CntInvs.Add(cnt.GetComponent<Inventory>());
+            Debug.Log("Cnt " + cnt.name + " added");
         }
     }
 }

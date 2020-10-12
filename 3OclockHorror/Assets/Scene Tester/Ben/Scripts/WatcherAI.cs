@@ -48,7 +48,7 @@ public class WatcherAI : MonoBehaviour
         candlesOut = CheckCandles();
 
         
-        if(inventoryUI.active == true)
+        if(inventoryUI.activeSelf == true)
         {
             if(!candlesOut && timerLock)// candles are not out
             {
@@ -168,12 +168,19 @@ public class WatcherAI : MonoBehaviour
         int candleCount = 0;
         int j = 0;
 
-        for(int i = 0; i < candleNum; i++)
+        if(Candles == null || Candles.Length == 0)
         {
-            if(Candles[i].isActiveAndEnabled)
+            return false;
+        }
+
+        for (int i = 0; i < candleNum; i++)
+        {
+
+            if (Candles[i].isActiveAndEnabled)
             {
                 candleCount++;
             }
+
         }
 
         candlesOn = new int[candleCount];
