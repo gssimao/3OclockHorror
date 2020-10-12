@@ -7,11 +7,12 @@ public class roomCntrl : MonoBehaviour
     public room room1;
     public room room2;
 
-    public GameObject entrancePointRoom1;
-    public GameObject entrancePointRoom2;
+    public GameObject entrancePointRoom;
 
     public Animator transition;
+    public bool transitionOnOff = true; //Use this to turn off and on the transition
     float transitionTime = 0.5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,22 +27,25 @@ public class roomCntrl : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Vector3 tmp;
         if (collision.gameObject.tag == "Player") //If its a player, this is necessary to determine what class to attempt to grab
         {
             PlayerMovement player = collision.gameObject.GetComponent<PlayerMovement>(); //Grab the player movement script
-
-            tmp = new Vector3(player.movement.x * 0.5f, player.movement.y * 0.5f, 0.0f);
 
             if (player != null) //Make sure it's not null
             {
                 if(player.myRoom == room1) //Check the room states then update as necessary
                 {
-                    CameraCrossfade(collision, entrancePointRoom2, tmp, player, room2);
+                    if (transitionOnOff)
+                    {
+                        CameraCrossfade(collision, entrancePointRoom, player, room2);
+                    }
                 }
                 else// player.myRoom == room2
                 {
-                    CameraCrossfade(collision, entrancePointRoom1, tmp, player, room1);
+                    if (transitionOnOff)
+                    {
+                        CameraCrossfade(collision, entrancePointRoom, player, room1);
+                    }
                 }
             }
         }
@@ -64,16 +68,16 @@ public class roomCntrl : MonoBehaviour
         }
     }
 
-    public void CameraCrossfade(Collider2D player, GameObject entranceP, Vector3 tmp, PlayerMovement play, room RoomNum)
+    public void CameraCrossfade(Collider2D player, GameObject entranceP, PlayerMovement play, room RoomNum)
     {
-        StartCoroutine(ChangeCamera(player, entranceP, tmp, play, RoomNum));
+        StartCoroutine(ChangeCamera(player, entranceP, play, RoomNum));
     }
 
-    IEnumerator ChangeCamera(Collider2D player, GameObject entranceP, Vector3 tmp, PlayerMovement play, room RoomNum)
+    IEnumerator ChangeCamera(Collider2D player, GameObject entranceP, PlayerMovement play, room RoomNum)
     {
         transition.SetTrigger("Start");
 
-        player.transform.position = entranceP.transform.position + tmp;
+        player.transform.position = entranceP.transform.position;
 
         yield return new WaitForSeconds(transitionTime);
 
