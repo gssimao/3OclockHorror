@@ -72,11 +72,15 @@ public class roomCntrl : MonoBehaviour
         if (transitionOnOff)
         {
             transition.SetTrigger("Start");
+            play.enabled = false;
         }
 
         player.transform.position = entranceP.transform.position;
 
-        yield return new WaitForSeconds(transitionTime);
+        if (transitionOnOff)
+        {
+            yield return new WaitForSeconds(transitionTime);
+        }
 
         if (transitionOnOff)
         {
@@ -84,5 +88,10 @@ public class roomCntrl : MonoBehaviour
         }
 
         play.myRoom = RoomNum;
+
+        if (transitionOnOff)
+        {
+            play.enabled = true;
+        }
     }
 }
