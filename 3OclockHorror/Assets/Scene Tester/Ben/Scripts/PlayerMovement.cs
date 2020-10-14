@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public room myRoom;
     public Rigidbody2D rb;
     public bool walking;
-    public Camera camera;
+    public Camera Camera;
     public Vector2 movement;
 
     void Start()
@@ -85,6 +85,6 @@ public class PlayerMovement : MonoBehaviour
 
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
-        camera.transform.position = myRoom.getCameraPoint().transform.position;
+        Camera.transform.position = myRoom.getCameraPoint().transform.position;
     }
 }

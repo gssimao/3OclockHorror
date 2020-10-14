@@ -14,6 +14,8 @@ public class workbench_cntrl : MonoBehaviour
     [SerializeField]
     InventoryManager IM;
     bool active; //Am I the active workbench?
+    [SerializeField]
+    List<Item> Items;
 
     private void Start()
     {
@@ -23,6 +25,11 @@ public class workbench_cntrl : MonoBehaviour
         }
         active = false;
         myInv.CloseInv();
+
+        foreach(Item item in Items)
+        {
+            myInv.AddStartingItem(item);
+        }
     }
 
 

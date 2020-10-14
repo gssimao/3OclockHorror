@@ -15,18 +15,19 @@ public class WatcherAI : MonoBehaviour
     public SanityManager sanityManager;
 
     int randInd;
-    bool candlesOut;
-    bool timerLock = true;
+    public bool candlesOut;
+    public bool timerLock = true;
     int candleNum;
     int[] candlesOn;
     float ovTimer;
     float distance;
+    int plyIndex;
 
     //Room Specific variables
     public room currentRoom;
-    Vector3 spawnPoint;
     public Light[] Candles;
     room playerRoom;
+    Vector3 spawnPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -46,23 +47,23 @@ public class WatcherAI : MonoBehaviour
         playerRoom = player.GetComponent<PlayerMovement>().myRoom;
         CheckRoom();
         candlesOut = CheckCandles();
+        // False means all the candles are off or don't exist
+        // True means there are still candles on
 
-        
-        if(inventoryUI.active == true)
+        if (inventoryUI.activeSelf == true)
         {
-            if(!candlesOut && timerLock)// candles are not out
+            if(candlesOut && timerLock)// candles are not out
             {
                 BlowOutCandle();
                 timerLock = false;
             }
         }
-        
 
-        if (!candlesOut && !playerInRoom)// all candles are out and the player is not in the room
+        if (candlesOut == true && !playerInRoom)// The candles are not out and the player is not in the room
         {
             BlowOutCandle();
         }
-        else if(candlesOut && !playerInRoom && timerLock)
+        else if(!candlesOut && !playerInRoom && timerLock)
         {
             MoveWatcher();
             timerLock = false;
@@ -72,7 +73,7 @@ public class WatcherAI : MonoBehaviour
         {
             coolDownTimer -= Time.deltaTime;
         }
-        if(coolDownTimer <= 0)
+        if(coolDownTimer < 0)
         {
             timerLock = true;
             coolDownTimer = ovTimer;
@@ -91,12 +92,10 @@ public class WatcherAI : MonoBehaviour
     
     void MoveWatcher() //Moves the watcher between the rooms
     {
-        int plyIndex;
-
         if (emptyRoomCount == 0)
         {
             randInd = Random.Range(0, Rooms.Length);
-            while (currentRoom == Rooms[randInd])
+            while (currentRoom == Rooms[randInd]) // Makes sure the Watcher does not try to teleport to the same room
             {
                 randInd = Random.Range(0, Rooms.Length);
             }
@@ -110,7 +109,7 @@ public class WatcherAI : MonoBehaviour
             plyIndex = FindPlayerRoom();
 
             randInd = Random.Range(plyIndex - 2, plyIndex + 3);
-            while (currentRoom == Rooms[randInd])
+            while (currentRoom == Rooms[randInd]) // Makes sure the Watcher does not try to teleport to the same room
             {
                 randInd = Random.Range(plyIndex - 2, plyIndex + 3);
             }
@@ -124,7 +123,7 @@ public class WatcherAI : MonoBehaviour
             plyIndex = FindPlayerRoom();
 
             randInd = Random.Range(plyIndex - 1, plyIndex + 2);
-            while (currentRoom == Rooms[randInd])
+            while (currentRoom == Rooms[randInd]) // Makes sure the Watcher does not try to teleport to the same room
             {
                 randInd = Random.Range(plyIndex - 1, plyIndex + 2);
             }
@@ -168,12 +167,19 @@ public class WatcherAI : MonoBehaviour
         int candleCount = 0;
         int j = 0;
 
-        for(int i = 0; i < candleNum; i++)
+        if(Candles == null || Candles.Length == 0)
         {
-            if(Candles[i].isActiveAndEnabled)
+            return false;
+        }
+
+        for (int i = 0; i < candleNum; i++)
+        {
+
+            if (Candles[i].isActiveAndEnabled)
             {
                 candleCount++;
             }
+
         }
 
         candlesOn = new int[candleCount];
@@ -188,11 +194,11 @@ public class WatcherAI : MonoBehaviour
         }
         if (candleCount > 0)
         {
-            return false;
+            return true; // True means there are still candles on
         }
         else
         {
-            return true;
+            return false; // False means all the candles are off or don't exist
         }
     }
 
@@ -203,6 +209,11 @@ public class WatcherAI : MonoBehaviour
         for(int i = 0; Rooms[i] != playerRoom; i++)
         {
             plyIndex = i;
+
+            if(i >= Rooms.Length - 1)
+            {
+                i = 0;
+            }
         }
 
         return plyIndex;
@@ -210,11 +221,7 @@ public class WatcherAI : MonoBehaviour
 
     void CheckRoom() //Checks to see if the room the watcher is in has the player
     {
-        string plyRoomName, watcherRoomName;
-        plyRoomName = playerRoom.getName();
-        watcherRoomName = currentRoom.getName();
-
-        if (watcherRoomName == plyRoomName)
+        if (currentRoom == playerRoom)
         {
             playerInRoom = true;
         }

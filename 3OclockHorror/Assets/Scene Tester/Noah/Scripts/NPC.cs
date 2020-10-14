@@ -27,6 +27,7 @@ public class NPC : MonoBehaviour
     int currWP = 0;
     Seeker seeker;
     Rigidbody2D rb;
+    public Vector2 movement;
 
 
     // Start is called before the first frame update
@@ -68,7 +69,7 @@ public class NPC : MonoBehaviour
 
     void Update()
     {
-        if(rb.velocity.x > 0)
+        if (rb.velocity.x > 0)
         {
             anim.SetBool("walkingright", true);
         }
@@ -76,7 +77,7 @@ public class NPC : MonoBehaviour
         {
             anim.SetBool("walkingright", false);
         }
-        if(rb.velocity.x < 0)
+        if (rb.velocity.x < 0)
         {
             anim.SetBool("walkingleft", true);
         }
@@ -84,6 +85,17 @@ public class NPC : MonoBehaviour
         {
             anim.SetBool("walkingleft", false);
         }
+
+        // Input
+        /*movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");*/
+
+
+
+
+
+
+
     }
 
     //Set a destination based on the current patrol index within the patrol points array.

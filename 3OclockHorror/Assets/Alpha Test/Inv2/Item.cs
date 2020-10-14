@@ -15,66 +15,38 @@ public class Item : ScriptableObject
 
     //Some specific stuff for different types of items
     #region Note
-    public bool Note;
-    public bool isRead;
-    public string text = "The Room I am in is ***";
-    [SerializeField]
-    List<Inventory> Containers;
-    [SerializeField]
-    Item nextNote;
     [SerializeField]
     Item Key;
 
-    Inventory lib;
-    Inventory myInv;
+    public Inventory myInv;
+    public bool Note;
+    public bool isRead = false;
+    public Item nextNote;
+    public string text; //This is to hold the text for the note. Not meant to change. Desc is what will change.
 
-    public void SetNextNote()
+    public void NextNoteInit() 
     {
-        text = "The Room I am in is ***";
-
-        if (nextNote != null) //I am not the last note
+        if (nextNote != null)
         {
-            nextNote.isRead = false;
-            int indx = Random.Range(0, Containers.Count-1); //Generate an index for the room
-
-            string room = Containers[indx].gameObject.GetComponentInParent<room>().getName(); //Get the room name
-            Containers[indx].AddStartingItem(nextNote); //Add the item to the inventory
-            Containers.RemoveAt(indx); //Remove the container
-            nextNote.PassContainers(Containers, lib, Key, Containers[indx]); //Pass along the list for the next item;
-
-            text = text.Replace("***", room); //Replace the *** with the room that was selected
+            desc = text.Replace("***", nextNote.myInv.name);
+            if(nextNote.myInv != null)
+            {
+                nextNote.myInv.AddStartingItem(nextNote);
+            }
         }
-        if(nextNote == null) //I am the last note
+        else if(nextNote == null && Key != null)
         {
-            text = text.Replace("***", "Library");
-            lib.AddStartingItem(Key);
+            //Do key stuff
+            if(Key.myInv != null)
+            {
+                Key.myInv.AddStartingItem(Key);
+                desc = text.Replace("***", Key.myInv.name);
+            }
         }
     }
 
-    public void PassContainers(List<Inventory> Containers, Inventory Lib, Item key, Inventory mInv)
-    {
-        this.Containers = Containers;
-        this.lib = Lib;
-        this.Key = key;
-        this.myInv = mInv;
-    }
-
-    public void SetContainers(Inventory Lib, Inventory mInv)
-    {
-        Containers.Clear();
-        GameObject[] cnts = GameObject.FindGameObjectsWithTag("NoteContainer");
-        foreach (GameObject obj in cnts)
-        {
-            Containers.Add(obj.GetComponent<Inventory>());
-        }
-        foreach(Inventory inv in Containers)
-        {
-            Debug.Log("Name: " + inv.name);
-        }
-        lib = Lib;
-        isRead = false;
-        myInv = mInv;
-    }
-
+    #endregion
+    #region Key
+    //Region for key specific data, if there is any
     #endregion
 }
