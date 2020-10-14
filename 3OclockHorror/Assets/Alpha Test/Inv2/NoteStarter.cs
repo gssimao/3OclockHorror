@@ -9,7 +9,9 @@ public class NoteStarter : MonoBehaviour
     [SerializeField]
     Inventory StarterInv;
     [SerializeField]
-    Item Note1;
+    Item FirstNote;
+    [SerializeField]
+    Item LastNote;
     [SerializeField]
     Item key;
 
@@ -32,15 +34,16 @@ public class NoteStarter : MonoBehaviour
             CntInvs.Remove(Note.myInv);
         }
 
-        Note1.myInv = StarterInv;
-        Note1.isRead = false;
-        Note1.desc = "A note in a series of notes.";
+        FirstNote.myInv = StarterInv;
+        FirstNote.isRead = false;
+        FirstNote.desc = "A note in a series of notes.";
+        FirstNote.myInv.AddStartingItem(FirstNote);
 
-        key.myInv = Note1.myInv;
-    }
-    void Update()
-    {
-        
+        LastNote.myInv = StarterInv;
+        LastNote.isRead = false;
+        LastNote.desc = "A note in a series of notes.";
+
+        key.myInv = LastNote.myInv;
     }
 
     void FindAllContainers()
@@ -52,7 +55,11 @@ public class NoteStarter : MonoBehaviour
         foreach (GameObject cnt in NoteContainers)
         {
             CntInvs.Add(cnt.GetComponent<Inventory>());
-            Debug.Log("Cnt : " + cnt.name + " : added");
+        }
+
+        if (CntInvs.Contains(StarterInv))
+        {
+            CntInvs.Remove(StarterInv);
         }
     }
 }

@@ -1909,6 +1909,7 @@ MonoBehaviour:
   myInv: {fileID: 161890802}
   myInvDisplay: {fileID: 1114499257}
   IM: {fileID: 1932810098}
+  Items: []
 --- !u!114 &161890802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3573,11 +3574,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 04587bb51079ad24aab22ad7676e5683, type: 2}
   itemSlots: []
   itemsParent: {fileID: 1108702598}
   PInv: 0
-  active: 0
+  active: 1
 --- !u!60 &423294021
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -5793,6 +5794,10 @@ MonoBehaviour:
   myInv: {fileID: 660298481}
   myInvDisplay: {fileID: 1114499257}
   IM: {fileID: 1932810098}
+  Items:
+  - {fileID: 11400000, guid: 4ca24adb2ca0086418e73be326951504, type: 2}
+  - {fileID: 11400000, guid: 0fdadefcee5406c4c89c54f572df7158, type: 2}
+  - {fileID: 11400000, guid: 6bb689f060a966a419b9bbee822e5651, type: 2}
 --- !u!114 &660298481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5805,11 +5810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1b38e6a0728a749af554ef513efc2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items:
-  - {fileID: 11400000, guid: 04587bb51079ad24aab22ad7676e5683, type: 2}
-  - {fileID: 11400000, guid: 4ca24adb2ca0086418e73be326951504, type: 2}
-  - {fileID: 11400000, guid: 0fdadefcee5406c4c89c54f572df7158, type: 2}
-  - {fileID: 11400000, guid: 6bb689f060a966a419b9bbee822e5651, type: 2}
+  items: []
   itemSlots: []
   itemsParent: {fileID: 1449942918}
   PInv: 0
@@ -7712,7 +7713,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &858607487
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8092,6 +8093,7 @@ MonoBehaviour:
   myInv: {fileID: 902910586}
   myInvDisplay: {fileID: 1114499257}
   IM: {fileID: 1932810098}
+  Items: []
 --- !u!61 &902910588
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11611,6 +11613,8 @@ MonoBehaviour:
   coolDownTimer: 13
   inventoryUI: {fileID: 1044781339}
   sanityManager: {fileID: 1619042899}
+  candlesOut: 0
+  timerLock: 1
   currentRoom: {fileID: 1734360194}
   Candles: []
 --- !u!212 &1336144373
@@ -12407,6 +12411,7 @@ MonoBehaviour:
   myInv: {fileID: 1392798949}
   myInvDisplay: {fileID: 1114499257}
   IM: {fileID: 1932810098}
+  Items: []
 --- !u!114 &1392798949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14367,7 +14372,7 @@ MonoBehaviour:
   myRoom: {fileID: 1632624971}
   rb: {fileID: 1619042891}
   walking: 0
-  camera: {fileID: 1825635318}
+  Camera: {fileID: 1825635318}
   movement: {x: 0, y: 0}
 --- !u!4 &1619042897
 Transform:
@@ -16568,8 +16573,11 @@ MonoBehaviour:
   Notes:
   - {fileID: 11400000, guid: f8a925cda472bb0449529991a682f935, type: 2}
   - {fileID: 11400000, guid: 530da1f309db0424aa2446e0b082b05b, type: 2}
-  StarterInv: {fileID: 660298481}
-  Note1: {fileID: 11400000, guid: 04587bb51079ad24aab22ad7676e5683, type: 2}
+  - {fileID: 11400000, guid: c39545ae84ca71c489bba3de6ba67d60, type: 2}
+  - {fileID: 11400000, guid: cca4b85ab297ca342afd28015a364e75, type: 2}
+  StarterInv: {fileID: 423294020}
+  FirstNote: {fileID: 11400000, guid: 04587bb51079ad24aab22ad7676e5683, type: 2}
+  LastNote: {fileID: 11400000, guid: f8a925cda472bb0449529991a682f935, type: 2}
   key: {fileID: 11400000, guid: fb520a66c35a1af4db2b23e67ea90306, type: 2}
 --- !u!1 &1936929849
 GameObject:

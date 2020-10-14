@@ -33,11 +33,6 @@ public class Item : ScriptableObject
             {
                 nextNote.myInv.AddStartingItem(nextNote);
             }
-            else 
-            {
-                Debug.LogError("No inventory to send item to");
-            }
-            
         }
         else if(nextNote == null && Key != null)
         {
@@ -47,15 +42,11 @@ public class Item : ScriptableObject
                 Key.myInv.AddStartingItem(Key);
                 desc = text.Replace("***", Key.myInv.name);
             }
-            else
-            {
-                Debug.LogError("No inventory to send stuff to fuckwit");
-            }
         }
     }
 
     #endregion
     #region Key
-    //Region for key specific data
+    //Region for key specific data, if there is any
     #endregion
 }
