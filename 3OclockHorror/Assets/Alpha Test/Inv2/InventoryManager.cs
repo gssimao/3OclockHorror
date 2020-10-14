@@ -9,8 +9,8 @@ public class InventoryManager : MonoBehaviour
     Inventory inventory;
     [SerializeField]
     Inventory craftInventory;
-    //[SerializeField]
-    //ItemTooltip itemTooltip;
+    [SerializeField]
+    ItemTooltip itemTooltip;
     [SerializeField]
     ItemSlot draggableSlot;
 
@@ -70,13 +70,13 @@ public class InventoryManager : MonoBehaviour
     {
         if (slot.Item != null)
         {
-            //itemTooltip.ShowTooltip(slot.item);
+            itemTooltip.ShowTooltip(slot.Item);
         }
     }
 
     private void HideTooltip(ItemSlot slot)
     {
-        //itemTooltip.HideTooltip();
+        itemTooltip.HideTooltip();
     }
 
     private void BeginDrag(ItemSlot slot)
@@ -89,6 +89,10 @@ public class InventoryManager : MonoBehaviour
             orgSlot = slot;
             slot.Item = null;
             dropped = false;
+        }
+        else if(slot.Item == null)
+        {
+            draggableSlot.gameObject.SetActive(false);
         }
     }
 
@@ -113,17 +117,21 @@ public class InventoryManager : MonoBehaviour
 
     private void Drop(ItemSlot dropItemSlot)
     {
-        if (dropItemSlot.CanRecieveItem(draggableSlot.Item) && orgSlot.CanRecieveItem(dropItemSlot.Item))
+        if (draggableSlot.Item != null)
         {
-            Item draggedItem = draggableSlot.Item;
-            orgSlot.Item = dropItemSlot.Item;
-            dropItemSlot.Item = draggedItem;
-
-            dropped = true;
-
-            if (draggedItem.Note && dropItemSlot.PlayerInv)
+            if (dropItemSlot.CanRecieveItem(draggableSlot.Item) && orgSlot.CanRecieveItem(dropItemSlot.Item))
             {
-                draggedItem.SetNextNote();
+                Item draggedItem = draggableSlot.Item;
+                orgSlot.Item = dropItemSlot.Item;
+                dropItemSlot.Item = draggedItem;
+
+                dropped = true;
+
+                if (draggedItem.Note && dropItemSlot.PlayerInv)
+                {
+                    draggedItem.SetNextNote();
+                    draggedItem.isRead = true;
+                }
             }
         }
     }

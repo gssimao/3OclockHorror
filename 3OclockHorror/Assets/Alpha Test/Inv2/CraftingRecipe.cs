@@ -6,7 +6,7 @@ using UnityEngine;
 public class CraftingRecipe : ScriptableObject
 {
     public List<Item> Pieces;
-    public List<Item> Puzzle;
+    public GameObject myButton;
 
     public bool CanCraft(IItemContainer container)
     {
@@ -32,10 +32,7 @@ public class CraftingRecipe : ScriptableObject
             {
                 container.RemoveItem(item);
             }
-            foreach(Item item in Puzzle)
-            {
-                container.AddItem(item);
-            }
+            myButton.SetActive(true);
         }
     }
 }
