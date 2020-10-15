@@ -12,8 +12,6 @@ public class ContainerControl : MonoBehaviour
     GameObject cntnrDisp;
     [SerializeField]
     InventoryManager IM;
-    //[SerializeField]
-    //List<Item> Items;
     bool active; //Am I the active workbench inventory?
 
     // Start is called before the first frame update
@@ -25,10 +23,6 @@ public class ContainerControl : MonoBehaviour
         }
         active = false;
         myInv.CloseInv();
-        //foreach (Item item in Items)
-       // {
-         //   myInv.AddStartingItem(item);
-       // }
     }
 
     // Update is called once per frame

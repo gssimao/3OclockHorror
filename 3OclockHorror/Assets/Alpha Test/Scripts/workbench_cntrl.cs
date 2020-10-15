@@ -26,10 +26,7 @@ public class workbench_cntrl : MonoBehaviour
         active = false;
         myInv.CloseInv();
 
-        foreach(Item item in Items)
-        {
-            myInv.AddStartingItem(item);
-        }
+        myInv.InitStartingItems(Items);
     }
 
 

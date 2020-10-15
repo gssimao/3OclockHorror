@@ -13,6 +13,8 @@ public class InventoryManager : MonoBehaviour
     ItemTooltip itemTooltip;
     [SerializeField]
     ItemSlot draggableSlot;
+    [SerializeField]
+    NoteStarter noteStarter;
 
     public GameObject craftField;
 
@@ -25,6 +27,11 @@ public class InventoryManager : MonoBehaviour
         //Add the events to player invenotry and craft inventory as these are static. Workbench inventory will be dynamic and thus is not set.
         AddEvents(inventory);
         AddEvents(craftInventory);
+    }
+
+    private void Start()
+    {
+        noteStarter.initNotePuzzle();
     }
 
     //Sets all inventory event references for the given inventory.
@@ -129,7 +136,7 @@ public class InventoryManager : MonoBehaviour
 
                 if (draggedItem.Note && dropItemSlot.PlayerInv && !draggedItem.isRead)
                 {
-                    draggedItem.NextNoteInit();
+                    noteStarter.SetNextNoteInventory(draggedItem);
                     draggedItem.isRead = true;
                 }
             }

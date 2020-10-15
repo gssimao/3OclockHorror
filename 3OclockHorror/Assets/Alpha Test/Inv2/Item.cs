@@ -31,6 +31,7 @@ public class Item : ScriptableObject
             desc = text.Replace("***", nextNote.myInv.name);
             if(nextNote.myInv != null)
             {
+                Debug.Log("Inv name : " + nextNote.myInv.name);
                 nextNote.myInv.AddStartingItem(nextNote);
             }
         }

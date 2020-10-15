@@ -5,39 +5,64 @@ using UnityEngine;
 public class NoteStarter : MonoBehaviour
 {
     [SerializeField]
-    List<Item> Notes;
-    [SerializeField]
-    Inventory StarterInv;
-    [SerializeField]
     Item FirstNote;
     [SerializeField]
+    List<Item> Notes;
+    [SerializeField]
     Item LastNote;
+    [Space]
+    [SerializeField]
+    Inventory StarterInv;
     [SerializeField]
     Item key;
 
     List<Inventory> CntInvs;
+    List<Inventory> RandInvs = new List<Inventory>();
+    int InvPos = 0; //Current inventory position.
     // Start is called before the first frame update
     void Start()
     {
-        FindAllContainers();
+        
+    }
 
-        foreach(Item Note in Notes)
+    void FindAllContainers()
+    {
+
+        GameObject[] NoteContainers = GameObject.FindGameObjectsWithTag("NoteContainer");
+        CntInvs = new List<Inventory>();
+        foreach (GameObject cnt in NoteContainers)
         {
-            int rand = Random.Range(0, CntInvs.Count);
-            while(rand < 0)
-            {
-                rand = Random.Range(0, CntInvs.Count);
-            }
-            Note.myInv = CntInvs[rand];
-            Note.desc = "A note in a series of notes";
-            Note.isRead = false;
-            CntInvs.Remove(Note.myInv);
+            CntInvs.Add(cnt.GetComponent<Inventory>());
         }
+        if (CntInvs.Contains(StarterInv))
+        {
+            CntInvs.Remove(StarterInv);
+        }
+    }
+
+    public void initNotePuzzle()
+    {
+        FindAllContainers();
+        RandInvs.Clear();
 
         FirstNote.myInv = StarterInv;
         FirstNote.isRead = false;
         FirstNote.desc = "A note in a series of notes.";
         FirstNote.myInv.AddStartingItem(FirstNote);
+
+        foreach (Item Note in Notes)
+        {
+            int rand = Random.Range(0, CntInvs.Count);
+            while (rand < 0)
+            {
+                rand = Random.Range(0, CntInvs.Count);
+            }
+            RandInvs.Add(CntInvs[rand]);
+            CntInvs.RemoveAt(rand);
+
+            Note.desc = "A note in a series of notes";
+            Note.isRead = false;
+        }
 
         LastNote.myInv = StarterInv;
         LastNote.isRead = false;
@@ -46,20 +71,21 @@ public class NoteStarter : MonoBehaviour
         key.myInv = LastNote.myInv;
     }
 
-    void FindAllContainers()
+    public void SetNextNoteInventory(Item note)
     {
-
-        GameObject[] NoteContainers = GameObject.FindGameObjectsWithTag("NoteContainer");
-        CntInvs = new List<Inventory>();
-
-        foreach (GameObject cnt in NoteContainers)
+        if (note.nextNote != null && note.nextNote != LastNote) 
         {
-            CntInvs.Add(cnt.GetComponent<Inventory>());
+            note.nextNote.myInv = RandInvs[InvPos];
         }
+        note.NextNoteInit();
+        InvPos++;
+    }
 
-        if (CntInvs.Contains(StarterInv))
+    public void CheckInvs(List<Inventory> list)
+    {
+        foreach(Inventory inv in list)
         {
-            CntInvs.Remove(StarterInv);
+            Debug.Log("Name: " + inv.name);
         }
     }
 }
