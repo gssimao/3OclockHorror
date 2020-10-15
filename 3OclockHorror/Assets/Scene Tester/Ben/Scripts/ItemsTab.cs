@@ -1,18 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ItemsTab : MonoBehaviour
+public class ItemsTab : Tab
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    Item[] invItems;
 
+    public Text[] textBoxes;
     // Update is called once per frame
     void Update()
     {
-        
+        invItems = getItems();
+
+        for (int i = 0; i < textBoxes.Length; i++)
+        {
+            if (invItems[i].desc != "")
+            {
+                textBoxes[i].text = invItems[i].desc;
+            }
+            else
+            {
+                textBoxes[i].text = "";
+            }
+        }
     }
 }
