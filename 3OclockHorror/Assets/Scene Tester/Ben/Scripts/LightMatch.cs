@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class LightMatch : MonoBehaviour
 {
-
     public Light match;
+    public SpriteMask lightMask;
 
     bool timerLock = true;
     public float lifeTime;
@@ -14,6 +14,8 @@ public class LightMatch : MonoBehaviour
     void Start()
     {
         ov = lifeTime;
+        match.enabled = false;
+        lightMask.alphaCutoff = 1f;
     }
 
     // Update is called once per frame
@@ -22,6 +24,7 @@ public class LightMatch : MonoBehaviour
         if (Input.GetKeyDown("q") && timerLock == true)
         {
             match.enabled = true;
+            lightMask.alphaCutoff = 0f;
             timerLock = false;
         }
 
@@ -34,6 +37,7 @@ public class LightMatch : MonoBehaviour
         {
             timerLock = true;
             match.enabled = false;
+            lightMask.alphaCutoff = 1f;
             lifeTime = ov;
         }
     }
