@@ -593,6 +593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 1666203125}
+  Message: 
 --- !u!114 &167825951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2209,6 +2210,78 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 698416823}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &730967424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 730967426}
+  - component: {fileID: 730967425}
+  - component: {fileID: 730967427}
+  m_Layer: 0
+  m_Name: CandleTooltip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &730967425
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730967424}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.009063721, y: -0.05538249}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.1636353, y: 1.110765}
+  m_EdgeRadius: 0
+--- !u!4 &730967426
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730967424}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: 0, w: -0.7071068}
+  m_LocalPosition: {x: -1.4206923, y: 0.074999966, z: 0.10631259}
+  m_LocalScale: {x: 0.9664766, y: 0.9664764, z: 0.9664764}
+  m_Children: []
+  m_Father: {fileID: 1854462537}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &730967427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730967424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TooltipText: {fileID: 1666203125}
+  Message: Press "Q" to turn on the Candle.
 --- !u!1 &771780582
 GameObject:
   m_ObjectHideFlags: 0
@@ -2538,9 +2611,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 814651076}
+  anim: {fileID: 0}
   myRoom: {fileID: 228249670}
   speed: 5
   nWPD: 0.1
+  movement: {x: 0, y: 0}
 --- !u!114 &813468607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2868,6 +2943,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeHud: {fileID: 500637910}
+  WatcherTime: 120
+  CreepTime: 240
   watcher: {fileID: 1984622005}
   creep: {fileID: 813468603}
 --- !u!114 &814651085
@@ -5483,6 +5560,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeHud: {fileID: 500637910}
+  WatcherTime: 120
+  CreepTime: 240
   watcher: {fileID: 1984622005}
   creep: {fileID: 0}
 --- !u!114 &1619042895
@@ -6472,6 +6551,8 @@ MonoBehaviour:
   coolDownTimer: 13
   inventoryUI: {fileID: 2122994333}
   sanityManager: {fileID: 0}
+  candlesOut: 0
+  timerLock: 1
   currentRoom: {fileID: 228249670}
   Candles: []
 --- !u!212 &1984622007
