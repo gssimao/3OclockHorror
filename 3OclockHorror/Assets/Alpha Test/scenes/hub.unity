@@ -1218,6 +1218,8 @@ GameObject:
   - component: {fileID: 127088124}
   - component: {fileID: 127088123}
   - component: {fileID: 127088122}
+  - component: {fileID: 127088125}
+  - component: {fileID: 127088126}
   m_Layer: 0
   m_Name: Door(HallwayToLiving)
   m_TagString: Untagged
@@ -1250,7 +1252,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.12213881}
@@ -1281,6 +1283,7 @@ MonoBehaviour:
   room1: {fileID: 2125430957}
   room2: {fileID: 49731051}
   entrancePointRoom: {fileID: 317649881}
+  player: {fileID: 1619042896}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!212 &127088124
@@ -1334,6 +1337,46 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &127088125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 127088120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TooltipText: {fileID: 0}
+  Message: '''E'''
+--- !u!61 &127088126
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 127088120}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.18, y: 1.19}
+    newSize: {x: 0.18, y: 1.19}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.18, y: 1.19}
+  m_EdgeRadius: 0
 --- !u!1 &131764723
 GameObject:
   m_ObjectHideFlags: 0
@@ -3690,6 +3733,8 @@ GameObject:
   - component: {fileID: 429790641}
   - component: {fileID: 429790640}
   - component: {fileID: 429790643}
+  - component: {fileID: 429790644}
+  - component: {fileID: 429790645}
   m_Layer: 0
   m_Name: Door(KitchenToUnknown)
   m_TagString: Untagged
@@ -3707,7 +3752,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.41838056}
@@ -3738,6 +3783,7 @@ MonoBehaviour:
   room1: {fileID: 749903259}
   room2: {fileID: 241857674}
   entrancePointRoom: {fileID: 1932145299}
+  player: {fileID: 1619042896}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!4 &429790642
@@ -3806,6 +3852,46 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &429790644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429790639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TooltipText: {fileID: 0}
+  Message: '''E'''
+--- !u!61 &429790645
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429790639}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.63, y: 0.98}
+    newSize: {x: 0.63, y: 0.98}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.63, y: 0.98}
+  m_EdgeRadius: 0
 --- !u!1 &437294429
 GameObject:
   m_ObjectHideFlags: 0
@@ -4231,6 +4317,7 @@ MonoBehaviour:
   myInv: {fileID: 477410279}
   cntnrDisp: {fileID: 1192421596}
   IM: {fileID: 1932810098}
+  interactDist: 0
 --- !u!114 &477410279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4517,6 +4604,8 @@ GameObject:
   - component: {fileID: 499757947}
   - component: {fileID: 499757946}
   - component: {fileID: 499757945}
+  - component: {fileID: 499757948}
+  - component: {fileID: 499757949}
   m_Layer: 0
   m_Name: Door(HubToDining)
   m_TagString: Untagged
@@ -4534,7 +4623,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -4565,6 +4654,7 @@ MonoBehaviour:
   room1: {fileID: 1734360194}
   room2: {fileID: 927790501}
   entrancePointRoom: {fileID: 1766307819}
+  player: {fileID: 1619042896}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!4 &499757947
@@ -4582,6 +4672,46 @@ Transform:
   m_Father: {fileID: 1734360197}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &499757948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499757944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TooltipText: {fileID: 0}
+  Message: '''E'''
+--- !u!61 &499757949
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499757944}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &499767271
 GameObject:
   m_ObjectHideFlags: 0
@@ -6639,6 +6769,8 @@ GameObject:
   - component: {fileID: 749716156}
   - component: {fileID: 749716155}
   - component: {fileID: 749716154}
+  - component: {fileID: 749716157}
+  - component: {fileID: 749716158}
   m_Layer: 0
   m_Name: Door(LibraryToLiving)
   m_TagString: Untagged
@@ -6722,7 +6854,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.35287553}
@@ -6753,8 +6885,49 @@ MonoBehaviour:
   room1: {fileID: 1010640144}
   room2: {fileID: 49731051}
   entrancePointRoom: {fileID: 599899497}
+  player: {fileID: 1619042896}
   transition: {fileID: 358797188}
   transitionOnOff: 1
+--- !u!114 &749716157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749716152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TooltipText: {fileID: 0}
+  Message: '''E'''
+--- !u!61 &749716158
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749716152}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.63, y: 0.98}
+    newSize: {x: 0.63, y: 0.98}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.63, y: 0.98}
+  m_EdgeRadius: 0
 --- !u!1 &749903258
 GameObject:
   m_ObjectHideFlags: 0
@@ -8002,6 +8175,7 @@ MonoBehaviour:
   room1: {fileID: 836601227}
   room2: {fileID: 1924318166}
   entrancePointRoom: {fileID: 0}
+  player: {fileID: 0}
   transition: {fileID: 0}
   transitionOnOff: 1
 --- !u!4 &853169834
@@ -9302,6 +9476,8 @@ GameObject:
   - component: {fileID: 989003030}
   - component: {fileID: 989003032}
   - component: {fileID: 989003031}
+  - component: {fileID: 989003033}
+  - component: {fileID: 989003034}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -9390,6 +9566,7 @@ MonoBehaviour:
   room1: {fileID: 1632624971}
   room2: {fileID: 1734360194}
   entrancePointRoom: {fileID: 179658432}
+  player: {fileID: 1619042896}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!61 &989003032
@@ -9402,7 +9579,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.3658743}
@@ -9417,6 +9594,46 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.63, y: 0.24825141}
+  m_EdgeRadius: 0
+--- !u!114 &989003033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989003028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TooltipText: {fileID: 0}
+  Message: Press 'E' to Go Through Doors
+--- !u!61 &989003034
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989003028}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.63, y: 0.98}
+    newSize: {x: 0.63, y: 0.98}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.63, y: 0.98}
   m_EdgeRadius: 0
 --- !u!1 &990607010
 GameObject:
@@ -10093,6 +10310,8 @@ GameObject:
   - component: {fileID: 1090399929}
   - component: {fileID: 1090399928}
   - component: {fileID: 1090399927}
+  - component: {fileID: 1090399930}
+  - component: {fileID: 1090399931}
   m_Layer: 0
   m_Name: Door(LibraryToHub)
   m_TagString: Untagged
@@ -10176,7 +10395,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -10207,8 +10426,49 @@ MonoBehaviour:
   room1: {fileID: 1734360194}
   room2: {fileID: 1010640144}
   entrancePointRoom: {fileID: 261371839}
+  player: {fileID: 1619042896}
   transition: {fileID: 358797188}
   transitionOnOff: 1
+--- !u!114 &1090399930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090399925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TooltipText: {fileID: 0}
+  Message: '''E'''
+--- !u!61 &1090399931
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090399925}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.18, y: 1.19}
+    newSize: {x: 0.18, y: 1.19}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.18, y: 1.19}
+  m_EdgeRadius: 0
 --- !u!1 &1108702597
 GameObject:
   m_ObjectHideFlags: 0
@@ -10504,6 +10764,8 @@ GameObject:
   - component: {fileID: 1132408746}
   - component: {fileID: 1132408745}
   - component: {fileID: 1132408747}
+  - component: {fileID: 1132408748}
+  - component: {fileID: 1132408749}
   m_Layer: 0
   m_Name: Door(UnknownToKitchen)
   m_TagString: Untagged
@@ -10536,7 +10798,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.2929811}
@@ -10567,6 +10829,7 @@ MonoBehaviour:
   room1: {fileID: 749903259}
   room2: {fileID: 241857674}
   entrancePointRoom: {fileID: 1909547115}
+  player: {fileID: 1619042896}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!212 &1132408747
@@ -10620,6 +10883,46 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1132408748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132408743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TooltipText: {fileID: 0}
+  Message: '''E'''
+--- !u!61 &1132408749
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132408743}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.66, y: 0.87}
+    newSize: {x: 0.66, y: 0.87}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.66, y: 0.87}
+  m_EdgeRadius: 0
 --- !u!1 &1140262547
 GameObject:
   m_ObjectHideFlags: 0
@@ -10662,6 +10965,8 @@ GameObject:
   - component: {fileID: 1141305684}
   - component: {fileID: 1141305683}
   - component: {fileID: 1141305685}
+  - component: {fileID: 1141305686}
+  - component: {fileID: 1141305687}
   m_Layer: 0
   m_Name: Door(KitchenToDining)
   m_TagString: Untagged
@@ -10694,7 +10999,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.26300463}
@@ -10725,6 +11030,7 @@ MonoBehaviour:
   room1: {fileID: 927790501}
   room2: {fileID: 749903259}
   entrancePointRoom: {fileID: 1679202536}
+  player: {fileID: 1619042896}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!212 &1141305685
@@ -10778,6 +11084,46 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1141305686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141305681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TooltipText: {fileID: 0}
+  Message: '''E'''
+--- !u!61 &1141305687
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141305681}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.66, y: 0.87}
+    newSize: {x: 0.66, y: 0.87}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.66, y: 0.87}
+  m_EdgeRadius: 0
 --- !u!1 &1151409955
 GameObject:
   m_ObjectHideFlags: 0
@@ -11132,6 +11478,8 @@ GameObject:
   - component: {fileID: 1209090066}
   - component: {fileID: 1209090065}
   - component: {fileID: 1209090067}
+  - component: {fileID: 1209090068}
+  - component: {fileID: 1209090069}
   m_Layer: 0
   m_Name: Door(LivingToLibrary)
   m_TagString: Untagged
@@ -11164,7 +11512,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.30220255}
@@ -11195,6 +11543,7 @@ MonoBehaviour:
   room1: {fileID: 1010640144}
   room2: {fileID: 49731051}
   entrancePointRoom: {fileID: 499767271}
+  player: {fileID: 1619042896}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!212 &1209090067
@@ -11248,6 +11597,46 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1209090068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209090063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TooltipText: {fileID: 0}
+  Message: '''E'''
+--- !u!61 &1209090069
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209090063}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.66, y: 0.87}
+    newSize: {x: 0.63, y: 0.98}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.66, y: 0.87}
+  m_EdgeRadius: 0
 --- !u!1 &1221998578
 GameObject:
   m_ObjectHideFlags: 0
@@ -11503,6 +11892,7 @@ MonoBehaviour:
   room1: {fileID: 1734360194}
   room2: {fileID: 646229228}
   entrancePointRoom: {fileID: 0}
+  player: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!1 &1243932353
@@ -11694,6 +12084,7 @@ MonoBehaviour:
   room1: {fileID: 646229228}
   room2: {fileID: 49731051}
   entrancePointRoom: {fileID: 0}
+  player: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!1 &1268697847
@@ -11835,6 +12226,8 @@ GameObject:
   - component: {fileID: 1287688266}
   - component: {fileID: 1287688265}
   - component: {fileID: 1287688268}
+  - component: {fileID: 1287688269}
+  - component: {fileID: 1287688270}
   m_Layer: 0
   m_Name: Door(DiningToKitchen)
   m_TagString: Untagged
@@ -11852,7 +12245,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.35287553}
@@ -11883,6 +12276,7 @@ MonoBehaviour:
   room1: {fileID: 927790501}
   room2: {fileID: 749903259}
   entrancePointRoom: {fileID: 1644800746}
+  player: {fileID: 1619042896}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!4 &1287688267
@@ -11951,6 +12345,46 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1287688269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287688264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TooltipText: {fileID: 0}
+  Message: '''E'''
+--- !u!61 &1287688270
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287688264}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.63, y: 0.98}
+    newSize: {x: 0.63, y: 0.98}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.63, y: 0.98}
+  m_EdgeRadius: 0
 --- !u!1 &1298688163
 GameObject:
   m_ObjectHideFlags: 0
@@ -14741,6 +15175,8 @@ GameObject:
   - component: {fileID: 1626619250}
   - component: {fileID: 1626619252}
   - component: {fileID: 1626619251}
+  - component: {fileID: 1626619253}
+  - component: {fileID: 1626619254}
   m_Layer: 0
   m_Name: Door(HubToLibrary)
   m_TagString: Untagged
@@ -14773,7 +15209,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -14804,8 +15240,49 @@ MonoBehaviour:
   room1: {fileID: 1734360194}
   room2: {fileID: 1010640144}
   entrancePointRoom: {fileID: 1617756544}
+  player: {fileID: 1619042896}
   transition: {fileID: 358797188}
   transitionOnOff: 1
+--- !u!114 &1626619253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626619249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TooltipText: {fileID: 0}
+  Message: '''E'''
+--- !u!61 &1626619254
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626619249}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1632624967
 GameObject:
   m_ObjectHideFlags: 0
@@ -16186,6 +16663,8 @@ GameObject:
   - component: {fileID: 1841355174}
   - component: {fileID: 1841355173}
   - component: {fileID: 1841355175}
+  - component: {fileID: 1841355176}
+  - component: {fileID: 1841355177}
   m_Layer: 0
   m_Name: Door(GarageToLibrary)
   m_TagString: Untagged
@@ -16223,6 +16702,7 @@ MonoBehaviour:
   room1: {fileID: 1501061210}
   room2: {fileID: 1010640144}
   entrancePointRoom: {fileID: 1423361344}
+  player: {fileID: 1619042896}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!212 &1841355174
@@ -16286,7 +16766,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.12213881}
@@ -16301,6 +16781,46 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.18, y: 0.94572246}
+  m_EdgeRadius: 0
+--- !u!114 &1841355176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841355171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TooltipText: {fileID: 0}
+  Message: '''E'''
+--- !u!61 &1841355177
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841355171}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.18, y: 1.19}
+    newSize: {x: 0.18, y: 1.19}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.18, y: 1.19}
   m_EdgeRadius: 0
 --- !u!1 &1864786897
 GameObject:
@@ -16639,6 +17159,8 @@ GameObject:
   - component: {fileID: 1929385775}
   - component: {fileID: 1929385774}
   - component: {fileID: 1929385776}
+  - component: {fileID: 1929385777}
+  - component: {fileID: 1929385778}
   m_Layer: 0
   m_Name: Door(DiningToHub)
   m_TagString: Untagged
@@ -16671,7 +17193,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -16702,6 +17224,7 @@ MonoBehaviour:
   room1: {fileID: 1734360194}
   room2: {fileID: 927790501}
   entrancePointRoom: {fileID: 302763825}
+  player: {fileID: 1619042896}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!212 &1929385776
@@ -16755,6 +17278,46 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1929385777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929385772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TooltipText: {fileID: 0}
+  Message: '''E'''
+--- !u!61 &1929385778
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929385772}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.18, y: 1.19}
+    newSize: {x: 0.18, y: 1.19}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.18, y: 1.19}
+  m_EdgeRadius: 0
 --- !u!1 &1932145299
 GameObject:
   m_ObjectHideFlags: 0
@@ -16876,7 +17439,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f8a925cda472bb0449529991a682f935, type: 2}
   LastNote: {fileID: 0}
   StarterInv: {fileID: 0}
+  FinalInv: {fileID: 0}
   key: {fileID: 0}
+  amulet: {fileID: 0}
 --- !u!1 &1936929849
 GameObject:
   m_ObjectHideFlags: 0
@@ -16889,6 +17454,8 @@ GameObject:
   - component: {fileID: 1936929852}
   - component: {fileID: 1936929851}
   - component: {fileID: 1936929853}
+  - component: {fileID: 1936929854}
+  - component: {fileID: 1936929855}
   m_Layer: 0
   m_Name: Door(UnknownToHallway)
   m_TagString: Untagged
@@ -16921,7 +17488,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.14630385}
@@ -16952,6 +17519,7 @@ MonoBehaviour:
   room1: {fileID: 241857674}
   room2: {fileID: 2125430957}
   entrancePointRoom: {fileID: 1588349109}
+  player: {fileID: 1619042896}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!212 &1936929853
@@ -17005,6 +17573,46 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1936929854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936929849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TooltipText: {fileID: 0}
+  Message: '''E'''
+--- !u!61 &1936929855
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936929849}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.18, y: 1.19}
+    newSize: {x: 0.18, y: 1.19}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.18, y: 1.19}
+  m_EdgeRadius: 0
 --- !u!1 &1937844318
 GameObject:
   m_ObjectHideFlags: 0
@@ -17580,6 +18188,8 @@ GameObject:
   - component: {fileID: 1988763066}
   - component: {fileID: 1988763065}
   - component: {fileID: 1988763068}
+  - component: {fileID: 1988763069}
+  - component: {fileID: 1988763070}
   m_Layer: 0
   m_Name: Door(LivingToHallway)
   m_TagString: Untagged
@@ -17597,7 +18207,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -17628,6 +18238,7 @@ MonoBehaviour:
   room1: {fileID: 49731051}
   room2: {fileID: 2125430957}
   entrancePointRoom: {fileID: 1059485045}
+  player: {fileID: 1619042896}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!4 &1988763067
@@ -17696,6 +18307,46 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1988763069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988763064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TooltipText: {fileID: 0}
+  Message: '''E'''
+--- !u!61 &1988763070
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988763064}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.18, y: 1.19}
+    newSize: {x: 0.18, y: 1.19}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.18, y: 1.19}
+  m_EdgeRadius: 0
 --- !u!4 &2003014609 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4605737869113684421, guid: 92a2e8fcaf4cacf439bc3ce3f525f556, type: 3}
@@ -17743,6 +18394,8 @@ GameObject:
   - component: {fileID: 2049539074}
   - component: {fileID: 2049539073}
   - component: {fileID: 2049539072}
+  - component: {fileID: 2049539075}
+  - component: {fileID: 2049539076}
   m_Layer: 0
   m_Name: Door(HallwayToUnknown)
   m_TagString: Untagged
@@ -17775,7 +18428,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.12213881}
@@ -17806,6 +18459,7 @@ MonoBehaviour:
   room1: {fileID: 2125430957}
   room2: {fileID: 241857674}
   entrancePointRoom: {fileID: 1140262547}
+  player: {fileID: 1619042896}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!212 &2049539074
@@ -17859,6 +18513,46 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &2049539075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049539070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TooltipText: {fileID: 0}
+  Message: '''E'''
+--- !u!61 &2049539076
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049539070}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.18, y: 1.19}
+    newSize: {x: 0.18, y: 1.19}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.18, y: 1.19}
+  m_EdgeRadius: 0
 --- !u!1 &2052656099
 GameObject:
   m_ObjectHideFlags: 0
@@ -18262,6 +18956,8 @@ GameObject:
   - component: {fileID: 2143602355}
   - component: {fileID: 2143602354}
   - component: {fileID: 2143602353}
+  - component: {fileID: 2143602356}
+  - component: {fileID: 2143602357}
   m_Layer: 0
   m_Name: Door(LibraryToGarage)
   m_TagString: Untagged
@@ -18345,7 +19041,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.013688607, y: 0.03520149}
@@ -18376,5 +19072,46 @@ MonoBehaviour:
   room1: {fileID: 1501061210}
   room2: {fileID: 1010640144}
   entrancePointRoom: {fileID: 644083374}
+  player: {fileID: 1619042896}
   transition: {fileID: 358797188}
   transitionOnOff: 1
+--- !u!114 &2143602356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143602351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TooltipText: {fileID: 0}
+  Message: '''E'''
+--- !u!61 &2143602357
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143602351}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.18, y: 1.19}
+    newSize: {x: 0.18, y: 1.19}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.18, y: 1.19}
+  m_EdgeRadius: 0

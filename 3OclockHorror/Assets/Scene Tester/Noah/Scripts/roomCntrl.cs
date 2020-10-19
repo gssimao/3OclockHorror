@@ -8,10 +8,12 @@ public class roomCntrl : MonoBehaviour
     public room room2;
 
     public GameObject entrancePointRoom;
+    public PlayerMovement player;
 
     public Animator transition;
     public bool transitionOnOff = true; //Use this toggle the transition on and off
     float transitionTime = 0.5f;
+    float dist;
 
     // Start is called before the first frame update
     void Start()
@@ -22,14 +24,31 @@ public class roomCntrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        dist = Vector3.Distance(player.gameObject.transform.position, this.gameObject.transform.position);
+        if (dist <= 0.5)
+        {
+            if (Input.GetKeyDown("e"))
+            {
+                if (player != null) //Make sure it's not null
+                {
+                    if (player.myRoom == room1) //Check the room states then update as necessary
+                    {
+                        CameraCrossfade(player.gameObject, entrancePointRoom, player, room2);
+                    }
+                    else// player.myRoom == room2
+                    {
+                        CameraCrossfade(player.gameObject, entrancePointRoom, player, room1);
+                    }
+                }
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player") //If its a player, this is necessary to determine what class to attempt to grab
         {
-            PlayerMovement player = collision.gameObject.GetComponent<PlayerMovement>(); //Grab the player movement script
+            /*PlayerMovement player = collision.gameObject.GetComponent<PlayerMovement>(); //Grab the player movement script
 
             if (player != null) //Make sure it's not null
             {
@@ -41,7 +60,7 @@ public class roomCntrl : MonoBehaviour
                 {
                     CameraCrossfade(collision, entrancePointRoom, player, room1);
                 }
-            }
+            }*/
         }
         else
         {
@@ -62,12 +81,12 @@ public class roomCntrl : MonoBehaviour
         }
     }
 
-    public void CameraCrossfade(Collider2D player, GameObject entranceP, PlayerMovement play, room RoomNum)
+    public void CameraCrossfade(GameObject player, GameObject entranceP, PlayerMovement play, room RoomNum)
     {
         StartCoroutine(ChangeCamera(player, entranceP, play, RoomNum));
     }
 
-    IEnumerator ChangeCamera(Collider2D player, GameObject entranceP, PlayerMovement play, room RoomNum)
+    IEnumerator ChangeCamera(GameObject player, GameObject entranceP, PlayerMovement play, room RoomNum)
     {
         if (transitionOnOff)
         {
