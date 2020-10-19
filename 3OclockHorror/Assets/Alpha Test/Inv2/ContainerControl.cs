@@ -12,6 +12,8 @@ public class ContainerControl : MonoBehaviour
     GameObject cntnrDisp;
     [SerializeField]
     InventoryManager IM;
+    [SerializeField]
+    float interactDist;
     bool active; //Am I the active workbench inventory?
 
     // Start is called before the first frame update
@@ -29,7 +31,7 @@ public class ContainerControl : MonoBehaviour
     void Update()
     {
         float dist = Vector3.Distance(player.transform.position, transform.position); //Get the position of player
-        if (dist <= 0.25f) //If the player is in range
+        if (dist <= interactDist) //If the player is in range
         {
             if (Input.GetKeyDown("e") && !active)
             {

@@ -17,6 +17,8 @@ public class Item : ScriptableObject
     #region Note
     [SerializeField]
     Item Key;
+    [SerializeField]
+    Item Amulet;
 
     public Inventory myInv;
     public bool Note;
@@ -31,17 +33,17 @@ public class Item : ScriptableObject
             desc = text.Replace("***", nextNote.myInv.name);
             if(nextNote.myInv != null)
             {
-                Debug.Log("Inv name : " + nextNote.myInv.name);
                 nextNote.myInv.AddStartingItem(nextNote);
             }
         }
         else if(nextNote == null && Key != null)
         {
             //Do key stuff
-            if(Key.myInv != null)
+            if(Key.myInv != null && Amulet != null)
             {
                 Key.myInv.AddStartingItem(Key);
-                desc = text.Replace("***", Key.myInv.name);
+                Amulet.myInv.AddStartingItem(Amulet);
+                this.desc = text;
             }
         }
     }

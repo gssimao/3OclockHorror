@@ -11,11 +11,21 @@ public class ItemTooltip : MonoBehaviour
     [SerializeField]
     Text Desc;
 
+    float xmod;
+    float ymod;
+
+    private void Start()
+    {
+        xmod = (gameObject.GetComponent<RectTransform>().rect.width / 2) + 10;
+        ymod = (gameObject.GetComponent<RectTransform>().rect.height / 2) + 10;
+
+    }
+
     private void Update()
     {
         if (gameObject.activeSelf)
         {
-            Vector2 movePos = new Vector2(Input.mousePosition.x + 200f, Input.mousePosition.y - 100f);
+            Vector2 movePos = new Vector2(Input.mousePosition.x + xmod, Input.mousePosition.y - ymod);
             transform.position = movePos;
         }
         

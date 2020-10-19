@@ -14,7 +14,11 @@ public class NoteStarter : MonoBehaviour
     [SerializeField]
     Inventory StarterInv;
     [SerializeField]
+    Inventory FinalInv;
+    [SerializeField]
     Item key;
+    [SerializeField]
+    Item amulet;
 
     List<Inventory> CntInvs;
     List<Inventory> RandInvs = new List<Inventory>();
@@ -68,7 +72,8 @@ public class NoteStarter : MonoBehaviour
         LastNote.isRead = false;
         LastNote.desc = "A note in a series of notes.";
 
-        key.myInv = LastNote.myInv;
+        key.myInv = FinalInv;
+        amulet.myInv = FinalInv;
     }
 
     public void SetNextNoteInventory(Item note)
