@@ -6,8 +6,10 @@ public class NoteStarter : MonoBehaviour
 {
     [SerializeField]
     Item FirstNote;
+    [Space]
     [SerializeField]
     List<Item> Notes;
+    [Space]
     [SerializeField]
     Item LastNote;
     [Space]
