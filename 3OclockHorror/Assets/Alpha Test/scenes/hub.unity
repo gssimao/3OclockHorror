@@ -3898,7 +3898,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &445925391
 Transform:
   m_ObjectHideFlags: 0
@@ -6522,7 +6522,10 @@ MonoBehaviour:
   myInv: {fileID: 660298481}
   myInvDisplay: {fileID: 1114499257}
   IM: {fileID: 1932810098}
-  Items: []
+  Items:
+  - {fileID: 11400000, guid: 4ca24adb2ca0086418e73be326951504, type: 2}
+  - {fileID: 11400000, guid: 0fdadefcee5406c4c89c54f572df7158, type: 2}
+  - {fileID: 11400000, guid: 6bb689f060a966a419b9bbee822e5651, type: 2}
 --- !u!114 &660298481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6535,11 +6538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1b38e6a0728a749af554ef513efc2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items:
-  - {fileID: 11400000, guid: 04587bb51079ad24aab22ad7676e5683, type: 2}
-  - {fileID: 11400000, guid: 4ca24adb2ca0086418e73be326951504, type: 2}
-  - {fileID: 11400000, guid: 0fdadefcee5406c4c89c54f572df7158, type: 2}
-  - {fileID: 11400000, guid: 6bb689f060a966a419b9bbee822e5651, type: 2}
+  items: []
   itemSlots: []
   itemsParent: {fileID: 1449942918}
   PInv: 0
@@ -16388,7 +16387,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1044781339}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -19188,7 +19187,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1825635318}
   m_PlaneDistance: 0
   m_PixelPerfect: 0
   m_ReceivesEvents: 1

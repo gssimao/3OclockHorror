@@ -23,6 +23,10 @@ public class ContainerControl : MonoBehaviour
         {
             myInv = gameObject.GetComponent<Inventory>();
         }
+        if(interactDist == 0f)
+        {
+            interactDist = 0.25f;
+        }
         active = false;
         myInv.CloseInv();
     }
