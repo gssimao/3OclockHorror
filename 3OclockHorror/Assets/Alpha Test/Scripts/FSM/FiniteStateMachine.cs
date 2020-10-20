@@ -49,6 +49,11 @@ public class FiniteStateMachine : MonoBehaviour
         }
     }
 
+    public FSMStateType GetState()
+    {
+        return currentState.StateType;
+    }
+
     #region STATE MANAGEMENT
 
     public void enterState(abstractFSMState nextState) //Enter the next desired state
