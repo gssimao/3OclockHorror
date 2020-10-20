@@ -10,12 +10,15 @@ public class LightMatch : MonoBehaviour
     bool timerLock = true;
     public float lifeTime;
     float ov;
+    public float leanTime = 1;
+    Vector3 small = new Vector3(0.3f, 0.3f, 0);
+    Vector3 large = new Vector3(0.6f, 0.6f, 0);
     // Start is called before the first frame update
     void Start()
     {
         ov = lifeTime;
         match.enabled = false;
-        lightMask.alphaCutoff = 1f;
+        lightMask.transform.localScale = small;
     }
 
     // Update is called once per frame
@@ -24,7 +27,7 @@ public class LightMatch : MonoBehaviour
         if (Input.GetKeyDown("q") && timerLock == true)
         {
             match.enabled = true;
-            lightMask.alphaCutoff = 0f;
+            lightMask.transform.LeanScale(large, leanTime);
             timerLock = false;
         }
 
@@ -37,7 +40,7 @@ public class LightMatch : MonoBehaviour
         {
             timerLock = true;
             match.enabled = false;
-            lightMask.alphaCutoff = 1f;
+            lightMask.transform.LeanScale(small, leanTime);
             lifeTime = ov;
         }
     }
