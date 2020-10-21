@@ -122,7 +122,7 @@ public class NPC : MonoBehaviour
         }
     }
 
-    public bool move()
+    public bool move(float speed)
     {
         if (path == null)
         {
@@ -135,30 +135,16 @@ public class NPC : MonoBehaviour
         }
         else
         {
-            if(fsm.GetState() == FSMStateType.CHASE)
-            {
-                Vector2 dir = ((Vector2)path.vectorPath[currWP] - rb.position).normalized;
-                Vector2 force = dir * chaseSpeed * Time.deltaTime;
-                rb.AddForce(force);
+            Vector2 dir = ((Vector2)path.vectorPath[currWP] - rb.position).normalized;
+            Vector2 force = dir * speed * Time.deltaTime;
+            rb.AddForce(force);
 
-                float dist = Vector2.Distance(rb.position, path.vectorPath[currWP]);
-                if (dist < nWPD)
-                {
-                    currWP++;
-                }
-            }
-            else
+            float dist = Vector2.Distance(rb.position, path.vectorPath[currWP]);
+            if (dist < nWPD)
             {
-                Vector2 dir = ((Vector2)path.vectorPath[currWP] - rb.position).normalized;
-                Vector2 force = dir * speed * Time.deltaTime;
-                rb.AddForce(force);
-
-                float dist = Vector2.Distance(rb.position, path.vectorPath[currWP]);
-                if (dist < nWPD)
-                {
-                    currWP++;
-                }
+                currWP++;
             }
+
             return true;
         }
 

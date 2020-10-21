@@ -5,6 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PatrolState", menuName = "FSM/States/Patrol", order = 2)] //Allow creation in project area
 public class patrolState : abstractFSMState
 {
+    [SerializeField]
+    float speed;
+    [SerializeField]
+    float duration;
+
     public override void OnEnable() //overide onEnable to set state type
     {
         base.OnEnable();
@@ -28,7 +33,7 @@ public class patrolState : abstractFSMState
     {
         if (enteredState)
         {
-            bool cnt = executor.move();
+            bool cnt = executor.move(speed);
             if (!cnt)
             {
                 fsm.enterState(FSMStateType.IDLE);

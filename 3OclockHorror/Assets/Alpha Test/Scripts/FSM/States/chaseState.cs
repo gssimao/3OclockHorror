@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ChaseState", menuName = "FSM/States/Chase", order = 3)] //Allow creation in project area
 public class chaseState : abstractFSMState
 {
+    [SerializeField]
+    float speed;
     float tmr = 0f;
     public override void OnEnable() //overide onEnable to set state type
     {
@@ -34,7 +36,7 @@ public class chaseState : abstractFSMState
                 executor.setDestination(player.gameObject);
                 tmr = 0f;
             }
-            bool cnt = executor.move();
+            bool cnt = executor.move(speed);
             tmr += Time.deltaTime;
 
             //Determine if player is within range of an attack or has left room, either will trigger state change

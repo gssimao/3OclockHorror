@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="TransferState", menuName = "FSM/States/Transfer", order = 4)] //make object creatable
-public class transferState : abstractFSMState
+[CreateAssetMenu(fileName ="IdleState", menuName = "FSM/States/Idle", order = 1)] //make object creatable
+public class idleState : abstractFSMState
 {
     [SerializeField] //Duration trackers so we don't stay idle longer than desired
     float duration = 3f;
@@ -29,9 +29,13 @@ public class transferState : abstractFSMState
         if (enteredState)
         {
             totalDuration += Time.deltaTime;
-            if(totalDuration >= duration)
+            if(totalDuration > duration)
             {
-                //choose a new room, update state to idle
+                fsm.enterState(FSMStateType.PATROL);
+            }
+            if (player.myRoom == executor.myRoom && player.walking && duration > 1f)
+            {
+                fsm.enterState(FSMStateType.CHASE);
             }
         }
     }
