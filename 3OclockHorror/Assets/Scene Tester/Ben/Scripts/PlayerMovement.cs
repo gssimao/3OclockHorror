@@ -12,10 +12,18 @@ public class PlayerMovement : MonoBehaviour
     public bool walking;
     public Camera Camera;
     public Vector2 movement;
+    public AudioManager manager;
+    public bool isPlaying = false; //for audio
+
+    public CandleScript[] Candles;
+    public CandleScript CandleInRange;
+    float cndlTmr;
+    float duration = 1f;
 
     void Start()
     {
-        invUI.SetActive(false);    
+        invUI.SetActive(false);
+        manager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -77,6 +85,15 @@ public class PlayerMovement : MonoBehaviour
         {
             walking = false;
         }
+        if (walking == true && isPlaying == false && manager != null)
+        {
+            manager.Play("Player Footsteps");
+            isPlaying = true;
+        }
+        else
+        {
+            isPlaying = false;
+        }
     }
 
     void FixedUpdate()
@@ -86,5 +103,30 @@ public class PlayerMovement : MonoBehaviour
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
         Camera.transform.position = myRoom.getCameraPoint().transform.position;
+
+        if(cndlTmr >= duration)
+        {
+            CheckCandle();
+            cndlTmr = 0f;
+        }
+        else
+        {
+            cndlTmr += Time.deltaTime;
+        }
+    }
+
+    void CheckCandle()
+    {
+        Candles = myRoom.getRoomObject().GetComponentsInChildren<CandleScript>();
+
+        foreach(CandleScript candle in Candles)
+        {
+            float dist = Vector2.Distance(gameObject.transform.position, candle.transform.position);
+            if(dist < 1)
+            {
+                CandleInRange = candle;
+                return;
+            }
+        }
     }
 }

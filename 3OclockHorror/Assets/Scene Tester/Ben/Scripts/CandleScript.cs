@@ -6,7 +6,8 @@ public class CandleScript : MonoBehaviour
 {
     public GameObject player;
     public GameObject Light;
-    Light flame; //Variable to that holds the light component of the game object
+    public SpriteMask LightMask;
+    public Light flame; //Variable to that holds the light component of the game object
 
     public float interRange;
 
@@ -15,7 +16,8 @@ public class CandleScript : MonoBehaviour
     void Start()
     {
         flame = Light.GetComponent<Light>(); //gets the light component of the child of this game object and sets it to the variable
-        //interRange = flame.range / flame.range + 1;
+        flame.enabled = false;
+        LightMask.enabled = false;
     }
 
     // Update is called once per frame
@@ -25,13 +27,14 @@ public class CandleScript : MonoBehaviour
 
         if(dist <= interRange && Input.GetKeyDown("q"))
         {
-            if (flame.isActiveAndEnabled)
+            if (flame.isActiveAndEnabled == false)
             {
-                flame.enabled = false;
+                CandleToggle(true);
+                FindObjectOfType<AudioManager>().Play("Candle Light");
             }
             else
             {
-                flame.enabled = true;
+                CandleToggle(false);
             }
         }
     }
@@ -40,5 +43,19 @@ public class CandleScript : MonoBehaviour
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(gameObject.transform.position, interRange);
+    }
+
+    public void CandleToggle(bool trigger)
+    {
+        if (trigger == false)
+        {
+            flame.enabled = false;
+            LightMask.enabled = false;
+        }
+        else if(trigger == true)
+        {
+            flame.enabled = true;
+            LightMask.enabled = true;
+        }
     }
 }

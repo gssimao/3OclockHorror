@@ -5,45 +5,30 @@ using UnityEngine;
 public class NoteStarter : MonoBehaviour
 {
     [SerializeField]
+    Item FirstNote;
+    [Space]
+    [SerializeField]
     List<Item> Notes;
+    [Space]
+    [SerializeField]
+    Item LastNote;
+    [Space]
     [SerializeField]
     Inventory StarterInv;
     [SerializeField]
-    Item FirstNote;
-    [SerializeField]
-    Item LastNote;
+    Inventory FinalInv;
     [SerializeField]
     Item key;
+    [SerializeField]
+    Item amulet;
 
     List<Inventory> CntInvs;
+    List<Inventory> RandInvs = new List<Inventory>();
+    int InvPos = 0; //Current inventory position.
     // Start is called before the first frame update
     void Start()
     {
-        FindAllContainers();
-
-        foreach(Item Note in Notes)
-        {
-            int rand = Random.Range(0, CntInvs.Count);
-            while(rand < 0)
-            {
-                rand = Random.Range(0, CntInvs.Count);
-            }
-            Note.myInv = CntInvs[rand];
-            Note.desc = "A note in a series of notes";
-            Note.isRead = false;
-            CntInvs.Remove(Note.myInv);
-        }
-
-        FirstNote.myInv = StarterInv;
-        FirstNote.isRead = false;
-        FirstNote.desc = "A note in a series of notes.";
-        FirstNote.myInv.AddStartingItem(FirstNote);
-
-        LastNote.myInv = StarterInv;
-        LastNote.isRead = false;
-        LastNote.desc = "A note in a series of notes.";
-
-        key.myInv = LastNote.myInv;
+        
     }
 
     void FindAllContainers()
@@ -51,15 +36,63 @@ public class NoteStarter : MonoBehaviour
 
         GameObject[] NoteContainers = GameObject.FindGameObjectsWithTag("NoteContainer");
         CntInvs = new List<Inventory>();
-
         foreach (GameObject cnt in NoteContainers)
         {
             CntInvs.Add(cnt.GetComponent<Inventory>());
         }
-
         if (CntInvs.Contains(StarterInv))
         {
             CntInvs.Remove(StarterInv);
+        }
+    }
+
+    public void initNotePuzzle()
+    {
+        FindAllContainers();
+        RandInvs.Clear();
+
+        FirstNote.myInv = StarterInv;
+        FirstNote.isRead = false;
+        FirstNote.desc = "A note in a series of notes.";
+        FirstNote.myInv.AddStartingItem(FirstNote);
+
+        foreach (Item Note in Notes)
+        {
+            int rand = Random.Range(0, CntInvs.Count);
+            while (rand < 0)
+            {
+                rand = Random.Range(0, CntInvs.Count);
+            }
+            RandInvs.Add(CntInvs[rand]);
+            CntInvs.RemoveAt(rand);
+
+            Note.desc = "A note in a series of notes";
+            Note.isRead = false;
+        }
+
+        LastNote.myInv = StarterInv;
+        LastNote.isRead = false;
+        LastNote.desc = "A note in a series of notes.";
+
+        key.myInv = FinalInv;
+        amulet.myInv = FinalInv;
+    }
+
+    public void SetNextNoteInventory(Item note)
+    {
+        if (note.nextNote != null && note.nextNote != LastNote) 
+        {
+            note.nextNote.myInv = RandInvs[InvPos];
+        }
+        note.NextNoteInit();
+        InvPos++;
+    }
+
+    public void CheckInvs(List<Inventory> list)
+    {
+        foreach(Inventory inv in list)
+        {
+            Debug.Log("Name: " + inv.name);
         }
     }
 }

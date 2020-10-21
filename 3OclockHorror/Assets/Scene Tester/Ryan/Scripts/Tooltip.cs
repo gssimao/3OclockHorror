@@ -7,7 +7,19 @@ public class Tooltip : MonoBehaviour
 {
     public Text TooltipText;
     private bool walked = false;
-    // Start is called before the first frame update
+    [SerializeField]
+    public string Message;
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        TooltipText.text = Message;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        TooltipText.text = "";
+    }
+
     void Start()
     {
         TooltipText = GameObject.Find("TooltipText").GetComponent<Text>();

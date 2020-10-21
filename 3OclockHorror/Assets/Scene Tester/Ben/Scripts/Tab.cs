@@ -8,7 +8,6 @@ public class Tab : MonoBehaviour
     GameObject itemSlotsGrid;
 
     ItemSlot[] itemSlots;
-
     Item[] invItems;
 
     #region Get/Set

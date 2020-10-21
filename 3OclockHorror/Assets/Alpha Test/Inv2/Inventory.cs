@@ -8,16 +8,16 @@ public class Inventory : MonoBehaviour, IItemContainer
     [SerializeField]
     List<Item> items; //Only for starting with items in this inventory. Therefore mostly depreciated.
     [SerializeField] 
-    ItemSlot[] itemSlots;
+    ItemSlot[] itemSlots; //The slots that hold and display items for the inventory.
     [Space]
     [SerializeField]
-    Transform itemsParent;
+    Transform itemsParent; //The hirearchy parent to those slots
 
     [SerializeField]
-    bool PInv;
+    bool PInv; //True if this inventory is the player inventory.
 
-    public bool active;
-    public event Action<ItemSlot> onPointerEnterEvent;
+    public bool active; //True if this is an active dynamic inventory.
+    public event Action<ItemSlot> onPointerEnterEvent; //Event chain holders, for moving / interacting with items in various ways.
     public event Action<ItemSlot> onPointerExitEvent;
     public event Action<ItemSlot> onRightClickEvent;
     public event Action<ItemSlot> onBeginDragEvent;
@@ -27,14 +27,13 @@ public class Inventory : MonoBehaviour, IItemContainer
 
     private void Awake()
     {
-
-        if (itemsParent != null)
+        if (itemsParent != null) //If the item parent is not null, get all of the children component item slots, add them to the item slots list. 
         {
             itemSlots = itemsParent.GetComponentsInChildren<ItemSlot>();
         }
 
 
-        for (int i = 0; i < itemSlots.Length; i++)
+        for (int i = 0; i < itemSlots.Length; i++) //Run through the list, adding invokers and setting their Pinv bool to true if this is the player inventory. 
         {
             AddInvokers(itemSlots[i]);
             if (PInv)
@@ -46,6 +45,8 @@ public class Inventory : MonoBehaviour, IItemContainer
         SetStartingItems();
     }
 
+    //Adding, removing items, changing or setting starting items, etc.
+    #region Add/Change Items  
     public void SetStartingItems()
     {
         int i;
@@ -73,6 +74,16 @@ public class Inventory : MonoBehaviour, IItemContainer
         return false;
     }
 
+    public void AddStartingItem(Item item)
+    {
+        items.Add(item);
+    }
+
+    public void InitStartingItems(List<Item> items)
+    {
+        this.items = items;
+    }
+
     public bool RemoveItem(Item item)
     {
         for (int i = 0; i < itemSlots.Length; i++)
@@ -85,8 +96,10 @@ public class Inventory : MonoBehaviour, IItemContainer
         }
         return false;
     }
+    #endregion
 
-
+    //Is the container full, does it contain a specific item, count of items, etc
+    #region Query Items
     public bool IsFull()
     {
         for (int i = 0; i < itemSlots.Length; i++)
@@ -123,7 +136,10 @@ public class Inventory : MonoBehaviour, IItemContainer
         }
         return c;
     }
+    #endregion
 
+    //Opening, closing, and linking dynamic inventories. 
+    #region Dynamic Inventories
     //Properly open a dynamic inventory.
     public void OpenInv()
     {
@@ -152,11 +168,6 @@ public class Inventory : MonoBehaviour, IItemContainer
         active = false;
     }
 
-    public void AddStartingItem(Item item)
-    {
-        items.Add(item);
-    }
-
     public void AddInvokers(ItemSlot slot)
     {
         slot.onPointerEnterEvent += onPointerEnterEvent;
@@ -177,4 +188,6 @@ public class Inventory : MonoBehaviour, IItemContainer
         slot.onDragEvent -= onDragEvent;
         slot.onDropEvent -= onDropEvent;
     }
+
+    #endregion
 }

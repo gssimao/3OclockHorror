@@ -25,14 +25,14 @@ public class WatcherAI : MonoBehaviour
 
     //Room Specific variables
     public room currentRoom;
-    public Light[] Candles;
+    public CandleScript[] Candles;
     room playerRoom;
     Vector3 spawnPoint;
 
     // Start is called before the first frame update
     void Start()
     {
-        Candles = currentRoom.getRoomObject().GetComponentsInChildren<Light>();
+        Candles = currentRoom.getRoomObject().GetComponentsInChildren<CandleScript>();
         spawnPoint = currentRoom.getWatcherSpawn().transform.position;
 
         candleNum = Candles.Length;
@@ -102,7 +102,7 @@ public class WatcherAI : MonoBehaviour
 
             this.transform.position = Rooms[randInd].getWatcherSpawn().transform.position;
             currentRoom = Rooms[randInd];
-            Candles = currentRoom.getRoomObject().GetComponentsInChildren<Light>();
+            Candles = currentRoom.getRoomObject().GetComponentsInChildren<CandleScript>();
         }
         else if(emptyRoomCount == 1)
         {
@@ -116,7 +116,7 @@ public class WatcherAI : MonoBehaviour
 
             this.transform.position = Rooms[randInd].getWatcherSpawn().transform.position;
             currentRoom = Rooms[randInd];
-            Candles = currentRoom.getRoomObject().GetComponentsInChildren<Light>();
+            Candles = currentRoom.getRoomObject().GetComponentsInChildren<CandleScript>();
         }
         else if(emptyRoomCount == 2)
         {
@@ -130,13 +130,13 @@ public class WatcherAI : MonoBehaviour
 
             this.transform.position = Rooms[randInd].getWatcherSpawn().transform.position;
             currentRoom = Rooms[randInd];
-            Candles = currentRoom.getRoomObject().GetComponentsInChildren<Light>();
+            Candles = currentRoom.getRoomObject().GetComponentsInChildren<CandleScript>();
         }
         else// if emptyRoomCount >= 3
         {
             this.transform.position = playerRoom.getWatcherSpawn().transform.position;
             currentRoom = playerRoom;
-            Candles = currentRoom.getRoomObject().GetComponentsInChildren<Light>();
+            Candles = currentRoom.getRoomObject().GetComponentsInChildren<CandleScript>();
         }
 
         CheckRoom();
@@ -158,7 +158,7 @@ public class WatcherAI : MonoBehaviour
         for (int i = 0; i <= selectedAmt; i++)
         {
             temp = candlesOn[Random.Range(0, selectedAmt - 1)];
-            Candles[temp].enabled = false;
+            Candles[temp].CandleToggle(false);
         }
     }
 
@@ -175,7 +175,7 @@ public class WatcherAI : MonoBehaviour
         for (int i = 0; i < candleNum; i++)
         {
 
-            if (Candles[i].isActiveAndEnabled)
+            if (Candles[i].flame.isActiveAndEnabled)
             {
                 candleCount++;
             }
@@ -186,7 +186,7 @@ public class WatcherAI : MonoBehaviour
 
         for(int i = 0; i < candleNum; i++)
         {
-            if (Candles[i].isActiveAndEnabled)
+            if (Candles[i].flame.isActiveAndEnabled)
             {
                 candlesOn[j] = i;
                 j++;

@@ -10,12 +10,12 @@ public class MainMenu : MonoBehaviour
 
     void Awake()
     {
-        menuAudio.Play("wind");
+        menuAudio.Play("Theme");
     }
 
    public void PlayGame()
     {
-        menuAudio.Stop("wind");
+        menuAudio.Stop("Theme");
         SceneManager.LoadScene(mMenuScene);
     }
 
