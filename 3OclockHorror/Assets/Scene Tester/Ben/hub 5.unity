@@ -1297,7 +1297,6 @@ MonoBehaviour:
   room2: {fileID: 49731051}
   entrancePointRoom: {fileID: 317649881}
   player: {fileID: 1619042896}
-  Listener: {fileID: 1677718117}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!212 &127088124
@@ -3697,7 +3696,6 @@ MonoBehaviour:
   room2: {fileID: 241857674}
   entrancePointRoom: {fileID: 1932145299}
   player: {fileID: 1619042896}
-  Listener: {fileID: 1677718117}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!4 &429790642
@@ -4650,7 +4648,6 @@ MonoBehaviour:
   room2: {fileID: 927790501}
   entrancePointRoom: {fileID: 1766307819}
   player: {fileID: 1619042896}
-  Listener: {fileID: 1677718117}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!4 &499757947
@@ -7069,7 +7066,6 @@ MonoBehaviour:
   room2: {fileID: 49731051}
   entrancePointRoom: {fileID: 599899497}
   player: {fileID: 1619042896}
-  Listener: {fileID: 1677718117}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!114 &749716157
@@ -8442,7 +8438,6 @@ MonoBehaviour:
   room2: {fileID: 1924318166}
   entrancePointRoom: {fileID: 0}
   player: {fileID: 0}
-  Listener: {fileID: 0}
   transition: {fileID: 0}
   transitionOnOff: 1
 --- !u!4 &853169834
@@ -9835,7 +9830,6 @@ MonoBehaviour:
   room2: {fileID: 1734360194}
   entrancePointRoom: {fileID: 179658432}
   player: {fileID: 1619042896}
-  Listener: {fileID: 1677718117}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!61 &989003032
@@ -10753,7 +10747,6 @@ MonoBehaviour:
   room2: {fileID: 1010640144}
   entrancePointRoom: {fileID: 261371839}
   player: {fileID: 1619042896}
-  Listener: {fileID: 1677718117}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!114 &1090399930
@@ -11354,7 +11347,6 @@ MonoBehaviour:
   room2: {fileID: 241857674}
   entrancePointRoom: {fileID: 1909547115}
   player: {fileID: 1619042896}
-  Listener: {fileID: 1677718117}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!212 &1132408747
@@ -11556,7 +11548,6 @@ MonoBehaviour:
   room2: {fileID: 749903259}
   entrancePointRoom: {fileID: 1679202536}
   player: {fileID: 1619042896}
-  Listener: {fileID: 1677718117}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!212 &1141305685
@@ -12222,7 +12213,6 @@ MonoBehaviour:
   room2: {fileID: 49731051}
   entrancePointRoom: {fileID: 499767271}
   player: {fileID: 1619042896}
-  Listener: {fileID: 1677718117}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!212 &1209090067
@@ -12572,7 +12562,6 @@ MonoBehaviour:
   room2: {fileID: 646229228}
   entrancePointRoom: {fileID: 0}
   player: {fileID: 0}
-  Listener: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!1 &1243932353
@@ -12916,7 +12905,6 @@ MonoBehaviour:
   room2: {fileID: 49731051}
   entrancePointRoom: {fileID: 0}
   player: {fileID: 0}
-  Listener: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!1 &1268697847
@@ -13056,6 +13044,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1275899270}
   - component: {fileID: 1275899271}
+  - component: {fileID: 1275899272}
   m_Layer: 0
   m_Name: CircleLightMask
   m_TagString: Untagged
@@ -13127,6 +13116,22 @@ SpriteMask:
   m_BackSortingOrder: 0
   m_IsCustomRangeActive: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1275899272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275899269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587a05ffee9d31248b795d76be6d5cb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteMask: {fileID: 0}
+  flick: 0
+  amplitude: 0.012
+  omega: 3
 --- !u!1 &1287688264
 GameObject:
   m_ObjectHideFlags: 0
@@ -13190,7 +13195,6 @@ MonoBehaviour:
   room2: {fileID: 749903259}
   entrancePointRoom: {fileID: 1644800746}
   player: {fileID: 1619042896}
-  Listener: {fileID: 1677718117}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!4 &1287688267
@@ -15785,6 +15789,10 @@ MonoBehaviour:
   walking: 0
   Camera: {fileID: 1825635318}
   movement: {x: 0, y: 0}
+  manager: {fileID: 0}
+  isPlaying: 0
+  Candles: []
+  CandleInRange: {fileID: 0}
 --- !u!4 &1619042897
 Transform:
   m_ObjectHideFlags: 0
@@ -15847,6 +15855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   match: {fileID: 1075851192}
   lightMask: {fileID: 1275899271}
+  fLight: {fileID: 1275899272}
   lifeTime: 5
   leanTime: 0.7
 --- !u!1 &1626619249
@@ -15926,7 +15935,6 @@ MonoBehaviour:
   room2: {fileID: 1010640144}
   entrancePointRoom: {fileID: 1617756544}
   player: {fileID: 1619042896}
-  Listener: {fileID: 1677718117}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!114 &1626619253
@@ -16965,8 +16973,10 @@ MonoBehaviour:
   anim: {fileID: 1710219382}
   myRoom: {fileID: 1010640144}
   speed: 5
+  chaseSpeed: 10
   nWPD: 0.1
   movement: {x: 0, y: 0}
+  Rooms: []
 --- !u!114 &1710219379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17662,7 +17672,6 @@ MonoBehaviour:
   room2: {fileID: 1010640144}
   entrancePointRoom: {fileID: 1423361344}
   player: {fileID: 1619042896}
-  Listener: {fileID: 1677718117}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!212 &1841355174
@@ -18264,7 +18273,6 @@ MonoBehaviour:
   room2: {fileID: 927790501}
   entrancePointRoom: {fileID: 302763825}
   player: {fileID: 1619042896}
-  Listener: {fileID: 1677718117}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!212 &1929385776
@@ -18563,7 +18571,6 @@ MonoBehaviour:
   room2: {fileID: 2125430957}
   entrancePointRoom: {fileID: 1588349109}
   player: {fileID: 1619042896}
-  Listener: {fileID: 1677718117}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!212 &1936929853
@@ -19387,7 +19394,6 @@ MonoBehaviour:
   room2: {fileID: 2125430957}
   entrancePointRoom: {fileID: 1059485045}
   player: {fileID: 1619042896}
-  Listener: {fileID: 1677718117}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!4 &1988763067
@@ -19609,7 +19615,6 @@ MonoBehaviour:
   room2: {fileID: 241857674}
   entrancePointRoom: {fileID: 1140262547}
   player: {fileID: 1619042896}
-  Listener: {fileID: 1677718117}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!212 &2049539074
@@ -20374,7 +20379,6 @@ MonoBehaviour:
   room2: {fileID: 1010640144}
   entrancePointRoom: {fileID: 644083374}
   player: {fileID: 1619042896}
-  Listener: {fileID: 1677718117}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!114 &2143602356
