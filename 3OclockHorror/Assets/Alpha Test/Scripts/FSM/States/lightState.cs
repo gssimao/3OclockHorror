@@ -9,6 +9,9 @@ public class lightState : abstractFSMState
     float duration = 3f;
     float currDuration;
     float totalDuration;
+    float ftm;
+    bool move;
+    int moveStage;
 
     public override void OnEnable() //Ovveride on enable, set state to idle
     {
@@ -31,17 +34,45 @@ public class lightState : abstractFSMState
         {
             totalDuration += Time.deltaTime;
             currDuration += Time.deltaTime;
+
             if(currDuration > duration)
             {
                 if(executor.myRoom != player.myRoom)
                 {
                     fsm.enterState(FSMStateType.IDLE);
                 }
-                else
+                else if(!move)
                 {
-                    //Logic to move closer to candle then further away 
-                    //Will have to probably do sin/cos math to find how to move towards candle, track candle, etc
+                    //Logic to move closer to candle then further away
                     //If player runs out, BC should re-enter chase (if not walking)
+                    ftm = Random.Range(5, 15); //Force to move by. Applied to move forwards / backwards towards candle
+                    move = true;
+                    moveStage = 0;
+                    executor.setDestination(player.CandleInRange.gameObject);
+                }
+
+                if (move)
+                {
+                    if (moveStage == 0)
+                    {
+                        executor.move(ftm);
+                        moveStage = 1;
+                    }
+                    else if (moveStage == 1)
+                    {
+                        executor.move(-ftm);
+                        moveStage = 2;
+                    }
+                    else if(moveStage == 2)
+                    {
+                        executor.move(-ftm);
+                        moveStage = 3;
+                    }
+                    else if(moveStage == 3)
+                    {
+                        executor.move(ftm);
+                        move = false;
+                    }
                 }
 
                 currDuration = 0f;

@@ -30,6 +30,7 @@ public class NPC : MonoBehaviour
     Rigidbody2D rb;
     public Vector2 movement;
 
+    public List<room> Rooms;
 
     // Start is called before the first frame update
     void Awake()

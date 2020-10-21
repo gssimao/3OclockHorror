@@ -8,6 +8,7 @@ public class idleState : abstractFSMState
     [SerializeField] //Duration trackers so we don't stay idle longer than desired
     float duration = 3f;
     float totalDuration;
+    List<room> Rooms;
 
     public override void OnEnable() //Ovveride on enable, set state to idle
     {
@@ -21,6 +22,16 @@ public class idleState : abstractFSMState
         {
             totalDuration = 0f;
         }
+
+        Rooms.Clear();
+        foreach(room room in executor.Rooms)
+        {
+            if(room != executor.myRoom)
+            {
+                Rooms.Add(room);
+            }
+        }
+
         return enteredState;
     }
 
