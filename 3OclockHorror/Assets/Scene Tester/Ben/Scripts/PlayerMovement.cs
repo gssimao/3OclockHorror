@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public bool walking;
     public Camera Camera;
     public Vector2 movement;
+    public bool isPlaying = false; //for audio
 
     void Start()
     {
@@ -76,6 +77,15 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             walking = false;
+        }
+        if (walking == true && isPlaying == false)
+        {
+            FindObjectOfType<AudioManager>().Play("Player Footsteps");
+            isPlaying = true;
+        }
+        else
+        {
+            isPlaying = false;
         }
     }
 

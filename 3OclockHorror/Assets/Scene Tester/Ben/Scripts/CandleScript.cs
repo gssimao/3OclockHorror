@@ -30,6 +30,7 @@ public class CandleScript : MonoBehaviour
             if (flame.isActiveAndEnabled == false)
             {
                 CandleToggle(true);
+                FindObjectOfType<AudioManager>().Play("Candle Light");
             }
             else
             {

@@ -29,6 +29,7 @@ public class LightMatch : MonoBehaviour
             match.enabled = true;
             lightMask.transform.LeanScale(large, leanTime);
             timerLock = false;
+            FindObjectOfType<AudioManager>().Play("Match Strike");
         }
 
         if(timerLock == false)

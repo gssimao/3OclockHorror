@@ -12069,6 +12069,7 @@ GameObject:
   - component: {fileID: 1170369318}
   - component: {fileID: 1170369320}
   - component: {fileID: 1170369319}
+  - component: {fileID: 1170369321}
   m_Layer: 0
   m_Name: GrandfatherClock
   m_TagString: Untagged
@@ -12168,6 +12169,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1170369321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170369317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c097ab818c7c62548ab7284c8a1714db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1619042889}
+  GrandfatherClock: {fileID: 1170369317}
+  interRange: 1
 --- !u!1 &1192421596
 GameObject:
   m_ObjectHideFlags: 0
@@ -15962,6 +15978,7 @@ MonoBehaviour:
   walking: 0
   Camera: {fileID: 1825635318}
   movement: {x: 0, y: 0}
+  isPlaying: 0
 --- !u!4 &1619042897
 Transform:
   m_ObjectHideFlags: 0
