@@ -16,7 +16,7 @@ public class lightState : abstractFSMState
     public override void OnEnable() //Ovveride on enable, set state to idle
     {
         base.OnEnable();
-        StateType = FSMStateType.IDLE;
+        StateType = FSMStateType.LIGHT;
     }
     public override bool enterState() //Enter state, once entered set duration to 0
     {

@@ -6,6 +6,9 @@ using Pathfinding;
 [RequireComponent(typeof(FiniteStateMachine), typeof(Seeker), typeof(Rigidbody2D))]
 public class NPC : MonoBehaviour
 {
+    [SerializeField]
+
+
     //Public (editor assigned) Variables
     public GameObject player; //The player target for the Blind Creep to head towards / check against
     public Animator anim;
@@ -29,8 +32,6 @@ public class NPC : MonoBehaviour
     Seeker seeker;
     Rigidbody2D rb;
     public Vector2 movement;
-
-    public List<room> Rooms;
 
     // Start is called before the first frame update
     void Awake()

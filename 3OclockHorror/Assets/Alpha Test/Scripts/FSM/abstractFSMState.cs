@@ -16,6 +16,8 @@ public enum FSMStateType //Types of valid states, also must add state to valid s
     IDLE,
     PATROL,
     CHASE,
+    TRANSFER,
+    LIGHT,
 };
 
 public abstract class abstractFSMState : ScriptableObject
