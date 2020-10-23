@@ -9,6 +9,7 @@ public class roomCntrl : MonoBehaviour
 
     public GameObject entrancePointRoom;
     public PlayerMovement player;
+    public invInput Listener;
 
     public Animator transition;
     public bool transitionOnOff = true; //Use this toggle the transition on and off
@@ -27,6 +28,7 @@ public class roomCntrl : MonoBehaviour
         dist = Vector3.Distance(player.gameObject.transform.position, this.gameObject.transform.position);
         if (dist <= 0.5)
         {
+            Listener.enabled = false;
             if (Input.GetKeyDown("e"))
             {
                 if (player != null) //Make sure it's not null
@@ -42,6 +44,7 @@ public class roomCntrl : MonoBehaviour
                 }
             }
         }
+        Listener.enabled = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

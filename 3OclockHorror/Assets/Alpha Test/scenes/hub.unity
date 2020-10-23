@@ -1072,7 +1072,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 122416552}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1501061209}
@@ -1117,7 +1117,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 123a607a1aa410941be515eb6667338d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1369,6 +1369,7 @@ MonoBehaviour:
   room2: {fileID: 49731051}
   entrancePointRoom: {fileID: 317649881}
   player: {fileID: 1619042896}
+  Listener: {fileID: 1677718118}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!212 &127088124
@@ -2557,7 +2558,7 @@ Transform:
   m_GameObject: {fileID: 296539381}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1000.07, y: 11.94, z: 0}
-  m_LocalScale: {x: 13.053418, y: 8.804013, z: 8.095645}
+  m_LocalScale: {x: 21.947433, y: 14.802674, z: 13.611656}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 16
@@ -2569,7 +2570,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 296539381}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00c293670c35aad4e83c663aac4be7be, type: 3}
   m_Name: 
@@ -2875,7 +2876,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 332304330}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 49731054}
@@ -2920,7 +2921,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 1d5574ed864fc564689415377a8012d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3306,7 +3307,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 396010719}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.367, z: -1}
+  m_LocalPosition: {x: -0, y: 0.367, z: -0.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 241857673}
@@ -3351,7 +3352,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: ed7eb59b8747b5048a49a89dd6e2bcd8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3739,7 +3740,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.41838056}
+  m_Offset: {x: 0, y: -0.38771498}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3750,7 +3751,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5777867, y: 0.16323888}
+  m_Size: {x: 0.5777867, y: 0.15208817}
   m_EdgeRadius: 0
 --- !u!114 &429790641
 MonoBehaviour:
@@ -3768,6 +3769,7 @@ MonoBehaviour:
   room2: {fileID: 241857674}
   entrancePointRoom: {fileID: 1932145299}
   player: {fileID: 1619042896}
+  Listener: {fileID: 1677718118}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!4 &429790642
@@ -3824,7 +3826,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 3eb603df2e23c6c4b910970aadb400b6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3863,7 +3865,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.01811999}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3874,7 +3876,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.63, y: 0.98}
+  m_Size: {x: 0.63, y: 1.0162401}
   m_EdgeRadius: 0
 --- !u!1 &437294429
 GameObject:
@@ -3970,7 +3972,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &445925391
 Transform:
   m_ObjectHideFlags: 0
@@ -4720,6 +4722,7 @@ MonoBehaviour:
   room2: {fileID: 927790501}
   entrancePointRoom: {fileID: 1766307819}
   player: {fileID: 1619042896}
+  Listener: {fileID: 1677718118}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!4 &499757947
@@ -4775,7 +4778,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.3182652, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &499767271
 GameObject:
@@ -6472,7 +6475,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 649665990}
   m_LocalRotation: {x: 0, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 927790505}
@@ -6517,7 +6520,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: ce2f9150226baaa4c8e4ab7b2faadc53, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7040,7 +7043,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 725437598}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 749903263}
@@ -7085,7 +7088,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: eaa9aca198eeff04db54437c7c96e38d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7256,6 +7259,7 @@ MonoBehaviour:
   room2: {fileID: 49731051}
   entrancePointRoom: {fileID: 599899497}
   player: {fileID: 1619042896}
+  Listener: {fileID: 1677718118}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!114 &749716157
@@ -7502,7 +7506,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 763705613}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.33, z: 0}
+  m_LocalPosition: {x: 0, y: 0.33, z: -0.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2125430955}
@@ -7547,7 +7551,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 51414dcb39075e24791655dbdcc02dc3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -8628,6 +8632,7 @@ MonoBehaviour:
   room2: {fileID: 1924318166}
   entrancePointRoom: {fileID: 0}
   player: {fileID: 0}
+  Listener: {fileID: 0}
   transition: {fileID: 0}
   transitionOnOff: 1
 --- !u!4 &853169834
@@ -10020,6 +10025,7 @@ MonoBehaviour:
   room2: {fileID: 1734360194}
   entrancePointRoom: {fileID: 179658432}
   player: {fileID: 1619042896}
+  Listener: {fileID: 1677718118}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!61 &989003032
@@ -10711,6 +10717,7 @@ GameObject:
   - component: {fileID: 1075851190}
   - component: {fileID: 1075851192}
   - component: {fileID: 1075851191}
+  - component: {fileID: 1075851193}
   m_Layer: 0
   m_Name: MatchBox
   m_TagString: Untagged
@@ -10808,6 +10815,22 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1075851193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075851189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587a05ffee9d31248b795d76be6d5cb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteMask: {fileID: 0}
+  flick: 0
+  amplitude: 0.3
+  omega: 1
 --- !u!1 &1090399925
 GameObject:
   m_ObjectHideFlags: 0
@@ -10883,7 +10906,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 25b2354fe92c9c442a1781f74910b090, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -10937,6 +10960,7 @@ MonoBehaviour:
   room2: {fileID: 1010640144}
   entrancePointRoom: {fileID: 261371839}
   player: {fileID: 1619042896}
+  Listener: {fileID: 1677718118}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!114 &1090399930
@@ -11508,7 +11532,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.2929811}
+  m_Offset: {x: 0, y: -0.30728093}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -11519,8 +11543,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.56580347, y: 0.24285987}
-  m_EdgeRadius: 0
+  m_Size: {x: 0.56580347, y: 0.21426018}
+  m_EdgeRadius: 5
 --- !u!114 &1132408746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11537,6 +11561,7 @@ MonoBehaviour:
   room2: {fileID: 241857674}
   entrancePointRoom: {fileID: 1909547115}
   player: {fileID: 1619042896}
+  Listener: {fileID: 1677718118}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!212 &1132408747
@@ -11578,7 +11603,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: d9e000ded5dfe614a8b368467eb1cabb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -11617,7 +11642,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.26520008}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -11628,7 +11653,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.66, y: 0.87}
+  m_Size: {x: 0.66, y: 0.33959982}
   m_EdgeRadius: 0
 --- !u!1 &1140262547
 GameObject:
@@ -11709,7 +11734,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.26300463}
+  m_Offset: {x: 0, y: -0.33970487}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -11720,7 +11745,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.57140565, y: 0.22049238}
+  m_Size: {x: 0.57140565, y: 0.18669224}
   m_EdgeRadius: 0
 --- !u!114 &1141305684
 MonoBehaviour:
@@ -11738,6 +11763,7 @@ MonoBehaviour:
   room2: {fileID: 749903259}
   entrancePointRoom: {fileID: 1679202536}
   player: {fileID: 1619042896}
+  Listener: {fileID: 1677718118}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!212 &1141305685
@@ -11779,7 +11805,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 6b112a294f1a9cb44b48899df4af384a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -11818,7 +11844,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.022100598}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -11829,7 +11855,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.66, y: 0.87}
+  m_Size: {x: 0.66, y: 0.9142012}
   m_EdgeRadius: 0
 --- !u!1 &1151409955
 GameObject:
@@ -12419,6 +12445,7 @@ MonoBehaviour:
   room2: {fileID: 49731051}
   entrancePointRoom: {fileID: 499767271}
   player: {fileID: 1619042896}
+  Listener: {fileID: 1677718118}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!212 &1209090067
@@ -12460,7 +12487,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: d9e000ded5dfe614a8b368467eb1cabb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -12499,7 +12526,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.25609145}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -12510,7 +12537,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.66, y: 0.87}
+  m_Size: {x: 0.66, y: 0.35781714}
   m_EdgeRadius: 0
 --- !u!1 &1221998578
 GameObject:
@@ -12768,6 +12795,7 @@ MonoBehaviour:
   room2: {fileID: 646229228}
   entrancePointRoom: {fileID: 0}
   player: {fileID: 0}
+  Listener: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!1 &1243932353
@@ -13111,6 +13139,7 @@ MonoBehaviour:
   room2: {fileID: 49731051}
   entrancePointRoom: {fileID: 0}
   player: {fileID: 0}
+  Listener: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!1 &1268697847
@@ -13384,6 +13413,7 @@ MonoBehaviour:
   room2: {fileID: 749903259}
   entrancePointRoom: {fileID: 1644800746}
   player: {fileID: 1619042896}
+  Listener: {fileID: 1677718118}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!4 &1287688267
@@ -13479,7 +13509,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.34483525}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -13490,7 +13520,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.63, y: 0.98}
+  m_Size: {x: 0.63, y: 0.32679135}
   m_EdgeRadius: 0
 --- !u!1 &1298688163
 GameObject:
@@ -13778,7 +13808,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 884cc55e3975e8e4aa82e5866a4b9012, type: 3}
   m_Color: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
   m_FlipX: 0
@@ -14156,7 +14186,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423361344}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1.0000001}
-  m_LocalPosition: {x: 3.644, y: 0.067, z: 0}
+  m_LocalPosition: {x: 3.96, y: 0.067, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1841355172}
@@ -14724,7 +14754,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1470948141}
   m_LocalRotation: {x: 0, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010640143}
@@ -14769,7 +14799,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: ce2f9150226baaa4c8e4ab7b2faadc53, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -15870,7 +15900,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 9d91b03f1671e294dacf91ee508ff4b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -15978,7 +16008,10 @@ MonoBehaviour:
   walking: 0
   Camera: {fileID: 1825635318}
   movement: {x: 0, y: 0}
+  manager: {fileID: 0}
   isPlaying: 0
+  Candles: []
+  CandleInRange: {fileID: 0}
 --- !u!4 &1619042897
 Transform:
   m_ObjectHideFlags: 0
@@ -16041,6 +16074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   match: {fileID: 1075851192}
   lightMask: {fileID: 1275899271}
+  fLight: {fileID: 1075851193}
   lifeTime: 5
   leanTime: 1
 --- !u!1 &1626619249
@@ -16120,6 +16154,7 @@ MonoBehaviour:
   room2: {fileID: 1010640144}
   entrancePointRoom: {fileID: 1617756544}
   player: {fileID: 1619042896}
+  Listener: {fileID: 1677718118}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!114 &1626619253
@@ -16160,7 +16195,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.33806634, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &1632624967
 GameObject:
@@ -17164,6 +17199,7 @@ MonoBehaviour:
   chaseSpeed: 10
   nWPD: 0.1
   movement: {x: 0, y: 0}
+  Rooms: []
 --- !u!114 &1710219379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17221,7 +17257,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: bb6aa35de4ce61f41bae3f02b1c8530d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -17332,7 +17368,7 @@ PolygonCollider2D:
       - {x: -3.0806885, y: -0.4337666}
       - {x: -1.0576172, y: -0.74220544}
       - {x: 1.0494385, y: -0.7379592}
-      - {x: 3.0602417, y: -0.4402364}
+      - {x: 3.0859375, y: -0.44452363}
       - {x: 3.083252, y: 0.1890567}
       - {x: 1.0323486, y: 0.5134643}
       - {x: -1.0509644, y: 0.51771486}
@@ -17859,6 +17895,7 @@ MonoBehaviour:
   room2: {fileID: 1010640144}
   entrancePointRoom: {fileID: 1423361344}
   player: {fileID: 1619042896}
+  Listener: {fileID: 1677718118}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!212 &1841355174
@@ -17900,7 +17937,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 25b2354fe92c9c442a1781f74910b090, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -18460,6 +18497,7 @@ MonoBehaviour:
   room2: {fileID: 927790501}
   entrancePointRoom: {fileID: 302763825}
   player: {fileID: 1619042896}
+  Listener: {fileID: 1677718118}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!212 &1929385776
@@ -18501,7 +18539,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: eaf6af4bef50681428206da70b9e5c37, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -18758,6 +18796,7 @@ MonoBehaviour:
   room2: {fileID: 2125430957}
   entrancePointRoom: {fileID: 1588349109}
   player: {fileID: 1619042896}
+  Listener: {fileID: 1677718118}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!212 &1936929853
@@ -18799,7 +18838,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: eaf6af4bef50681428206da70b9e5c37, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -18876,7 +18915,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937844318}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.000027656555, y: 0, z: -1}
+  m_LocalPosition: {x: -0.000027656555, y: 0, z: -0.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1632624968}
@@ -18921,7 +18960,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: bd9d3ec5d86ccb149b07e0a09fa5a59f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -19581,6 +19620,7 @@ MonoBehaviour:
   room2: {fileID: 2125430957}
   entrancePointRoom: {fileID: 1059485045}
   player: {fileID: 1619042896}
+  Listener: {fileID: 1677718118}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!4 &1988763067
@@ -19637,7 +19677,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 25b2354fe92c9c442a1781f74910b090, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -19875,6 +19915,7 @@ MonoBehaviour:
   room2: {fileID: 241857674}
   entrancePointRoom: {fileID: 1140262547}
   player: {fileID: 1619042896}
+  Listener: {fileID: 1677718118}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!212 &2049539074
@@ -20585,7 +20626,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: eaf6af4bef50681428206da70b9e5c37, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -20639,6 +20680,7 @@ MonoBehaviour:
   room2: {fileID: 1010640144}
   entrancePointRoom: {fileID: 644083374}
   player: {fileID: 1619042896}
+  Listener: {fileID: 1677718118}
   transition: {fileID: 358797188}
   transitionOnOff: 1
 --- !u!114 &2143602356
