@@ -33,6 +33,7 @@ public class patrolState : abstractFSMState
     {
         if (enteredState)
         {
+            executor.patrolTime += Time.deltaTime;
             bool cnt = executor.move(speed);
             if (!cnt)
             {

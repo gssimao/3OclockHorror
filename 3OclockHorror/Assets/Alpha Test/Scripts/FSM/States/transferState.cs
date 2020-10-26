@@ -9,6 +9,8 @@ public class idleState : abstractFSMState
     float duration = 3f;
     float totalDuration;
     List<room> Rooms;
+    int prow;
+    int pcol;
 
     public override void OnEnable() //Ovveride on enable, set state to idle
     {
@@ -23,16 +25,7 @@ public class idleState : abstractFSMState
             totalDuration = 0f;
         }
 
-        Rooms.Clear();
-        /*
-        foreach(room room in executor.Rooms)
-        {
-            if(room != executor.myRoom)
-            {
-                Rooms.Add(room);
-            }
-        }
-        */
+        updateRooms();
 
         return enteredState;
     }
@@ -41,14 +34,23 @@ public class idleState : abstractFSMState
     {
         if (enteredState)
         {
-            totalDuration += Time.deltaTime;
-            if(totalDuration > duration)
+            //select a new room from the updated states
+            if(Rooms != null)
             {
-                fsm.enterState(FSMStateType.PATROL);
-            }
-            if (player.myRoom == executor.myRoom && player.walking && duration > 1f)
-            {
-                fsm.enterState(FSMStateType.CHASE);
+                int rand = Random.Range(0, Rooms.Count - 1);
+                room nextRoom = Rooms[rand];
+                while(nextRoom == executor.myRoom)
+                {
+                    rand = Random.Range(0, Rooms.Count - 1);
+                    nextRoom = Rooms[rand];
+                }
+
+                executor.gameObject.transform.position = nextRoom.getEntrancePoint().transform.position;
+                executor.myRoom = nextRoom;
+                executor.curPoint = nextRoom.getEntrancePoint();
+                executor.patrolTime = 0f;
+
+                fsm.enterState(FSMStateType.IDLE);
             }
         }
     }
@@ -57,5 +59,37 @@ public class idleState : abstractFSMState
     {
         base.exitState();
         return true;
+    }
+
+    public void updateRooms()
+    {
+        Rooms.Clear();
+        for (int i = 0; i < executor.rooms.rows.Length; i++)
+        {
+            for (int j = 0; j < executor.rooms.rows[i].row.Length; j++)
+            {
+                if (executor.rooms.rows[i].row[j] == player.myRoom)
+                {
+                    pcol = i;
+                    prow = j;
+                }
+            }
+        }
+        if (executor.rooms.rows[pcol--].row[prow] != null)
+        {
+            Rooms.Add(executor.rooms.rows[pcol--].row[prow]);
+        }
+        if (executor.rooms.rows[pcol++].row[prow] != null)
+        {
+            Rooms.Add(executor.rooms.rows[pcol++].row[prow]);
+        }
+        if (executor.rooms.rows[pcol].row[prow--] != null)
+        {
+            Rooms.Add(executor.rooms.rows[pcol].row[prow--]);
+        }
+        if (executor.rooms.rows[pcol].row[prow++] != null)
+        {
+            Rooms.Add(executor.rooms.rows[pcol].row[prow++]);
+        }
     }
 }
