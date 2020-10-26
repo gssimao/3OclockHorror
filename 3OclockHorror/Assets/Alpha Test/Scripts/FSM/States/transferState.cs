@@ -13,7 +13,7 @@ public class idleState : abstractFSMState
     public override void OnEnable() //Ovveride on enable, set state to idle
     {
         base.OnEnable();
-        StateType = FSMStateType.IDLE;
+        StateType = FSMStateType.TRANSFER;
     }
     public override bool enterState() //Enter state, once entered set duration to 0
     {
@@ -24,6 +24,7 @@ public class idleState : abstractFSMState
         }
 
         Rooms.Clear();
+        /*
         foreach(room room in executor.Rooms)
         {
             if(room != executor.myRoom)
@@ -31,6 +32,7 @@ public class idleState : abstractFSMState
                 Rooms.Add(room);
             }
         }
+        */
 
         return enteredState;
     }
