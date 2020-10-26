@@ -7,7 +7,7 @@ using Pathfinding;
 public class NPC : MonoBehaviour
 {
     [SerializeField]
-
+    ArrayLayout rooms;
 
     //Public (editor assigned) Variables
     public GameObject player; //The player target for the Blind Creep to head towards / check against

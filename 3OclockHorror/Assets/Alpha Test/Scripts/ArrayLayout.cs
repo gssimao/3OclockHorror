@@ -1,14 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
-public class ArrayLayout
-{
-    [SerializeField]
-    public struct rowData
-    {
-        public bool[] row;
-    }
+[System.Serializable]
+public class ArrayLayout  {
 
-    public rowData[] rows = new rowData[7]; //grid of 7x7
+	[System.Serializable]
+	public struct rowData{
+		public room[] row;
+	}
+
+	public rowData[] rows = new rowData[3]; //Grid of 3
 }
