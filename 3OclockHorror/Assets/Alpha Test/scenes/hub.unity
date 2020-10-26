@@ -6787,7 +6787,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 42ed5379127f09f4dbfd1b3a9be43932, type: 2}
+  - {fileID: 2100000, guid: 681daf5b1dc2345458e7d2e532440d59, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -16060,6 +16060,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sanityValue: 100
+  timeLeft: 0
+  material: {fileID: 2100000, guid: 681daf5b1dc2345458e7d2e532440d59, type: 2}
+  effectOn: 0
+  effectCue: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!114 &1619042901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17199,7 +17203,6 @@ MonoBehaviour:
   chaseSpeed: 10
   nWPD: 0.1
   movement: {x: 0, y: 0}
-  Rooms: []
 --- !u!114 &1710219379
 MonoBehaviour:
   m_ObjectHideFlags: 0
