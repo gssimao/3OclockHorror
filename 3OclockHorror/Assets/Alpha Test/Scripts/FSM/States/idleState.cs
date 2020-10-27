@@ -29,9 +29,14 @@ public class transferState : abstractFSMState
         if (enteredState)
         {
             totalDuration += Time.deltaTime;
-            if(totalDuration >= duration)
+            executor.pTime += Time.deltaTime;
+            if(executor.pTime >= 30f)
             {
-                //choose a new room, update state to idle
+                fsm.enterState(FSMStateType.TRANSFER);
+            }
+            else if(totalDuration >= duration)
+            {
+                fsm.enterState(FSMStateType.PATROL);
             }
         }
     }

@@ -11,7 +11,7 @@ public class room : MonoBehaviour
     [SerializeField]
     GameObject watcherSpawn; //Point the watcher teleports to if he goes to this room
     [SerializeField]
-    GameObject entrancePoint; //Stores gameobject at door, for purposes of spawning hunter/creep
+    connectedPatrolPoint entrancePoint; //Stores gameobject at door, for purposes of spawning hunter/creep
     [SerializeField]
     GameObject cameraPoint;
     [SerializeField]
@@ -29,7 +29,7 @@ public class room : MonoBehaviour
     {
         return watcherSpawn;
     }
-    public GameObject getEntrancePoint()
+    public connectedPatrolPoint getEntrancePoint()
     {
         return entrancePoint;
     }

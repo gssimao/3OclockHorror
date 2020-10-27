@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     public CandleScript[] Candles;
     public CandleScript CandleInRange;
+    public GameObject transferCanvas;
     float cndlTmr;
     float duration = 1f;
 
@@ -30,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // Input
-        if (!invUI.activeSelf)
+        if (!invUI.activeSelf && !transferCanvas.activeSelf)
         {
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
@@ -99,7 +100,6 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         // Movement
-
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
         Camera.transform.position = myRoom.getCameraPoint().transform.position;
