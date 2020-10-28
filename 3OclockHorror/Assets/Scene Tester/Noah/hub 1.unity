@@ -1300,6 +1300,8 @@ MonoBehaviour:
   Listener: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
+  crossFade: {fileID: 0}
+  blackWall: {fileID: 0}
 --- !u!212 &127088124
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3700,6 +3702,8 @@ MonoBehaviour:
   Listener: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
+  crossFade: {fileID: 0}
+  blackWall: {fileID: 0}
 --- !u!4 &429790642
 Transform:
   m_ObjectHideFlags: 0
@@ -4653,6 +4657,8 @@ MonoBehaviour:
   Listener: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
+  crossFade: {fileID: 0}
+  blackWall: {fileID: 0}
 --- !u!4 &499757947
 Transform:
   m_ObjectHideFlags: 0
@@ -7071,6 +7077,8 @@ MonoBehaviour:
   Listener: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
+  crossFade: {fileID: 0}
+  blackWall: {fileID: 0}
 --- !u!114 &749716157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8444,6 +8452,8 @@ MonoBehaviour:
   Listener: {fileID: 0}
   transition: {fileID: 0}
   transitionOnOff: 1
+  crossFade: {fileID: 0}
+  blackWall: {fileID: 0}
 --- !u!4 &853169834
 Transform:
   m_ObjectHideFlags: 0
@@ -9837,6 +9847,8 @@ MonoBehaviour:
   Listener: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
+  crossFade: {fileID: 0}
+  blackWall: {fileID: 0}
 --- !u!61 &989003032
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10755,6 +10767,8 @@ MonoBehaviour:
   Listener: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
+  crossFade: {fileID: 0}
+  blackWall: {fileID: 0}
 --- !u!114 &1090399930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11356,6 +11370,8 @@ MonoBehaviour:
   Listener: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
+  crossFade: {fileID: 0}
+  blackWall: {fileID: 0}
 --- !u!212 &1132408747
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11558,6 +11574,8 @@ MonoBehaviour:
   Listener: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
+  crossFade: {fileID: 0}
+  blackWall: {fileID: 0}
 --- !u!212 &1141305685
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12224,6 +12242,8 @@ MonoBehaviour:
   Listener: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
+  crossFade: {fileID: 0}
+  blackWall: {fileID: 0}
 --- !u!212 &1209090067
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12574,6 +12594,8 @@ MonoBehaviour:
   Listener: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
+  crossFade: {fileID: 0}
+  blackWall: {fileID: 0}
 --- !u!1 &1243932353
 GameObject:
   m_ObjectHideFlags: 0
@@ -12918,6 +12940,8 @@ MonoBehaviour:
   Listener: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
+  crossFade: {fileID: 0}
+  blackWall: {fileID: 0}
 --- !u!1 &1268697847
 GameObject:
   m_ObjectHideFlags: 0
@@ -13192,6 +13216,8 @@ MonoBehaviour:
   Listener: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
+  crossFade: {fileID: 0}
+  blackWall: {fileID: 0}
 --- !u!4 &1287688267
 Transform:
   m_ObjectHideFlags: 0
@@ -15750,6 +15776,8 @@ MonoBehaviour:
   timeHud: {fileID: 500637910}
   WatcherTime: 120
   CreepTime: 240
+  minuteHand: {fileID: 0}
+  hourHand: {fileID: 0}
   watcher: {fileID: 1336144371}
   creep: {fileID: 1710219375}
 --- !u!114 &1619042895
@@ -15788,6 +15816,7 @@ MonoBehaviour:
   isPlaying: 0
   Candles: []
   CandleInRange: {fileID: 0}
+  transferCanvas: {fileID: 0}
 --- !u!4 &1619042897
 Transform:
   m_ObjectHideFlags: 0
@@ -15836,6 +15865,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sanityValue: 100
+  timeLeft: 0
+  material: {fileID: 0}
+  effectOn: 0
+  effectCue: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!114 &1619042901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15933,6 +15966,8 @@ MonoBehaviour:
   Listener: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
+  crossFade: {fileID: 0}
+  blackWall: {fileID: 0}
 --- !u!114 &1626619253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16984,11 +17019,14 @@ MonoBehaviour:
       - {fileID: 0}
   player: {fileID: 1619042889}
   anim: {fileID: 1710219382}
+  curPoint: {fileID: 0}
   myRoom: {fileID: 1010640144}
   speed: 5
   chaseSpeed: 10
   nWPD: 0.1
-  movement: {x: 0, y: 0}
+  patrolTime: 0
+  rb: {fileID: 1710219376}
+  pTime: 0
 --- !u!114 &1710219379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17687,6 +17725,8 @@ MonoBehaviour:
   Listener: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
+  crossFade: {fileID: 0}
+  blackWall: {fileID: 0}
 --- !u!212 &1841355174
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18289,6 +18329,8 @@ MonoBehaviour:
   Listener: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
+  crossFade: {fileID: 0}
+  blackWall: {fileID: 0}
 --- !u!212 &1929385776
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18588,6 +18630,8 @@ MonoBehaviour:
   Listener: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
+  crossFade: {fileID: 0}
+  blackWall: {fileID: 0}
 --- !u!212 &1936929853
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19412,6 +19456,8 @@ MonoBehaviour:
   Listener: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
+  crossFade: {fileID: 0}
+  blackWall: {fileID: 0}
 --- !u!4 &1988763067
 Transform:
   m_ObjectHideFlags: 0
@@ -19634,6 +19680,8 @@ MonoBehaviour:
   Listener: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
+  crossFade: {fileID: 0}
+  blackWall: {fileID: 0}
 --- !u!212 &2049539074
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20399,6 +20447,8 @@ MonoBehaviour:
   Listener: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
+  crossFade: {fileID: 0}
+  blackWall: {fileID: 0}
 --- !u!114 &2143602356
 MonoBehaviour:
   m_ObjectHideFlags: 0
