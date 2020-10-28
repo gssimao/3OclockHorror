@@ -42,7 +42,7 @@ public class chaseState : abstractFSMState
             //Determine if player is within range of an attack or has left room, either will trigger state change
             if (!cnt || executor.myRoom != player.myRoom)
             {
-                if (cnt && executor.myRoom == player.myRoom)
+                if (!cnt && executor.myRoom == player.myRoom) //Check if its just cnt that has decided it's done, in which case hit that player
                 {
                     executor.hit(player.gameObject);
                 }

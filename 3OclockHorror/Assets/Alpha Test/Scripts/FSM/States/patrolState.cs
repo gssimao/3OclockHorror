@@ -7,8 +7,6 @@ public class patrolState : abstractFSMState
 {
     [SerializeField]
     float speed;
-    [SerializeField]
-    float duration;
 
     public override void OnEnable() //overide onEnable to set state type
     {
