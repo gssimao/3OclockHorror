@@ -15,6 +15,7 @@ public class roomCntrl : MonoBehaviour
     public bool transitionOnOff = true; //Use this toggle the transition on and off
     float transitionTime = 0.5f;
     float dist;
+    public Animator blackWallanim;
 
     public GameObject crossFade;
     public GameObject blackWall;
@@ -97,7 +98,6 @@ public class roomCntrl : MonoBehaviour
         if (transitionOnOff)
         {
             crossFade.SetActive(true);
-            blackWall.SetActive(false);
             transition.SetTrigger("Start");
             play.enabled = false;
         }
