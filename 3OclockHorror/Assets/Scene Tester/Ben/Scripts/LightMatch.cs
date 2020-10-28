@@ -14,6 +14,8 @@ public class LightMatch : MonoBehaviour
     public float leanTime = 1;
     Vector3 small = new Vector3(0.3f, 0.3f, 0);
     Vector3 large = new Vector3(0.5f, 0.5f, 0);
+    AudioManager manager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,8 @@ public class LightMatch : MonoBehaviour
         lightMask.transform.localScale = small;
         fLight.spriteMask = lightMask;
         fLight.enabled = false;
+
+        manager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -33,7 +37,11 @@ public class LightMatch : MonoBehaviour
             lightMask.transform.LeanScale(large, leanTime);
             fLight.enabled = true;
             timerLock = false;
-            FindObjectOfType<AudioManager>().Play("Match Strike");
+
+            if(manager != null)
+            {
+                manager.Play("Match Strike");
+            }
         }
 
         if(timerLock == false)

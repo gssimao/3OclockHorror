@@ -11,6 +11,7 @@ public class CandleScript : MonoBehaviour
 
     public float interRange;
 
+    AudioManager manager;
     float dist;
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,7 @@ public class CandleScript : MonoBehaviour
         flame = Light.GetComponent<Light>(); //gets the light component of the child of this game object and sets it to the variable
         flame.enabled = false;
         LightMask.enabled = false;
+        manager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -30,7 +32,10 @@ public class CandleScript : MonoBehaviour
             if (flame.isActiveAndEnabled == false)
             {
                 CandleToggle(true);
-                FindObjectOfType<AudioManager>().Play("Candle Light");
+                if(manager != null)
+                {
+                    manager.Play("Candle Light");
+                }
             }
             else
             {

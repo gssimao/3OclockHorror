@@ -33,9 +33,9 @@ public class patrolState : abstractFSMState
     {
         if (enteredState)
         {
-            executor.patrolTime += Time.deltaTime;
+            executor.pTime += Time.deltaTime;
             bool cnt = executor.move(speed);
-            if (!cnt)
+            if (!cnt && executor.rb.velocity.magnitude < 0.1 )
             {
                 fsm.enterState(FSMStateType.IDLE);
             }

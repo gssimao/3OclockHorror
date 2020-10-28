@@ -6,6 +6,7 @@ using Pathfinding;
 [RequireComponent(typeof(FiniteStateMachine), typeof(Seeker), typeof(Rigidbody2D))]
 public class NPC : MonoBehaviour
 {
+    [SerializeField]
     public ArrayLayout rooms;
 
     //Public (editor assigned) Variables
@@ -30,8 +31,8 @@ public class NPC : MonoBehaviour
     Path path;
     int currWP = 0;
     Seeker seeker;
-    Rigidbody2D rb;
-    public Vector2 movement;
+    public Rigidbody2D rb;
+    public float pTime = 0f;
 
     // Start is called before the first frame update
     void Awake()
