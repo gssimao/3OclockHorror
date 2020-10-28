@@ -6,7 +6,7 @@ using UnityEngine;
 public class transferState : abstractFSMState
 {
     [SerializeField] //Duration trackers so we don't stay idle longer than desired
-    float duration = 3f;
+    float duration = 5f;
     float totalDuration;
 
     public override void OnEnable() //Ovveride on enable, set state to idle
@@ -29,9 +29,32 @@ public class transferState : abstractFSMState
         if (enteredState)
         {
             totalDuration += Time.deltaTime;
-            if(totalDuration >= duration)
+            executor.pTime += Time.deltaTime;
+            if(executor.pTime >= 30f)
+            {
+                fsm.enterState(FSMStateType.TRANSFER);
+            }
+            else if(totalDuration >= duration)
             {
-                //choose a new room, update state to idle
+                fsm.enterState(FSMStateType.PATROL);
+            }
+            else if(executor.patrolTime >= 30f)
+            {
+                fsm.enterState(FSMStateType.TRANSFER);
+            }
+
+            if(totalDuration >= 0.5f)
+            {
+                if(player.movement.x != 0 && player.myRoom == executor.myRoom)
+                {
+                    executor.patrolTime = 0f;
+                    fsm.enterState(FSMStateType.CHASE);
+                }
+                else if (player.movement.y != 0 && player.myRoom == executor.myRoom)
+                {
+                    executor.patrolTime = 0f;
+                    fsm.enterState(FSMStateType.CHASE);
+                }
             }
         }
     }

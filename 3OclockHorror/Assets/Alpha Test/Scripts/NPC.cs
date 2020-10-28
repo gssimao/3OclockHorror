@@ -7,7 +7,7 @@ using Pathfinding;
 public class NPC : MonoBehaviour
 {
     [SerializeField]
-    ArrayLayout rooms;
+    public ArrayLayout rooms;
 
     //Public (editor assigned) Variables
     public GameObject player; //The player target for the Blind Creep to head towards / check against
@@ -18,7 +18,7 @@ public class NPC : MonoBehaviour
     FiniteStateMachine fsm; //Finite state machine reference
 
     public connectedPatrolPoint prevPoint {get; protected set;} //Previous nav point
-    public connectedPatrolPoint curPoint { get; protected set; } //Current nav point
+    public connectedPatrolPoint curPoint;
     int pointsVisited = 0;
 
     public room myRoom;
@@ -26,12 +26,13 @@ public class NPC : MonoBehaviour
     public float speed = 5f;
     public float chaseSpeed = 10f;
     public float nWPD = 0.1f;
+    public float patrolTime = 0f;
 
     Path path;
     int currWP = 0;
     Seeker seeker;
-    Rigidbody2D rb;
-    public Vector2 movement;
+    public Rigidbody2D rb;
+    public float pTime = 0f;
 
     // Start is called before the first frame update
     void Awake()
@@ -111,6 +112,7 @@ public class NPC : MonoBehaviour
     {
         seeker.StartPath(gameObject.transform.position, targ.position, OnPathComplete);
     }
+
     void OnPathComplete(Path p)
     {
         if (!p.error)

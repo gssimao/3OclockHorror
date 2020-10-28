@@ -13,6 +13,12 @@ public class clockCntrl : MonoBehaviour
     public int CreepTime = 240;
 
     [SerializeField]
+    GameObject minuteHand;
+
+    [SerializeField]
+    GameObject hourHand;
+
+    [SerializeField]
     GameObject watcher;
 
     [SerializeField]
@@ -36,8 +42,10 @@ public class clockCntrl : MonoBehaviour
         }
         else
         {
-            timePercent = Time.time / endTime;
-            timeHud.value = timePercent;    //Both lines also are soley for purpose of clock ui - will be changed / removed when proper ui is devised
+            /*timePercent = Time.time / endTime;
+            timeHud.value = timePercent;    //Both lines also are soley for purpose of clock ui - will be changed / removed when proper ui is devised*/
+            hourHand.GetComponent<RectTransform>().Rotate(0f, 0f, (-0.25f*Time.deltaTime));
+            minuteHand.GetComponent<RectTransform>().Rotate(0f, 0f, (-3f*Time.deltaTime));
         }
 
         //Check for events
