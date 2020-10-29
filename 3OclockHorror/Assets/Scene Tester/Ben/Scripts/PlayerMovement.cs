@@ -42,7 +42,9 @@ public class PlayerMovement : MonoBehaviour
             movement.y = 0;
         }
 
-        if(movement.x < 0)
+        //Check the states for the walk animation.
+        #region ChecKWalkStates 
+        if (movement.x < 0)
         {
             anim.SetBool("walkingLeft", true);
         }
@@ -77,8 +79,9 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.SetBool("walkingBackwards", false);
         }
+        #endregion
 
-        if(movement.x != 0 || movement.y != 0)
+        if (movement.x != 0 || movement.y != 0)
         {
             walking = true;
         }
@@ -86,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
         {
             walking = false;
         }
+
         if (walking == true && isPlaying == false && manager != null)
         {
             manager.Play("Player Footsteps");

@@ -60,6 +60,8 @@ public class idleState : abstractFSMState
                     pRow = i;
                     pCol = j;
                     pfound = true;
+
+                    Debug.Log("Row: " + pRow.ToString() + " Col: " + pCol.ToString() + " - Room Name: " + executor.rooms.rows[i].row[j].getName());
                 }
             }
         }
@@ -67,33 +69,33 @@ public class idleState : abstractFSMState
         if (pfound)
         {
             bool added = false;
-            if (pRow-- >= 0)
+            if (pRow - 1 >= 0)
             {
-                if (executor.rooms.rows[pRow--].row[pCol] != null)
+                if (executor.rooms.rows[pRow - 1].row[pCol] != null)
                 {
-                    Rooms.Add(executor.rooms.rows[pRow--].row[pCol]);
+                    Rooms.Add(executor.rooms.rows[pRow - 1].row[pCol]);
                     added = true;
                 }
             }
-            if (pRow++ < executor.rooms.rows.Length)
+            if (pRow + 1 < executor.rooms.rows.Length)
             {
-                if (executor.rooms.rows[pRow++].row[pCol] != null)
+                if (executor.rooms.rows[pRow + 1].row[pCol] != null)
                 {
-                    Rooms.Add(executor.rooms.rows[pRow++].row[pCol]);
+                    Rooms.Add(executor.rooms.rows[pRow + 1].row[pCol]);
                     added = true;
                 }
             }
-            if (pCol-- >= 0)
+            if (pCol - 1 >= 0)
             {
-                if (executor.rooms.rows[pRow].row[pCol--] != null)
+                if (executor.rooms.rows[pRow].row[pCol - 1] != null)
                 {
-                    Rooms.Add(executor.rooms.rows[pRow].row[pCol--]);
+                    Rooms.Add(executor.rooms.rows[pRow].row[pCol - 1]);
                     added = true;
                 }
             }
-            if (pCol++ < executor.rooms.rows[pRow].row.Length)
+            if (pCol + 1 < executor.rooms.rows[pRow].row.Length)
             {
-                if (executor.rooms.rows[pRow].row[pCol++] != null)
+                if (executor.rooms.rows[pRow].row[pCol + 1] != null)
                 {
                     Rooms.Add(executor.rooms.rows[pRow].row[pCol++]);
                     added = true;
@@ -110,6 +112,17 @@ public class idleState : abstractFSMState
                     ChosenRoom = Rooms[rand];
                 }
                 Debug.Log("Chosen Room: " + ChosenRoom.getName() + ", at: " + rand + ".");
+
+                for (int i = 0; i < executor.rooms.rows.Length; i++)
+                {
+                    for (int j = 0; j < executor.rooms.rows[i].row.Length; j++)
+                    {
+                        if (executor.rooms.rows[i].row[j] == ChosenRoom)
+                        {
+                            Debug.Log("Row: " + i.ToString() + " Col: " + j.ToString());
+                        }
+                    }
+                }
             }
         }
         else
