@@ -7080,11 +7080,6 @@ Transform:
   m_Father: {fileID: 2143602352}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &644756577 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7939682512249626122, guid: a807e1beb0fce6244879a552204f4fea, type: 3}
-  m_PrefabInstance: {fileID: 1708564457}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &646229227
 GameObject:
   m_ObjectHideFlags: 0
@@ -9535,11 +9530,6 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
---- !u!1 &815348216 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7939682512283066042, guid: a807e1beb0fce6244879a552204f4fea, type: 3}
-  m_PrefabInstance: {fileID: 1708564457}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &818279753
 GameObject:
   m_ObjectHideFlags: 0
@@ -18742,7 +18732,6 @@ GameObject:
   - component: {fileID: 1619042897}
   - component: {fileID: 1619042896}
   - component: {fileID: 1619042895}
-  - component: {fileID: 1619042894}
   - component: {fileID: 1619042892}
   - component: {fileID: 1619042891}
   - component: {fileID: 1619042890}
@@ -18854,26 +18843,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.27508545, y: 0.15380001}
   m_EdgeRadius: 0
---- !u!114 &1619042894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1619042889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7692f214ee4f1b41b572c54ae0bb460, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WatcherTime: 1260
-  CreepTime: 10
-  player: {fileID: 0}
-  Clock: 0
-  minuteHand: {fileID: 644756577}
-  hourHand: {fileID: 815348216}
-  watcher: {fileID: 1336144371}
-  creep: {fileID: 1710219375}
 --- !u!114 &1619042895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20213,14 +20182,26 @@ PrefabInstance:
     - target: {fileID: 703502689, guid: a807e1beb0fce6244879a552204f4fea, type: 3}
       propertyPath: watcher
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1336144371}
     - target: {fileID: 703502689, guid: a807e1beb0fce6244879a552204f4fea, type: 3}
       propertyPath: creep
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1710219375}
     - target: {fileID: 703502689, guid: a807e1beb0fce6244879a552204f4fea, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 703502689, guid: a807e1beb0fce6244879a552204f4fea, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1619042896}
+    - target: {fileID: 703502689, guid: a807e1beb0fce6244879a552204f4fea, type: 3}
+      propertyPath: WatcherTime
+      value: 12000
+      objectReference: {fileID: 0}
+    - target: {fileID: 703502689, guid: a807e1beb0fce6244879a552204f4fea, type: 3}
+      propertyPath: CreepTime
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7939682512113325400, guid: a807e1beb0fce6244879a552204f4fea, type: 3}
       propertyPath: m_Name
