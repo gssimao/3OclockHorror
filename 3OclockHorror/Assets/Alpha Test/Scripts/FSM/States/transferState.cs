@@ -31,10 +31,10 @@ public class idleState : abstractFSMState
             executor.myRoom = ChosenRoom;
             fsm.enterState(FSMStateType.IDLE);
         }
-        else
-        {
-            fsm.enterState(FSMStateType.IDLE);
-            executor.pTime = 0f;
+        else
+        {
+            fsm.enterState(FSMStateType.IDLE);
+            executor.pTime = 0f;
         }
     }
 
@@ -44,56 +44,77 @@ public class idleState : abstractFSMState
         return true;
     }
 
-    public void ChooseRoom()
-    {
+    public void ChooseRoom()
+    {
         Rooms.Clear();
         int pRow = 0;
         int pCol = 0;
+        bool pfound = false;
 
-        for (int i = 0; i < executor.rooms.rows.Length; i++)
-        {
-            for (int j = 0; j < executor.rooms.rows[i].row.Length; j++)
-            {
-                if (executor.rooms.rows[i].row[j] == player.myRoom)
-                {
-                    pRow = i;
-                    pCol = j;
-                }
-            }
+        for (int i = 0; i < executor.rooms.rows.Length; i++)
+        { 
+            for (int j = 0; j < executor.rooms.rows[i].row.Length; j++)
+            {
+                if (executor.rooms.rows[i].row[j] == player.myRoom)
+                {
+                    pRow = i;
+                    pCol = j;
+                    pfound = true;
+                }
+            }
         }
 
-        bool added = false;
-        if (executor.rooms.rows[pRow--].row[pCol] != null)
-        {
-            Rooms.Add(executor.rooms.rows[pRow--].row[pCol]);
-            added = true;
+        if (pfound)
+        {
+            bool added = false;
+            if (pRow-- >= 0)
+            {
+                if (executor.rooms.rows[pRow--].row[pCol] != null)
+                {
+                    Rooms.Add(executor.rooms.rows[pRow--].row[pCol]);
+                    added = true;
+                }
+            }
+            if (pRow++ < executor.rooms.rows.Length)
+            {
+                if (executor.rooms.rows[pRow++].row[pCol] != null)
+                {
+                    Rooms.Add(executor.rooms.rows[pRow++].row[pCol]);
+                    added = true;
+                }
+            }
+            if (pCol-- >= 0)
+            {
+                if (executor.rooms.rows[pRow].row[pCol--] != null)
+                {
+                    Rooms.Add(executor.rooms.rows[pRow].row[pCol--]);
+                    added = true;
+                }
+            }
+            if (pCol++ < executor.rooms.rows[pRow].row.Length)
+            {
+                if (executor.rooms.rows[pRow].row[pCol++] != null)
+                {
+                    Rooms.Add(executor.rooms.rows[pRow].row[pCol++]);
+                    added = true;
+                }
+            }
+
+            if (added)
+            {
+                int rand = Random.Range(0, Rooms.Count - 1);
+                ChosenRoom = Rooms[rand];
+                while (ChosenRoom == player.myRoom || ChosenRoom == executor.myRoom)
+                {
+                    rand = Random.Range(0, Rooms.Count - 1);
+                    ChosenRoom = Rooms[rand];
+                }
+                Debug.Log("Chosen Room: " + ChosenRoom.getName() + ", at: " + rand + ".");
+            }
         }
-        if (executor.rooms.rows[pRow++].row[pCol] != null)
-        {
-            Rooms.Add(executor.rooms.rows[pRow++].row[pCol]);
-            added = true;
+        else
+        {
+            Debug.Log("Player not found, staying in room.");
         }
-        if (executor.rooms.rows[pRow].row[pCol--] != null)
-        {
-            Rooms.Add(executor.rooms.rows[pRow].row[pCol--]);
-            added = true;
-        }
-        if (executor.rooms.rows[pRow].row[pCol++] != null)
-        {
-            Rooms.Add(executor.rooms.rows[pRow].row[pCol++]);
-            added = true;
-        }
-
-        if (added)
-        {
-            int rand = Random.Range(0, Rooms.Count - 1);
-            ChosenRoom = Rooms[rand];
-            while(ChosenRoom == player.myRoom || ChosenRoom == executor.myRoom)
-            {
-                rand = Random.Range(0, Rooms.Count - 1);
-                ChosenRoom = Rooms[rand];
-            }
-            Debug.Log("Chosen Room: " + ChosenRoom.getName());
-        }
     }
 }

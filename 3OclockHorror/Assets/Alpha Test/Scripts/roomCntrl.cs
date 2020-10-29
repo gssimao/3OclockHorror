@@ -49,6 +49,11 @@ public class roomCntrl : MonoBehaviour
             }
         }
         Listener.enabled = true;
+
+        if(blackWallanim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
+        {
+            blackWall.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

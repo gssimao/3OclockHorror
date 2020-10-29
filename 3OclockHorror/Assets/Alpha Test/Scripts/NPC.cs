@@ -22,9 +22,6 @@ public class NPC : MonoBehaviour
     int pointsVisited = 0;
 
     public room myRoom;
-
-    public float speed = 5f;
-    public float chaseSpeed = 10f;
     public float nWPD = 0.1f;
     public float patrolTime = 0f;
 
@@ -43,30 +40,13 @@ public class NPC : MonoBehaviour
 
         if (fsm == null) //Double check for nullness 
         {
-            Debug.LogError("Critical component missing on " + gameObject.name);
+            Debug.LogError("Critical component missing on " + gameObject.name + ": fsm component");
         }
         else
         {
             if (curPoint == null) //If the current point is null
             {
-                GameObject[] allPoints = GameObject.FindGameObjectsWithTag("Waypoint"); //Grab all waypoints
-                if (allPoints.Length == 0) //make sure the points are not null
-                {
-                    Debug.LogError("No points found.");
-                }
-                else //Else, set a point
-                {
-                    while (curPoint == null)
-                    {
-                        int rand = Random.Range(0, allPoints.Length); //Grab a rand index
-                        connectedPatrolPoint startingPoint = allPoints[rand].GetComponent<connectedPatrolPoint>(); //get the point
-                        if (startingPoint != null) //make sure it's not null
-                        {
-                            curPoint = startingPoint; //Set the current point, increment the points visited
-                            pointsVisited++;
-                        }
-                    }
-                }
+                Debug.LogError("Current Point must be set in editor.");
             }
         }
     }
@@ -96,18 +76,18 @@ public class NPC : MonoBehaviour
     {
         if (pointsVisited > 0) //if the points visited are greater than one
         {
-            connectedPatrolPoint nextPoint = curPoint.nextWaypoint(prevPoint); //Get an adjacent waypoint to be the next point
+            connectedPatrolPoint nextPoint = curPoint.nextWaypoint(curPoint); //Get an adjacent waypoint to be the next point
             prevPoint = curPoint; //Set the prev point
             curPoint = nextPoint; //Set the current point
         }
         UpdatePath(curPoint.gameObject.transform);
 
     }
-
     public void setDestination(GameObject targ)
     {
         UpdatePath(targ.transform);
     }
+
     void UpdatePath(Transform targ)
     {
         seeker.StartPath(gameObject.transform.position, targ.position, OnPathComplete);

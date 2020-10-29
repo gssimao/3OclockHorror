@@ -30,17 +30,13 @@ public class transferState : abstractFSMState
         {
             totalDuration += Time.deltaTime;
             executor.pTime += Time.deltaTime;
-            if(executor.pTime >= 30f)
-            {
-                fsm.enterState(FSMStateType.TRANSFER);
+            if(executor.pTime >= 30f && executor.myRoom != player.myRoom)
+            {
+                fsm.enterState(FSMStateType.TRANSFER);
             }
             else if(totalDuration >= duration)
             {
                 fsm.enterState(FSMStateType.PATROL);
-            }
-            else if(executor.patrolTime >= 30f)
-            {
-                fsm.enterState(FSMStateType.TRANSFER);
             }
 
             if(totalDuration >= 0.5f)

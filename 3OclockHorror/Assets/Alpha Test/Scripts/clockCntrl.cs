@@ -7,10 +7,12 @@ using UnityEngine.SceneManagement;
 public class clockCntrl : MonoBehaviour
 {
     float endTime; //Stores the current end time, allows easier modification than tracking and moding systime directly
-    float timePercent; //Hud controller variable, not necessary beyond using slider to display time - will be oudated once clock is added
-    public Slider timeHud; //Slider itself, used to display time
     public int WatcherTime = 120;
     public int CreepTime = 240;
+    public PlayerMovement player;
+
+    [SerializeField]
+    float Clock = 0;
 
     [SerializeField]
     GameObject minuteHand;
@@ -35,27 +37,32 @@ public class clockCntrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time >= endTime) //Check if sys time is beyond end time, if so quit
+        if (player.myRoom.getName() != "TutorialRoom")
         {
-            SceneManager.LoadScene(2); //Load the Game Over scene
-            Destroy(gameObject);
-        }
-        else
-        {
-            /*timePercent = Time.time / endTime;
-            timeHud.value = timePercent;    //Both lines also are soley for purpose of clock ui - will be changed / removed when proper ui is devised*/
-            hourHand.GetComponent<RectTransform>().Rotate(0f, 0f, (-0.25f*Time.deltaTime));
-            minuteHand.GetComponent<RectTransform>().Rotate(0f, 0f, (-3f*Time.deltaTime));
-        }
+            Clock += Time.deltaTime;
 
-        //Check for events
-        if(Time.time >= WatcherTime)
-        {
-            watcher.SetActive(true);
-        }
-        if(Time.time >= CreepTime)
-        {
-            creep.SetActive(true);
+            if (Clock >= endTime) //Check if sys time is beyond end time, if so quit
+            {
+                SceneManager.LoadScene(2); //Load the Game Over scene
+                Destroy(gameObject);
+            }
+            else
+            {
+                /*timePercent = Time.time / endTime;
+                timeHud.value = timePercent;    //Both lines also are soley for purpose of clock ui - will be changed / removed when proper ui is devised*/
+                hourHand.GetComponent<RectTransform>().Rotate(0f, 0f, (-0.25f * Time.deltaTime));
+                minuteHand.GetComponent<RectTransform>().Rotate(0f, 0f, (-3f * Time.deltaTime));
+            }
+
+            //Check for events
+            if (Clock >= WatcherTime)
+            {
+                watcher.SetActive(true);
+            }
+            if (Clock >= CreepTime)
+            {
+                creep.SetActive(true);
+            }
         }
     }
 
