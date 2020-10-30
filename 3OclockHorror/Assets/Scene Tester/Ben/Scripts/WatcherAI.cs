@@ -1,6 +1,7 @@
 ﻿using System.CodeDom.Compiler;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security;
 using UnityEngine;
 
 public class WatcherAI : MonoBehaviour
@@ -13,6 +14,7 @@ public class WatcherAI : MonoBehaviour
     public float coolDownTimer;
     public GameObject inventoryUI;
     public SanityManager sanityManager;
+    public Animator watcherAnim;
 
     int randInd;
     public bool candlesOut;
@@ -22,6 +24,7 @@ public class WatcherAI : MonoBehaviour
     float ovTimer;
     float distance;
     int plyIndex;
+    public float plyAngle = 0;
 
     //Room Specific variables
     public room currentRoom;
@@ -47,6 +50,7 @@ public class WatcherAI : MonoBehaviour
         playerRoom = player.GetComponent<PlayerMovement>().myRoom;
         CheckRoom();
         candlesOut = CheckCandles();
+        UpdateFace();
         // False means all the candles are off or don't exist
         // True means there are still candles on
 
@@ -229,6 +233,12 @@ public class WatcherAI : MonoBehaviour
         {
             playerInRoom = false;
         }
+    }
+
+    void UpdateFace()
+    {
+        Vector3 direction = this.gameObject.transform.position - player.transform.position;
+        plyAngle = Vector3.Angle(direction, this.transform.forward);
     }
 
     void activate() //Turns on the Watcher
