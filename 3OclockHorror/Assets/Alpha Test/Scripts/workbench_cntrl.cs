@@ -33,6 +33,8 @@ public class workbench_cntrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        FileIO.WriteStringToFile("debug.txt", this.GetType().Name + " " + this.gameObject.name + " starting at " + Time.time.ToString(), true);
+
         float dist = Vector3.Distance(player.transform.position, transform.position); //Get the position of player
         if(dist <= 0.25f) //If the player is in range
         {
@@ -52,5 +54,7 @@ public class workbench_cntrl : MonoBehaviour
                 IM.craftField.SetActive(false);
             }
         }
+
+        FileIO.WriteStringToFile("debug.txt", this.GetType().Name + " " + this.gameObject.name + " ending at " + Time.time.ToString(), true);
     }
 }

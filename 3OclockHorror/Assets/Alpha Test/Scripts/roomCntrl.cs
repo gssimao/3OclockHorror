@@ -29,6 +29,8 @@ public class roomCntrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        FileIO.WriteStringToFile("debug.txt", this.GetType().Name + " " + this.gameObject.name + " starting at " + Time.time.ToString(), true);
+
         dist = Vector3.Distance(player.gameObject.transform.position, this.gameObject.transform.position);
         if (dist <= 0.5)
         {
@@ -54,6 +56,8 @@ public class roomCntrl : MonoBehaviour
         {
             blackWall.SetActive(false);
         }
+
+        FileIO.WriteStringToFile("debug.txt", this.GetType().Name + " " + this.gameObject.name + " ending at " + Time.time.ToString(), true);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

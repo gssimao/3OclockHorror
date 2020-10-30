@@ -12,25 +12,6 @@ public class Door3D : MonoBehaviour
     public GameObject playerPrefab;
     private GameObject controllablePlayer;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //Instantiate(playerPrefab);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        /** **Depreciated Code**
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            controllablePlayer = GameObject.FindWithTag("Player");
-
-            StartCoroutine(LoadYourAsyncScene(controllablePlayer));
-        }
-        **/
-    }
-
     void OnTriggerEnter(Collider other) //Changes the scene or "Room" the player is when it hits this GameObject
     {
 

@@ -37,6 +37,8 @@ public class clockCntrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        FileIO.WriteStringToFile("debug.txt", this.GetType().Name + " " + this.gameObject.name + " starting at " + Time.time.ToString(), true);
+
         if (player.myRoom.getName() != "TutorialRoom")
         {
             Clock += Time.deltaTime;
@@ -64,6 +66,8 @@ public class clockCntrl : MonoBehaviour
                 creep.SetActive(true);
             }
         }
+
+        FileIO.WriteStringToFile("debug.txt", this.GetType().Name + " " + this.gameObject.name + " ending at " + Time.time.ToString(), true);
     }
 
     public void adjustEndTime(float tta) //Takes time to adjust by, adjusts time by that amount - likely only neg values but takes either or

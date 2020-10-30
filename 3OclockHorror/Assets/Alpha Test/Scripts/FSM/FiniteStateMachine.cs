@@ -41,11 +41,15 @@ public class FiniteStateMachine : MonoBehaviour
 
     public void Update() //Update a state
     {
+        FileIO.WriteStringToFile("debug.txt", this.GetType().Name + " " + this.gameObject.name + " starting at " + Time.time.ToString(), true);
+
         if (currentState != null)
         {
             currentState.updateState();
             Debug.Log("State: " + currentState.StateType.ToString());
         }
+
+        FileIO.WriteStringToFile("debug.txt", this.GetType().Name + " " + this.gameObject.name + " ending at " + Time.time.ToString(), true);
     }
 
     public FSMStateType GetState()

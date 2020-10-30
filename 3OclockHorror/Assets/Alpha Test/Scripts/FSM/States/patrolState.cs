@@ -29,6 +29,7 @@ public class patrolState : abstractFSMState
 
     public override void updateState() //Check if we are near destination, if so then exit sate
     {
+        FileIO.WriteStringToFile("debug.txt", this.GetType().Name + " " + " starting at " + Time.time.ToString(), true);
         if (enteredState)
         {
             executor.pTime += Time.deltaTime;
@@ -38,5 +39,6 @@ public class patrolState : abstractFSMState
                 fsm.enterState(FSMStateType.IDLE);
             }
         }
+        FileIO.WriteStringToFile("debug.txt", this.GetType().Name + " " + " ending at " + Time.time.ToString(), true);
     }
 }

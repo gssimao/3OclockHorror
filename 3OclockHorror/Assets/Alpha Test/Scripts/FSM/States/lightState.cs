@@ -30,6 +30,7 @@ public class lightState : abstractFSMState
 
     public override void updateState() //Update state, check if we have been going too long at this point?
     {
+        FileIO.WriteStringToFile("debug.txt", this.GetType().Name + " " + " starting at " + Time.time.ToString(), true);
         if (enteredState)
         {
             totalDuration += Time.deltaTime;
@@ -82,6 +83,7 @@ public class lightState : abstractFSMState
                 fsm.enterState(FSMStateType.IDLE);
             }
         }
+        FileIO.WriteStringToFile("debug.txt", this.GetType().Name + " " + " ending at " + Time.time.ToString(), true);
     }
 
     public override bool exitState() //Exit the state

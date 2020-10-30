@@ -28,6 +28,7 @@ public class chaseState : abstractFSMState
 
     public override void updateState() //Check if we should still be chasing player. If not, stop. If we should, update player position and continue chase.
     {
+        FileIO.WriteStringToFile("debug.txt", this.GetType().Name + " " + " starting at " + Time.time.ToString(), true);
         if (enteredState)
         {
             //Update player posiiton
@@ -49,5 +50,6 @@ public class chaseState : abstractFSMState
                 fsm.enterState(FSMStateType.IDLE);
             }
         }
+        FileIO.WriteStringToFile("debug.txt", this.GetType().Name + " " + " ending at " + Time.time.ToString(), true);
     }
 }

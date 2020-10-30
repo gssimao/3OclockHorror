@@ -53,6 +53,8 @@ public class NPC : MonoBehaviour
 
     void Update()
     {
+        FileIO.WriteStringToFile("debug.txt", this.GetType().Name + " " + this.gameObject.name + " starting at " + Time.time.ToString(), true);
+
         if (rb.velocity.x > 0)
         {
             anim.SetBool("walkingright", true);
@@ -69,6 +71,8 @@ public class NPC : MonoBehaviour
         {
             anim.SetBool("walkingleft", false);
         }
+
+        FileIO.WriteStringToFile("debug.txt", this.GetType().Name + " " + this.gameObject.name + " ending at " + Time.time.ToString(), true);
     }
 
     //Set a destination based on the current patrol index within the patrol points array.
