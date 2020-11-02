@@ -25,6 +25,7 @@ public class idleState : abstractFSMState
     {
         if (enteredState && ChosenRoom != null)
         {
+            //Enter new chosen room.
             executor.transform.position = ChosenRoom.getEntrancePoint().gameObject.transform.position;
             executor.curPoint = ChosenRoom.getEntrancePoint();
             executor.pTime = 0f;
@@ -33,6 +34,7 @@ public class idleState : abstractFSMState
         }
         else
         {
+            //Stay in current room, reset.
             fsm.enterState(FSMStateType.IDLE);
             executor.pTime = 0f;
         }
