@@ -6,6 +6,7 @@ public class CandleScript : MonoBehaviour
 {
     public GameObject player;
     public GameObject Light;
+    public GameObject Flicker;
     public SpriteMask LightMask;
     public Light flame; //Variable to that holds the light component of the game object
 
@@ -17,8 +18,7 @@ public class CandleScript : MonoBehaviour
     void Start()
     {
         flame = Light.GetComponent<Light>(); //gets the light component of the child of this game object and sets it to the variable
-        flame.enabled = false;
-        LightMask.enabled = false;
+        CandleToggle(false);
         manager = FindObjectOfType<AudioManager>();
     }
 
@@ -56,11 +56,13 @@ public class CandleScript : MonoBehaviour
         {
             flame.enabled = false;
             LightMask.enabled = false;
+            Flicker.SetActive(false);
         }
         else if(trigger == true)
         {
             flame.enabled = true;
             LightMask.enabled = true;
+            Flicker.SetActive(true);
         }
     }
 }
