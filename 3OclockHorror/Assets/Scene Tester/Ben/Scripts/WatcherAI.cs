@@ -42,6 +42,7 @@ public class WatcherAI : MonoBehaviour
         ovTimer = coolDownTimer;;
         sanityManager = player.GetComponent<SanityManager>();
         playerRoom = player.GetComponent<PlayerMovement>().myRoom;
+        Debug.Log("Room Array Length: " + Rooms.Length);
     }
 
     // Update is called once per frame
@@ -214,10 +215,10 @@ public class WatcherAI : MonoBehaviour
         {
             plyIndex = i;
 
-            if(i >= Rooms.Length - 1)
+            /*if(i >= Rooms.Length - 1)
             {
                 i = 0;
-            }
+            }*/
         }
 
         return plyIndex;
@@ -237,8 +238,21 @@ public class WatcherAI : MonoBehaviour
 
     void UpdateFace()
     {
-        Vector3 direction = this.gameObject.transform.position - player.transform.position;
-        plyAngle = Vector3.Angle(direction, this.transform.forward);
+        Vector3 direction = player.transform.position - this.gameObject.transform.position;
+        plyAngle = Vector3.Angle(direction, this.gameObject.transform.right);
+
+        if(plyAngle <= 180 && plyAngle > 121)
+        {
+            watcherAnim.SetTrigger("Left");
+        }
+        else if(plyAngle <= 120 && plyAngle > 61)
+        {
+            watcherAnim.SetTrigger("Forward");
+        }
+        else if(plyAngle <= 60 && plyAngle > 0)
+        {
+            watcherAnim.SetTrigger("Right");
+        }
     }
 
     void activate() //Turns on the Watcher
