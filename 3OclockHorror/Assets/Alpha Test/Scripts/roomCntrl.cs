@@ -50,6 +50,11 @@ public class roomCntrl : MonoBehaviour
         }
         Listener.enabled = true;
 
+        if(blackWallanim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.20)
+        {
+            crossFade.SetActive(false);
+        }
+
         if(blackWallanim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
         {
             blackWall.SetActive(false);
@@ -116,7 +121,6 @@ public class roomCntrl : MonoBehaviour
 
         if (transitionOnOff)
         {
-            crossFade.SetActive(false);
             blackWall.SetActive(true);
             transition.SetTrigger("End");
         }

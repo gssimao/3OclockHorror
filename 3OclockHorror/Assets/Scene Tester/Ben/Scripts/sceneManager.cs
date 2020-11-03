@@ -3,21 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneChanger : MonoBehaviour
+public class sceneManager : MonoBehaviour
 {
     public string sceneName; //name of the scene to transfer too
     private Vector3 playerPosition;
     private Scene currentScene;
-
-    public GameObject playerPrefab;
-    private GameObject controllablePlayer;
 
     public StairTransition transition;
 
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(playerPrefab);
+
     }
 
     // Update is called once per frame
@@ -26,15 +23,11 @@ public class SceneChanger : MonoBehaviour
         
     }
 
-    void OnTriggerEnter2D(Collider2D other) //Changes the scene or "Room" the player is when it hits this GameObject
+    void OnTriggerEnter2D(Collider2D other) //Changes the scene or "Floor" the player is when it hits this GameObject
     {
-        Debug.Log("Collider entered");
-
         if (other.tag == "Player") // checks to see if the object is the player
         {
             StartCoroutine(LoadYourAsyncScene(other.gameObject));
-
-            other.transform.position = gameObject.transform.position;
         }
     }
 
