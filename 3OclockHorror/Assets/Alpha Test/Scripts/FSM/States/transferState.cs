@@ -108,21 +108,19 @@ public class idleState : abstractFSMState
             {
                 int rand = Random.Range(0, Rooms.Count - 1);
                 ChosenRoom = Rooms[rand];
-                while (ChosenRoom == player.myRoom || ChosenRoom == executor.myRoom)
+                if (Rooms.Count <= 2)
                 {
-                    rand = Random.Range(0, Rooms.Count - 1);
-                    ChosenRoom = Rooms[rand];
-                }
-                Debug.Log("Chosen Room: " + ChosenRoom.getName() + ", at: " + rand + ".");
-
-                for (int i = 0; i < executor.rooms.rows.Length; i++)
-                {
-                    for (int j = 0; j < executor.rooms.rows[i].row.Length; j++)
+                    if(ChosenRoom == executor.myRoom || player.myRoom)
                     {
-                        if (executor.rooms.rows[i].row[j] == ChosenRoom)
-                        {
-                            Debug.Log("Row: " + i.ToString() + " Col: " + j.ToString());
-                        }
+                        ChosenRoom = null;
+                    }
+                }
+                else
+                {
+                    while (ChosenRoom == player.myRoom || ChosenRoom == executor.myRoom)
+                    {
+                        rand = Random.Range(0, Rooms.Count - 1);
+                        ChosenRoom = Rooms[rand];
                     }
                 }
             }

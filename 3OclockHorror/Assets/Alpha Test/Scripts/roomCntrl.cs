@@ -48,7 +48,10 @@ public class roomCntrl : MonoBehaviour
                 }
             }
         }
-        Listener.enabled = true;
+        if (Listener != null)
+        {
+            Listener.enabled = true;
+        }
 
         if(blackWallanim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.20)
         {
