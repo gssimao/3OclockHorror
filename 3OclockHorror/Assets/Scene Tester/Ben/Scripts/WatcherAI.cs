@@ -179,11 +179,11 @@ public class WatcherAI : MonoBehaviour
 
         for (int i = 0; i < candleNum; i++)
         {
-            if (Candles[i].flame != null)
-            {
-                if (Candles[i].flame.isActiveAndEnabled)
-                {
-                    candleCount++;
+            if (Candles[i].flame != null)
+            {
+                if (Candles[i].flame.isActiveAndEnabled)
+                {
+                    candleCount++;
                 }
             }
 
@@ -193,13 +193,13 @@ public class WatcherAI : MonoBehaviour
 
         for(int i = 0; i < candleNum; i++)
         {
-            if (Candles[i].flame != null)
-            {
-                if (Candles[i].flame.isActiveAndEnabled)
-                {
-                    candlesOn[j] = i;
-                    j++;
-                }
+            if (Candles[i].flame != null)
+            {
+                if (Candles[i].flame.isActiveAndEnabled)
+                {
+                    candlesOn[j] = i;
+                    j++;
+                }
             }
         }
         if (candleCount > 0)
@@ -218,9 +218,9 @@ public class WatcherAI : MonoBehaviour
 
         for(int i = 0; i < Rooms.Length; i++)
         {
-            if(Rooms[i] != playerRoom)
-            {
-                plyIndex = i;
+            if(Rooms[i] != playerRoom)
+            {
+                plyIndex = i;
             }
             /*if(i >= Rooms.Length - 1)
             {
