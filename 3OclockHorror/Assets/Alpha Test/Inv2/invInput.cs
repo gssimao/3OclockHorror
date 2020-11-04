@@ -9,6 +9,8 @@ public class invInput : MonoBehaviour
     KeyCode invKey;
     [SerializeField]
     GameObject invCanvas;
+    [SerializeField]
+    GameObject tooltip;
 
     // Update is called once per frame
     void Update()
@@ -17,6 +19,7 @@ public class invInput : MonoBehaviour
         {
             if (invCanvas.activeSelf)
             {
+                tooltip.SetActive(false);
                 invCanvas.SetActive(false);
             }
             else

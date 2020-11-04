@@ -30,6 +30,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        anim.SetBool("walkingLeft", false);
+        anim.SetBool("walkingRight", false);
+        anim.SetBool("walkingForwards", false);
+        anim.SetBool("walkingBackwards", false);
+
         // Input
         if (!invUI.activeSelf && !transferCanvas.activeSelf)
         {
@@ -44,40 +49,46 @@ public class PlayerMovement : MonoBehaviour
 
         //Check the states for the walk animation.
         #region ChecKWalkStates 
-        if (movement.x < 0)
-        {
-            anim.SetBool("walkingLeft", true);
-        }
-        else
-        {
-            anim.SetBool("walkingLeft", false);
-        }
 
-        if (movement.x > 0)
+        if (movement.x != 0 && movement.y != 0)
         {
-            anim.SetBool("walkingRight", true);
-        }
-        else
-        {
-            anim.SetBool("walkingRight", false);
-        }
+            if (movement.x < 0)
+            {
+                anim.SetBool("walkingLeft", true);
+            }
 
-        if (movement.y < 0)
-        {
-            anim.SetBool("walkingForwards", true);
+            if (movement.x > 0)
+            {
+                anim.SetBool("walkingRight", true);
+            }
         }
         else
         {
-            anim.SetBool("walkingForwards", false);
-        }
+            if (movement.x != 0)
+            {
+                if (movement.x < 0)
+                {
+                    anim.SetBool("walkingLeft", true);
+                }
 
-        if (movement.y > 0)
-        {
-            anim.SetBool("walkingBackwards", true);
-        }
-        else
-        {
-            anim.SetBool("walkingBackwards", false);
+                if (movement.x > 0)
+                {
+                    anim.SetBool("walkingRight", true);
+                }
+            }
+            
+            if(movement.y != 0)
+            {
+                if (movement.y < 0)
+                {
+                    anim.SetBool("walkingForwards", true);
+                }
+
+                if (movement.y > 0)
+                {
+                    anim.SetBool("walkingBackwards", true);
+                }
+            }
         }
         #endregion
 
