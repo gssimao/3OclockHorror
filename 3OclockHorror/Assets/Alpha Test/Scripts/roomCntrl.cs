@@ -23,7 +23,10 @@ public class roomCntrl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        blackWall.SetActive(false);
+        if (blackWall != null)
+        {
+            blackWall.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -53,14 +56,17 @@ public class roomCntrl : MonoBehaviour
             Listener.enabled = true;
         }
 
-        if(blackWallanim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.20)
+        if (blackWallanim != null)
         {
-            crossFade.SetActive(false);
-        }
+            if (blackWallanim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.20)
+            {
+                crossFade.SetActive(false);
+            }
 
-        if(blackWallanim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
-        {
-            blackWall.SetActive(false);
+            if (blackWallanim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
+            {
+                blackWall.SetActive(false);
+            }
         }
     }
 

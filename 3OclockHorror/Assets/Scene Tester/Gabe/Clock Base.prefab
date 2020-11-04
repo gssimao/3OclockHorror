@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7939682511328861745}
   - component: {fileID: 7939682511328861744}
+  - component: {fileID: 1209543635}
   m_Layer: 5
   m_Name: Top
   m_TagString: Untagged
@@ -87,6 +88,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!222 &1209543635
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7939682511328861758}
+  m_CullTransparentMesh: 0
 --- !u!1 &7939682512113325400
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,6 +107,7 @@ GameObject:
   - component: {fileID: 7939682512113325403}
   - component: {fileID: 7939682512113325402}
   - component: {fileID: 703502689}
+  - component: {fileID: 669048064}
   m_Layer: 5
   m_Name: Clock Base
   m_TagString: Untagged
@@ -114,7 +124,7 @@ RectTransform:
   m_GameObject: {fileID: 7939682512113325400}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7267, y: 1.7267, z: 1.7267}
+  m_LocalScale: {x: 65, y: 65, z: 1}
   m_Children:
   - {fileID: 7939682512283066045}
   - {fileID: 7939682512249626125}
@@ -190,13 +200,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7692f214ee4f1b41b572c54ae0bb460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeHud: {fileID: 0}
-  WatcherTime: 120
-  CreepTime: 240
+  WatcherTime: 30
+  CreepTime: 12000
+  player: {fileID: 0}
+  Clock: 0
   minuteHand: {fileID: 7939682512249626122}
   hourHand: {fileID: 7939682512283066042}
   watcher: {fileID: 0}
   creep: {fileID: 0}
+--- !u!222 &669048064
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7939682512113325400}
+  m_CullTransparentMesh: 0
 --- !u!1 &7939682512249626122
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,6 +226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7939682512249626125}
   - component: {fileID: 7939682512249626124}
+  - component: {fileID: 972842237}
   m_Layer: 5
   m_Name: Minutes hand
   m_TagString: Untagged
@@ -284,6 +304,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!222 &972842237
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7939682512249626122}
+  m_CullTransparentMesh: 0
 --- !u!1 &7939682512283066042
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,6 +322,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7939682512283066045}
   - component: {fileID: 7939682512283066044}
+  - component: {fileID: 1695457796}
   m_Layer: 5
   m_Name: Hour hand
   m_TagString: Untagged
@@ -371,3 +400,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!222 &1695457796
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7939682512283066042}
+  m_CullTransparentMesh: 0

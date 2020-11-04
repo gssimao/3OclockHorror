@@ -46,7 +46,7 @@ public class NPC : MonoBehaviour
         {
             if (curPoint == null) //If the current point is null
             {
-                Debug.LogError("Current Point must be set in editor.");
+                Debug.LogWarning("Current Point must be set in editor.");
             }
         }
     }

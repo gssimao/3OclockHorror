@@ -767,7 +767,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -3.874}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -24.5, y: 152.7}
+  m_AnchoredPosition: {x: -33.2, y: 151.1}
   m_SizeDelta: {x: 50.2863, y: 16.148682}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &76097589
@@ -10269,6 +10269,36 @@ Transform:
   m_Father: {fileID: 1443357076}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &935318591
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 935318592}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &935318592
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935318591}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 818.0153, y: 280.6306, z: -750.71875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &945060880
 GameObject:
   m_ObjectHideFlags: 0
@@ -17274,7 +17304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WatcherTime: 120
   CreepTime: 240
-  player: {fileID: 0}
+  player: {fileID: 1619042896}
   Clock: 0
   minuteHand: {fileID: 0}
   hourHand: {fileID: 0}
@@ -17316,7 +17346,7 @@ MonoBehaviour:
   isPlaying: 0
   Candles: []
   CandleInRange: {fileID: 0}
-  transferCanvas: {fileID: 457838274}
+  transferCanvas: {fileID: 935318591}
 --- !u!4 &1619042897
 Transform:
   m_ObjectHideFlags: 0
@@ -18212,6 +18242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   invKey: 101
   invCanvas: {fileID: 1044781339}
+  tooltip: {fileID: 0}
 --- !u!4 &1677718119
 Transform:
   m_ObjectHideFlags: 0

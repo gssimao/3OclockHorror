@@ -27,11 +27,11 @@ public class InvSlotTextController : MonoBehaviour
     {
         for (int i = 0; i < slotBoxes.Length; i++)
         {
-            if(slots[i].Item == null)
+            if(slots[i] != null && slots[i].Item == null)
             {
                 slotBoxes[i].text = " ";
             }
-            else if(slots[i].Item != null)
+            else if(slots[i] != null && slots[i].Item != null)
             {
                 slotBoxes[i].text = slots[i].Item.desc;
             }
