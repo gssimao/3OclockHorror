@@ -97,15 +97,12 @@ public class WatcherAI : MonoBehaviour
     
     void MoveWatcher() //Moves the watcher between the rooms
     {
-        int i = 0;
         if (emptyRoomCount == 0)
         {
             randInd = Random.Range(0, Rooms.Length);
-            
-            while (currentRoom == Rooms[randInd] && i < 10) // Makes sure the Watcher does not try to teleport to the same room
+            while (currentRoom == Rooms[randInd]) // Makes sure the Watcher does not try to teleport to the same room
             {
                 randInd = Random.Range(0, Rooms.Length);
-                i++;
             }
 
             this.transform.position = Rooms[randInd].getWatcherSpawn().transform.position;
@@ -117,7 +114,7 @@ public class WatcherAI : MonoBehaviour
             plyIndex = FindPlayerRoom();
 
             randInd = Random.Range(plyIndex - 2, plyIndex + 3);
-            while (currentRoom == Rooms[randInd] && i < 10) // Makes sure the Watcher does not try to teleport to the same room
+            while (currentRoom == Rooms[randInd]) // Makes sure the Watcher does not try to teleport to the same room
             {
                 randInd = Random.Range(plyIndex - 2, plyIndex + 3);
             }
@@ -131,7 +128,7 @@ public class WatcherAI : MonoBehaviour
             plyIndex = FindPlayerRoom();
 
             randInd = Random.Range(plyIndex - 1, plyIndex + 2);
-            while (currentRoom == Rooms[randInd] && i < 10) // Makes sure the Watcher does not try to teleport to the same room
+            while (currentRoom == Rooms[randInd]) // Makes sure the Watcher does not try to teleport to the same room
             {
                 randInd = Random.Range(plyIndex - 1, plyIndex + 2);
             }

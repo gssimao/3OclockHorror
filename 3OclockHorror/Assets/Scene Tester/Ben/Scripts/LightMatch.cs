@@ -21,8 +21,8 @@ public class LightMatch : MonoBehaviour
     {
         ov = lifeTime;
         match.enabled = false;
-        lightMask.transform.localScale = small;
-        fLight.spriteMask = lightMask;
+        lightMask.transform.localScale = small;
+        fLight.spriteMask = lightMask;
         fLight.enabled = false;
 
         manager = FindObjectOfType<AudioManager>();
