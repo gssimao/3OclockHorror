@@ -9,18 +9,22 @@ public class sceneManager : MonoBehaviour
     private Vector3 playerPosition;
     private Scene currentScene;
 
-    public StairTransition transition;
+    public Animator transition;
+    public GameObject Slide;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        Slide.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(transition.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
+        {
+            Slide.SetActive(false);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other) //Changes the scene or "Floor" the player is when it hits this GameObject
@@ -33,11 +37,12 @@ public class sceneManager : MonoBehaviour
 
     IEnumerator LoadYourAsyncScene(GameObject Instance)
     {
+        Slide.SetActive(true);
         currentScene = SceneManager.GetActiveScene();
 
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
 
-        transition.PlayTransition();
+        transition.SetTrigger("Start");
 
         while (!asyncLoad.isDone)
         {
