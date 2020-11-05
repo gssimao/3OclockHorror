@@ -16,6 +16,10 @@ public class workbench_cntrl : MonoBehaviour
     bool active; //Am I the active workbench?
     [SerializeField]
     List<Item> Items;
+    [SerializeField]
+    GameObject tooltip;
+    public invInput Listener;
+
 
     private void Start()
     {
@@ -36,6 +40,7 @@ public class workbench_cntrl : MonoBehaviour
         float dist = Vector3.Distance(player.transform.position, transform.position); //Get the position of player
         if(dist <= 0.25f) //If the player is in range
         {
+            Listener.enabled = false;
             if (Input.GetKeyDown("e") && !active)
             {
                 IM.ActivateInventory(myInv);
@@ -43,6 +48,7 @@ public class workbench_cntrl : MonoBehaviour
                 active = true;
                 myInvDisplay.SetActive(true);
                 IM.craftField.SetActive(true);
+                tooltip.SetActive(false);
             }
             else if(Input.GetKeyDown("e") && active)
             {
@@ -50,6 +56,13 @@ public class workbench_cntrl : MonoBehaviour
                 active = false;
                 myInvDisplay.SetActive(false);
                 IM.craftField.SetActive(false);
+            }
+        }
+        else
+        {
+            if(Listener != null)
+            {
+                Listener.enabled = true;
             }
         }
     }

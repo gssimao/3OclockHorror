@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -21,6 +22,11 @@ public class PlayerMovement : MonoBehaviour
     float cndlTmr;
     float duration = 1f;
 
+    [SerializeField]
+    InputField jInput;
+    [SerializeField]
+    GameObject journal;
+
     void Start()
     {
         invUI.SetActive(false);
@@ -36,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("walkingBackwards", false);
 
         // Input
-        if (!invUI.activeSelf && !transferCanvas.activeSelf)
+        if (!invUI.activeSelf && !transferCanvas.activeSelf && !jInput.isFocused && !journal.activeSelf)
         {
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");

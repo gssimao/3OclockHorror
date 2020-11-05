@@ -13,8 +13,11 @@ public class ContainerControl : MonoBehaviour
     [SerializeField]
     InventoryManager IM;
     [SerializeField]
+    GameObject tooltip;
+    [SerializeField]
     float interactDist;
     bool active; //Am I the active workbench inventory?
+    public invInput Listener;
 
     // Start is called before the first frame update
     void Start()
@@ -37,18 +40,27 @@ public class ContainerControl : MonoBehaviour
         float dist = Vector3.Distance(player.transform.position, transform.position); //Get the position of player
         if (dist <= interactDist) //If the player is in range
         {
+            Listener.enabled = false;
             if (Input.GetKeyDown("e") && !active)
             {
                 IM.ActivateInventory(myInv);
                 myInv.OpenInv();
                 active = true;
                 cntnrDisp.SetActive(true);
+                tooltip.SetActive(false);
             }
             else if (Input.GetKeyDown("e") && active)
             {
                 IM.DeactivateInventory(myInv);
                 active = false;
                 cntnrDisp.SetActive(false);
+            }
+        }
+        else
+        {
+            if (Listener != null)
+            {
+                Listener.enabled = true;
             }
         }
     }
