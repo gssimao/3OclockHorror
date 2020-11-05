@@ -24,21 +24,25 @@ public class StatusController : MonoBehaviour
     {
         if(statusText != null)
         {
-            if(sanity.sanityValue >= 75)
+            if(sanity.sanityValue > 80)
             {
-                statusText.text = "High level sanity text goes here";
+                statusText.text = "Feeling healthy, I have heard what this house does to the minds of people. Keeping this journal will help me preserve my sanity.";
             }
-            else if(sanity.sanityValue >= 50)
+            else if(sanity.sanityValue > 60)
             {
-                statusText.text = "Status text for between 75 and 50 goes here";
+                statusText.text = "I am starting to feel dizzy, not too bad though. I wonder how much worse it will get.";
             }
-            else if(sanity.sanityValue >= 25)
+            else if(sanity.sanityValue > 40)
             {
-                statusText.text = "Status text for low sanity above 25 goes here";
+                statusText.text = "Starting to feel nauseous the house is takng a toll on my mind.";
+            }
+            else if(sanity.sanityValue > 20)
+            {
+                statusText.text = "Seeng things, rooms warping hed throbbing. Cant last much longer.";
             }
             else
             {
-                statusText.text = "Lowest sanity status text goes here";
+                statusText.text = "thbreating inheavg mind linveag rnnuing yawa pasceing";
             }
         }
     }
