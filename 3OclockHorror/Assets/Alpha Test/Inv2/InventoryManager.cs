@@ -15,6 +15,8 @@ public class InventoryManager : MonoBehaviour
     ItemSlot draggableSlot;
     [SerializeField]
     NoteStarter noteStarter;
+    [SerializeField]
+    journalCntrl Journal;
 
     public GameObject craftField;
 
@@ -138,6 +140,8 @@ public class InventoryManager : MonoBehaviour
                 {
                     noteStarter.SetNextNoteInventory(draggedItem);
                     draggedItem.isRead = true;
+
+                    Journal.AddNote(draggedItem);
                 }
             }
         }

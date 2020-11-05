@@ -9,7 +9,6 @@ public class journalCntrl : MonoBehaviour
     public GameObject pagePrefab;
     public Canvas Journal;
 
-
     public void CreatePage()
     {
         GameObject Page = Instantiate(pagePrefab, pagePrefab.transform.position, pagePrefab.transform.rotation);
@@ -30,6 +29,7 @@ public class journalCntrl : MonoBehaviour
 
     public void AddNote(Item note)
     {
+        Debug.Log("Adding notes");
         if(Pages[curPage].left.text == "")
         {
             Pages[curPage].left.text = note.desc;
