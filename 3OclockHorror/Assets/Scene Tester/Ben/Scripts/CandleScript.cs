@@ -7,6 +7,7 @@ public class CandleScript : MonoBehaviour
     public GameObject player;
     public GameObject Light;
     public GameObject Flicker;
+    public GameObject lightEffect;
     public SpriteMask LightMask;
     public Light flame; //Variable to that holds the light component of the game object
 
@@ -59,6 +60,7 @@ public class CandleScript : MonoBehaviour
                 flame.enabled = false;
                 LightMask.enabled = false;
                 Flicker.SetActive(false);
+                lightEffect.SetActive(false);
             }
         }
         else if(trigger == true)
@@ -68,6 +70,7 @@ public class CandleScript : MonoBehaviour
                 flame.enabled = true;
                 LightMask.enabled = true;
                 Flicker.SetActive(true);
+                lightEffect.SetActive(true);
             }
         }
     }
