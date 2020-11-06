@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SanityManager : MonoBehaviour
 {
@@ -29,7 +30,7 @@ public class SanityManager : MonoBehaviour
     {
         if (sanityValue <= 0)
         {
-            Destroy(this.gameObject);
+            SceneManager.LoadScene(2); //Load the Game Over scene
         }
 
         if (effectOn)

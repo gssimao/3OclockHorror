@@ -44,7 +44,6 @@ public class clockCntrl : MonoBehaviour
             if (Clock >= endTime) //Check if sys time is beyond end time, if so quit
             {
                 SceneManager.LoadScene(2); //Load the Game Over scene
-                Destroy(gameObject);
             }
             else
             {
