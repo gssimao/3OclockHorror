@@ -22,6 +22,7 @@ public class Item : ScriptableObject
 
     public Inventory myInv;
     public bool Note;
+    public bool RusselNote;
     public bool isRead = false;
     public Item nextNote;
     public string text; //This is to hold the text for the note. Not meant to change. Desc is what will change.
@@ -30,16 +31,21 @@ public class Item : ScriptableObject
     {
         if (nextNote != null)
         {
-            desc = text.Replace("***", nextNote.myInv.name);
-            if(nextNote.myInv != null)
+            desc = text.Replace("***", nextNote.myInv.gameObject.name);
+            Debug.Log(nextNote.myInv.gameObject.name);
+            if (nextNote.myInv != null)
             {
                 nextNote.myInv.AddStartingItem(nextNote);
             }
+            else
+            {
+                Debug.LogError("No inventory for note " + nextNote.name);
+            }
         }
-        else if(nextNote == null && Key != null)
+        else if(nextNote == null && Key != null && Amulet != null)
         {
             //Do key stuff
-            if(Key.myInv != null && Amulet != null)
+            if(Key.myInv != null && Amulet.myInv != null)
             {
                 Key.myInv.AddStartingItem(Key);
                 Amulet.myInv.AddStartingItem(Amulet);
