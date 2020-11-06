@@ -31,12 +31,17 @@ public class NPC : MonoBehaviour
     public Rigidbody2D rb;
     public float pTime = 0f;
 
+    AudioManager manager;
+    public bool isWalking = false;
+    public bool isRunning = false;
+    public bool isPlaying = false;
     // Start is called before the first frame update
     void Awake()
     {
         fsm = this.GetComponent<FiniteStateMachine>(); //get the mesh anf fsm components
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        manager = FindObjectOfType<AudioManager>();
 
         if (fsm == null) //Double check for nullness 
         {
@@ -58,18 +63,22 @@ public class NPC : MonoBehaviour
             if (rb.velocity.x > 0)
             {
                 anim.SetBool("walkingright", true);
+                isWalking = true;
             }
             else
             {
                 anim.SetBool("walkingright", false);
+                isWalking = false;
             }
             if (rb.velocity.x < 0)
             {
                 anim.SetBool("walkingleft", true);
+                isWalking = true;
             }
             else
             {
                 anim.SetBool("walkingleft", false);
+                isWalking = false;
             }
         }
         else if (fsm.GetState() == FSMStateType.CHASE)
@@ -77,20 +86,36 @@ public class NPC : MonoBehaviour
             if (rb.velocity.x > 0)
             {
                 anim.SetBool("runright", true);
+                isRunning = true;
             }
             else
             {
                 anim.SetBool("runright", false);
+                isRunning = false;
             }
             if (rb.velocity.x < 0)
             {
                 anim.SetBool("runleft", true);
+                isRunning = true;
             }
             else
             {
                 anim.SetBool("runleft", false);
+                isRunning = false;
             }
         }
+
+        if (isWalking == true && manager != null && isPlaying == false)
+        {
+            manager.Play("Blind Creep Footsteps"); //For now I'm having them be the same sound effect. Will change later.
+            isPlaying = true;
+        }
+        else if (isRunning == true && manager != null && isPlaying == false)
+        {
+            manager.Play("Blind Creep Footsteps"); 
+            isPlaying = true;
+        }
+        else isPlaying = false;
     }
 
     //Set a destination based on the current patrol index within the patrol points array.
