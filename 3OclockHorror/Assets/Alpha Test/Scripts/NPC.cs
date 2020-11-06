@@ -35,6 +35,9 @@ public class NPC : MonoBehaviour
     public bool isWalking = false;
     public bool isRunning = false;
     public bool isPlaying = false;
+
+    int hitTmr;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -54,6 +57,7 @@ public class NPC : MonoBehaviour
                 Debug.LogWarning("Current Point must be set in editor.");
             }
         }
+        hitTmr = 0;
     }
 
     void Update()
@@ -112,10 +116,15 @@ public class NPC : MonoBehaviour
         }
         else if (isRunning == true && manager != null && isPlaying == false)
         {
-            manager.Play("Blind Creep Footsteps"); 
+            manager.Play("Blind Creep Footsteps");
             isPlaying = true;
         }
-        else isPlaying = false;
+        else
+        {
+            isPlaying = false;
+        }
+
+        hitTmr--;
     }
 
     //Set a destination based on the current patrol index within the patrol points array.
@@ -186,10 +195,13 @@ public class NPC : MonoBehaviour
         SanityManager targSAN = target.GetComponent<SanityManager>();
         clockCntrl clock = target.GetComponent<clockCntrl>();
 
-        if(clock != null && targSAN != null)
+        float dist = Vector2.Distance(target.transform.position, this.gameObject.transform.position);
+
+        if(clock != null && targSAN != null && dist <= 0.5 && hitTmr == 0)
         {
             targSAN.ChangeSanity(-10);
             clock.adjustEndTime(-60);
+            hitTmr = 100;
         }
     }
 
