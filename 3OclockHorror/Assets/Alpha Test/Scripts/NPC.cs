@@ -53,21 +53,43 @@ public class NPC : MonoBehaviour
 
     void Update()
     {
-        if (rb.velocity.x > 0)
+        if (fsm.GetState() == FSMStateType.PATROL)
         {
-            anim.SetBool("walkingright", true);
+            if (rb.velocity.x > 0)
+            {
+                anim.SetBool("walkingright", true);
+            }
+            else
+            {
+                anim.SetBool("walkingright", false);
+            }
+            if (rb.velocity.x < 0)
+            {
+                anim.SetBool("walkingleft", true);
+            }
+            else
+            {
+                anim.SetBool("walkingleft", false);
+            }
         }
-        else
+        else if (fsm.GetState() == FSMStateType.CHASE)
         {
-            anim.SetBool("walkingright", false);
-        }
-        if (rb.velocity.x < 0)
-        {
-            anim.SetBool("walkingleft", true);
-        }
-        else
-        {
-            anim.SetBool("walkingleft", false);
+            if (rb.velocity.x > 0)
+            {
+                anim.SetBool("runright", true);
+            }
+            else
+            {
+                anim.SetBool("runright", false);
+            }
+            if (rb.velocity.x < 0)
+            {
+                anim.SetBool("runleft", true);
+            }
+            else
+            {
+                anim.SetBool("runleft", false);
+            }
         }
     }
 

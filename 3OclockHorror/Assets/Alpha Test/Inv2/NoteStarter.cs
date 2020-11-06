@@ -58,10 +58,10 @@ public class NoteStarter : MonoBehaviour
 
         foreach (Item Note in Notes)
         {
-            int rand = Random.Range(0, CntInvs.Count);
-            while (rand < 0)
+            int rand = Random.Range(0, CntInvs.Count - 1);
+            while (rand < 0 || rand == CntInvs.Count)
             {
-                rand = Random.Range(0, CntInvs.Count);
+                rand = Random.Range(0, CntInvs.Count - 1);
             }
             RandInvs.Add(CntInvs[rand]);
             CntInvs.RemoveAt(rand);
@@ -70,7 +70,7 @@ public class NoteStarter : MonoBehaviour
             Note.isRead = false;
         }
 
-        LastNote.myInv = StarterInv;
+        LastNote.myInv = FinalInv;
         LastNote.isRead = false;
         LastNote.desc = "A note in a series of notes.";
 
@@ -80,9 +80,13 @@ public class NoteStarter : MonoBehaviour
 
     public void SetNextNoteInventory(Item note)
     {
-        if (note.nextNote != null && note.nextNote != LastNote) 
+        if (note.nextNote != null && note.nextNote != LastNote && InvPos < RandInvs.Count) 
         {
             note.nextNote.myInv = RandInvs[InvPos];
+        }
+        if(note.nextNote != LastNote && note.nextNote.myInv == FinalInv)
+        {
+            Debug.LogError("Note that is not last note is getting sent to final inventory");
         }
         note.NextNoteInit();
         InvPos++;

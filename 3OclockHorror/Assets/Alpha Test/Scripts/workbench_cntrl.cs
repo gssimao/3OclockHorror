@@ -19,7 +19,7 @@ public class workbench_cntrl : MonoBehaviour
     [SerializeField]
     GameObject tooltip;
     public invInput Listener;
-
+    public GameObject invCanv;
 
     private void Start()
     {
@@ -27,6 +27,11 @@ public class workbench_cntrl : MonoBehaviour
         {
             myInv = gameObject.GetComponent<Inventory>();
         }
+        if(invCanv == null)
+        {
+            invCanv = GameObject.FindGameObjectWithTag("invUI");
+        }
+        
         active = false;
         myInv.CloseInv();
 
@@ -47,6 +52,7 @@ public class workbench_cntrl : MonoBehaviour
                 myInv.OpenInv(); //Update the items to be in accordance with the items array
                 active = true;
                 myInvDisplay.SetActive(true);
+                invCanv.SetActive(true);
                 IM.craftField.SetActive(true);
                 tooltip.SetActive(false);
             }
@@ -54,6 +60,7 @@ public class workbench_cntrl : MonoBehaviour
             {
                 IM.DeactivateInventory(myInv);
                 active = false;
+                invCanv.SetActive(false);
                 myInvDisplay.SetActive(false);
                 IM.craftField.SetActive(false);
             }

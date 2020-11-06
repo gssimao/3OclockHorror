@@ -22,6 +22,9 @@ public class AnswerCheckPocketWatch : MonoBehaviour
     public Text MedText;
     public Text SmallText;
 
+    public bool solved = false;
+    public GameObject clock;
+
     private void Start()
     {
         answerBig = Random.Range(0, 12);
@@ -52,9 +55,18 @@ public class AnswerCheckPocketWatch : MonoBehaviour
     {
         if(medGear.GetComponent<RotationMedGear>().Medmovement == answerMed && smallGear.GetComponent<RotationSmallGear>().Smallmovement == answerSmall && bigGear.GetComponent<RotationBigGear>().Bigmovement == answerBig)
         {
-            Debug.Log("YOU DID IT YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYYYY");
+            solved = true;
         }
-       
+
+        if (solved)
+        {
+            startClock();
+        }
+    }
+
+    public void startClock()
+    {
+        clock.SetActive(true);
     }
 }
 

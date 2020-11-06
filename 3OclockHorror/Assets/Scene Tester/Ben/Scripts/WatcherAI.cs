@@ -99,10 +99,12 @@ public class WatcherAI : MonoBehaviour
     {
         if (emptyRoomCount == 0)
         {
+            int i = 0;
             randInd = Random.Range(0, Rooms.Length);
-            while (currentRoom == Rooms[randInd]) // Makes sure the Watcher does not try to teleport to the same room
+            while (currentRoom == Rooms[randInd] && i < 10) // Makes sure the Watcher does not try to teleport to the same room
             {
                 randInd = Random.Range(0, Rooms.Length);
+                i++;
             }
 
             this.transform.position = Rooms[randInd].getWatcherSpawn().transform.position;
@@ -114,9 +116,11 @@ public class WatcherAI : MonoBehaviour
             plyIndex = FindPlayerRoom();
 
             randInd = Random.Range(plyIndex - 2, plyIndex + 3);
-            while (currentRoom == Rooms[randInd]) // Makes sure the Watcher does not try to teleport to the same room
+            int i = 0;
+            while (currentRoom == Rooms[randInd] && i < 10) // Makes sure the Watcher does not try to teleport to the same room
             {
                 randInd = Random.Range(plyIndex - 2, plyIndex + 3);
+                i++;
             }
 
             this.transform.position = Rooms[randInd].getWatcherSpawn().transform.position;
@@ -128,12 +132,17 @@ public class WatcherAI : MonoBehaviour
             plyIndex = FindPlayerRoom();
 
             randInd = Random.Range(plyIndex - 1, plyIndex + 2);
-            while (currentRoom == Rooms[randInd]) // Makes sure the Watcher does not try to teleport to the same room
+            int i = 0;
+            while (currentRoom == Rooms[randInd] && i < 10) // Makes sure the Watcher does not try to teleport to the same room
             {
                 randInd = Random.Range(plyIndex - 1, plyIndex + 2);
+                i++;
             }
 
-            this.transform.position = Rooms[randInd].getWatcherSpawn().transform.position;
+            if (Rooms[randInd].getWatcherSpawn() != null)
+            {
+                this.transform.position = Rooms[randInd].getWatcherSpawn().transform.position;
+            }
             currentRoom = Rooms[randInd];
             Candles = currentRoom.getRoomObject().GetComponentsInChildren<CandleScript>();
         }
@@ -179,11 +188,16 @@ public class WatcherAI : MonoBehaviour
 
         for (int i = 0; i < candleNum; i++)
         {
-            if (Candles[i].flame != null)
-            {
-                if (Candles[i].flame.isActiveAndEnabled)
-                {
-                    candleCount++;
+            if (Candles[i].flame != null)
+
+            {
+
+                if (Candles[i].flame.isActiveAndEnabled)
+
+                {
+
+                    candleCount++;
+
                 }
             }
 
@@ -193,13 +207,20 @@ public class WatcherAI : MonoBehaviour
 
         for(int i = 0; i < candleNum; i++)
         {
-            if (Candles[i].flame != null)
-            {
-                if (Candles[i].flame.isActiveAndEnabled)
-                {
-                    candlesOn[j] = i;
-                    j++;
-                }
+            if (Candles[i].flame != null)
+
+            {
+
+                if (Candles[i].flame.isActiveAndEnabled)
+
+                {
+
+                    candlesOn[j] = i;
+
+                    j++;
+
+                }
+
             }
         }
         if (candleCount > 0)
@@ -218,9 +239,12 @@ public class WatcherAI : MonoBehaviour
 
         for(int i = 0; i < Rooms.Length; i++)
         {
-            if(Rooms[i] != playerRoom)
-            {
-                plyIndex = i;
+            if(Rooms[i] != playerRoom)
+
+            {
+
+                plyIndex = i;
+
             }
             /*if(i >= Rooms.Length - 1)
             {

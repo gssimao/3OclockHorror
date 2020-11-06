@@ -138,10 +138,18 @@ public class InventoryManager : MonoBehaviour
 
                 if (draggedItem.Note && dropItemSlot.PlayerInv && !draggedItem.isRead)
                 {
-                    noteStarter.SetNextNoteInventory(draggedItem);
-                    draggedItem.isRead = true;
+                    if (draggedItem.RusselNote)
+                    {
+                        if (draggedItem.nextNote != null)
+                        {
+                            noteStarter.SetNextNoteInventory(draggedItem);
+                        }
+                        draggedItem.isRead = true;
 
+                    }
                     Journal.AddNote(draggedItem);
+
+                    dropItemSlot.Item = null;
                 }
             }
         }

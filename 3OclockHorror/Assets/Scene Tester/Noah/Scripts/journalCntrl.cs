@@ -18,18 +18,20 @@ public class journalCntrl : MonoBehaviour
 
         newPage.left.text = "";
         newPage.right.text = "";
+        newPage.nextPage = null;
         newPage.prevPage = Pages[curPage].gameObject;
         Pages[curPage].nextPage = newPage.gameObject;
         Pages[curPage].ActivateNextButton();
 
         Pages.Add(newPage);
 
+        Page.SetActive(false);
+
         curPage++;
     }
 
     public void AddNote(Item note)
     {
-        Debug.Log("Adding notes");
         if(Pages[curPage].left.text == "")
         {
             Pages[curPage].left.text = note.desc;
@@ -41,7 +43,7 @@ public class journalCntrl : MonoBehaviour
         else
         {
             CreatePage();
-            Pages[curPage].left.text = note.text;
+            Pages[curPage].left.text = note.desc;
         }
     }
 
