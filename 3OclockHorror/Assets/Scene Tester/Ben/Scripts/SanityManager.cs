@@ -20,6 +20,10 @@ public class SanityManager : MonoBehaviour
         //get reference from player's material
         material = GetComponent<SpriteRenderer>().material;
     }*/
+    void Awake()
+    {
+        material.SetFloat("_Flick", 0f);
+    }
 
     private void Update()
     {
