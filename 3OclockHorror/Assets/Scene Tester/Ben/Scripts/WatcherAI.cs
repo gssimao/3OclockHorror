@@ -18,6 +18,7 @@ public class WatcherAI : MonoBehaviour
 
     int randInd;
     public bool candlesOut;
+    public bool isPlaying = false;
     public bool timerLock = true;
     int candleNum;
     int[] candlesOn;
@@ -31,6 +32,7 @@ public class WatcherAI : MonoBehaviour
     public CandleScript[] Candles;
     room playerRoom;
     Vector3 spawnPoint;
+    AudioManager manager;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +45,7 @@ public class WatcherAI : MonoBehaviour
         sanityManager = player.GetComponent<SanityManager>();
         playerRoom = player.GetComponent<PlayerMovement>().myRoom;
         Debug.Log("Room Array Length: " + Rooms.Length);
+        manager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -91,6 +94,12 @@ public class WatcherAI : MonoBehaviour
             if (distance <= 0.4)
             {
                 sanityManager.ChangeSanity(-2 * Time.deltaTime);
+                if (isPlaying == false && manager != null)
+                {
+                    manager.Play("Watcher Scream");
+                    isPlaying = true;
+                }
+                else isPlaying = false;
             }
         }
     }
@@ -168,6 +177,11 @@ public class WatcherAI : MonoBehaviour
     {
         int selectedAmt = Random.Range(1, candlesOn.Length + 1);
         int temp;
+
+        if (manager != null)
+        {
+            manager.Play("Blow Out Candle");
+        }
 
         for (int i = 0; i <= selectedAmt; i++)
         {

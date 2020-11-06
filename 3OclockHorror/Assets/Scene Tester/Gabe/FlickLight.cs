@@ -5,6 +5,7 @@ using UnityEngine;
 public class FlickLight : MonoBehaviour
 {
     public SpriteMask spriteMask;
+    public Material lightEffect;
     public float flick;
     public float amplitude = 0.3f;
     public float omega = 1.0f;
@@ -24,5 +25,8 @@ public class FlickLight : MonoBehaviour
 
         flick = Mathf.Abs(amplitude * Mathf.Sin(omega*index));
         spriteMask.alphaCutoff = flick;
+
+        //_LightWave
+        lightEffect.SetFloat("_LightWave", 0.3f + flick);
     }
 }
