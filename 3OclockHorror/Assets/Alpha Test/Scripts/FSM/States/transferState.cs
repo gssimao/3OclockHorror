@@ -35,6 +35,7 @@ public class idleState : abstractFSMState
         else
         {
             //Stay in current room, reset.
+            Debug.Log("Room not selected. Resetting.");
             fsm.enterState(FSMStateType.IDLE);
             executor.pTime = 0f;
         }
@@ -106,12 +107,13 @@ public class idleState : abstractFSMState
 
             if (added)
             {
-                int rand = Random.Range(0, Rooms.Count - 1);
+                int rand = Random.Range(0, Rooms.Count);
                 ChosenRoom = Rooms[rand];
                 if (Rooms.Count <= 2)
                 {
-                    if(ChosenRoom == executor.myRoom || player.myRoom)
+                    if(ChosenRoom == executor.myRoom || ChosenRoom == player.myRoom)
                     {
+                        Debug.Log("No room chosen. Resetting.");
                         ChosenRoom = null;
                     }
                 }
@@ -119,7 +121,7 @@ public class idleState : abstractFSMState
                 {
                     while (ChosenRoom == player.myRoom || ChosenRoom == executor.myRoom)
                     {
-                        rand = Random.Range(0, Rooms.Count - 1);
+                        rand = Random.Range(0, Rooms.Count);
                         ChosenRoom = Rooms[rand];
                     }
                 }

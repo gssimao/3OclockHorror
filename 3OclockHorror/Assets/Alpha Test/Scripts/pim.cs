@@ -8,14 +8,14 @@ public class pim : MonoBehaviour //Player Instance Manager
 
 	void Awake()
 	{
-		if (instance != null)
+		if (instance != null && instance != this)
 		{
 			Destroy(gameObject); //Is there a player? If yes, destroy me
 		}
 		else
 		{
 			instance = this;  //There isnt a player? I'm it
-			DontDestroyOnLoad(gameObject);
+			//DontDestroyOnLoad(gameObject);
 		}
 	}
 }

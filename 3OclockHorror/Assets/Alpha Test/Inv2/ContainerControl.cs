@@ -13,10 +13,12 @@ public class ContainerControl : MonoBehaviour
     [SerializeField]
     InventoryManager IM;
     [SerializeField]
-    GameObject tooltip;
-    [SerializeField]
     float interactDist;
     bool active; //Am I the active workbench inventory?
+    [SerializeField]
+    List<Item> Items;
+    [SerializeField]
+    GameObject tooltip;
     public invInput Listener;
     public GameObject invCanv;
 
@@ -37,6 +39,8 @@ public class ContainerControl : MonoBehaviour
         }
         active = false;
         myInv.CloseInv();
+
+        myInv.InitStartingItems(Items);
     }
 
     // Update is called once per frame

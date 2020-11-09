@@ -42,15 +42,18 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("walkingBackwards", false);
 
         // Input
-        if (!invUI.activeSelf && !transferCanvas.activeSelf && !jInput.isFocused && !journal.activeSelf)
+        if (invUI != null && transferCanvas != null && jInput != null && journal != null)
         {
-            movement.x = Input.GetAxisRaw("Horizontal");
-            movement.y = Input.GetAxisRaw("Vertical");
-        }
-        else
-        {
-            movement.x = 0;
-            movement.y = 0;
+            if (!invUI.activeSelf && !transferCanvas.activeSelf && !jInput.isFocused && !journal.activeSelf)
+            {
+                movement.x = Input.GetAxisRaw("Horizontal");
+                movement.y = Input.GetAxisRaw("Vertical");
+            }
+            else
+            {
+                movement.x = 0;
+                movement.y = 0;
+            }
         }
 
         //Check the states for the walk animation.
@@ -122,8 +125,10 @@ public class PlayerMovement : MonoBehaviour
     {
         // Movement
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-
-        Camera.transform.position = myRoom.getCameraPoint().transform.position;
+        if (Camera != null)
+        {
+            Camera.transform.position = myRoom.getCameraPoint().transform.position;
+        }
 
         if(cndlTmr >= duration)
         {
@@ -138,15 +143,18 @@ public class PlayerMovement : MonoBehaviour
 
     void CheckCandle()
     {
-        Candles = myRoom.getRoomObject().GetComponentsInChildren<CandleScript>();
-
-        foreach(CandleScript candle in Candles)
+        if (myRoom != null)
         {
-            float dist = Vector2.Distance(gameObject.transform.position, candle.transform.position);
-            if(dist < 1)
+            Candles = myRoom.getRoomObject().GetComponentsInChildren<CandleScript>();
+
+            foreach (CandleScript candle in Candles)
             {
-                CandleInRange = candle;
-                return;
+                float dist = Vector2.Distance(gameObject.transform.position, candle.transform.position);
+                if (dist < 1)
+                {
+                    CandleInRange = candle;
+                    return;
+                }
             }
         }
     }

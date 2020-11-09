@@ -1129,6 +1129,13 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
+  - name: Blind Creep Footsteps
+    clip: {fileID: 8300000, guid: b82b73dd7c574df40827a55c32f490cf, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
 --- !u!4 &540872598
 Transform:
   m_ObjectHideFlags: 0
@@ -1707,8 +1714,8 @@ RectTransform:
   - {fileID: 1483491152}
   - {fileID: 1503953347}
   - {fileID: 1238053176}
-  m_Father: {fileID: 1202820980}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2607,8 +2614,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 787, y: 256.2, z: -791}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 727141778}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

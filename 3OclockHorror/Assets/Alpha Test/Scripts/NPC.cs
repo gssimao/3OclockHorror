@@ -22,7 +22,7 @@ public class NPC : MonoBehaviour
     int pointsVisited = 0;
 
     public room myRoom;
-    public float nWPD = 0.1f;
+    public float nWPD = 0.25f;
     public float patrolTime = 0f;
 
     Path path;
@@ -62,6 +62,8 @@ public class NPC : MonoBehaviour
 
     void Update()
     {
+        isWalking = false;
+
         if (fsm.GetState() == FSMStateType.PATROL)
         {
             if (rb.velocity.x > 0)
@@ -72,7 +74,6 @@ public class NPC : MonoBehaviour
             else
             {
                 anim.SetBool("walkingright", false);
-                isWalking = false;
             }
             if (rb.velocity.x < 0)
             {
@@ -82,7 +83,6 @@ public class NPC : MonoBehaviour
             else
             {
                 anim.SetBool("walkingleft", false);
-                isWalking = false;
             }
         }
         else if (fsm.GetState() == FSMStateType.CHASE)
@@ -90,22 +90,20 @@ public class NPC : MonoBehaviour
             if (rb.velocity.x > 0)
             {
                 anim.SetBool("runright", true);
-                isRunning = true;
+                isWalking = true;
             }
             else
             {
                 anim.SetBool("runright", false);
-                isRunning = false;
             }
             if (rb.velocity.x < 0)
             {
                 anim.SetBool("runleft", true);
-                isRunning = true;
+                isWalking = true;
             }
             else
             {
                 anim.SetBool("runleft", false);
-                isRunning = false;
             }
         }
 

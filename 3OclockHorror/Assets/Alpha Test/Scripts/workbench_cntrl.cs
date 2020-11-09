@@ -13,6 +13,8 @@ public class workbench_cntrl : MonoBehaviour
     GameObject myInvDisplay;
     [SerializeField]
     InventoryManager IM;
+    [SerializeField]
+    float interactDist;
     bool active; //Am I the active workbench?
     [SerializeField]
     List<Item> Items;
@@ -27,7 +29,11 @@ public class workbench_cntrl : MonoBehaviour
         {
             myInv = gameObject.GetComponent<Inventory>();
         }
-        if(invCanv == null)
+        if (interactDist == 0f)
+        {
+            interactDist = 0.25f;
+        }
+        if (invCanv == null)
         {
             invCanv = GameObject.FindGameObjectWithTag("invUI");
         }
