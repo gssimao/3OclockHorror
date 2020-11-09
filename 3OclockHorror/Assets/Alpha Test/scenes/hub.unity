@@ -3574,7 +3574,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &358797188
 Animator:
   serializedVersion: 3
@@ -11202,7 +11202,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &982779159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24380,6 +24380,7 @@ GameObject:
   - component: {fileID: 1978142358}
   - component: {fileID: 1978142360}
   - component: {fileID: 1978142359}
+  - component: {fileID: 1978142361}
   m_Layer: 5
   m_Name: Slot1
   m_TagString: Untagged
@@ -24403,8 +24404,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 288.9, y: 150.3}
-  m_SizeDelta: {x: -50.954346, y: -50.954346}
+  m_AnchoredPosition: {x: 69, y: 159.8}
+  m_SizeDelta: {x: -21.886436, y: -283.60376}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1978142359
 MonoBehaviour:
@@ -24444,6 +24445,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978142357}
   m_CullTransparentMesh: 0
+--- !u!114 &1978142361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978142357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8109fc5dabe7b124dbd4d5acf31a8f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pSlot: {fileID: 1508383688}
+  myText: {fileID: 1475730234}
+  myImage: {fileID: 1978142359}
 --- !u!1 &1978921846
 GameObject:
   m_ObjectHideFlags: 0
