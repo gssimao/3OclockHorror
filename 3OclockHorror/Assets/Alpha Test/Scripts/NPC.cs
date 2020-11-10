@@ -63,6 +63,7 @@ public class NPC : MonoBehaviour
     void Update()
     {
         isWalking = false;
+        isRunning = false;
 
         if (fsm.GetState() == FSMStateType.PATROL)
         {
@@ -90,7 +91,7 @@ public class NPC : MonoBehaviour
             if (rb.velocity.x > 0)
             {
                 anim.SetBool("runright", true);
-                isWalking = true;
+                isRunning = true;
             }
             else
             {
@@ -99,7 +100,7 @@ public class NPC : MonoBehaviour
             if (rb.velocity.x < 0)
             {
                 anim.SetBool("runleft", true);
-                isWalking = true;
+                isRunning = true;
             }
             else
             {
@@ -135,7 +136,7 @@ public class NPC : MonoBehaviour
             curPoint = nextPoint; //Set the current point
         }
         UpdatePath(curPoint.gameObject.transform);
-
+        pointsVisited++;
     }
     public void setDestination(GameObject targ)
     {
@@ -199,7 +200,7 @@ public class NPC : MonoBehaviour
         {
             targSAN.ChangeSanity(-10);
             clock.adjustEndTime(-60);
-            hitTmr = 100;
+            hitTmr = 200;
         }
     }
 

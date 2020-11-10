@@ -109,9 +109,47 @@ public class idleState : abstractFSMState
             {
                 int rand = Random.Range(0, Rooms.Count);
                 ChosenRoom = Rooms[rand];
+
+                foreach(room room in Rooms)
+                {
+                    Debug.Log("Room Name: " + room.getName());
+                }
+
                 if (Rooms.Count <= 2)
                 {
-                    if(ChosenRoom == executor.myRoom || ChosenRoom == player.myRoom)
+                    if (Rooms.Count == 2)
+                    {
+                        if (Rooms[0] == executor.myRoom && Rooms[1] == player.myRoom)
+                        {
+                            Debug.Log("No room chosen. Resetting.");
+                            ChosenRoom = null;
+                        }
+                        else if (Rooms[1] == executor.myRoom && Rooms[0] == player.myRoom)
+                        {
+                            Debug.Log("No room chosen. Resetting.");
+                            ChosenRoom = null;
+                        }
+                        else
+                        {
+                            if(Rooms[0] == executor.myRoom || Rooms[0] == player.myRoom)
+                            {
+                                ChosenRoom = Rooms[1];
+                            }
+                            if (Rooms[1] == executor.myRoom || Rooms[1] == player.myRoom)
+                            {
+                                ChosenRoom = Rooms[0];
+                            }
+                            else
+                            {
+                                while (ChosenRoom == player.myRoom || ChosenRoom == executor.myRoom)
+                                {
+                                    rand = Random.Range(0, Rooms.Count);
+                                    ChosenRoom = Rooms[rand];
+                                }
+                            }
+                        }
+                    }
+                    else
                     {
                         Debug.Log("No room chosen. Resetting.");
                         ChosenRoom = null;
