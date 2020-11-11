@@ -75,4 +75,9 @@ public class ContainerControl : MonoBehaviour
             }
         }
     }
+
+    public void setPlayerObject(GameObject input)// used for sceneManager script
+    {
+        player = input;
+    }
 }
