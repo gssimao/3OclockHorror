@@ -58,4 +58,9 @@ public class Item : ScriptableObject
     #region Key
     //Region for key specific data, if there is any
     #endregion
+    #region Photo
+    public bool photo;
+    public string date;
+    public string numeral;
+    #endregion
 }
