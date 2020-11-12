@@ -4850,7 +4850,7 @@ GameObject:
   - component: {fileID: 477410278}
   m_Layer: 0
   m_Name: Container
-  m_TagString: Container
+  m_TagString: NoteContainer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13513,7 +13513,7 @@ GameObject:
   - component: {fileID: 1153970146}
   m_Layer: 0
   m_Name: Spare Room
-  m_TagString: NoteContainer
+  m_TagString: Container
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15162,8 +15162,7 @@ MonoBehaviour:
   cntnrDisp: {fileID: 1192421596}
   IM: {fileID: 1932810098}
   interactDist: 0
-  Items:
-  - {fileID: 11400000, guid: fde50acc4c800bf4f99bbabcc30c397c, type: 2}
+  Items: []
   tooltip: {fileID: 858607486}
   Listener: {fileID: 1677718118}
   invCanv: {fileID: 1044781339}
@@ -15179,8 +15178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1b38e6a0728a749af554ef513efc2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items:
-  - {fileID: 0}
+  items: []
   itemSlots: []
   itemsParent: {fileID: 1108702598}
   PInv: 0
@@ -23690,6 +23688,7 @@ GameObject:
   - component: {fileID: 1932810098}
   - component: {fileID: 1932810099}
   - component: {fileID: 1932810100}
+  - component: {fileID: 1932810101}
   m_Layer: 5
   m_Name: Character Panel
   m_TagString: Untagged
@@ -23737,6 +23736,7 @@ MonoBehaviour:
   itemTooltip: {fileID: 858607488}
   draggableSlot: {fileID: 123655278}
   noteStarter: {fileID: 1932810100}
+  photoControl: {fileID: 1932810101}
   Journal: {fileID: 982779159}
   craftField: {fileID: 945060880}
 --- !u!114 &1932810099
@@ -23776,6 +23776,30 @@ MonoBehaviour:
   FinalInv: {fileID: 627670218}
   key: {fileID: 11400000, guid: fb520a66c35a1af4db2b23e67ea90306, type: 2}
   amulet: {fileID: 11400000, guid: ade9d95265c23734e8f28d0a3045294e, type: 2}
+--- !u!114 &1932810101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932810096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b5b2a33f86bd92418311ad87bd0bce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Photos:
+  - {fileID: 11400000, guid: fde50acc4c800bf4f99bbabcc30c397c, type: 2}
+  - {fileID: 11400000, guid: bae94e325d2500440b73aead8053080a, type: 2}
+  - {fileID: 11400000, guid: 2e410cb3ebb267f47a029080d86ac724, type: 2}
+  - {fileID: 11400000, guid: 89718bbf0b5a3324099481dd45a53823, type: 2}
+  AllowedInvs:
+  - {fileID: 614708431}
+  - {fileID: 1153970147}
+  - {fileID: 1488118412}
+  - {fileID: 477410279}
+  DiningRoom: {fileID: 1250297259}
+  Distributed: 0
 --- !u!1 &1936929849
 GameObject:
   m_ObjectHideFlags: 0
