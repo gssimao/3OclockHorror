@@ -79,4 +79,8 @@ public class CandleScript : MonoBehaviour
     {
         player = input;
     }
+    public GameObject getPlayerObject()
+    {
+        return player;
+    }
 }

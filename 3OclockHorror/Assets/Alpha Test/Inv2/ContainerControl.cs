@@ -80,4 +80,8 @@ public class ContainerControl : MonoBehaviour
     {
         player = input;
     }
+    public GameObject getPlayerObject()
+    {
+        return player;
+    }
 }
