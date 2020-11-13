@@ -8,11 +8,13 @@ public class PhotoController : MonoBehaviour
     List<Item> Photos;
     [SerializeField]
     List<Inventory> AllowedInvs;
+    [SerializeField]
+    List<LPhotoCntrl> LPhotos;
     [Space]
     [SerializeField]
     Inventory DiningRoom;
     
-    List<string> Dates;
+    List<string> Dates = new List<string> {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X" };
     List<string> Numerals;
 
     public bool Distributed;
@@ -24,9 +26,14 @@ public class PhotoController : MonoBehaviour
         {
             Debug.LogError("One or more of the necessary items for photo puzzle initiation is not set.");
         }
-        else if(AllowedInvs.Count < Photos.Count)
+        else if(AllowedInvs.Count < 4)
         {
             Debug.LogError("Allowed invs must contain at least as many inventories as photos contains photos");
+        }
+
+        if(LPhotos.Count != 4)
+        {
+            Debug.LogError("Need 4 LPhotos");
         }
 
         InitPuzzle();
@@ -35,25 +42,7 @@ public class PhotoController : MonoBehaviour
 
     public void DistPhotos() //Called once to distribute photos. Only occurs when the first photo is grabbed
     {
-        /*
-        foreach(Item photo in Photos)
-        {
-            int rand = Random.Range(0, AllowedInvs.Count);
-            Inventory selectedInv = AllowedInvs[rand];
-
-            selectedInv.AddStartingItem(photo);
-            AllowedInvs.Remove(selectedInv);
-
-            Debug.Log("Selected Inv: " + selectedInv.gameObject.name);
-
-            if (AllowedInvs.Contains(selectedInv))
-            {
-                Debug.Log("Something went wacky there - PhotoController");
-            }
-        }
-        */
-
-        for(int i = 0; i < 4; i++)
+        for(int i = 0; i < 3; i++)
         {
             int rand = Random.Range(0, Photos.Count);
             Item photo = Photos[rand];
@@ -64,7 +53,11 @@ public class PhotoController : MonoBehaviour
             AllowedInvs.Remove(selectedInv);
             Photos.Remove(photo);
 
-            Debug.Log("Selected Inv: " + selectedInv.gameObject.name);
+            rand = Random.Range(0, Dates.Count);
+            photo.numeral = Dates[rand];
+            Dates.RemoveAt(rand);
+
+            LPhotos[i + 1].InitLargePhoto(photo);
 
             if (AllowedInvs.Contains(selectedInv))
             {
@@ -81,5 +74,11 @@ public class PhotoController : MonoBehaviour
         Item photo = Photos[rand];
         DiningRoom.AddStartingItem(photo);
         Photos.Remove(photo);
+
+        rand = Random.Range(0, Dates.Count);
+        photo.numeral = Dates[rand];
+        Dates.RemoveAt(rand);
+
+        LPhotos[0].InitLargePhoto(photo);
     }
 }
