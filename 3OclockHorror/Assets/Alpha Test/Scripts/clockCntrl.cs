@@ -70,4 +70,12 @@ public class clockCntrl : MonoBehaviour
         endTime += tta;
     }
 
+    public void SetWatcher(GameObject Input)
+    {
+        watcher = Input;
+    }
+    public void SetCreep(GameObject Input)
+    {
+        creep = Input;
+    }
 }

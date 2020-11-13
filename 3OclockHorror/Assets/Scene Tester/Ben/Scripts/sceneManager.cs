@@ -7,166 +7,146 @@ public class sceneManager : MonoBehaviour
 {
     public PlayerMovement player;
 
+    //Gameobject Variables
     public roomCntrl[] emptyObjectsRC;
     public ContainerControl[] emptyObjectsCC;
     public workbench_cntrl[] emptyObjectsWC;
     public CandleScript[] emptObjectsCS;
+    public NPC[] emptyObjectsNPC;
+    public FiniteStateMachine[] emptyObjectsFSM;
+    public ClockTick[] emptyObjectsCT;
+    public WatcherAI[] emptyObjectsWAI;
     public bool inputPlyBool = false;
 
-    public Scene currentScene;
-    public string sceneName;
-
-    private void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
-        emptyObjectsRC = FindObjectsOfType<roomCntrl>();
-        emptyObjectsCC = FindObjectsOfType<ContainerControl>();
-        emptyObjectsWC = FindObjectsOfType<workbench_cntrl>();
-        emptObjectsCS = FindObjectsOfType<CandleScript>();
-    }
+    //Player Fields
+    public Camera plyCamera;
+    public GameObject transferCanvas;
+    public room startRoom;
+    public GameObject Watcher;
+    public GameObject TheBlindCreep;
     // Update is called once per frame
     void Update()
     {
-        currentScene = SceneManager.GetActiveScene();
-        sceneName = currentScene.name;
-        if (!inputPlyBool)
+        if (SceneManager.sceneCount == 1)
         {
-            if (
-                InputPlayerMovement(emptyObjectsRC) == true &&// Inputs player into roomCntrl
-            InputPlayerMovement(emptyObjectsCC) == true &&// Inputs player into ContainerControl
-            InputPlayerMovement(emptyObjectsWC) == true &&// Inputs player into workbench_cntrl
-            InputPlayerMovement(emptObjectsCS) == true// Inputs player into CandleScript
-            )
+            if (player == null)
             {
-                inputPlyBool = true;
+                player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+                CallFindObjects();
+                player.myRoom = startRoom;
+                player.Camera = plyCamera;
+                player.transferCanvas = transferCanvas;
+                player.GetComponent<clockCntrl>().SetWatcher(Watcher);
+                player.GetComponent<clockCntrl>().SetCreep(TheBlindCreep);
+            }
+            else if (!inputPlyBool)
+            {
+                if (CallInputFunctions() == true)
+                {
+                    inputPlyBool = true;
+                }
             }
         }
-        SceneManager.activeSceneChanged += SceneManager_activeSceneChanged;
     }
 
-    private void SceneManager_activeSceneChanged(Scene arg0, Scene arg1)
+    #region Input Functions
+    bool InputPlayerMovement(roomCntrl[] emptyObjects)
     {
-        //throw new System.NotImplementedException();
-        Debug.Log("We Changed Scenes");
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        for (int i = 0; i < emptyObjects.Length; i++)
+        {
+            emptyObjects[i].player = player;
+        }
+        return true;
+    }
+    bool InputPlayerMovement(FiniteStateMachine[] emptyObjects)
+    {
+        for (int i = 0; i < emptyObjects.Length; i++)
+        {
+            emptyObjects[i].player = player;
+        }
+        return true;
+    }
+    bool InputPlayerMovement(ContainerControl[] emptyObjects)
+    {
+            for (int i = 0; i < emptyObjects.Length; i++)
+            {
+                emptyObjects[i].setPlayerObject(player.gameObject);
+            }
+            return true;
+    }
+    bool InputPlayerMovement(CandleScript[] emptyObjects)
+    {
+        for (int i = 0; i < emptyObjects.Length; i++)
+        {
+            emptyObjects[i].setPlayerObject(player.gameObject);
+        }
+        return true;
+    }
+    bool InputPlayerMovement(workbench_cntrl[] emptyObjects)
+    {
+        for (int i = 0; i < emptyObjects.Length; i++)
+        {
+            emptyObjects[i].setPlayerObject(player.gameObject);
+        }
+        return true;
+    }
+    bool InputPlayerMovement(NPC[] emptyObjects)
+    {
+        for (int i = 0; i < emptyObjects.Length; i++)
+        {
+            emptyObjects[i].player = player.gameObject;
+        }
+        return true;
+    }
+    bool InputPlayerMovement(ClockTick[] emptyObjects)
+    {
+        for (int i = 0; i < emptyObjects.Length; i++)
+        {
+            emptyObjects[i].player = player.gameObject;
+        }
+        return true;
+    }
+    bool InputPlayerMovement(WatcherAI[] emptyObjects)
+    {
+        for (int i = 0; i < emptyObjects.Length; i++)
+        {
+            emptyObjects[i].player = player.gameObject;
+        }
+        return true;
+    }
+    #endregion
+
+    void CallFindObjects()
+    {
+        //Gameobject Functions
         emptyObjectsRC = FindObjectsOfType<roomCntrl>();
         emptyObjectsCC = FindObjectsOfType<ContainerControl>();
         emptyObjectsWC = FindObjectsOfType<workbench_cntrl>();
         emptObjectsCS = FindObjectsOfType<CandleScript>();
+        emptyObjectsFSM = FindObjectsOfType<FiniteStateMachine>();
+        emptyObjectsNPC = FindObjectsOfType<NPC>();
+        emptyObjectsCT = FindObjectsOfType<ClockTick>();
+        emptyObjectsWAI = FindObjectsOfType<WatcherAI>();
     }
 
-    bool InputPlayerMovement(roomCntrl[] emptyObjects)
+    bool CallInputFunctions()
     {
-        bool isNULL = true;
-        int i = 0;
-
-        while (isNULL == true || i < emptyObjects.Length)
+        if (
+        InputPlayerMovement(emptyObjectsRC) == true &&
+        InputPlayerMovement(emptyObjectsCC) == true &&
+        InputPlayerMovement(emptyObjectsWC) == true &&
+        InputPlayerMovement(emptObjectsCS) == true &&
+        InputPlayerMovement(emptyObjectsFSM) == true &&
+        InputPlayerMovement(emptyObjectsNPC) == true &&
+        InputPlayerMovement(emptyObjectsCT) == true &&
+        InputPlayerMovement(emptyObjectsWAI) == true
+        )
         {
-            if (emptyObjects[i].player != null)
-            {
-                isNULL = false;
-                break;
-            }
-            i++;
-        }
-
-        if (isNULL == true)
-        {
-            for (i = 0; i < emptyObjects.Length; i++)
-            {
-                emptyObjects[i].player = player;
-            }
             return true;
         }
         else
         {
-            return true;
-        }
-    }
-
-    bool InputPlayerMovement(ContainerControl[] emptyObjects)
-    {
-        bool isNULL = true;
-        int i = 0;
-
-        while (isNULL == true || i < emptyObjects.Length)
-        {
-            if (emptyObjects[i].getPlayerObject() != null)
-            {
-                isNULL = false;
-                break;
-            }
-            i++;
-        }
-
-        if (isNULL == true)
-        {
-            for (i = 0; i < emptyObjects.Length; i++)
-            {
-                emptyObjects[i].setPlayerObject(player.gameObject);
-            }
-            return true;
-        }
-        else
-        {
-            return true;
-        }
-    }
-    bool InputPlayerMovement(CandleScript[] emptyObjects)
-    {
-        bool isNULL = true;
-        int i = 0;
-
-        while (isNULL == true || i < emptyObjects.Length)
-        {
-            if (emptyObjects[i].getPlayerObject() != null)
-            {
-                isNULL = false;
-                break;
-            }
-            i++;
-        }
-
-        if (isNULL == true)
-        {
-            for (i = 0; i < emptyObjects.Length; i++)
-            {
-                emptyObjects[i].setPlayerObject(player.gameObject);
-            }
-            return true;
-        }
-        else
-        {
-            return true;
-        }
-    }
-
-    bool InputPlayerMovement(workbench_cntrl[] emptyObjects)
-    {
-        bool isNULL = true;
-        int i = 0;
-
-        while (isNULL == false || i < emptyObjects.Length)
-        {
-            if (emptyObjects[i].getPlayerObject() != null)
-            {
-                isNULL = false;
-                break;
-            }
-            i++;
-        }
-
-        if (isNULL == true)
-        {
-            for (i = 0; i < emptyObjects.Length; i++)
-            {
-                emptyObjects[i].setPlayerObject(player.gameObject);
-            }
-            return true;
-        }
-        else
-        {
-            return true;
+            return false;
         }
     }
 }
