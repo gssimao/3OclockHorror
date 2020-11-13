@@ -84,4 +84,8 @@ public class workbench_cntrl : MonoBehaviour
     {
         player = input;
     }
+    public GameObject getPlayerObject()
+    {
+        return player;
+    }
 }

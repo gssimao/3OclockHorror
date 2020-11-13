@@ -44,6 +44,10 @@ public class NoteStarter : MonoBehaviour
         {
             CntInvs.Remove(StarterInv);
         }
+        if(CntInvs.Contains(FinalInv))
+        {
+            CntInvs.Remove(FinalInv);
+        }
     }
 
     public void initNotePuzzle()
@@ -54,7 +58,7 @@ public class NoteStarter : MonoBehaviour
         FirstNote.myInv = StarterInv;
         FirstNote.isRead = false;
         FirstNote.desc = "A note in a series of notes.";
-        FirstNote.myInv.AddStartingItem(FirstNote);
+        //FirstNote.myInv.AddStartingItem(FirstNote);
 
         foreach (Item Note in Notes)
         {

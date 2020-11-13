@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class WorkbenchDrawer : MonoBehaviour//, IPointerClickHandler
+public class WorkbenchDrawer : MonoBehaviour, IPointerClickHandler
 {
     bool open;
-    Transform orgPos;
+    RectTransform orgPos;
 
     // Start is called before the first frame update
     void Start()
     {
         open = false;
-        orgPos = this.gameObject.transform;
+        orgPos = this.gameObject.GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
@@ -35,15 +35,15 @@ public class WorkbenchDrawer : MonoBehaviour//, IPointerClickHandler
         */
     }
 
-    /*
+    
     public void OnPointerClick(PointerEventData eventData)
     {
         if (!open)
         {
-            LeanTween.move(gameObject.GetComponent<RectTransform>(), new Vector3(orgPos.position.x, orgPos.position.y -10f, orgPos.position.z), 1f).setDelay(0.1f);
+            LeanTween.moveY(gameObject, 0.01f, 0.1f).setDelay(0.1f);
             open = true;
         }
     }
-    */
+    
 
 }

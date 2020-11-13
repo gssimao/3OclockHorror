@@ -16,6 +16,8 @@ public class InventoryManager : MonoBehaviour
     [SerializeField]
     NoteStarter noteStarter;
     [SerializeField]
+    PhotoController photoControl;
+    [SerializeField]
     journalCntrl Journal;
 
     public GameObject craftField;
@@ -150,6 +152,10 @@ public class InventoryManager : MonoBehaviour
                     Journal.AddNote(draggedItem);
 
                     dropItemSlot.Item = null;
+                }
+                else if (draggedItem.photo && !photoControl.Distributed)
+                {
+                    photoControl.DistPhotos();
                 }
             }
         }

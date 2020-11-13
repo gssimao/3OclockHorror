@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class sceneManager : MonoBehaviour
 {
-    public string sceneName; //name of the scene to transfer too
-    private Vector3 playerPosition;
-    private Scene currentScene;
     public PlayerMovement player;
 
     public roomCntrl[] emptyObjectsRC;
@@ -17,73 +13,58 @@ public class sceneManager : MonoBehaviour
     public CandleScript[] emptObjectsCS;
     public bool inputPlyBool = false;
 
-    public GameObject stairTransition;
-    public Animator Slide;
+    public Scene currentScene;
+    public string sceneName;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        stairTransition.SetActive(false);
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        emptyObjectsRC = FindObjectsOfType<roomCntrl>();
+        emptyObjectsCC = FindObjectsOfType<ContainerControl>();
+        emptyObjectsWC = FindObjectsOfType<workbench_cntrl>();
+        emptObjectsCS = FindObjectsOfType<CandleScript>();
     }
-
     // Update is called once per frame
     void Update()
     {
-        if(player == null)
-        {
-            player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
-            emptyObjectsRC = FindObjectsOfType<roomCntrl>();
-            emptyObjectsCC = FindObjectsOfType<ContainerControl>();
-            emptyObjectsWC = FindObjectsOfType<workbench_cntrl>();
-            emptObjectsCS = FindObjectsOfType<CandleScript>();
-        }
-        /*else if(!inputPlyBool)
-        {
-            inputPlyBool = InputPlayerMovement();
-        }*/
-
-        if(Slide.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
-        {
-            stairTransition.SetActive(false);
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D other) //Changes the scene or "Floor" the player is when it hits this GameObject
-    {
-        if (other.tag == "Player") // checks to see if the object is the player
-        {
-            StartCoroutine(LoadYourAsyncScene(other.gameObject));
-        }
-    }
-
-    IEnumerator LoadYourAsyncScene(GameObject Instance)
-    {
         currentScene = SceneManager.GetActiveScene();
-
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-
-        Slide.SetTrigger("Start");
-
-        while (!asyncLoad.isDone)
+        sceneName = currentScene.name;
+        if (!inputPlyBool)
         {
-            yield return null;
+            if (
+                InputPlayerMovement(emptyObjectsRC) == true &&// Inputs player into roomCntrl
+            InputPlayerMovement(emptyObjectsCC) == true &&// Inputs player into ContainerControl
+            InputPlayerMovement(emptyObjectsWC) == true &&// Inputs player into workbench_cntrl
+            InputPlayerMovement(emptObjectsCS) == true// Inputs player into CandleScript
+            )
+            {
+                inputPlyBool = true;
+            }
         }
+        SceneManager.activeSceneChanged += SceneManager_activeSceneChanged;
+    }
 
-        SceneManager.MoveGameObjectToScene(Instance, SceneManager.GetSceneByName(sceneName));
-
-        SceneManager.UnloadSceneAsync(currentScene);
+    private void SceneManager_activeSceneChanged(Scene arg0, Scene arg1)
+    {
+        //throw new System.NotImplementedException();
+        Debug.Log("We Changed Scenes");
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        emptyObjectsRC = FindObjectsOfType<roomCntrl>();
+        emptyObjectsCC = FindObjectsOfType<ContainerControl>();
+        emptyObjectsWC = FindObjectsOfType<workbench_cntrl>();
+        emptObjectsCS = FindObjectsOfType<CandleScript>();
     }
 
     bool InputPlayerMovement(roomCntrl[] emptyObjects)
     {
-        bool isNULL = false;
+        bool isNULL = true;
         int i = 0;
 
-        while(isNULL == false || i < emptyObjects.Length)
+        while (isNULL == true || i < emptyObjects.Length)
         {
-            if(emptyObjects[i] == null)
+            if (emptyObjects[i].player != null)
             {
-                isNULL = true;
+                isNULL = false;
                 break;
             }
             i++;
@@ -99,20 +80,20 @@ public class sceneManager : MonoBehaviour
         }
         else
         {
-            return false;
+            return true;
         }
     }
 
     bool InputPlayerMovement(ContainerControl[] emptyObjects)
     {
-        bool isNULL = false;
+        bool isNULL = true;
         int i = 0;
 
-        while (isNULL == false || i < emptyObjects.Length)
+        while (isNULL == true || i < emptyObjects.Length)
         {
-            if (emptyObjects[i] == null)
+            if (emptyObjects[i].getPlayerObject() != null)
             {
-                isNULL = true;
+                isNULL = false;
                 break;
             }
             i++;
@@ -128,19 +109,19 @@ public class sceneManager : MonoBehaviour
         }
         else
         {
-            return false;
+            return true;
         }
     }
     bool InputPlayerMovement(CandleScript[] emptyObjects)
     {
-        bool isNULL = false;
+        bool isNULL = true;
         int i = 0;
 
-        while (isNULL == false || i < emptyObjects.Length)
+        while (isNULL == true || i < emptyObjects.Length)
         {
-            if (emptyObjects[i] == null)
+            if (emptyObjects[i].getPlayerObject() != null)
             {
-                isNULL = true;
+                isNULL = false;
                 break;
             }
             i++;
@@ -156,20 +137,20 @@ public class sceneManager : MonoBehaviour
         }
         else
         {
-            return false;
+            return true;
         }
     }
 
     bool InputPlayerMovement(workbench_cntrl[] emptyObjects)
     {
-        bool isNULL = false;
+        bool isNULL = true;
         int i = 0;
 
         while (isNULL == false || i < emptyObjects.Length)
         {
-            if (emptyObjects[i] == null)
+            if (emptyObjects[i].getPlayerObject() != null)
             {
-                isNULL = true;
+                isNULL = false;
                 break;
             }
             i++;
@@ -185,7 +166,7 @@ public class sceneManager : MonoBehaviour
         }
         else
         {
-            return false;
+            return true;
         }
     }
 }
