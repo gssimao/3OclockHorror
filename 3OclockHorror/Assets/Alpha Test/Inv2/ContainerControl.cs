@@ -76,6 +76,7 @@ public class ContainerControl : MonoBehaviour
         }
     }
 
+    //Used for Scene manager
     public void setPlayerObject(GameObject input)// used for sceneManager script
     {
         player = input;
@@ -83,5 +84,17 @@ public class ContainerControl : MonoBehaviour
     public GameObject getPlayerObject()
     {
         return player;
+    }
+    public void setcntnrDisp(GameObject input)
+    {
+        cntnrDisp = input;
+    }
+    public void setIM(InventoryManager input)
+    {
+        IM = input;
+    }
+    public void settooltip(GameObject input)
+    {
+        tooltip = input;
     }
 }

@@ -22,6 +22,12 @@ public class PlayerMovement : MonoBehaviour
     float cndlTmr;
     float duration = 1f;
 
+    //For Changing Scenes
+    public GameObject Cntnr;
+    public InventoryManager charPanel;
+    public GameObject ToolTip;
+    public GameObject wbInventory;
+
     [SerializeField]
     InputField jInput;
     [SerializeField]
@@ -157,5 +163,10 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
+    }
+
+    public GameObject getJournal()
+    {
+        return journal;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class LPhotoCntrl : MonoBehaviour, IPointerClickHandler, IDragHandler
+public class LPhotoCntrl : MonoBehaviour, IBeginDragHandler, IDragHandler
 {
     Item myPhoto;
     [SerializeField]
@@ -49,12 +49,7 @@ public class LPhotoCntrl : MonoBehaviour, IPointerClickHandler, IDragHandler
         numeral.text = myPhoto.numeral;
     }
 
-    public void OnDrag(PointerEventData eventData)
-    {
-
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
+    public void Flip()
     {
         if (isFlipped)
         {
@@ -64,5 +59,16 @@ public class LPhotoCntrl : MonoBehaviour, IPointerClickHandler, IDragHandler
         {
             isFlipped = true;
         }
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        transform.localPosition += new Vector3(eventData.delta.x, eventData.delta.y, 0) / transform.lossyScale.x;
+        transform.SetAsLastSibling();
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        transform.localPosition += new Vector3(eventData.delta.x, eventData.delta.y, 0) / transform.lossyScale.x;
     }
 }

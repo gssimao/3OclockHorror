@@ -9,6 +9,7 @@ public class SceneChanger : MonoBehaviour
     public string sceneName; //name of the scene to transfer too
     private Vector3 playerPosition;
     private Scene currentScene;
+    public GameObject spawnPoint;
 
     public GameObject stairTransition;
     public Animator Slide;
@@ -22,10 +23,10 @@ public class SceneChanger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Slide.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+        /*if(Slide.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
         {
             stairTransition.SetActive(false);
-        }
+        }*/
     }
 
     void OnTriggerEnter2D(Collider2D other) //Changes the scene or "Floor" the player is when it hits this GameObject
@@ -33,6 +34,7 @@ public class SceneChanger : MonoBehaviour
         if (other.tag == "Player") // checks to see if the object is the player
         {
             StartCoroutine(LoadYourAsyncScene(other.gameObject));
+            other.transform.position = spawnPoint.transform.position;
         }
     }
 

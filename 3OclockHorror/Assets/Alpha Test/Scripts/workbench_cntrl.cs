@@ -80,6 +80,8 @@ public class workbench_cntrl : MonoBehaviour
         }
     }
 
+    //Used for Scene Manager
+
     public void setPlayerObject(GameObject input)// used for sceneManager script
     {
         player = input;
@@ -87,5 +89,17 @@ public class workbench_cntrl : MonoBehaviour
     public GameObject getPlayerObject()
     {
         return player;
+    }
+    public void setmyInvDisplay(GameObject input)
+    {
+        myInvDisplay = input;
+    }
+    public void setIM(InventoryManager input)
+    {
+        IM = input;
+    }
+    public void settooltip(GameObject input)
+    {
+        tooltip = input;
     }
 }

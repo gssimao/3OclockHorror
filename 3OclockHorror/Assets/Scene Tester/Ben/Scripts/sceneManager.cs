@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class sceneManager : MonoBehaviour
 {
     public PlayerMovement player;
+    public invInput Listener;
+    public GameObject invCanv;
 
     //Gameobject Variables
     public roomCntrl[] emptyObjectsRC;
@@ -32,9 +34,12 @@ public class sceneManager : MonoBehaviour
             if (player == null)
             {
                 player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+                Listener = player.GetComponentInChildren<invInput>();
+                invCanv = player.invUI;
                 CallFindObjects();
                 player.myRoom = startRoom;
                 player.Camera = plyCamera;
+                player.getJournal().GetComponent<Canvas>().worldCamera = plyCamera;
                 player.transferCanvas = transferCanvas;
                 player.GetComponent<clockCntrl>().SetWatcher(Watcher);
                 player.GetComponent<clockCntrl>().SetCreep(TheBlindCreep);
@@ -55,6 +60,7 @@ public class sceneManager : MonoBehaviour
         for (int i = 0; i < emptyObjects.Length; i++)
         {
             emptyObjects[i].player = player;
+            emptyObjects[i].Listener = Listener;
         }
         return true;
     }
@@ -68,11 +74,16 @@ public class sceneManager : MonoBehaviour
     }
     bool InputPlayerMovement(ContainerControl[] emptyObjects)
     {
-            for (int i = 0; i < emptyObjects.Length; i++)
-            {
-                emptyObjects[i].setPlayerObject(player.gameObject);
-            }
-            return true;
+        for (int i = 0; i < emptyObjects.Length; i++)
+        {
+            emptyObjects[i].setPlayerObject(player.gameObject);
+            emptyObjects[i].Listener = Listener;
+            emptyObjects[i].invCanv = invCanv;
+            emptyObjects[i].setcntnrDisp(player.Cntnr);
+            emptyObjects[i].setIM(player.charPanel);
+            emptyObjects[i].settooltip(player.ToolTip);
+        }
+        return true;
     }
     bool InputPlayerMovement(CandleScript[] emptyObjects)
     {
@@ -87,6 +98,11 @@ public class sceneManager : MonoBehaviour
         for (int i = 0; i < emptyObjects.Length; i++)
         {
             emptyObjects[i].setPlayerObject(player.gameObject);
+            emptyObjects[i].Listener = Listener;
+            emptyObjects[i].invCanv = invCanv;
+            emptyObjects[i].setmyInvDisplay(player.wbInventory);
+            emptyObjects[i].setIM(player.charPanel);
+            emptyObjects[i].settooltip(player.ToolTip);
         }
         return true;
     }
@@ -111,6 +127,7 @@ public class sceneManager : MonoBehaviour
         for (int i = 0; i < emptyObjects.Length; i++)
         {
             emptyObjects[i].player = player.gameObject;
+            emptyObjects[i].inventoryUI = invCanv;
         }
         return true;
     }
