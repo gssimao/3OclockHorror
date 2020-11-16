@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 14914413}
   m_Layer: 0
   m_Name: PatrolPoint (4)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -386,6 +386,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &15491787
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,7 +399,7 @@ GameObject:
   - component: {fileID: 15491789}
   m_Layer: 0
   m_Name: PatrolPoint (7)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -432,6 +433,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &20627171
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,7 +702,7 @@ GameObject:
   - component: {fileID: 35561840}
   m_Layer: 0
   m_Name: PatrolPoint (22)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -734,6 +736,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &36334112
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,7 +749,7 @@ GameObject:
   - component: {fileID: 36334114}
   m_Layer: 0
   m_Name: PatrolPoint (18)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -780,6 +783,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &37546423
 GameObject:
   m_ObjectHideFlags: 0
@@ -1356,7 +1360,7 @@ GameObject:
   - component: {fileID: 75098117}
   m_Layer: 0
   m_Name: PatrolPoint
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1390,6 +1394,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &84733403
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,7 +1407,7 @@ GameObject:
   - component: {fileID: 84733405}
   m_Layer: 0
   m_Name: PatrolPoint (19)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1436,6 +1441,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &94581237
 GameObject:
   m_ObjectHideFlags: 0
@@ -1448,7 +1454,7 @@ GameObject:
   - component: {fileID: 94581239}
   m_Layer: 0
   m_Name: PatrolPoint (3)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1482,6 +1488,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &99819750
 GameObject:
   m_ObjectHideFlags: 0
@@ -1511,7 +1518,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.013, y: 0.941, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 262337048}
   m_Father: {fileID: 435999638}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1528,7 +1536,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.6358948, y: 0.32989547}
+  m_Offset: {x: -0.67407227, y: 0.059776247}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1539,7 +1547,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.857605, y: 0.42860228}
+  m_Size: {x: 0.74694824, y: 0.9688407}
   m_EdgeRadius: 0
 --- !u!114 &99819753
 MonoBehaviour:
@@ -1554,6 +1562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: hub
+  spawnPoint: {fileID: 262337047}
   stairTransition: {fileID: 266703709}
   Slide: {fileID: 266703711}
 --- !u!61 &99819754
@@ -1569,7 +1578,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.073018074}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1580,7 +1589,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.15, y: 1.11}
+  m_Size: {x: 2.15, y: 0.96396375}
   m_EdgeRadius: 0
 --- !u!1 &101643377
 GameObject:
@@ -1624,7 +1633,7 @@ GameObject:
   - component: {fileID: 106756000}
   m_Layer: 0
   m_Name: PatrolPoint (17)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1658,6 +1667,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &125337452
 GameObject:
   m_ObjectHideFlags: 0
@@ -1782,7 +1792,7 @@ GameObject:
   - component: {fileID: 131975065}
   m_Layer: 0
   m_Name: PatrolPoint (5)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1816,6 +1826,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &133560111
 GameObject:
   m_ObjectHideFlags: 0
@@ -1995,7 +2006,7 @@ GameObject:
   - component: {fileID: 145035101}
   m_Layer: 0
   m_Name: PatrolPoint (8)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2029,6 +2040,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &146655510
 GameObject:
   m_ObjectHideFlags: 0
@@ -2116,7 +2128,7 @@ GameObject:
   - component: {fileID: 155917912}
   m_Layer: 0
   m_Name: PatrolPoint (10)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2150,6 +2162,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &158423856
 GameObject:
   m_ObjectHideFlags: 0
@@ -2271,7 +2284,7 @@ GameObject:
   - component: {fileID: 160597158}
   m_Layer: 0
   m_Name: PatrolPoint (5)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2305,6 +2318,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &168916822
 GameObject:
   m_ObjectHideFlags: 0
@@ -2317,7 +2331,7 @@ GameObject:
   - component: {fileID: 168916824}
   m_Layer: 0
   m_Name: PatrolPoint (10)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2351,6 +2365,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &199611703
 GameObject:
   m_ObjectHideFlags: 0
@@ -2363,7 +2378,7 @@ GameObject:
   - component: {fileID: 199611705}
   m_Layer: 0
   m_Name: PatrolPoint (11)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2397,6 +2412,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &210287953
 GameObject:
   m_ObjectHideFlags: 0
@@ -2439,7 +2455,7 @@ GameObject:
   - component: {fileID: 213802043}
   m_Layer: 0
   m_Name: PatrolPoint (9)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2473,6 +2489,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &215661656
 GameObject:
   m_ObjectHideFlags: 0
@@ -2485,7 +2502,7 @@ GameObject:
   - component: {fileID: 215661657}
   m_Layer: 0
   m_Name: PatrolPoint (14)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2505,6 +2522,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!4 &215661658
 Transform:
   m_ObjectHideFlags: 0
@@ -2531,7 +2549,7 @@ GameObject:
   - component: {fileID: 234324837}
   m_Layer: 0
   m_Name: PatrolPoint (4)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2565,6 +2583,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &235821918
 GameObject:
   m_ObjectHideFlags: 0
@@ -2577,7 +2596,7 @@ GameObject:
   - component: {fileID: 235821920}
   m_Layer: 0
   m_Name: PatrolPoint (13)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2611,6 +2630,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &237660360
 GameObject:
   m_ObjectHideFlags: 0
@@ -2798,7 +2818,7 @@ GameObject:
   - component: {fileID: 238414656}
   m_Layer: 0
   m_Name: PatrolPoint (16)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2832,6 +2852,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &238907102
 GameObject:
   m_ObjectHideFlags: 0
@@ -2844,7 +2865,7 @@ GameObject:
   - component: {fileID: 238907104}
   m_Layer: 0
   m_Name: PatrolPoint (17)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2878,6 +2899,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &260635327
 GameObject:
   m_ObjectHideFlags: 0
@@ -2890,7 +2912,7 @@ GameObject:
   - component: {fileID: 260635329}
   m_Layer: 0
   m_Name: PatrolPoint (5)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2924,6 +2946,37 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
+--- !u!1 &262337047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 262337048}
+  m_Layer: 0
+  m_Name: Downstairs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &262337048
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262337047}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.634, y: -0.409, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 99819751}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &262486492
 GameObject:
   m_ObjectHideFlags: 0
@@ -3048,7 +3101,7 @@ GameObject:
   - component: {fileID: 265430311}
   m_Layer: 0
   m_Name: PatrolPoint (13)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3082,6 +3135,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &266703709
 GameObject:
   m_ObjectHideFlags: 0
@@ -3213,7 +3267,7 @@ GameObject:
   - component: {fileID: 270821999}
   m_Layer: 0
   m_Name: PatrolPoint (23)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3247,6 +3301,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &274149479
 GameObject:
   m_ObjectHideFlags: 0
@@ -3310,7 +3365,7 @@ GameObject:
   - component: {fileID: 276325129}
   m_Layer: 0
   m_Name: PatrolPoint (1)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3344,6 +3399,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &281547409
 GameObject:
   m_ObjectHideFlags: 0
@@ -3356,7 +3412,7 @@ GameObject:
   - component: {fileID: 281547411}
   m_Layer: 0
   m_Name: PatrolPoint (9)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3390,6 +3446,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &284223067
 GameObject:
   m_ObjectHideFlags: 0
@@ -3402,7 +3459,7 @@ GameObject:
   - component: {fileID: 284223069}
   m_Layer: 0
   m_Name: PatrolPoint (18)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3436,6 +3493,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &285437699
 GameObject:
   m_ObjectHideFlags: 0
@@ -3448,7 +3506,7 @@ GameObject:
   - component: {fileID: 285437701}
   m_Layer: 0
   m_Name: PatrolPoint (1)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3482,6 +3540,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &288730344
 GameObject:
   m_ObjectHideFlags: 0
@@ -3494,7 +3553,7 @@ GameObject:
   - component: {fileID: 288730346}
   m_Layer: 0
   m_Name: PatrolPoint (13)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3528,6 +3587,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &293343805
 GameObject:
   m_ObjectHideFlags: 0
@@ -3540,7 +3600,7 @@ GameObject:
   - component: {fileID: 293343807}
   m_Layer: 0
   m_Name: PatrolPoint (18)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3574,6 +3634,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &296358513
 GameObject:
   m_ObjectHideFlags: 0
@@ -3853,7 +3914,7 @@ GameObject:
   - component: {fileID: 296586120}
   m_Layer: 0
   m_Name: PatrolPoint (2)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3887,6 +3948,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &297212217
 GameObject:
   m_ObjectHideFlags: 0
@@ -4229,7 +4291,7 @@ GameObject:
   - component: {fileID: 309510740}
   m_Layer: 0
   m_Name: PatrolPoint (2)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4263,6 +4325,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &309801366
 GameObject:
   m_ObjectHideFlags: 0
@@ -4275,7 +4338,7 @@ GameObject:
   - component: {fileID: 309801368}
   m_Layer: 0
   m_Name: PatrolPoint (16)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4309,6 +4372,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &331767544
 GameObject:
   m_ObjectHideFlags: 0
@@ -4434,7 +4498,7 @@ GameObject:
   - component: {fileID: 343380036}
   m_Layer: 0
   m_Name: PatrolPoint (1)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4468,6 +4532,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &348671239
 GameObject:
   m_ObjectHideFlags: 0
@@ -4635,7 +4700,7 @@ GameObject:
   - component: {fileID: 351360204}
   m_Layer: 0
   m_Name: PatrolPoint (9)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4669,6 +4734,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &352746926
 GameObject:
   m_ObjectHideFlags: 0
@@ -4681,7 +4747,7 @@ GameObject:
   - component: {fileID: 352746928}
   m_Layer: 0
   m_Name: PatrolPoint (11)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4715,6 +4781,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &355328827
 GameObject:
   m_ObjectHideFlags: 0
@@ -5133,7 +5200,7 @@ GameObject:
   - component: {fileID: 366827841}
   m_Layer: 0
   m_Name: PatrolPoint (4)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5153,6 +5220,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!4 &366827842
 Transform:
   m_ObjectHideFlags: 0
@@ -5209,7 +5277,7 @@ GameObject:
   - component: {fileID: 371415361}
   m_Layer: 0
   m_Name: PatrolPoint (6)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5243,6 +5311,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &373326995
 GameObject:
   m_ObjectHideFlags: 0
@@ -5394,7 +5463,7 @@ GameObject:
   - component: {fileID: 382613968}
   m_Layer: 0
   m_Name: PatrolPoint (24)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5414,6 +5483,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!4 &382613969
 Transform:
   m_ObjectHideFlags: 0
@@ -5440,7 +5510,7 @@ GameObject:
   - component: {fileID: 384799337}
   m_Layer: 0
   m_Name: PatrolPoint (20)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5460,6 +5530,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!4 &384799338
 Transform:
   m_ObjectHideFlags: 0
@@ -5486,7 +5557,7 @@ GameObject:
   - component: {fileID: 404100736}
   m_Layer: 0
   m_Name: PatrolPoint (14)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5520,6 +5591,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &414533581
 GameObject:
   m_ObjectHideFlags: 0
@@ -5734,7 +5806,7 @@ GameObject:
   - component: {fileID: 417121258}
   m_Layer: 0
   m_Name: PatrolPoint
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5768,6 +5840,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &427592006
 GameObject:
   m_ObjectHideFlags: 0
@@ -5780,7 +5853,7 @@ GameObject:
   - component: {fileID: 427592008}
   m_Layer: 0
   m_Name: PatrolPoint (2)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5814,6 +5887,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &431178299
 GameObject:
   m_ObjectHideFlags: 0
@@ -5981,7 +6055,7 @@ GameObject:
   - component: {fileID: 431393526}
   m_Layer: 0
   m_Name: PatrolPoint (18)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6015,6 +6089,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &435482904
 GameObject:
   m_ObjectHideFlags: 0
@@ -6027,7 +6102,7 @@ GameObject:
   - component: {fileID: 435482906}
   m_Layer: 0
   m_Name: PatrolPoint (15)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6061,6 +6136,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &435999634
 GameObject:
   m_ObjectHideFlags: 0
@@ -6405,7 +6481,7 @@ GameObject:
   - component: {fileID: 445762186}
   m_Layer: 0
   m_Name: PatrolPoint (21)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6439,6 +6515,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &445925390
 GameObject:
   m_ObjectHideFlags: 0
@@ -6525,7 +6602,7 @@ GameObject:
   - component: {fileID: 447715973}
   m_Layer: 0
   m_Name: PatrolPoint (17)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6559,6 +6636,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &449669201
 GameObject:
   m_ObjectHideFlags: 0
@@ -6571,7 +6649,7 @@ GameObject:
   - component: {fileID: 449669203}
   m_Layer: 0
   m_Name: PatrolPoint (3)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6605,6 +6683,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &450583813
 GameObject:
   m_ObjectHideFlags: 0
@@ -6698,7 +6777,7 @@ GameObject:
   - component: {fileID: 460076192}
   m_Layer: 0
   m_Name: PatrolPoint (15)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6718,6 +6797,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!4 &460076193
 Transform:
   m_ObjectHideFlags: 0
@@ -6899,7 +6979,7 @@ GameObject:
   - component: {fileID: 466668843}
   m_Layer: 0
   m_Name: PatrolPoint (8)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6933,6 +7013,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &468195526
 GameObject:
   m_ObjectHideFlags: 0
@@ -7149,7 +7230,7 @@ GameObject:
   - component: {fileID: 475989601}
   m_Layer: 0
   m_Name: PatrolPoint (19)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7183,6 +7264,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &481285322
 GameObject:
   m_ObjectHideFlags: 0
@@ -7225,7 +7307,7 @@ GameObject:
   - component: {fileID: 483050933}
   m_Layer: 0
   m_Name: PatrolPoint
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7259,6 +7341,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &485746501
 GameObject:
   m_ObjectHideFlags: 0
@@ -7548,7 +7631,7 @@ GameObject:
   - component: {fileID: 489084958}
   m_Layer: 0
   m_Name: PatrolPoint (12)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7582,6 +7665,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &491189702
 GameObject:
   m_ObjectHideFlags: 0
@@ -7594,7 +7678,7 @@ GameObject:
   - component: {fileID: 491189704}
   m_Layer: 0
   m_Name: PatrolPoint (21)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7628,6 +7712,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &494348723
 GameObject:
   m_ObjectHideFlags: 0
@@ -7758,7 +7843,7 @@ GameObject:
   - component: {fileID: 505784087}
   m_Layer: 0
   m_Name: PatrolPoint (8)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7778,6 +7863,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!4 &505784088
 Transform:
   m_ObjectHideFlags: 0
@@ -7804,7 +7890,7 @@ GameObject:
   - component: {fileID: 507122802}
   m_Layer: 0
   m_Name: PatrolPoint (9)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7838,6 +7924,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &513089113
 GameObject:
   m_ObjectHideFlags: 0
@@ -8236,7 +8323,7 @@ GameObject:
   - component: {fileID: 527660344}
   m_Layer: 0
   m_Name: PatrolPoint (16)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8270,6 +8357,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &531906707
 GameObject:
   m_ObjectHideFlags: 0
@@ -8282,7 +8370,7 @@ GameObject:
   - component: {fileID: 531906709}
   m_Layer: 0
   m_Name: PatrolPoint (11)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8316,6 +8404,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &534262041
 GameObject:
   m_ObjectHideFlags: 0
@@ -8416,7 +8505,7 @@ GameObject:
   - component: {fileID: 537204714}
   m_Layer: 0
   m_Name: PatrolPoint
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8450,6 +8539,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &539143276
 GameObject:
   m_ObjectHideFlags: 0
@@ -8462,7 +8552,7 @@ GameObject:
   - component: {fileID: 539143277}
   m_Layer: 0
   m_Name: PatrolPoint (22)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8482,6 +8572,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!4 &539143278
 Transform:
   m_ObjectHideFlags: 0
@@ -8508,7 +8599,7 @@ GameObject:
   - component: {fileID: 545294967}
   m_Layer: 0
   m_Name: PatrolPoint (4)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8542,6 +8633,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &550916620
 GameObject:
   m_ObjectHideFlags: 0
@@ -8554,7 +8646,7 @@ GameObject:
   - component: {fileID: 550916622}
   m_Layer: 0
   m_Name: PatrolPoint (22)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8588,6 +8680,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &556887350
 GameObject:
   m_ObjectHideFlags: 0
@@ -8600,7 +8693,7 @@ GameObject:
   - component: {fileID: 556887352}
   m_Layer: 0
   m_Name: PatrolPoint (9)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8634,6 +8727,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &557026361
 GameObject:
   m_ObjectHideFlags: 0
@@ -8676,7 +8770,7 @@ GameObject:
   - component: {fileID: 558219425}
   m_Layer: 0
   m_Name: PatrolPoint (11)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8710,6 +8804,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &559735789
 GameObject:
   m_ObjectHideFlags: 0
@@ -8722,7 +8817,7 @@ GameObject:
   - component: {fileID: 559735791}
   m_Layer: 0
   m_Name: PatrolPoint
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8756,6 +8851,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &559823129
 GameObject:
   m_ObjectHideFlags: 0
@@ -8877,7 +8973,7 @@ GameObject:
   - component: {fileID: 568103180}
   m_Layer: 0
   m_Name: PatrolPoint (6)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8911,6 +9007,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &569327612
 GameObject:
   m_ObjectHideFlags: 0
@@ -9078,7 +9175,7 @@ GameObject:
   - component: {fileID: 583107170}
   m_Layer: 0
   m_Name: PatrolPoint (20)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9112,6 +9209,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &592923393
 GameObject:
   m_ObjectHideFlags: 0
@@ -9352,7 +9450,7 @@ GameObject:
   - component: {fileID: 614507953}
   m_Layer: 0
   m_Name: PatrolPoint (3)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9386,6 +9484,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &616455559
 GameObject:
   m_ObjectHideFlags: 0
@@ -9398,7 +9497,7 @@ GameObject:
   - component: {fileID: 616455561}
   m_Layer: 0
   m_Name: PatrolPoint (20)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9432,6 +9531,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &619433792
 GameObject:
   m_ObjectHideFlags: 0
@@ -9444,7 +9544,7 @@ GameObject:
   - component: {fileID: 619433794}
   m_Layer: 0
   m_Name: PatrolPoint (8)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9478,6 +9578,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &626153545
 GameObject:
   m_ObjectHideFlags: 0
@@ -9490,7 +9591,7 @@ GameObject:
   - component: {fileID: 626153547}
   m_Layer: 0
   m_Name: PatrolPoint (19)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9524,6 +9625,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &627331613
 GameObject:
   m_ObjectHideFlags: 0
@@ -9812,7 +9914,7 @@ GameObject:
   - component: {fileID: 638541569}
   m_Layer: 0
   m_Name: PatrolPoint (2)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9846,6 +9948,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &640102593
 GameObject:
   m_ObjectHideFlags: 0
@@ -9858,7 +9961,7 @@ GameObject:
   - component: {fileID: 640102594}
   m_Layer: 0
   m_Name: PatrolPoint (19)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9878,6 +9981,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!4 &640102595
 Transform:
   m_ObjectHideFlags: 0
@@ -9904,7 +10008,7 @@ GameObject:
   - component: {fileID: 643792423}
   m_Layer: 0
   m_Name: PatrolPoint (15)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9938,6 +10042,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &646911221
 GameObject:
   m_ObjectHideFlags: 0
@@ -9950,7 +10055,7 @@ GameObject:
   - component: {fileID: 646911223}
   m_Layer: 0
   m_Name: PatrolPoint (9)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9984,6 +10089,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &648065953
 GameObject:
   m_ObjectHideFlags: 0
@@ -9996,7 +10102,7 @@ GameObject:
   - component: {fileID: 648065955}
   m_Layer: 0
   m_Name: PatrolPoint (26)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10030,6 +10136,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &672594170
 GameObject:
   m_ObjectHideFlags: 0
@@ -10042,7 +10149,7 @@ GameObject:
   - component: {fileID: 672594172}
   m_Layer: 0
   m_Name: PatrolPoint (16)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10076,6 +10183,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &674724517
 GameObject:
   m_ObjectHideFlags: 0
@@ -10201,7 +10309,7 @@ GameObject:
   - component: {fileID: 674987130}
   m_Layer: 0
   m_Name: PatrolPoint
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10235,6 +10343,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &676443840
 GameObject:
   m_ObjectHideFlags: 0
@@ -11223,7 +11332,7 @@ GameObject:
   - component: {fileID: 712688379}
   m_Layer: 0
   m_Name: PatrolPoint (17)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11257,6 +11366,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &718230497
 GameObject:
   m_ObjectHideFlags: 0
@@ -11299,7 +11409,7 @@ GameObject:
   - component: {fileID: 722474925}
   m_Layer: 0
   m_Name: PatrolPoint (17)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11333,6 +11443,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &725986921
 GameObject:
   m_ObjectHideFlags: 0
@@ -11375,7 +11486,7 @@ GameObject:
   - component: {fileID: 729551781}
   m_Layer: 0
   m_Name: PatrolPoint (21)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11409,6 +11520,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &731596401
 GameObject:
   m_ObjectHideFlags: 0
@@ -11696,7 +11808,7 @@ GameObject:
   - component: {fileID: 756275812}
   m_Layer: 0
   m_Name: PatrolPoint (14)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11730,6 +11842,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &758286377
 GameObject:
   m_ObjectHideFlags: 0
@@ -11772,7 +11885,7 @@ GameObject:
   - component: {fileID: 759196742}
   m_Layer: 0
   m_Name: PatrolPoint (18)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11806,6 +11919,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &759720475
 GameObject:
   m_ObjectHideFlags: 0
@@ -11993,7 +12107,7 @@ GameObject:
   - component: {fileID: 770093135}
   m_Layer: 0
   m_Name: PatrolPoint (3)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12027,6 +12141,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &771689888
 GameObject:
   m_ObjectHideFlags: 0
@@ -12242,7 +12357,7 @@ GameObject:
   - component: {fileID: 792964354}
   m_Layer: 0
   m_Name: PatrolPoint (22)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12276,6 +12391,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &794781463
 GameObject:
   m_ObjectHideFlags: 0
@@ -12288,7 +12404,7 @@ GameObject:
   - component: {fileID: 794781464}
   m_Layer: 0
   m_Name: PatrolPoint (11)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12308,6 +12424,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!4 &794781465
 Transform:
   m_ObjectHideFlags: 0
@@ -12400,7 +12517,7 @@ GameObject:
   - component: {fileID: 799532986}
   m_Layer: 0
   m_Name: PatrolPoint (17)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12420,6 +12537,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!4 &799532987
 Transform:
   m_ObjectHideFlags: 0
@@ -12476,7 +12594,7 @@ GameObject:
   - component: {fileID: 805104187}
   m_Layer: 0
   m_Name: PatrolPoint (4)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12510,6 +12628,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &814935664
 GameObject:
   m_ObjectHideFlags: 0
@@ -12715,7 +12834,7 @@ GameObject:
   - component: {fileID: 819784477}
   m_Layer: 0
   m_Name: PatrolPoint (13)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12749,6 +12868,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &822680906
 GameObject:
   m_ObjectHideFlags: 0
@@ -12761,7 +12881,7 @@ GameObject:
   - component: {fileID: 822680908}
   m_Layer: 0
   m_Name: PatrolPoint (13)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12795,6 +12915,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &824859781
 GameObject:
   m_ObjectHideFlags: 0
@@ -12807,7 +12928,7 @@ GameObject:
   - component: {fileID: 824859783}
   m_Layer: 0
   m_Name: PatrolPoint (5)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12841,6 +12962,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &825692533
 GameObject:
   m_ObjectHideFlags: 0
@@ -12853,7 +12975,7 @@ GameObject:
   - component: {fileID: 825692535}
   m_Layer: 0
   m_Name: PatrolPoint (1)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12887,6 +13009,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &830637753
 GameObject:
   m_ObjectHideFlags: 0
@@ -12974,7 +13097,7 @@ GameObject:
   - component: {fileID: 831068685}
   m_Layer: 0
   m_Name: PatrolPoint (6)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13008,6 +13131,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &838110021
 GameObject:
   m_ObjectHideFlags: 0
@@ -13020,7 +13144,7 @@ GameObject:
   - component: {fileID: 838110023}
   m_Layer: 0
   m_Name: PatrolPoint (17)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13054,6 +13178,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &844835038
 GameObject:
   m_ObjectHideFlags: 0
@@ -13175,7 +13300,7 @@ GameObject:
   - component: {fileID: 857657677}
   m_Layer: 0
   m_Name: PatrolPoint (16)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13209,6 +13334,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &859246141
 GameObject:
   m_ObjectHideFlags: 0
@@ -13427,7 +13553,7 @@ GameObject:
   - component: {fileID: 863279751}
   m_Layer: 0
   m_Name: PatrolPoint (10)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13461,6 +13587,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &867623857
 GameObject:
   m_ObjectHideFlags: 0
@@ -13503,7 +13630,7 @@ GameObject:
   - component: {fileID: 868561507}
   m_Layer: 0
   m_Name: PatrolPoint (10)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13537,6 +13664,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &885413050
 GameObject:
   m_ObjectHideFlags: 0
@@ -13549,7 +13677,7 @@ GameObject:
   - component: {fileID: 885413052}
   m_Layer: 0
   m_Name: PatrolPoint (8)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13583,6 +13711,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &888247764
 GameObject:
   m_ObjectHideFlags: 0
@@ -13746,7 +13875,7 @@ GameObject:
   - component: {fileID: 893306728}
   m_Layer: 0
   m_Name: PatrolPoint (16)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13780,6 +13909,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &896446687
 GameObject:
   m_ObjectHideFlags: 0
@@ -13792,7 +13922,7 @@ GameObject:
   - component: {fileID: 896446689}
   m_Layer: 0
   m_Name: PatrolPoint (12)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13826,6 +13956,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &902128300
 GameObject:
   m_ObjectHideFlags: 0
@@ -13838,7 +13969,7 @@ GameObject:
   - component: {fileID: 902128302}
   m_Layer: 0
   m_Name: PatrolPoint (9)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13872,6 +14003,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &923567332
 GameObject:
   m_ObjectHideFlags: 0
@@ -13884,7 +14016,7 @@ GameObject:
   - component: {fileID: 923567333}
   m_Layer: 0
   m_Name: PatrolPoint (18)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13904,6 +14036,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!4 &923567334
 Transform:
   m_ObjectHideFlags: 0
@@ -13930,7 +14063,7 @@ GameObject:
   - component: {fileID: 924469869}
   m_Layer: 0
   m_Name: PatrolPoint (15)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13964,6 +14097,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &924918926
 GameObject:
   m_ObjectHideFlags: 0
@@ -13976,7 +14110,7 @@ GameObject:
   - component: {fileID: 924918928}
   m_Layer: 0
   m_Name: PatrolPoint (13)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14010,6 +14144,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &963017827
 GameObject:
   m_ObjectHideFlags: 0
@@ -14022,7 +14157,7 @@ GameObject:
   - component: {fileID: 963017829}
   m_Layer: 0
   m_Name: PatrolPoint (7)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14056,6 +14191,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &963140710
 GameObject:
   m_ObjectHideFlags: 0
@@ -14068,7 +14204,7 @@ GameObject:
   - component: {fileID: 963140712}
   m_Layer: 0
   m_Name: PatrolPoint (2)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14102,6 +14238,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &967744273
 GameObject:
   m_ObjectHideFlags: 0
@@ -14114,7 +14251,7 @@ GameObject:
   - component: {fileID: 967744275}
   m_Layer: 0
   m_Name: PatrolPoint (12)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14148,6 +14285,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &973010641
 GameObject:
   m_ObjectHideFlags: 0
@@ -14160,7 +14298,7 @@ GameObject:
   - component: {fileID: 973010643}
   m_Layer: 0
   m_Name: PatrolPoint (13)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14194,6 +14332,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &979203343
 GameObject:
   m_ObjectHideFlags: 0
@@ -14206,7 +14345,7 @@ GameObject:
   - component: {fileID: 979203345}
   m_Layer: 0
   m_Name: PatrolPoint (27)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14240,6 +14379,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &987589615
 GameObject:
   m_ObjectHideFlags: 0
@@ -14252,7 +14392,7 @@ GameObject:
   - component: {fileID: 987589617}
   m_Layer: 0
   m_Name: PatrolPoint (5)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14286,6 +14426,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &987758087
 GameObject:
   m_ObjectHideFlags: 0
@@ -14298,7 +14439,7 @@ GameObject:
   - component: {fileID: 987758089}
   m_Layer: 0
   m_Name: PatrolPoint (3)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14332,6 +14473,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &989332528
 GameObject:
   m_ObjectHideFlags: 0
@@ -14453,7 +14595,7 @@ GameObject:
   - component: {fileID: 990607011}
   m_Layer: 0
   m_Name: PatrolPoint (2)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14473,6 +14615,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!4 &990607012
 Transform:
   m_ObjectHideFlags: 0
@@ -14556,7 +14699,7 @@ GameObject:
   - component: {fileID: 1015938485}
   m_Layer: 0
   m_Name: PatrolPoint (15)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14590,6 +14733,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1025751259
 GameObject:
   m_ObjectHideFlags: 0
@@ -14602,7 +14746,7 @@ GameObject:
   - component: {fileID: 1025751261}
   m_Layer: 0
   m_Name: PatrolPoint (4)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14636,6 +14780,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1026688437
 GameObject:
   m_ObjectHideFlags: 0
@@ -14757,7 +14902,7 @@ GameObject:
   - component: {fileID: 1027340994}
   m_Layer: 0
   m_Name: PatrolPoint (18)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14791,6 +14936,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1033721696
 GameObject:
   m_ObjectHideFlags: 0
@@ -15229,7 +15375,7 @@ GameObject:
   - component: {fileID: 1059257331}
   m_Layer: 0
   m_Name: PatrolPoint (15)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15263,6 +15409,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1061651232
 GameObject:
   m_ObjectHideFlags: 0
@@ -15423,7 +15570,7 @@ GameObject:
   - component: {fileID: 1064196251}
   m_Layer: 0
   m_Name: PatrolPoint (9)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15457,6 +15604,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1071432755
 GameObject:
   m_ObjectHideFlags: 0
@@ -15469,7 +15617,7 @@ GameObject:
   - component: {fileID: 1071432757}
   m_Layer: 0
   m_Name: PatrolPoint (7)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15503,6 +15651,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1077121555
 GameObject:
   m_ObjectHideFlags: 0
@@ -15515,7 +15664,7 @@ GameObject:
   - component: {fileID: 1077121557}
   m_Layer: 0
   m_Name: PatrolPoint (10)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15549,6 +15698,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1078348835
 GameObject:
   m_ObjectHideFlags: 0
@@ -15643,7 +15793,7 @@ GameObject:
   - component: {fileID: 1080009373}
   m_Layer: 0
   m_Name: PatrolPoint (19)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15677,6 +15827,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1088651796
 GameObject:
   m_ObjectHideFlags: 0
@@ -15689,7 +15840,7 @@ GameObject:
   - component: {fileID: 1088651798}
   m_Layer: 0
   m_Name: PatrolPoint (1)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15723,6 +15874,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1093457556
 GameObject:
   m_ObjectHideFlags: 0
@@ -15735,7 +15887,7 @@ GameObject:
   - component: {fileID: 1093457558}
   m_Layer: 0
   m_Name: PatrolPoint (7)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15769,6 +15921,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1095893130
 GameObject:
   m_ObjectHideFlags: 0
@@ -16180,7 +16333,7 @@ GameObject:
   - component: {fileID: 1113254669}
   m_Layer: 0
   m_Name: PatrolPoint (7)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16214,6 +16367,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1115377929
 GameObject:
   m_ObjectHideFlags: 0
@@ -16573,7 +16727,7 @@ GameObject:
   - component: {fileID: 1133132002}
   m_Layer: 0
   m_Name: PatrolPoint (12)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16607,6 +16761,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1133145708
 GameObject:
   m_ObjectHideFlags: 0
@@ -16619,7 +16774,7 @@ GameObject:
   - component: {fileID: 1133145710}
   m_Layer: 0
   m_Name: PatrolPoint (8)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16653,6 +16808,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1142083850
 GameObject:
   m_ObjectHideFlags: 0
@@ -16665,7 +16821,7 @@ GameObject:
   - component: {fileID: 1142083852}
   m_Layer: 0
   m_Name: PatrolPoint (1)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16699,6 +16855,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1151896426
 GameObject:
   m_ObjectHideFlags: 0
@@ -16711,7 +16868,7 @@ GameObject:
   - component: {fileID: 1151896428}
   m_Layer: 0
   m_Name: PatrolPoint (11)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16745,6 +16902,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1152328600
 GameObject:
   m_ObjectHideFlags: 0
@@ -16757,7 +16915,7 @@ GameObject:
   - component: {fileID: 1152328602}
   m_Layer: 0
   m_Name: PatrolPoint (3)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16791,6 +16949,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1155907379
 GameObject:
   m_ObjectHideFlags: 0
@@ -16833,7 +16992,7 @@ GameObject:
   - component: {fileID: 1159092265}
   m_Layer: 0
   m_Name: PatrolPoint (12)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16853,6 +17012,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!4 &1159092266
 Transform:
   m_ObjectHideFlags: 0
@@ -16879,7 +17039,7 @@ GameObject:
   - component: {fileID: 1187261178}
   m_Layer: 0
   m_Name: PatrolPoint (11)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16913,6 +17073,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1187576702
 GameObject:
   m_ObjectHideFlags: 0
@@ -16985,7 +17146,7 @@ GameObject:
   - component: {fileID: 1203570815}
   m_Layer: 0
   m_Name: PatrolPoint (6)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17019,6 +17180,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1209489615
 GameObject:
   m_ObjectHideFlags: 0
@@ -17082,7 +17244,7 @@ GameObject:
   - component: {fileID: 1209900482}
   m_Layer: 0
   m_Name: PatrolPoint (14)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17116,6 +17278,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1220406536
 GameObject:
   m_ObjectHideFlags: 0
@@ -17128,7 +17291,7 @@ GameObject:
   - component: {fileID: 1220406538}
   m_Layer: 0
   m_Name: PatrolPoint (3)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17162,6 +17325,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1222646247
 GameObject:
   m_ObjectHideFlags: 0
@@ -17174,7 +17338,7 @@ GameObject:
   - component: {fileID: 1222646249}
   m_Layer: 0
   m_Name: PatrolPoint (7)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17208,6 +17372,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1224332342
 GameObject:
   m_ObjectHideFlags: 0
@@ -17220,7 +17385,7 @@ GameObject:
   - component: {fileID: 1224332343}
   m_Layer: 0
   m_Name: PatrolPoint (1)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17240,6 +17405,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!4 &1224332344
 Transform:
   m_ObjectHideFlags: 0
@@ -17266,7 +17432,7 @@ GameObject:
   - component: {fileID: 1225531043}
   m_Layer: 0
   m_Name: PatrolPoint (20)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17300,6 +17466,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1236431405
 GameObject:
   m_ObjectHideFlags: 0
@@ -17312,7 +17479,7 @@ GameObject:
   - component: {fileID: 1236431406}
   m_Layer: 0
   m_Name: PatrolPoint (13)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17332,6 +17499,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!4 &1236431407
 Transform:
   m_ObjectHideFlags: 0
@@ -17637,7 +17805,7 @@ GameObject:
   - component: {fileID: 1268697848}
   m_Layer: 0
   m_Name: PatrolPoint (21)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17657,6 +17825,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!4 &1268697849
 Transform:
   m_ObjectHideFlags: 0
@@ -17880,7 +18049,7 @@ GameObject:
   - component: {fileID: 1285296673}
   m_Layer: 0
   m_Name: PatrolPoint (6)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17914,6 +18083,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1291317649
 GameObject:
   m_ObjectHideFlags: 0
@@ -17926,7 +18096,7 @@ GameObject:
   - component: {fileID: 1291317651}
   m_Layer: 0
   m_Name: PatrolPoint (20)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17960,6 +18130,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1292432659
 GameObject:
   m_ObjectHideFlags: 0
@@ -17972,7 +18143,7 @@ GameObject:
   - component: {fileID: 1292432661}
   m_Layer: 0
   m_Name: PatrolPoint (7)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18006,6 +18177,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1300170075
 GameObject:
   m_ObjectHideFlags: 0
@@ -18018,7 +18190,7 @@ GameObject:
   - component: {fileID: 1300170077}
   m_Layer: 0
   m_Name: PatrolPoint (10)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18052,6 +18224,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1300205739
 GameObject:
   m_ObjectHideFlags: 0
@@ -18124,7 +18297,7 @@ GameObject:
   - component: {fileID: 1322486668}
   m_Layer: 0
   m_Name: PatrolPoint (14)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18158,6 +18331,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1335249729
 GameObject:
   m_ObjectHideFlags: 0
@@ -18170,7 +18344,7 @@ GameObject:
   - component: {fileID: 1335249731}
   m_Layer: 0
   m_Name: PatrolPoint
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18204,6 +18378,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1336144371
 GameObject:
   m_ObjectHideFlags: 0
@@ -18337,7 +18512,7 @@ GameObject:
   - component: {fileID: 1341211128}
   m_Layer: 0
   m_Name: PatrolPoint (8)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18371,6 +18546,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1359266720
 GameObject:
   m_ObjectHideFlags: 0
@@ -18702,7 +18878,7 @@ GameObject:
   - component: {fileID: 1369590138}
   m_Layer: 0
   m_Name: PatrolPoint (18)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18736,6 +18912,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1373357461
 GameObject:
   m_ObjectHideFlags: 0
@@ -18956,7 +19133,7 @@ GameObject:
   - component: {fileID: 1381933922}
   m_Layer: 0
   m_Name: PatrolPoint (23)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18976,6 +19153,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!4 &1381933923
 Transform:
   m_ObjectHideFlags: 0
@@ -19002,7 +19180,7 @@ GameObject:
   - component: {fileID: 1393437138}
   m_Layer: 0
   m_Name: PatrolPoint
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19036,6 +19214,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1401768791
 GameObject:
   m_ObjectHideFlags: 0
@@ -19048,7 +19227,7 @@ GameObject:
   - component: {fileID: 1401768793}
   m_Layer: 0
   m_Name: PatrolPoint (3)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19082,6 +19261,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1404733346
 GameObject:
   m_ObjectHideFlags: 0
@@ -19124,7 +19304,7 @@ GameObject:
   - component: {fileID: 1422737717}
   m_Layer: 0
   m_Name: PatrolPoint (1)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19158,6 +19338,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1424642471
 GameObject:
   m_ObjectHideFlags: 0
@@ -19170,7 +19351,7 @@ GameObject:
   - component: {fileID: 1424642473}
   m_Layer: 0
   m_Name: PatrolPoint (19)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19204,6 +19385,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1424838757
 GameObject:
   m_ObjectHideFlags: 0
@@ -19553,7 +19735,7 @@ GameObject:
   - component: {fileID: 1431444021}
   m_Layer: 0
   m_Name: PatrolPoint (5)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19587,6 +19769,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1440161372
 GameObject:
   m_ObjectHideFlags: 0
@@ -19675,7 +19858,7 @@ GameObject:
   - component: {fileID: 1455421882}
   m_Layer: 0
   m_Name: PatrolPoint (5)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19695,6 +19878,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!4 &1455421883
 Transform:
   m_ObjectHideFlags: 0
@@ -19721,7 +19905,7 @@ GameObject:
   - component: {fileID: 1464130910}
   m_Layer: 0
   m_Name: PatrolPoint (10)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19755,6 +19939,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1470280950
 GameObject:
   m_ObjectHideFlags: 0
@@ -19767,7 +19952,7 @@ GameObject:
   - component: {fileID: 1470280951}
   m_Layer: 0
   m_Name: PatrolPoint (7)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19787,6 +19972,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!4 &1470280952
 Transform:
   m_ObjectHideFlags: 0
@@ -19813,7 +19999,7 @@ GameObject:
   - component: {fileID: 1475486877}
   m_Layer: 0
   m_Name: PatrolPoint (20)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19847,6 +20033,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1478986766
 GameObject:
   m_ObjectHideFlags: 0
@@ -19958,7 +20145,7 @@ GameObject:
   - component: {fileID: 1487760391}
   m_Layer: 0
   m_Name: PatrolPoint (4)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19992,6 +20179,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1502355508
 GameObject:
   m_ObjectHideFlags: 0
@@ -20133,7 +20321,7 @@ GameObject:
   - component: {fileID: 1506919745}
   m_Layer: 0
   m_Name: PatrolPoint (4)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20167,6 +20355,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1513013357
 GameObject:
   m_ObjectHideFlags: 0
@@ -20529,7 +20718,7 @@ GameObject:
   - component: {fileID: 1522016635}
   m_Layer: 0
   m_Name: PatrolPoint
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20563,6 +20752,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1522942055
 GameObject:
   m_ObjectHideFlags: 0
@@ -20575,7 +20765,7 @@ GameObject:
   - component: {fileID: 1522942057}
   m_Layer: 0
   m_Name: PatrolPoint (10)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20609,6 +20799,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1523015244
 GameObject:
   m_ObjectHideFlags: 0
@@ -21158,7 +21349,7 @@ GameObject:
   - component: {fileID: 1539452760}
   m_Layer: 0
   m_Name: PatrolPoint (8)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21192,6 +21383,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1546587965
 GameObject:
   m_ObjectHideFlags: 0
@@ -21250,7 +21442,7 @@ GameObject:
   - component: {fileID: 1549257071}
   m_Layer: 0
   m_Name: PatrolPoint (1)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21284,6 +21476,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1553706019
 GameObject:
   m_ObjectHideFlags: 0
@@ -21296,7 +21489,7 @@ GameObject:
   - component: {fileID: 1553706021}
   m_Layer: 0
   m_Name: PatrolPoint (16)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21330,6 +21523,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1554431844
 GameObject:
   m_ObjectHideFlags: 0
@@ -21342,7 +21536,7 @@ GameObject:
   - component: {fileID: 1554431846}
   m_Layer: 0
   m_Name: PatrolPoint (19)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21376,6 +21570,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1560164832
 GameObject:
   m_ObjectHideFlags: 0
@@ -21388,7 +21583,7 @@ GameObject:
   - component: {fileID: 1560164834}
   m_Layer: 0
   m_Name: PatrolPoint (12)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21422,6 +21617,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1565446292
 GameObject:
   m_ObjectHideFlags: 0
@@ -21434,7 +21630,7 @@ GameObject:
   - component: {fileID: 1565446294}
   m_Layer: 0
   m_Name: PatrolPoint (20)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21468,6 +21664,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1566018841
 GameObject:
   m_ObjectHideFlags: 0
@@ -21480,7 +21677,7 @@ GameObject:
   - component: {fileID: 1566018843}
   m_Layer: 0
   m_Name: PatrolPoint (13)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21514,6 +21711,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1573160629
 GameObject:
   m_ObjectHideFlags: 0
@@ -21761,7 +21959,7 @@ GameObject:
   - component: {fileID: 1581552045}
   m_Layer: 0
   m_Name: PatrolPoint (11)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21795,6 +21993,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1586412200
 GameObject:
   m_ObjectHideFlags: 0
@@ -21867,7 +22066,7 @@ GameObject:
   - component: {fileID: 1605429642}
   m_Layer: 0
   m_Name: PatrolPoint (11)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21901,6 +22100,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1608148442
 GameObject:
   m_ObjectHideFlags: 0
@@ -21913,7 +22113,7 @@ GameObject:
   - component: {fileID: 1608148444}
   m_Layer: 0
   m_Name: PatrolPoint (3)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21947,6 +22147,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1609395024
 GameObject:
   m_ObjectHideFlags: 0
@@ -22164,7 +22365,7 @@ GameObject:
   - component: {fileID: 1615230539}
   m_Layer: 0
   m_Name: PatrolPoint (14)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22198,6 +22399,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1632580023
 GameObject:
   m_ObjectHideFlags: 0
@@ -22210,7 +22412,7 @@ GameObject:
   - component: {fileID: 1632580025}
   m_Layer: 0
   m_Name: PatrolPoint (6)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22244,6 +22446,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1641777712
 GameObject:
   m_ObjectHideFlags: 0
@@ -22256,7 +22459,7 @@ GameObject:
   - component: {fileID: 1641777714}
   m_Layer: 0
   m_Name: PatrolPoint (12)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22290,6 +22493,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1649555439
 GameObject:
   m_ObjectHideFlags: 0
@@ -22302,7 +22506,7 @@ GameObject:
   - component: {fileID: 1649555441}
   m_Layer: 0
   m_Name: PatrolPoint (4)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22336,6 +22540,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1655684859
 GameObject:
   m_ObjectHideFlags: 0
@@ -22492,7 +22697,7 @@ GameObject:
   - component: {fileID: 1657018819}
   m_Layer: 0
   m_Name: PatrolPoint (25)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22526,6 +22731,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1657022960
 GameObject:
   m_ObjectHideFlags: 0
@@ -22677,7 +22883,7 @@ GameObject:
   - component: {fileID: 1676547037}
   m_Layer: 0
   m_Name: PatrolPoint (2)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22711,6 +22917,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1679283833
 GameObject:
   m_ObjectHideFlags: 0
@@ -22864,7 +23071,7 @@ GameObject:
   - component: {fileID: 1689319345}
   m_Layer: 0
   m_Name: PatrolPoint (7)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22898,6 +23105,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1691706791
 GameObject:
   m_ObjectHideFlags: 0
@@ -22910,7 +23118,7 @@ GameObject:
   - component: {fileID: 1691706793}
   m_Layer: 0
   m_Name: PatrolPoint (2)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22944,6 +23152,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1699593743
 GameObject:
   m_ObjectHideFlags: 0
@@ -22956,7 +23165,7 @@ GameObject:
   - component: {fileID: 1699593745}
   m_Layer: 0
   m_Name: PatrolPoint (5)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22990,6 +23199,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1699984178
 GameObject:
   m_ObjectHideFlags: 0
@@ -23002,7 +23212,7 @@ GameObject:
   - component: {fileID: 1699984180}
   m_Layer: 0
   m_Name: PatrolPoint (6)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23036,6 +23246,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1705999165
 GameObject:
   m_ObjectHideFlags: 0
@@ -23352,7 +23563,7 @@ GameObject:
   - component: {fileID: 1714569373}
   m_Layer: 0
   m_Name: PatrolPoint (16)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23386,6 +23597,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1722111329
 GameObject:
   m_ObjectHideFlags: 0
@@ -23428,7 +23640,7 @@ GameObject:
   - component: {fileID: 1726482139}
   m_Layer: 0
   m_Name: PatrolPoint (5)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23462,6 +23674,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!4 &1726950619 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4319032879928100929, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
@@ -23975,7 +24188,7 @@ GameObject:
   - component: {fileID: 1743864642}
   m_Layer: 0
   m_Name: PatrolPoint (13)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24009,6 +24222,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1746032618
 GameObject:
   m_ObjectHideFlags: 0
@@ -24051,7 +24265,7 @@ GameObject:
   - component: {fileID: 1753712371}
   m_Layer: 0
   m_Name: PatrolPoint (15)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24085,6 +24299,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1775234372
 GameObject:
   m_ObjectHideFlags: 0
@@ -24223,6 +24438,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  Listener: {fileID: 0}
+  invCanv: {fileID: 0}
   emptyObjectsRC: []
   emptyObjectsCC: []
   emptyObjectsWC: []
@@ -24408,7 +24625,7 @@ GameObject:
   - component: {fileID: 1794189388}
   m_Layer: 0
   m_Name: PatrolPoint (12)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24442,6 +24659,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1800610197
 GameObject:
   m_ObjectHideFlags: 0
@@ -24850,7 +25068,7 @@ GameObject:
   - component: {fileID: 1824389264}
   m_Layer: 0
   m_Name: PatrolPoint (6)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24870,6 +25088,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!4 &1824389265
 Transform:
   m_ObjectHideFlags: 0
@@ -24896,7 +25115,7 @@ GameObject:
   - component: {fileID: 1825243625}
   m_Layer: 0
   m_Name: PatrolPoint (23)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24930,6 +25149,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1828261424
 GameObject:
   m_ObjectHideFlags: 0
@@ -24942,7 +25162,7 @@ GameObject:
   - component: {fileID: 1828261426}
   m_Layer: 0
   m_Name: PatrolPoint (4)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24976,6 +25196,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1834067838
 GameObject:
   m_ObjectHideFlags: 0
@@ -25018,7 +25239,7 @@ GameObject:
   - component: {fileID: 1837239422}
   m_Layer: 0
   m_Name: PatrolPoint (6)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25052,6 +25273,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1841842526
 GameObject:
   m_ObjectHideFlags: 0
@@ -25094,7 +25316,7 @@ GameObject:
   - component: {fileID: 1846405134}
   m_Layer: 0
   m_Name: PatrolPoint (12)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25128,6 +25350,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1848073608
 GameObject:
   m_ObjectHideFlags: 0
@@ -25219,7 +25442,7 @@ GameObject:
   - component: {fileID: 1850543110}
   m_Layer: 0
   m_Name: PatrolPoint (19)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25253,6 +25476,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1852864325
 GameObject:
   m_ObjectHideFlags: 0
@@ -25319,7 +25543,7 @@ GameObject:
   - component: {fileID: 1862947882}
   m_Layer: 0
   m_Name: PatrolPoint (20)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25353,6 +25577,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1871108735
 GameObject:
   m_ObjectHideFlags: 0
@@ -25365,7 +25590,7 @@ GameObject:
   - component: {fileID: 1871108736}
   m_Layer: 0
   m_Name: PatrolPoint (9)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25385,6 +25610,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!4 &1871108737
 Transform:
   m_ObjectHideFlags: 0
@@ -25411,7 +25637,7 @@ GameObject:
   - component: {fileID: 1878750266}
   m_Layer: 0
   m_Name: PatrolPoint (3)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25431,6 +25657,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!4 &1878750267
 Transform:
   m_ObjectHideFlags: 0
@@ -25457,7 +25684,7 @@ GameObject:
   - component: {fileID: 1886188275}
   m_Layer: 0
   m_Name: PatrolPoint (7)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25491,6 +25718,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1893374279
 GameObject:
   m_ObjectHideFlags: 0
@@ -25503,7 +25731,7 @@ GameObject:
   - component: {fileID: 1893374281}
   m_Layer: 0
   m_Name: PatrolPoint (10)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25537,6 +25765,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1905834917
 GameObject:
   m_ObjectHideFlags: 0
@@ -25724,7 +25953,7 @@ GameObject:
   - component: {fileID: 1906704003}
   m_Layer: 0
   m_Name: PatrolPoint (5)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25758,6 +25987,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1912997931
 GameObject:
   m_ObjectHideFlags: 0
@@ -25830,7 +26060,7 @@ GameObject:
   - component: {fileID: 1952780001}
   m_Layer: 0
   m_Name: PatrolPoint (14)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25864,6 +26094,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1959131555
 GameObject:
   m_ObjectHideFlags: 0
@@ -25876,7 +26107,7 @@ GameObject:
   - component: {fileID: 1959131557}
   m_Layer: 0
   m_Name: PatrolPoint (17)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25910,6 +26141,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1965280250
 GameObject:
   m_ObjectHideFlags: 0
@@ -26097,7 +26329,7 @@ GameObject:
   - component: {fileID: 1965900690}
   m_Layer: 0
   m_Name: PatrolPoint (2)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26131,6 +26363,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1972923898
 GameObject:
   m_ObjectHideFlags: 0
@@ -26143,7 +26376,7 @@ GameObject:
   - component: {fileID: 1972923899}
   m_Layer: 0
   m_Name: PatrolPoint
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26163,6 +26396,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!4 &1972923900
 Transform:
   m_ObjectHideFlags: 0
@@ -26171,7 +26405,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1972923898}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -540.758, y: -850.155, z: 986.19}
+  m_LocalPosition: {x: -540.844, y: -850.182, z: 986.19}
   m_LocalScale: {x: 1, y: 1.0040114, z: 1}
   m_Children: []
   m_Father: {fileID: 445925391}
@@ -26482,7 +26716,7 @@ GameObject:
   - component: {fileID: 1986172285}
   m_Layer: 0
   m_Name: PatrolPoint (15)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26516,6 +26750,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &1988663437
 GameObject:
   m_ObjectHideFlags: 0
@@ -26528,7 +26763,7 @@ GameObject:
   - component: {fileID: 1988663439}
   m_Layer: 0
   m_Name: PatrolPoint (2)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26562,6 +26797,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &2009677011
 GameObject:
   m_ObjectHideFlags: 0
@@ -26703,7 +26939,7 @@ GameObject:
   - component: {fileID: 2023745118}
   m_Layer: 0
   m_Name: PatrolPoint (14)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26737,6 +26973,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &2040719886
 GameObject:
   m_ObjectHideFlags: 0
@@ -26749,7 +26986,7 @@ GameObject:
   - component: {fileID: 2040719888}
   m_Layer: 0
   m_Name: PatrolPoint (11)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26783,6 +27020,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &2048544311
 GameObject:
   m_ObjectHideFlags: 0
@@ -26795,7 +27033,7 @@ GameObject:
   - component: {fileID: 2048544313}
   m_Layer: 0
   m_Name: PatrolPoint (14)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26829,6 +27067,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &2055983157
 GameObject:
   m_ObjectHideFlags: 0
@@ -26841,7 +27080,7 @@ GameObject:
   - component: {fileID: 2055983159}
   m_Layer: 0
   m_Name: PatrolPoint (12)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26875,6 +27114,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &2059268575
 GameObject:
   m_ObjectHideFlags: 0
@@ -26887,7 +27127,7 @@ GameObject:
   - component: {fileID: 2059268577}
   m_Layer: 0
   m_Name: PatrolPoint (15)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26921,6 +27161,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &2063374196
 GameObject:
   m_ObjectHideFlags: 0
@@ -26933,7 +27174,7 @@ GameObject:
   - component: {fileID: 2063374198}
   m_Layer: 0
   m_Name: PatrolPoint (8)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26967,6 +27208,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &2063808751
 GameObject:
   m_ObjectHideFlags: 0
@@ -27132,7 +27374,7 @@ GameObject:
   - component: {fileID: 2065699568}
   m_Layer: 0
   m_Name: PatrolPoint (1)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27166,6 +27408,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &2082187186
 GameObject:
   m_ObjectHideFlags: 0
@@ -27178,7 +27421,7 @@ GameObject:
   - component: {fileID: 2082187188}
   m_Layer: 0
   m_Name: PatrolPoint (9)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27212,6 +27455,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &2083776461
 GameObject:
   m_ObjectHideFlags: 0
@@ -27224,7 +27468,7 @@ GameObject:
   - component: {fileID: 2083776463}
   m_Layer: 0
   m_Name: PatrolPoint (6)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27258,6 +27502,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &2085632175
 GameObject:
   m_ObjectHideFlags: 0
@@ -27270,7 +27515,7 @@ GameObject:
   - component: {fileID: 2085632176}
   m_Layer: 0
   m_Name: PatrolPoint (10)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27290,6 +27535,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!4 &2085632177
 Transform:
   m_ObjectHideFlags: 0
@@ -27523,7 +27769,7 @@ GameObject:
   - component: {fileID: 2099203175}
   m_Layer: 0
   m_Name: PatrolPoint (12)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27557,6 +27803,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &2099539151
 GameObject:
   m_ObjectHideFlags: 0
@@ -27569,7 +27816,7 @@ GameObject:
   - component: {fileID: 2099539153}
   m_Layer: 0
   m_Name: PatrolPoint (13)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27603,6 +27850,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1 &2106324802
 GameObject:
   m_ObjectHideFlags: 0
@@ -27615,7 +27863,7 @@ GameObject:
   - component: {fileID: 2106324804}
   m_Layer: 0
   m_Name: PatrolPoint (8)
-  m_TagString: Waypoint
+  m_TagString: WaypointF2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27649,6 +27897,7 @@ MonoBehaviour:
   debugDrawRadius: 0.2
   connectivityRadius: 1
   connections: []
+  waypointTag: WaypointF2
 --- !u!1001 &4319032878290166938
 PrefabInstance:
   m_ObjectHideFlags: 0

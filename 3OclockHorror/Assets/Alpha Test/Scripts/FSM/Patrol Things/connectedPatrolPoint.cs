@@ -9,9 +9,11 @@ public class connectedPatrolPoint : patrolPoint
     [SerializeField]
     List<connectedPatrolPoint> connections;
 
+    public string waypointTag; //This is used to prevent points from getting points in other scenes
+
     public void Start()
     {
-        GameObject[] allWaypoints = GameObject.FindGameObjectsWithTag("Waypoint");
+        GameObject[] allWaypoints = GameObject.FindGameObjectsWithTag(waypointTag);
         connections = new List<connectedPatrolPoint>();
         for(int i = 0; i < allWaypoints.Length; i++)
         {
