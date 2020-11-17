@@ -20,6 +20,10 @@ public class roomCntrl : MonoBehaviour
     public GameObject crossFade;
     public GameObject blackWall;
 
+    public bool locked;
+    public Inventory pInv;
+    public Item MyKey;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +42,12 @@ public class roomCntrl : MonoBehaviour
             Listener.enabled = false;
             if (Input.GetKeyDown("e") && transitionOnOff)
             {
-                if (player != null) //Make sure it's not null
+                if (locked)
+                {
+                    CheckKey();
+                }
+
+                if (player != null && !locked) //Make sure it's not null, check if door is locked
                 {
                     if (player.myRoom == room1) //Check the room states then update as necessary
                     {
@@ -48,6 +57,11 @@ public class roomCntrl : MonoBehaviour
                     {
                         CameraCrossfade(player.gameObject, entrancePointRoom, player, room1);
                     }
+                }
+
+                if (locked)
+                {
+                    Debug.Log("Could not open door due to lock. Will need canvas here at some point.");
                 }
             }
         }
@@ -139,6 +153,21 @@ public class roomCntrl : MonoBehaviour
         if (transitionOnOff)
         {
             play.enabled = true;
+        }
+    }
+
+    public void CheckKey()
+    {
+        if (pInv != null && MyKey != null)
+        {
+            if (pInv.ContainsItem(MyKey))
+            {
+                locked = false;
+            }
+        }
+        else
+        {
+            Debug.LogError("Door is locked but there is no key or inv set");
         }
     }
 }

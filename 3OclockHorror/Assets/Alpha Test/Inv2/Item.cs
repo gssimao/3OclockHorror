@@ -57,6 +57,8 @@ public class Item : ScriptableObject
     #endregion
     #region Key
     //Region for key specific data, if there is any
+    public bool key;
+    public roomCntrl myDoor;
     #endregion
     #region Photo
     public bool photo;
