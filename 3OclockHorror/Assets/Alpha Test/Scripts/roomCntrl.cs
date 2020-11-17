@@ -33,7 +33,7 @@ public class roomCntrl : MonoBehaviour
     void Update()
     {
         dist = Vector3.Distance(player.gameObject.transform.position, this.gameObject.transform.position);
-        if (dist <= 0.5)
+        if (dist <= 0.5f)
         {
             Listener.enabled = false;
             if (Input.GetKeyDown("e") && transitionOnOff)
@@ -68,6 +68,11 @@ public class roomCntrl : MonoBehaviour
                 blackWall.SetActive(false);
             }
         }
+    }
+    void OnDrawGizmos()// Draws a blue circle around the candle in the editor to help visualize the disance of the interactableRange
+    {
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(gameObject.transform.position, 0.5f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

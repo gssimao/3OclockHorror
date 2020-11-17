@@ -1405,7 +1405,6 @@ GameObject:
   - component: {fileID: 127088124}
   - component: {fileID: 127088123}
   - component: {fileID: 127088122}
-  - component: {fileID: 127088125}
   - component: {fileID: 127088126}
   m_Layer: 0
   m_Name: Door(HallwayToLiving)
@@ -1528,20 +1527,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
---- !u!114 &127088125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 127088120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 0}
-  Message: '''E'''
 --- !u!61 &127088126
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2253,7 +2238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1619042896}
-  Listener: {fileID: 0}
+  Listener: {fileID: 1677718118}
   invCanv: {fileID: 0}
   emptyObjectsRC: []
   emptyObjectsCC: []
@@ -2263,6 +2248,7 @@ MonoBehaviour:
   emptyObjectsFSM: []
   emptyObjectsCT: []
   emptyObjectsWAI: []
+  sceneChanger: {fileID: 1312436725}
   inputPlyBool: 0
   plyCamera: {fileID: 1825635318}
   transferCanvas: {fileID: 339300082}
@@ -5094,7 +5080,6 @@ GameObject:
   - component: {fileID: 499757947}
   - component: {fileID: 499757946}
   - component: {fileID: 499757945}
-  - component: {fileID: 499757948}
   - component: {fileID: 499757949}
   m_Layer: 0
   m_Name: Door(HubToDining)
@@ -5166,20 +5151,6 @@ Transform:
   m_Father: {fileID: 1734360197}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &499757948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 499757944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 0}
-  Message: '''E'''
 --- !u!61 &499757949
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6253,7 +6224,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 599899497}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1.0000001}
-  m_LocalPosition: {x: -0.88, y: 4.32, z: 0}
+  m_LocalPosition: {x: -0.822, y: 4.157, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 749716153}
@@ -6924,7 +6895,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644083374}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1.0000001}
-  m_LocalPosition: {x: -4.35, y: 0.263, z: 0}
+  m_LocalPosition: {x: -2.405, y: 0.291, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2143602352}
@@ -15867,6 +15838,7 @@ GameObject:
   - component: {fileID: 1312436724}
   - component: {fileID: 1312436726}
   - component: {fileID: 1312436725}
+  - component: {fileID: 1312436728}
   - component: {fileID: 1312436727}
   m_Layer: 0
   m_Name: Stairs
@@ -15883,7 +15855,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1312436723}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.03, z: 0}
+  m_LocalPosition: {x: 0.677, y: 1.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2013145923}
@@ -15904,6 +15876,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: Floor 2
   spawnPoint: {fileID: 2013145922}
+  player: {fileID: 1619042889}
+  Listener: {fileID: 1677718118}
   stairTransition: {fileID: 1951826104}
   Slide: {fileID: 1951826106}
 --- !u!61 &1312436726
@@ -15919,7 +15893,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.028163135, y: -0.21311936}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -15930,7 +15904,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.15, y: 1.11}
+  m_Size: {x: 0.8621124, y: 0.48635155}
   m_EdgeRadius: 0
 --- !u!61 &1312436727
 BoxCollider2D:
@@ -15945,7 +15919,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.6358948, y: -0.004910767}
+  m_Offset: {x: -0.026184082, y: -0.27719697}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -15956,8 +15930,22 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.857605, y: 1.0982147}
+  m_Size: {x: 0.86364746, y: 0.6298247}
   m_EdgeRadius: 0
+--- !u!114 &1312436728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312436723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TooltipText: {fileID: 460473766}
+  Message: Press E to use Stairs
 --- !u!1 &1316915866
 GameObject:
   m_ObjectHideFlags: 0
@@ -16954,7 +16942,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423361344}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1.0000001}
-  m_LocalPosition: {x: 3.96, y: 0.067, z: 0}
+  m_LocalPosition: {x: 2.556, y: 0.146, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1841355172}
@@ -19921,7 +19909,6 @@ GameObject:
   - component: {fileID: 1626619250}
   - component: {fileID: 1626619252}
   - component: {fileID: 1626619251}
-  - component: {fileID: 1626619253}
   - component: {fileID: 1626619254}
   m_Layer: 0
   m_Name: Door(HubToLibrary)
@@ -19993,20 +19980,6 @@ MonoBehaviour:
   blackWallanim: {fileID: 339300083}
   crossFade: {fileID: 1957214474}
   blackWall: {fileID: 339300082}
---- !u!114 &1626619253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1626619249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 0}
-  Message: '''E'''
 --- !u!61 &1626619254
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20292,7 +20265,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1644800746}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1.0000001}
-  m_LocalPosition: {x: 0.34, y: 2.53, z: 0}
+  m_LocalPosition: {x: 0.34, y: 2.446, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1287688267}
@@ -20836,7 +20809,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1679202536}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1.0000001}
-  m_LocalPosition: {x: -0.41, y: -2.63, z: 0}
+  m_LocalPosition: {x: -0.41, y: -2.534, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1141305682}
@@ -22033,7 +22006,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1766307819}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1.0000001}
-  m_LocalPosition: {x: 4.248, y: 0.347, z: 0}
+  m_LocalPosition: {x: 4.255, y: 0.333, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 499757947}
@@ -22891,7 +22864,7 @@ Transform:
   m_GameObject: {fileID: 1841355171}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.72, y: 0, z: -0.01}
-  m_LocalScale: {x: 1.1424, y: 1.1424, z: 1.1424}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1423361345}
   m_Father: {fileID: 1501061209}
@@ -23643,7 +23616,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932145299}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1.0000001}
-  m_LocalPosition: {x: -0.32, y: 2.68, z: 0}
+  m_LocalPosition: {x: -0.25, y: 2.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 429790642}
@@ -24327,7 +24300,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1951826105
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25134,7 +25107,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013145922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.664, y: -0.504, z: 0}
+  m_LocalPosition: {x: -1.259, y: -0.448, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1312436724}
@@ -25722,7 +25695,6 @@ GameObject:
   - component: {fileID: 2049539074}
   - component: {fileID: 2049539073}
   - component: {fileID: 2049539072}
-  - component: {fileID: 2049539075}
   - component: {fileID: 2049539076}
   m_Layer: 0
   m_Name: Door(HallwayToUnknown)
@@ -25845,20 +25817,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
---- !u!114 &2049539075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2049539070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 0}
-  Message: '''E'''
 --- !u!61 &2049539076
 BoxCollider2D:
   m_ObjectHideFlags: 0

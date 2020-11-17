@@ -18,6 +18,7 @@ public class sceneManager : MonoBehaviour
     public FiniteStateMachine[] emptyObjectsFSM;
     public ClockTick[] emptyObjectsCT;
     public WatcherAI[] emptyObjectsWAI;
+    public SceneChanger sceneChanger;
     public bool inputPlyBool = false;
 
     //Player Fields
@@ -26,6 +27,7 @@ public class sceneManager : MonoBehaviour
     public room startRoom;
     public GameObject Watcher;
     public GameObject TheBlindCreep;
+
     // Update is called once per frame
     void Update()
     {
@@ -48,6 +50,8 @@ public class sceneManager : MonoBehaviour
             {
                 if (CallInputFunctions() == true)
                 {
+                    sceneChanger.player = player.gameObject;
+                    sceneChanger.Listener = Listener;
                     inputPlyBool = true;
                 }
             }

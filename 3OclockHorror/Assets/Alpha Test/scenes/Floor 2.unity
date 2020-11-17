@@ -1500,9 +1500,10 @@ GameObject:
   - component: {fileID: 99819751}
   - component: {fileID: 99819754}
   - component: {fileID: 99819753}
+  - component: {fileID: 99819755}
   - component: {fileID: 99819752}
   m_Layer: 0
-  m_Name: Stairs
+  m_Name: DownStairs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1516,7 +1517,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 99819750}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.013, y: 0.941, z: 0}
+  m_LocalPosition: {x: -0.641, y: 0.973, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 262337048}
@@ -1536,7 +1537,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.67407227, y: 0.059776247}
+  m_Offset: {x: -0.0033874512, y: 0.0054582953}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1547,7 +1548,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.74694824, y: 0.9688407}
+  m_Size: {x: 0.8167114, y: 1.0774766}
   m_EdgeRadius: 0
 --- !u!114 &99819753
 MonoBehaviour:
@@ -1563,6 +1564,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: hub
   spawnPoint: {fileID: 262337047}
+  player: {fileID: 0}
+  Listener: {fileID: 0}
   stairTransition: {fileID: 266703709}
   Slide: {fileID: 266703711}
 --- !u!61 &99819754
@@ -1578,7 +1581,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.073018074}
+  m_Offset: {x: -0.014984131, y: 0.047107205}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1589,8 +1592,22 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.15, y: 0.96396375}
+  m_Size: {x: 0.8543091, y: 1.0157855}
   m_EdgeRadius: 0
+--- !u!114 &99819755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99819750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TooltipText: {fileID: 1662298042}
+  Message: Press E to use Stairs
 --- !u!1 &101643377
 GameObject:
   m_ObjectHideFlags: 0
@@ -2971,7 +2988,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 262337047}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.634, y: -0.409, z: 0}
+  m_LocalPosition: {x: 1.308, y: -0.409, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 99819751}
@@ -24448,6 +24465,7 @@ MonoBehaviour:
   emptyObjectsFSM: []
   emptyObjectsCT: []
   emptyObjectsWAI: []
+  sceneChanger: {fileID: 99819753}
   inputPlyBool: 0
   plyCamera: {fileID: 771689889}
   transferCanvas: {fileID: 1775234372}
