@@ -25,6 +25,9 @@ public class AnswerCheckPocketWatch : MonoBehaviour
     public bool solved = false;
     public GameObject clock;
 
+    public Inventory pInv;
+    public Item cKey;
+
     private void Start()
     {
         answerBig = Random.Range(0, 12);
@@ -67,6 +70,10 @@ public class AnswerCheckPocketWatch : MonoBehaviour
     public void startClock()
     {
         clock.SetActive(true);
+        if(pInv != null && cKey != null)
+        {
+            pInv.AddItem(cKey);
+        }
     }
 }
 

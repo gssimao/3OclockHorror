@@ -26,7 +26,7 @@ public class PhotoController : MonoBehaviour
         {
             Debug.LogError("One or more of the necessary items for photo puzzle initiation is not set.");
         }
-        else if(AllowedInvs.Count < 4)
+        else if(AllowedInvs.Count < 3)
         {
             Debug.LogError("Allowed invs must contain at least as many inventories as photos contains photos");
         }
