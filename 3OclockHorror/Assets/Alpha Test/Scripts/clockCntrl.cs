@@ -58,9 +58,18 @@ public class clockCntrl : MonoBehaviour
             {
                 watcher.SetActive(true);
             }
+            else
+            {
+                watcher.SetActive(false);
+            }
+
             if (Clock >= CreepTime)
             {
                 creep.SetActive(true);
+            }
+            else
+            {
+                watcher.SetActive(false);
             }
         }
     }

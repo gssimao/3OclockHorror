@@ -178,7 +178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4605737869869458124, guid: 92a2e8fcaf4cacf439bc3ce3f525f556, type: 3}
       propertyPath: m_Name
-      value: RoomLayout (1)
+      value: RoomLayout
       objectReference: {fileID: 0}
     - target: {fileID: 4605737869869458125, guid: 92a2e8fcaf4cacf439bc3ce3f525f556, type: 3}
       propertyPath: m_LocalPosition.x
@@ -690,6 +690,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!1 &35561838
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,6 +967,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!61 &37954171
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1246,6 +1252,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!1 &68619172
 GameObject:
   m_ObjectHideFlags: 0
@@ -1568,6 +1577,7 @@ MonoBehaviour:
   Listener: {fileID: 0}
   stairTransition: {fileID: 266703709}
   Slide: {fileID: 266703711}
+  curSceneName: 
 --- !u!61 &99819754
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1967,6 +1977,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!1 &133712442
 GameObject:
   m_ObjectHideFlags: 0
@@ -2823,6 +2836,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!1 &238414654
 GameObject:
   m_ObjectHideFlags: 0
@@ -4296,6 +4312,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!1 &309510738
 GameObject:
   m_ObjectHideFlags: 0
@@ -5113,6 +5132,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!1 &364016117
 GameObject:
   m_ObjectHideFlags: 0
@@ -6486,6 +6508,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!1 &445762184
 GameObject:
   m_ObjectHideFlags: 0
@@ -7031,108 +7056,6 @@ MonoBehaviour:
   connectivityRadius: 1
   connections: []
   waypointTag: WaypointF2
---- !u!1 &468195526
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 468195529}
-  - component: {fileID: 468195528}
-  - component: {fileID: 468195527}
-  m_Layer: 0
-  m_Name: WatcherFace
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!95 &468195527
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 468195526}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4d31ca856349c2b4597b6d638549d53d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!212 &468195528
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 468195526}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 42ed5379127f09f4dbfd1b3a9be43932, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 762aee336882d2a4b926467250e0700e, type: 3}
-  m_Color: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.15, y: 0.17}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &468195529
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 468195526}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1002.35504, y: 6.8780003, z: 2.5970001}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1336144374}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &472800768
 GameObject:
   m_ObjectHideFlags: 0
@@ -7636,6 +7559,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!1 &489084956
 GameObject:
   m_ObjectHideFlags: 0
@@ -8117,6 +8043,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!1 &513765125
 GameObject:
   m_ObjectHideFlags: 0
@@ -9455,6 +9384,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!1 &614507951
 GameObject:
   m_ObjectHideFlags: 0
@@ -9502,6 +9434,108 @@ MonoBehaviour:
   connectivityRadius: 1
   connections: []
   waypointTag: WaypointF2
+--- !u!1 &616354667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 616354670}
+  - component: {fileID: 616354669}
+  - component: {fileID: 616354668}
+  m_Layer: 0
+  m_Name: WatcherFace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!95 &616354668
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616354667}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4d31ca856349c2b4597b6d638549d53d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!212 &616354669
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616354667}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 42ed5379127f09f4dbfd1b3a9be43932, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 21300000, guid: 762aee336882d2a4b926467250e0700e, type: 3}
+  m_Color: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.15, y: 0.17}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &616354670
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616354667}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.038, y: 0.242, z: -0.043}
+  m_LocalScale: {x: 1.0516, y: 1.0516, z: 1.0516}
+  m_Children: []
+  m_Father: {fileID: 1952218698}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &616455559
 GameObject:
   m_ObjectHideFlags: 0
@@ -9766,6 +9800,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!1 &630481787
 GameObject:
   m_ObjectHideFlags: 0
@@ -9919,6 +9956,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!1 &638541567
 GameObject:
   m_ObjectHideFlags: 0
@@ -10848,6 +10888,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!1 &692833374
 GameObject:
   m_ObjectHideFlags: 0
@@ -11337,6 +11380,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!1 &712688377
 GameObject:
   m_ObjectHideFlags: 0
@@ -12112,6 +12158,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!1 &770093133
 GameObject:
   m_ObjectHideFlags: 0
@@ -14704,6 +14753,8 @@ MonoBehaviour:
   SmallText: {fileID: 818279755}
   solved: 0
   clock: {fileID: 0}
+  pInv: {fileID: 0}
+  cKey: {fileID: 0}
 --- !u!1 &1015938483
 GameObject:
   m_ObjectHideFlags: 0
@@ -15129,6 +15180,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!1 &1038367709
 GameObject:
   m_ObjectHideFlags: 0
@@ -16223,6 +16277,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!1 &1112786641
 GameObject:
   m_ObjectHideFlags: 0
@@ -16702,6 +16759,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!1 &1131435451
 GameObject:
   m_ObjectHideFlags: 0
@@ -18396,127 +18456,6 @@ MonoBehaviour:
   connectivityRadius: 1
   connections: []
   waypointTag: WaypointF2
---- !u!1 &1336144371
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1336144374}
-  - component: {fileID: 1336144373}
-  - component: {fileID: 1336144372}
-  m_Layer: 0
-  m_Name: Watcher
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1336144372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1336144371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd9a1f4055e5aef4c956f74be1f9f91f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Rooms:
-  - {fileID: 0}
-  - {fileID: 296358514}
-  - {fileID: 1727479182}
-  - {fileID: 1712198023}
-  - {fileID: 859246142}
-  - {fileID: 1737482226}
-  - {fileID: 1528174816}
-  - {fileID: 1788571145}
-  - {fileID: 1061651234}
-  - {fileID: 2063808752}
-  - {fileID: 888247765}
-  player: {fileID: 0}
-  playerInRoom: 0
-  emptyRoomCount: 0
-  coolDownTimer: 13
-  inventoryUI: {fileID: 0}
-  sanityManager: {fileID: 0}
-  watcherAnim: {fileID: 468195527}
-  candlesOut: 0
-  isPlaying: 0
-  timerLock: 1
-  plyAngle: 0
-  currentRoom: {fileID: 435999635}
-  Candles: []
---- !u!212 &1336144373
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1336144371}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 42ed5379127f09f4dbfd1b3a9be43932, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 884cc55e3975e8e4aa82e5866a4b9012, type: 3}
-  m_Color: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.24, y: 0.5}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &1336144374
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1336144371}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1001.3, y: 6.89, z: 2.652}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 468195529}
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1341211126
 GameObject:
   m_ObjectHideFlags: 0
@@ -18853,6 +18792,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!1 &1366020610
 GameObject:
   m_ObjectHideFlags: 0
@@ -19526,6 +19468,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!1 &1431147539
 GameObject:
   m_ObjectHideFlags: 0
@@ -19714,7 +19659,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: fea55c0ddce15a744b0990ff1b344302, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -19724,7 +19669,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!4 &1431147546
 Transform:
@@ -20548,6 +20493,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!1 &1519345336
 GameObject:
   m_ObjectHideFlags: 0
@@ -20723,6 +20671,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!1 &1522016633
 GameObject:
   m_ObjectHideFlags: 0
@@ -21964,6 +21915,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!1 &1581552043
 GameObject:
   m_ObjectHideFlags: 0
@@ -22340,6 +22294,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!1 &1610129378
 GameObject:
   m_ObjectHideFlags: 0
@@ -23417,6 +23374,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!1 &1712198022
 GameObject:
   m_ObjectHideFlags: 0
@@ -24048,6 +24008,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!1 &1737482225
 GameObject:
   m_ObjectHideFlags: 0
@@ -24470,7 +24433,7 @@ MonoBehaviour:
   plyCamera: {fileID: 771689889}
   transferCanvas: {fileID: 1775234372}
   startRoom: {fileID: 435999635}
-  Watcher: {fileID: 1336144371}
+  Watcher: {fileID: 0}
   TheBlindCreep: {fileID: 1431147539}
 --- !u!4 &1781869051
 Transform:
@@ -25882,6 +25845,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!61 &1905834922
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26065,6 +26031,147 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1788571148}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1952218694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1952218698}
+  - component: {fileID: 1952218697}
+  - component: {fileID: 1952218696}
+  - component: {fileID: 1952218695}
+  m_Layer: 0
+  m_Name: Watcher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!95 &1952218695
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952218694}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 84b1529aa12c2e44aa8be9c5d284a21d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1952218696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952218694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd9a1f4055e5aef4c956f74be1f9f91f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rooms:
+  - {fileID: 1712198023}
+  - {fileID: 859246142}
+  - {fileID: 1727479182}
+  - {fileID: 296358514}
+  - {fileID: 435999635}
+  - {fileID: 1737482226}
+  - {fileID: 1528174816}
+  - {fileID: 1061651234}
+  - {fileID: 1788571145}
+  - {fileID: 2063808752}
+  - {fileID: 888247765}
+  player: {fileID: 0}
+  playerInRoom: 0
+  emptyRoomCount: 0
+  coolDownTimer: 13
+  inventoryUI: {fileID: 0}
+  sanityManager: {fileID: 0}
+  watcherAnim: {fileID: 616354668}
+  candlesOut: 0
+  isPlaying: 0
+  timerLock: 1
+  plyAngle: 0
+  currentRoom: {fileID: 435999635}
+  Candles: []
+--- !u!212 &1952218697
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952218694}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 42ed5379127f09f4dbfd1b3a9be43932, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 21300000, guid: cf96a6bfd5902a1469ca0a47659f957c, type: 3}
+  m_Color: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.24, y: 0.5}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1952218698
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952218694}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1002.08, y: 6.84, z: 2.64}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 616354670}
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1952779999
 GameObject:
@@ -26335,6 +26442,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!1 &1965900688
 GameObject:
   m_ObjectHideFlags: 0
@@ -26722,6 +26832,9 @@ MonoBehaviour:
   blackWallanim: {fileID: 1775234374}
   crossFade: {fileID: 12998715}
   blackWall: {fileID: 1775234372}
+  locked: 0
+  pInv: {fileID: 0}
+  MyKey: {fileID: 0}
 --- !u!1 &1986172283
 GameObject:
   m_ObjectHideFlags: 0
