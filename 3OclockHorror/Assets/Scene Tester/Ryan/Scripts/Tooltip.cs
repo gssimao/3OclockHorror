@@ -7,8 +7,12 @@ public class Tooltip : MonoBehaviour
 {
     public Text TooltipText;
     private bool walked = false;
-    [SerializeField]
     public string Message;
+
+    public bool toolSwitch; //What type of tooltip? constant or prompt
+    //Prompt Tooltip
+
+    //Constant Tooltip
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
