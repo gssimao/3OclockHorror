@@ -28,6 +28,11 @@ public class AnswerCheckPocketWatch : MonoBehaviour
     public Inventory pInv;
     public Item cKey;
 
+    bool endTriggered = false;
+
+    [SerializeField]
+    GameObject isSolved;
+
     private void Start()
     {
         answerBig = Random.Range(0, 12);
@@ -61,7 +66,7 @@ public class AnswerCheckPocketWatch : MonoBehaviour
             solved = true;
         }
 
-        if (solved)
+        if (solved && !endTriggered)
         {
             startClock();
         }
@@ -69,11 +74,15 @@ public class AnswerCheckPocketWatch : MonoBehaviour
 
     public void startClock()
     {
+        isSolved.SetActive(true);
+        isSolved.transform.SetAsLastSibling();
+
         clock.SetActive(true);
-        if(pInv != null && cKey != null)
+        if(pInv != null && cKey != null && !endTriggered)
         {
             pInv.AddItem(cKey);
         }
+        endTriggered = true;
     }
 }
 

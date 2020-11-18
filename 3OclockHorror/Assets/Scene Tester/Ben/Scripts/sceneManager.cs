@@ -37,12 +37,15 @@ public class sceneManager : MonoBehaviour
             {
                 player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
                 Listener = player.GetComponentInChildren<invInput>();
-                invCanv = player.invUI;
+                invCanv = player.Canvases[0];
                 CallFindObjects();
                 player.myRoom = startRoom;
                 player.Camera = plyCamera;
                 player.getJournal().GetComponent<Canvas>().worldCamera = plyCamera;
-                player.transferCanvas = transferCanvas;
+                if (!player.Canvases.Contains(transferCanvas))
+                {
+                    player.Canvases.Add(transferCanvas);
+                }
                 player.GetComponent<clockCntrl>().SetWatcher(Watcher);
                 player.GetComponent<clockCntrl>().SetCreep(TheBlindCreep);
             }

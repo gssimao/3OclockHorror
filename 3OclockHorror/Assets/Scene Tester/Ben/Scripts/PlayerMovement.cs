@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed;
-    public GameObject invUI;
     public Animator anim;
     public room myRoom;
     public Rigidbody2D rb;
@@ -18,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
 
     public CandleScript[] Candles;
     public CandleScript CandleInRange;
-    public GameObject transferCanvas;
     float cndlTmr;
     float duration = 1f;
 
@@ -28,39 +26,49 @@ public class PlayerMovement : MonoBehaviour
     public GameObject ToolTip;
     public GameObject wbInventory;
 
-    [SerializeField]
-    InputField jInput;
-    [SerializeField]
-    GameObject journal;
+    //A list of all canvases that should block player movement
+    public List<GameObject> Canvases;
+    bool canMove;
 
     void Start()
     {
-        invUI.SetActive(false);
         manager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        canMove = true;
+
         anim.SetBool("walkingLeft", false);
         anim.SetBool("walkingRight", false);
         anim.SetBool("walkingForwards", false);
         anim.SetBool("walkingBackwards", false);
 
-        // Input
-        if (invUI != null && transferCanvas != null && jInput != null && journal != null)
+        if(Canvases != null)
         {
-            if (!invUI.activeSelf && !transferCanvas.activeSelf && !jInput.isFocused && !journal.activeSelf)
+            foreach(GameObject canv in Canvases)
             {
-                movement.x = Input.GetAxisRaw("Horizontal");
-                movement.y = Input.GetAxisRaw("Vertical");
-            }
-            else
-            {
-                movement.x = 0;
-                movement.y = 0;
+                if (canv.activeSelf)
+                {
+                    canMove = false;
+                }
             }
         }
+
+        // Input
+
+        if (canMove)
+        {
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
+        }
+        else
+        {
+            movement.x = 0;
+            movement.y = 0;
+        }
+
 
         //Check the states for the walk animation.
         #region ChecKWalkStates 
@@ -167,6 +175,6 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject getJournal()
     {
-        return journal;
+        return Canvases[2];
     }
 }
