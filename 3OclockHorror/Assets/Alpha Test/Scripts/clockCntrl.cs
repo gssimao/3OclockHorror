@@ -69,7 +69,7 @@ public class clockCntrl : MonoBehaviour
             }
             else
             {
-                watcher.SetActive(false);
+                creep.SetActive(false);
             }
         }
     }

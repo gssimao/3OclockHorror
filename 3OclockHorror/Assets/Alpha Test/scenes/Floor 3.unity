@@ -1185,7 +1185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4605737869869458124, guid: 92a2e8fcaf4cacf439bc3ce3f525f556, type: 3}
       propertyPath: m_Name
-      value: RoomLayout (1)
+      value: RoomLayout
       objectReference: {fileID: 0}
     - target: {fileID: 4605737869869458125, guid: 92a2e8fcaf4cacf439bc3ce3f525f556, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6418,7 +6418,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1734360197}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &808031743
 BoxCollider2D:
@@ -7840,6 +7840,7 @@ MonoBehaviour:
   clock: {fileID: 0}
   pInv: {fileID: 0}
   cKey: {fileID: 0}
+  isSolved: {fileID: 0}
 --- !u!1 &1032437410
 GameObject:
   m_ObjectHideFlags: 0
@@ -9148,7 +9149,7 @@ MonoBehaviour:
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
     cacheStartup: 0
-  showNavGraphs: 0
+  showNavGraphs: 1
   showUnwalkableNodes: 1
   debugMode: 0
   debugFloor: 0
@@ -11663,8 +11664,8 @@ Transform:
   - {fileID: 499757947}
   - {fileID: 477410277}
   - {fileID: 1875680279}
-  - {fileID: 844434558}
   - {fileID: 808031742}
+  - {fileID: 844434558}
   m_Father: {fileID: 110148189}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
