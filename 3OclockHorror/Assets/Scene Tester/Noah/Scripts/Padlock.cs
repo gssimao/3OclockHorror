@@ -19,14 +19,13 @@ public class Padlock : MonoBehaviour
     List<roomCntrl> doors;
 
     //List of photos to check lock against
+    public Item Photo1;
+    public Item Photo2;
+    public Item Photo3;
+    public Item Photo4;
+
     [SerializeField]
-    Item Photo1;
-    [SerializeField]
-    Item Photo2;
-    [SerializeField]
-    Item Photo3;
-    [SerializeField]
-    Item Photo4;
+    GameObject isSolved;
 
     bool solved;
     // Update is called once per frame
@@ -51,6 +50,8 @@ public class Padlock : MonoBehaviour
                             {
                                 door.locked = false;
                             }
+                            solved = true;
+                            isSolved.SetActive(true);
                         }
                     }
                 }
