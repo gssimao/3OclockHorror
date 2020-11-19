@@ -81,6 +81,7 @@ public class clockCntrl : MonoBehaviour
 
     public void SetWatcher(GameObject Input)
     {
+        Debug.Log("It got to here");
         watcher = Input;
     }
     public void SetCreep(GameObject Input)

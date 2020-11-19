@@ -27,6 +27,7 @@ public class sceneManager : MonoBehaviour
     public room startRoom;
     public GameObject Watcher;
     public GameObject TheBlindCreep;
+    public SanityManager sanityManager;
 
     // Update is called once per frame
     void Update()
@@ -42,6 +43,7 @@ public class sceneManager : MonoBehaviour
                 player.myRoom = startRoom;
                 player.Camera = plyCamera;
                 player.getJournal().GetComponent<Canvas>().worldCamera = plyCamera;
+                sanityManager = player.GetComponent<SanityManager>();
                 if (!player.Canvases.Contains(transferCanvas))
                 {
                     player.Canvases.Add(transferCanvas);
@@ -135,6 +137,7 @@ public class sceneManager : MonoBehaviour
         {
             emptyObjects[i].player = player.gameObject;
             emptyObjects[i].inventoryUI = invCanv;
+            emptyObjects[i].sanityManager = sanityManager;
         }
         return true;
     }

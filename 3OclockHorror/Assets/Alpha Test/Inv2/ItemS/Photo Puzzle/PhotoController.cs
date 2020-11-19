@@ -19,6 +19,8 @@ public class PhotoController : MonoBehaviour
 
     public bool Distributed;
 
+    [SerializeField]
+    Padlock padlock;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +65,19 @@ public class PhotoController : MonoBehaviour
             {
                 Debug.Log("Something went wacky there - PhotoController");
             }
+
+            if(i == 0)
+            {
+                padlock.Photo2 = photo;
+            }
+            else if(i == 1)
+            {
+                padlock.Photo3 = photo;
+            }
+            else if(i == 2)
+            {
+                padlock.Photo4 = photo;
+            }
         }
 
         Distributed = true;
@@ -74,6 +89,8 @@ public class PhotoController : MonoBehaviour
         Item photo = Photos[rand];
         DiningRoom.AddStartingItem(photo);
         Photos.Remove(photo);
+
+        padlock.Photo1 = photo;
 
         rand = Random.Range(0, Dates.Count);
         photo.numeral = Dates[rand];

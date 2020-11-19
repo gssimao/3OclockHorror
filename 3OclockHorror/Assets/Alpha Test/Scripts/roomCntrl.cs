@@ -24,6 +24,9 @@ public class roomCntrl : MonoBehaviour
     public Inventory pInv;
     public Item MyKey;
 
+    [SerializeField]
+    GameObject lockCanv;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -169,6 +172,10 @@ public class roomCntrl : MonoBehaviour
             {
                 locked = false;
             }
+        }
+        else if(lockCanv != null && !lockCanv.activeSelf)
+        {
+            lockCanv.SetActive(true);
         }
         else
         {
