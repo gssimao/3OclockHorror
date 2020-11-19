@@ -1967,6 +1967,11 @@ MonoBehaviour:
   Watcher: {fileID: 1336144371}
   TheBlindCreep: {fileID: 1710219375}
   sanityManager: {fileID: 0}
+  plyCanvases:
+  - {fileID: 339300082}
+  - {fileID: 1978921846}
+  - {fileID: 1450514288}
+  - {fileID: 1628193632}
 --- !u!4 &224260332
 Transform:
   m_ObjectHideFlags: 0
@@ -2585,7 +2590,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!331 &296539382
 SpriteMask:
   m_ObjectHideFlags: 0
@@ -9050,7 +9055,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1628193637}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -13490,7 +13495,7 @@ RectTransform:
   m_Children:
   - {fileID: 686956943}
   m_Father: {fileID: 1628193637}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18813,9 +18818,10 @@ MonoBehaviour:
   ToolTip: {fileID: 858607486}
   wbInventory: {fileID: 1114499257}
   Canvases:
-  - {fileID: 1044781339}
-  - {fileID: 339300082}
   - {fileID: 982779158}
+  - {fileID: 1044781339}
+  tempCanvases:
+  - {fileID: 339300082}
   - {fileID: 1978921846}
   - {fileID: 1450514288}
   - {fileID: 1628193632}
@@ -19171,6 +19177,7 @@ MonoBehaviour:
   lock2: {fileID: 1915102415}
   lock3: {fileID: 1731549065}
   lock4: {fileID: 511438863}
+  lock4: {fileID: 0}
   doors:
   - {fileID: 429790641}
   - {fileID: 2049539073}
