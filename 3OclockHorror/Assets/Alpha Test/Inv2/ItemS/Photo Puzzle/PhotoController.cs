@@ -26,6 +26,8 @@ public class PhotoController : MonoBehaviour
 
     [SerializeField]
     Padlock padlock;
+    [SerializeField]
+    CraftingRecipe photoRecipie;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +60,7 @@ public class PhotoController : MonoBehaviour
             SelectedDate = Dates3;
         }
 
+        photoRecipie.Pieces.Clear();
         InitPuzzle();
         Distributed = false;
     }
@@ -100,6 +103,8 @@ public class PhotoController : MonoBehaviour
             {
                 padlock.Photo4 = photo;
             }
+
+            photoRecipie.Pieces.Add(photo);
         }
 
         Distributed = true;
@@ -113,6 +118,7 @@ public class PhotoController : MonoBehaviour
         Photos.Remove(photo);
 
         padlock.Photo1 = photo;
+        photoRecipie.Pieces.Add(photo);
 
         rand = Random.Range(0, Numerals.Count);
         photo.numeral = Numerals[rand];
