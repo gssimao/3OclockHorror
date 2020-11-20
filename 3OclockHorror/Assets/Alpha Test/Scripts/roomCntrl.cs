@@ -94,7 +94,7 @@ public class roomCntrl : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && transitionOnOff == false) //If its a player, this is necessary to determine what class to attempt to grab
+        if (collision.gameObject.tag == "Player" && transitionOnOff == false && !locked) //If its a player, this is necessary to determine what class to attempt to grab
         {
             PlayerMovement player = collision.gameObject.GetComponent<PlayerMovement>(); //Grab the player movement script
 

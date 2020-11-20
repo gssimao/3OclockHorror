@@ -13,9 +13,14 @@ public class PhotoController : MonoBehaviour
     [Space]
     [SerializeField]
     Inventory DiningRoom;
-    
-    List<string> Dates = new List<string> {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X" };
-    List<string> Numerals;
+
+    int dateSelector;
+    List<string> SelectedDate;
+
+    List<string> Dates1 = new List<string> {"4/4/1903", "8/01/1927", "19/29/-97", "11/7/1919" };
+    List<string> Dates2 = new List<string> { "4/3/1907", "5/07/1890", "5/2/1999", "8/6/1856" };
+    List<string> Dates3 = new List<string> { "4/5/1908", "4/6/1851", "7/25/-98", "4/8/1880" };
+    List<string> Numerals = new List<string> { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X" };
 
     public bool Distributed;
 
@@ -38,6 +43,21 @@ public class PhotoController : MonoBehaviour
             Debug.LogError("Need 4 LPhotos");
         }
 
+        dateSelector = Random.Range(0, 3);
+
+        if(dateSelector == 0)
+        {
+            SelectedDate = Dates1;
+        }
+        else if(dateSelector == 1)
+        {
+            SelectedDate = Dates2;
+        }
+        else
+        {
+            SelectedDate = Dates3;
+        }
+
         InitPuzzle();
         Distributed = false;
     }
@@ -55,9 +75,11 @@ public class PhotoController : MonoBehaviour
             AllowedInvs.Remove(selectedInv);
             Photos.Remove(photo);
 
-            rand = Random.Range(0, Dates.Count);
-            photo.numeral = Dates[rand];
-            Dates.RemoveAt(rand);
+            rand = Random.Range(0, Numerals.Count);
+            photo.numeral = Numerals[rand];
+            Numerals.RemoveAt(rand);
+
+            photo.date = SelectedDate[i + 1];
 
             LPhotos[i + 1].InitLargePhoto(photo);
 
@@ -92,9 +114,10 @@ public class PhotoController : MonoBehaviour
 
         padlock.Photo1 = photo;
 
-        rand = Random.Range(0, Dates.Count);
-        photo.numeral = Dates[rand];
-        Dates.RemoveAt(rand);
+        rand = Random.Range(0, Numerals.Count);
+        photo.numeral = Numerals[rand];
+        Numerals.RemoveAt(rand);
+        photo.date = SelectedDate[0];
 
         LPhotos[0].InitLargePhoto(photo);
     }

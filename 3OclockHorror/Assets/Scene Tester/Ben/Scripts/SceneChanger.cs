@@ -32,6 +32,7 @@ public class SceneChanger : MonoBehaviour
             Listener.enabled = false;
             if (Input.GetKeyDown("e"))
             {
+                player.GetComponent<PlayerMovement>().tempCanvases.Clear();
                 StartCoroutine(LoadYourAsyncScene(player));
                 player.transform.position = spawnPoint.transform.position;
             }

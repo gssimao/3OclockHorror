@@ -27,7 +27,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject wbInventory;
 
     //A list of all canvases that should block player movement
-    public List<GameObject> Canvases;
+    public List<GameObject> Canvases; //Canvases that won't be deleted between scenes
+    public List<GameObject> tempCanvases; //Canvases that will be deleted
     bool canMove;
 
     void Start()
@@ -48,6 +49,16 @@ public class PlayerMovement : MonoBehaviour
         if(Canvases != null)
         {
             foreach(GameObject canv in Canvases)
+            {
+                if (canv.activeSelf)
+                {
+                    canMove = false;
+                }
+            }
+        }
+        if (tempCanvases != null)
+        {
+            foreach (GameObject canv in tempCanvases)
             {
                 if (canv.activeSelf)
                 {
