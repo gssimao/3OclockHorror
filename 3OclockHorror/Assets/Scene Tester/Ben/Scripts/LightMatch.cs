@@ -7,6 +7,7 @@ public class LightMatch : MonoBehaviour
     public Light match;
     public SpriteMask lightMask;
     public FlickLight fLight;
+    public GameObject lightEffect;
 
     bool timerLock = true;
     public float lifeTime;
@@ -24,6 +25,7 @@ public class LightMatch : MonoBehaviour
         lightMask.transform.localScale = small;
         fLight.spriteMask = lightMask;
         fLight.enabled = false;
+        lightEffect.SetActive(false);
 
         manager = FindObjectOfType<AudioManager>();
     }
@@ -37,10 +39,11 @@ public class LightMatch : MonoBehaviour
             lightMask.transform.LeanScale(large, leanTime);
             fLight.enabled = true;
             timerLock = false;
+            lightEffect.SetActive(true);
 
-            if(manager != null)
+            if (manager != null)
             {
-                manager.Play("Match Strike");
+                manager.Play("Match StWrike");
             }
         }
 
@@ -56,6 +59,7 @@ public class LightMatch : MonoBehaviour
             lightMask.transform.LeanScale(small, leanTime);
             fLight.enabled = false;
             lifeTime = ov;
+            lightEffect.SetActive(false);
         }
     }
 }

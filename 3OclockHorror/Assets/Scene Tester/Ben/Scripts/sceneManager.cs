@@ -44,9 +44,9 @@ public class sceneManager : MonoBehaviour
                 player.myRoom = startRoom;
                 player.Camera = plyCamera;
                 player.getJournal().GetComponent<Canvas>().worldCamera = plyCamera;
-                sanityManager = player.GetComponent<SanityManager>();
                 player.GetComponent<clockCntrl>().SetWatcher(Watcher);
                 player.GetComponent<clockCntrl>().SetCreep(TheBlindCreep);
+                sanityManager = player.GetComponent<SanityManager>();
                 player.tempCanvases.AddRange(plyCanvases);
             }
             else if (!inputPlyBool)

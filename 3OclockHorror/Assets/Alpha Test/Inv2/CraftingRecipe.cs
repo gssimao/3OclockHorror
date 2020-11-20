@@ -7,22 +7,32 @@ public class CraftingRecipe : ScriptableObject
 {
     public List<Item> Pieces;
     public GameObject myButton;
+    public int minItems;
 
     public bool CanCraft(IItemContainer container)
     {
-        bool craft = false;
-        foreach(Item item in Pieces)
+        if (Pieces.Count >= minItems)
         {
-            if (container.ContainsItem(item))
+            bool craft = false;
+            foreach (Item item in Pieces)
             {
-                craft = true;
+                if (container.ContainsItem(item))
+                {
+                    craft = true;
+                }
+                else
+                {
+                    craft = false;
+                    return craft;
+                }
             }
-            else
-            {
-                craft = false;
-            }
+            return craft;
         }
-        return craft;
+        else 
+        {
+            return false;
+        }
+
     }
     public void Craft(IItemContainer container)
     {
