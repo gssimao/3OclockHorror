@@ -28,6 +28,7 @@ public class sceneManager : MonoBehaviour
     public GameObject Watcher;
     public GameObject TheBlindCreep;
     public SanityManager sanityManager;
+    public clockCntrl clockCntrl;
     public List<GameObject> plyCanvases;
 
     // Update is called once per frame
@@ -39,15 +40,16 @@ public class sceneManager : MonoBehaviour
             {
                 player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
                 Listener = player.GetComponentInChildren<invInput>();
+                clockCntrl = player.GetComponent<clockCntrl>();
+                sanityManager = player.GetComponent<SanityManager>();
                 invCanv = player.Canvases[0];
-                CallFindObjects();
+                player.Canvases[1].GetComponent<Canvas>().worldCamera = plyCamera;
+                clockCntrl.SetWatcher(Watcher);
+                clockCntrl.SetCreep(TheBlindCreep);
+                player.tempCanvases.AddRange(plyCanvases);
                 player.myRoom = startRoom;
                 player.Camera = plyCamera;
-                player.getJournal().GetComponent<Canvas>().worldCamera = plyCamera;
-                player.GetComponent<clockCntrl>().SetWatcher(Watcher);
-                player.GetComponent<clockCntrl>().SetCreep(TheBlindCreep);
-                sanityManager = player.GetComponent<SanityManager>();
-                player.tempCanvases.AddRange(plyCanvases);
+                CallFindObjects();
             }
             else if (!inputPlyBool)
             {
