@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class TableManager : MonoBehaviour
 {
+    public int SelectPuzzle = 0;
+    public bool puzzleSelected = false;
 
     int[] table = new int[] { 0, 90, 180, 270 };
     public int tablePosition = 0;
 
     float[] coinPositionH = new float[4] // left to right  // This is a number refering to a position in the game where any coin can be placed at
-    {-4.18f, -1.62f, 1.25f, 4.08f};
+    {-4.39f, -1.48f, 1.48f, 4.39f};
     //    0,  1,  2, 3
     // 0 is most left and 3 is most right
 
     float[] coinPositionV = new float[3] // top to bottom  // This is a number refering to a position in the game where any coin can be placed at
-    { 2.01f, 0, -2.01f};
+    { 2.25f, 0.02f, -2.25f};
     // (top) 0, (Mid) 1, (bot) 2
 
 
@@ -23,8 +25,46 @@ public class TableManager : MonoBehaviour
     public int[,] allCoinsPos = new int[3, 4] // this store the current position of the coins in a 2d array for easy scanning //  this is being used on the cueCoinUpdate() function
     {
     {0, 0, 0, 0},
-    {5, 5, 5, 0}, //this is very important add 5 to creat blocked space
+    {0, 0, 0, 0}, //this is very important add 5 to creat blocked space
     {1, 2, 3, 4}
+    };
+    public int[,] puzzle1 = new int[3, 4]
+    {
+    { 0, 0, 0, 5},
+    { 0, 5, 0, 0},
+    { 1, 2, 3, 4},
+    };
+    public int[,] puzzle2 = new int[3, 4] 
+    {
+    { 0, 0, 5, 0},
+    { 0, 0, 0, 0},
+    { 1, 2, 3, 4},
+    };
+    public int[,] puzzle3 = new int[3, 4] 
+    {
+    { 0, 0, 0, 0},
+    { 5, 5, 5, 0},
+    { 1, 2, 3, 4},
+    };
+
+
+    public int[,] answer1 = new int[3, 4] 
+    {
+    { 0, 0, 2, 5},
+    { 0, 5, 0, 1},
+    { 0, 3, 0, 4},
+    };
+    public int[,] answer2 = new int[3, 4]
+    {
+    { 1, 4, 5, 0},
+    { 3, 2, 0, 0},
+    { 0, 0, 0, 0},
+    };
+    public int[,] answer3 = new int[3, 4] 
+    {
+    { 4, 3, 2, 1},
+    { 5, 5, 5, 0},
+    { 0, 0, 0, 0},
     };
 
     /*
@@ -80,6 +120,10 @@ public class TableManager : MonoBehaviour
     public GameObject coin2;
     public GameObject coin3;
     public GameObject coin4;
+    public GameObject coin1Answer;
+    public GameObject coin2Answer;
+    public GameObject coin3Answer;
+    public GameObject coin4Answer;
     public GameObject blackaqr1;
     public GameObject blackaqr2;
     public GameObject blackaqr3;
@@ -91,7 +135,31 @@ public class TableManager : MonoBehaviour
         coin3.transform.position = new Vector3(coinPositionH[coin3Pos[0]], coinPositionV[coin3Pos[1]], -2);
         coin4.transform.position = new Vector3(coinPositionH[coin4Pos[0]], coinPositionV[coin4Pos[1]], -2);// coin4Pos keeps track of coin Number 4 position
         */
-        
+        if(!puzzleSelected)
+        {
+            SelectPuzzle = Random.Range(1, 4); // this generates a random number from 1 to 3.
+            if(SelectPuzzle == 1)
+            {
+                allCoinsPos = puzzle1;
+
+                puzzleAnswer = answer1;
+                
+            }
+            if (SelectPuzzle == 2)
+            {
+                allCoinsPos = puzzle2;
+                puzzleAnswer = answer2;
+                
+            }
+            if (SelectPuzzle == 3)
+            {
+                allCoinsPos = puzzle3;
+
+                puzzleAnswer = answer3;
+                
+            }
+            puzzleSelected = true;
+        }
         setPosition();
     }
 
@@ -197,7 +265,6 @@ public class TableManager : MonoBehaviour
         }
 
     }*/
-
 
 
     private float ManagePosition() // position
@@ -984,6 +1051,29 @@ public class TableManager : MonoBehaviour
                     coin4Pos[1] = j;
                     coin4.transform.localPosition = new Vector3(coinPositionH[i], coinPositionV[j], -2);
                     allCoinsPos[j, i] = 4;
+                }
+
+
+                //All the coins were set where they need to be
+                //===========================================================================
+                //From this point on I'm setting the answer sprites where they need to go
+
+
+                if (puzzleAnswer[j, i] == 1)
+                {
+                    coin1Answer.transform.localPosition = new Vector3(coinPositionH[i], coinPositionV[j], -2);
+                }
+                if (puzzleAnswer[j, i] == 2)
+                {
+                    coin2Answer.transform.localPosition = new Vector3(coinPositionH[i], coinPositionV[j], -2);
+                }
+                if (puzzleAnswer[j, i] == 3)
+                {
+                    coin3Answer.transform.localPosition = new Vector3(coinPositionH[i], coinPositionV[j], -2);
+                }
+                if (puzzleAnswer[j, i] == 4)
+                {
+                    coin4Answer.transform.localPosition = new Vector3(coinPositionH[i], coinPositionV[j], -2);
                 }
             }
         }
