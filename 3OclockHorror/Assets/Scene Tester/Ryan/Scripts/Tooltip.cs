@@ -26,7 +26,6 @@ public class Tooltip : MonoBehaviour
 
     void Start()
     {
-        TooltipText = GameObject.Find("TooltipText").GetComponent<Text>();
         TooltipText.text = "Use 'WASD' to move";
     }
 

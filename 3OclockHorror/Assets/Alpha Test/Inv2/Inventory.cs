@@ -190,4 +190,9 @@ public class Inventory : MonoBehaviour, IItemContainer
     }
 
     #endregion
+
+    public void SetItemParent(Transform input)
+    {
+        itemsParent = input;
+    }
 }

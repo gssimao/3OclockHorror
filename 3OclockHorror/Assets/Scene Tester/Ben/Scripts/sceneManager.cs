@@ -47,6 +47,7 @@ public class sceneManager : MonoBehaviour
                 clockCntrl.SetWatcher(Watcher);
                 clockCntrl.SetCreep(TheBlindCreep);
                 player.tempCanvases.AddRange(plyCanvases);
+                Listener.ClearObjsList();
                 player.myRoom = startRoom;
                 player.Camera = plyCamera;
                 CallFindObjects();
@@ -91,6 +92,7 @@ public class sceneManager : MonoBehaviour
             emptyObjects[i].setcntnrDisp(player.Cntnr);
             emptyObjects[i].setIM(player.charPanel);
             emptyObjects[i].settooltip(player.ToolTip);
+            emptyObjects[i].GetComponent<Inventory>().SetItemParent(player.contSlots);
         }
         return true;
     }
@@ -112,6 +114,7 @@ public class sceneManager : MonoBehaviour
             emptyObjects[i].setmyInvDisplay(player.wbInventory);
             emptyObjects[i].setIM(player.charPanel);
             emptyObjects[i].settooltip(player.ToolTip);
+            emptyObjects[i].GetComponent<Inventory>().SetItemParent(player.contSlots);
         }
         return true;
     }

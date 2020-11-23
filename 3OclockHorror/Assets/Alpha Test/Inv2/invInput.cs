@@ -55,4 +55,9 @@ public class invInput : MonoBehaviour
             */
         }
     }
+
+    public void ClearObjsList()//Used for changing scenes
+    {
+        objs.Clear();
+    }
 }

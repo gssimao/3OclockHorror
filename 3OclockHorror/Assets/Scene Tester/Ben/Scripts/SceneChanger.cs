@@ -53,7 +53,6 @@ public class SceneChanger : MonoBehaviour
                 Listener.enabled = true;
             }
         }
-        Debug.Log(blackWallanim.GetCurrentAnimatorStateInfo(0).normalizedTime);
     }
 
     IEnumerator LoadYourAsyncScene(GameObject Instance)
