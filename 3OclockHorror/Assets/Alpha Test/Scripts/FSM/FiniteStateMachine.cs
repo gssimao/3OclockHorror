@@ -44,8 +44,9 @@ public class FiniteStateMachine : MonoBehaviour
         if (currentState != null)
         {
             currentState.updateState();
-            Debug.Log("State: " + currentState.StateType.ToString());
+            
         }
+        Debug.Log("State: " + currentState.StateType.ToString());
     }
 
     public FSMStateType GetState()
