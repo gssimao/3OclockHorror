@@ -1705,9 +1705,10 @@ MonoBehaviour:
   spawnPoint: {fileID: 262337047}
   player: {fileID: 0}
   Listener: {fileID: 0}
-  stairTransition: {fileID: 266703709}
-  Slide: {fileID: 266703711}
-  curSceneName: 
+  transition: {fileID: 731596403}
+  blackWallanim: {fileID: 1775234374}
+  crossFade: {fileID: 12998715}
+  blackWall: {fileID: 1775234372}
 --- !u!61 &99819754
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10965,7 +10966,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &731596402
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23265,7 +23266,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1775234373
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23386,6 +23387,7 @@ MonoBehaviour:
   player: {fileID: 0}
   Listener: {fileID: 0}
   invCanv: {fileID: 0}
+  sceneChanger: {fileID: 99819753}
   emptyObjectsRC: []
   emptyObjectsCC: []
   emptyObjectsWC: []
@@ -23394,7 +23396,6 @@ MonoBehaviour:
   emptyObjectsFSM: []
   emptyObjectsCT: []
   emptyObjectsWAI: []
-  sceneChanger: {fileID: 99819753}
   inputPlyBool: 0
   plyCamera: {fileID: 771689889}
   transferCanvas: {fileID: 1775234372}

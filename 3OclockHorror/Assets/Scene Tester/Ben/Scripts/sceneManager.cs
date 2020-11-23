@@ -8,6 +8,7 @@ public class sceneManager : MonoBehaviour
     public PlayerMovement player;
     public invInput Listener;
     public GameObject invCanv;
+    public SceneChanger sceneChanger;
 
     //Gameobject Variables
     public roomCntrl[] emptyObjectsRC;
@@ -18,7 +19,6 @@ public class sceneManager : MonoBehaviour
     public FiniteStateMachine[] emptyObjectsFSM;
     public ClockTick[] emptyObjectsCT;
     public WatcherAI[] emptyObjectsWAI;
-    public SceneChanger sceneChanger;
     public bool inputPlyBool = false;
 
     //Player Fields
@@ -176,4 +176,14 @@ public class sceneManager : MonoBehaviour
             return false;
         }
     }
+
+    /*IEnumerator PerformInputFunctions()
+    {
+        AsyncOperation asyncload;
+
+        while(!asyncload.isDone)
+        {
+        }
+
+    }*/
 }

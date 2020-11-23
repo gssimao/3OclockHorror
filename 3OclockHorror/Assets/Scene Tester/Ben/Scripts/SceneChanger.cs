@@ -12,15 +12,17 @@ public class SceneChanger : MonoBehaviour
     public GameObject player;
     public invInput Listener;
 
-    public GameObject stairTransition;
-    public Animator Slide;
-    public string curSceneName;
+    public Animator transition;
+    public Animator blackWallanim;
+    public GameObject crossFade;
+    public GameObject blackWall;
 
     float dist;
+    bool animIsDone = false;
     // Start is called before the first frame update
     void Start()
     {
-        stairTransition.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -32,9 +34,16 @@ public class SceneChanger : MonoBehaviour
             Listener.enabled = false;
             if (Input.GetKeyDown("e"))
             {
+                blackWall.SetActive(true);
+                crossFade.SetActive(true);
+                transition.SetTrigger("End");
+                animIsDone = true;
+            }
+            if (blackWallanim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.85 && animIsDone)
+            {
                 player.GetComponent<PlayerMovement>().tempCanvases.Clear();
+                animIsDone = false;
                 StartCoroutine(LoadYourAsyncScene(player));
-                player.transform.position = spawnPoint.transform.position;
             }
         }
         else
@@ -44,26 +53,11 @@ public class SceneChanger : MonoBehaviour
                 Listener.enabled = true;
             }
         }
-        /*if(Slide.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
-        {
-            stairTransition.SetActive(false);
-        }*/
-
-        SceneManager.sceneLoaded += SceneManager_sceneLoaded;
-    }
-
-    private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
-    {
-        //throw new NotImplementedException();
-
-        Debug.Log("We Changed Scenes");
+        Debug.Log(blackWallanim.GetCurrentAnimatorStateInfo(0).normalizedTime);
     }
 
     IEnumerator LoadYourAsyncScene(GameObject Instance)
     {
-        stairTransition.SetActive(true);
-        Slide.SetTrigger("Start");
-
         currentScene = SceneManager.GetActiveScene();
 
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
@@ -73,8 +67,12 @@ public class SceneChanger : MonoBehaviour
             yield return null;
         }
 
-        SceneManager.UnloadSceneAsync(currentScene);
+        player.transform.position = spawnPoint.transform.position;
+        blackWall.SetActive(false);
+        crossFade.SetActive(false);
 
         SceneManager.MoveGameObjectToScene(Instance, SceneManager.GetSceneByName(sceneName));
+
+        SceneManager.UnloadSceneAsync(currentScene);
     }
 }
