@@ -61,10 +61,13 @@ public class ContainerControl : MonoBehaviour
             }
             else if (Input.GetKeyDown("e") && active)
             {
-                IM.DeactivateInventory(myInv);
-                active = false;
-                invCanv.SetActive(false);
-                cntnrDisp.SetActive(false);
+                if (invCanv.activeSelf) 
+                {
+                    IM.DeactivateInventory(myInv);
+                    active = false;
+                    invCanv.SetActive(false);
+                    cntnrDisp.SetActive(false);
+                }
             }
         }
         else

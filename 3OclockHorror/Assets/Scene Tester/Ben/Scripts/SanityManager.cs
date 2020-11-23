@@ -31,6 +31,7 @@ public class SanityManager : MonoBehaviour
         if (sanityValue <= 0)
         {
             SceneManager.LoadScene(2); //Load the Game Over scene
+            Cursor.visible = true;
         }
 
         if (effectOn)

@@ -20,14 +20,14 @@ public class CursorControl : MonoBehaviour
     void Update()
     {
         bool cursorActive = false;
-        foreach(GameObject obj in UIs)
+        foreach (GameObject obj in UIs)
         {
             if (obj.activeSelf)
             {
                 cursorActive = true;
             }
         }
-        if(!cursorActive)
+        if (!cursorActive)
         {
             Cursor.visible = false;
         }

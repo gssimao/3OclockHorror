@@ -16,11 +16,22 @@ public class invInput : MonoBehaviour
     GameObject tooltip;
     [SerializeField]
     InputField jInput;
+    [SerializeField]
+    List<GameObject> objs;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(invKey) && !jInput.isFocused)
+        bool puzOpen = false;
+        foreach(GameObject obj in objs)
+        {
+            if(obj.activeSelf)
+            {
+                puzOpen = true;
+            }
+        }
+
+        if (Input.GetKeyDown(invKey) && !jInput.isFocused && !puzOpen)
         {
             if (Journal.activeSelf)
             {
@@ -44,17 +55,4 @@ public class invInput : MonoBehaviour
             */
         }
     }
-
-    /*
-    public void ShowCursor()
-    {
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-    }
-    public void HideCursor()
-    {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
-    */
 }

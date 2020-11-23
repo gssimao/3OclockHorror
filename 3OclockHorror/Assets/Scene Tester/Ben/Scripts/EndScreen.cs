@@ -11,9 +11,11 @@ public class EndScreen : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(gameScene);//loads the game scene
+        Cursor.visible = false;
     }
     public void ReturnToMenu()
     {
         SceneManager.LoadScene(menuScene);//loads the menu scene
+        Cursor.visible = true;
     }
 }

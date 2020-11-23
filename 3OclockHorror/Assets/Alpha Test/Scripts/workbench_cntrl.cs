@@ -64,11 +64,14 @@ public class workbench_cntrl : MonoBehaviour
             }
             else if(Input.GetKeyDown("e") && active)
             {
-                IM.DeactivateInventory(myInv);
-                active = false;
-                invCanv.SetActive(false);
-                myInvDisplay.SetActive(false);
-                IM.craftField.SetActive(false);
+                if (invCanv.activeSelf)
+                {
+                    IM.DeactivateInventory(myInv);
+                    active = false;
+                    invCanv.SetActive(false);
+                    myInvDisplay.SetActive(false);
+                    IM.craftField.SetActive(false);
+                }
             }
         }
         else
