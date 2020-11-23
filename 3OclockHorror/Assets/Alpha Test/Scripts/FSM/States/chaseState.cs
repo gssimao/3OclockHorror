@@ -31,13 +31,8 @@ public class chaseState : abstractFSMState
         if (enteredState)
         {
             //Update player posiiton
-            if (tmr > 2f)
-            {
-                executor.setDestination(player.gameObject);
-                tmr = 0f;
-            }
+            executor.setDestination(player.gameObject);
             bool cnt = executor.move(speed);
-            tmr += Time.deltaTime;
 
             //Determine if player is within range of an attack or has left room, either will trigger state change
             if (!cnt || executor.myRoom != player.myRoom)
