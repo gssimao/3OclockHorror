@@ -23,6 +23,11 @@ public class patrolState : abstractFSMState
                 executor.setDestination();
                 enteredState = true;
             }
+            if(speed == 0)
+            {
+                speed = 5;
+                Debug.LogError("Default speed not properly set");
+            }
         }
         return enteredState;
     }

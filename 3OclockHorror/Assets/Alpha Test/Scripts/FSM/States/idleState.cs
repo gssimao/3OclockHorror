@@ -21,6 +21,7 @@ public class transferState : abstractFSMState
         {
             totalDuration = 0f;
         }
+        executor.UpdateAnimation(Vector2.zero);
         return enteredState;
     }
 
@@ -28,8 +29,9 @@ public class transferState : abstractFSMState
     {
         if (enteredState)
         {
-            totalDuration += Time.deltaTime;
-            executor.pTime += Time.deltaTime;
+            totalDuration += Time.deltaTime; //Time that BC has been idle
+            executor.pTime += Time.deltaTime; //Time since last room transfer
+
             if(executor.pTime >= 30f && executor.myRoom != player.myRoom)
             {
                 fsm.enterState(FSMStateType.TRANSFER);
@@ -39,7 +41,7 @@ public class transferState : abstractFSMState
                 fsm.enterState(FSMStateType.PATROL);
             }
 
-            if(totalDuration >= 0.5f)
+            if(totalDuration >= 0.3f)
             {
                 if(player.movement.x != 0 && player.myRoom == executor.myRoom)
                 {

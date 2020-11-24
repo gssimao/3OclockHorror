@@ -22,7 +22,13 @@ public class chaseState : abstractFSMState
             {
                 enteredState = true;
             }
+            if (speed == 0)
+            {
+                speed = 5;
+                Debug.LogError("Default speed not properly set");
+            }
         }
+        executor.setDestination(player.gameObject);
         return enteredState;
     }
 
@@ -31,7 +37,7 @@ public class chaseState : abstractFSMState
         if (enteredState)
         {
             //Update player posiiton
-            executor.setDestination(player.gameObject);
+            //executor.setDestination(player.gameObject);
             bool cnt = executor.move(speed);
 
             //Determine if player is within range of an attack or has left room, either will trigger state change

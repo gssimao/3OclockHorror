@@ -11,6 +11,7 @@ public class NPC : MonoBehaviour
 
     //Public (editor assigned) Variables
     public GameObject player; //The player target for the Blind Creep to head towards / check against
+    PlayerMovement pmove;
     public Animator anim;
     //Watcher reference as well perhaps?
 
@@ -23,13 +24,13 @@ public class NPC : MonoBehaviour
 
     public room myRoom;
     public float nWPD = 0.25f;
-    public float patrolTime = 0f;
+    public float patrolTime = 0f; //Time that npc has been idle
 
     Path path;
     int currWP = 0;
     Seeker seeker;
     public Rigidbody2D rb;
-    public float pTime = 0f;
+    public float pTime = 0f; //Time since last transfer
 
     AudioManager manager;
     public bool isWalking = false;
@@ -57,73 +58,17 @@ public class NPC : MonoBehaviour
                 Debug.LogWarning("Current Point must be set in editor.");
             }
         }
+        pmove = player.GetComponent<PlayerMovement>();
         hitTmr = 0;
     }
 
     void Update()
     {
-        isWalking = false;
-        isRunning = false;
-
-        if (fsm.GetState() == FSMStateType.PATROL)
+        
+        if (hitTmr > 0)
         {
-            if (rb.velocity.x > 0)
-            {
-                anim.SetBool("walkingright", true);
-                isWalking = true;
-            }
-            else
-            {
-                anim.SetBool("walkingright", false);
-            }
-            if (rb.velocity.x < 0)
-            {
-                anim.SetBool("walkingleft", true);
-                isWalking = true;
-            }
-            else
-            {
-                anim.SetBool("walkingleft", false);
-            }
+            hitTmr--;
         }
-        else if (fsm.GetState() == FSMStateType.CHASE)
-        {
-            if (rb.velocity.x > 0)
-            {
-                anim.SetBool("runright", true);
-                isRunning = true;
-            }
-            else
-            {
-                anim.SetBool("runright", false);
-            }
-            if (rb.velocity.x < 0)
-            {
-                anim.SetBool("runleft", true);
-                isRunning = true;
-            }
-            else
-            {
-                anim.SetBool("runleft", false);
-            }
-        }
-
-        if (isWalking == true && manager != null && isPlaying == false)
-        {
-            manager.Play("Blind Creep Footsteps"); //For now I'm having them be the same sound effect. Will change later.
-            isPlaying = true;
-        }
-        else if (isRunning == true && manager != null && isPlaying == false)
-        {
-            manager.Play("Blind Creep Footsteps");
-            isPlaying = true;
-        }
-        else
-        {
-            isPlaying = false;
-        }
-
-        hitTmr--;
     }
 
     //Set a destination based on the current patrol index within the patrol points array.
@@ -131,7 +76,7 @@ public class NPC : MonoBehaviour
     {
         if (pointsVisited > 0) //if the points visited are greater than one
         {
-            connectedPatrolPoint nextPoint = curPoint.nextWaypoint(curPoint); //Get an adjacent waypoint to be the next point
+            connectedPatrolPoint nextPoint = curPoint.nextWaypoint(prevPoint); //Get an adjacent waypoint to be the next point
             prevPoint = curPoint; //Set the prev point
             curPoint = nextPoint; //Set the current point
         }
@@ -170,13 +115,15 @@ public class NPC : MonoBehaviour
 
         if (currWP >= path.vectorPath.Count)
         {
+            UpdateAnimation(Vector2.zero);
             return false;
         }
         else
         {
             Vector2 dir = ((Vector2)path.vectorPath[currWP] - rb.position).normalized;
             Vector2 force = dir * speed * Time.deltaTime;
-            rb.AddForce(force);
+            this.transform.Translate(force);
+            UpdateAnimation(dir);
 
             float dist = Vector2.Distance(rb.position, path.vectorPath[currWP]);
             if (dist < nWPD)
@@ -201,6 +148,90 @@ public class NPC : MonoBehaviour
             targSAN.ChangeSanity(-10);
             clock.adjustEndTime(-60);
             hitTmr = 200;
+
+            //Script to fade to black and transfer rooms to cover time change
+        }
+    }
+
+    public void UpdateAnimation(Vector2 dir)
+    {
+        isWalking = false;
+        isRunning = false;
+
+        if (fsm.GetState() != FSMStateType.IDLE)
+        {
+            if (fsm.GetState() == FSMStateType.PATROL)
+            {
+                if (dir.x > 0.01)
+                {
+                    anim.SetBool("walkingright", true);
+                    isWalking = true;
+                }
+                else
+                {
+                    anim.SetBool("walkingright", false);
+                }
+
+                if (dir.x < -0.01)
+                {
+                    anim.SetBool("walkingleft", true);
+                    isWalking = true;
+                }
+                else
+                {
+                    anim.SetBool("walkingleft", false);
+                }
+            }
+            else if (fsm.GetState() == FSMStateType.CHASE)
+            {
+                if (dir.x > 0.01)
+                {
+                    anim.SetBool("runright", true);
+                    isRunning = true;
+                }
+                else
+                {
+                    anim.SetBool("runright", false);
+                }
+
+                if (dir.x < -0.01)
+                {
+                    anim.SetBool("runleft", true);
+                    isRunning = true;
+                }
+                else
+                {
+                    anim.SetBool("runleft", false);
+                }
+            }
+        }
+        else if(fsm.GetState() == FSMStateType.IDLE)
+        {
+            anim.SetBool("walkingright", false);
+            anim.SetBool("walkingleft", false);
+            anim.SetBool("runright", false);
+            anim.SetBool("runleft", false);
+            isWalking = false;
+            isRunning = false;
+        }
+        else
+        {
+            Debug.Log("No matching state, can't update");
+        }
+
+        if (isWalking == true && manager != null && isPlaying == false && pmove.myRoom == myRoom)
+        {
+            manager.Play("Blind Creep Footsteps"); //For now I'm having them be the same sound effect. Will change later.
+            isPlaying = true;
+        }
+        else if (isRunning == true && manager != null && isPlaying == false && pmove.myRoom == myRoom)
+        {
+            manager.Play("Blind Creep Footsteps");
+            isPlaying = true;
+        }
+        else
+        {
+            isPlaying = false;
         }
     }
 
