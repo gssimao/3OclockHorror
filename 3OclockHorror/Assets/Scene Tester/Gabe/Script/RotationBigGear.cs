@@ -19,10 +19,9 @@ public class RotationBigGear : MonoBehaviour
    
 
        
-
+    
     private void OnMouseOver()
     {
-        
         
         if (Input.GetMouseButtonUp(1)) //this should turn the big to the right
         {
@@ -44,6 +43,7 @@ public class RotationBigGear : MonoBehaviour
             LeanTween.rotateZ(medGear, medGearPosition[medGear.GetComponent<RotationMedGear>().Medmovement], 1); // move med gear
             LeanTween.rotateZ(smallGear, smallGearPosition[smallGear.GetComponent<RotationSmallGear>().Smallmovement], 1); // move small gear
         }
+        
 
     }
   
