@@ -7,8 +7,8 @@ public class BackImage : MonoBehaviour
     int[] Star = new int[] { 0, 90, 180, 270 }; // all z rotation location that this should turn to
 
     public int StarLocation = 0;
-    public GameObject combination;
-    Combination combine;
+    public GameObject combination; // reference to the combination game object.
+    Combination combine; // where the script to show or hide symbols are coded.
     private void Start()
     {
         combine = combination.GetComponent<Combination>();
@@ -26,7 +26,9 @@ public class BackImage : MonoBehaviour
 
             LeanTween.rotateZ(gameObject, Star[StarLocation], 1);
 
-            //combine.revelImage("Player1"); checking if the image is showing 
+            /*combine.revelImage("Player1"); //This is an exmple of how to make the symbols show. */
+
+
             combine.callImage();
             
         }

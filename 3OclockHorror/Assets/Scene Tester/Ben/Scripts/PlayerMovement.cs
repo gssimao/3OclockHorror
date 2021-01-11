@@ -32,6 +32,15 @@ public class PlayerMovement : MonoBehaviour
     public List<GameObject> tempCanvases; //Canvases that will be deleted
     bool canMove;
 
+    bool RightLeg = true;
+    bool LeftLeg = true;
+    public float walkTime = .5f;
+    public float countTime = 0;
+    public bool canMoveRight = true;
+    public bool canMoveLeft = true;
+    public bool canMoveUp = true;
+    public bool canMoveDown = true;
+
     void Start()
     {
         manager = FindObjectOfType<AudioManager>();
@@ -47,9 +56,9 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("walkingForwards", false);
         anim.SetBool("walkingBackwards", false);
 
-        if(Canvases != null)
+        if (Canvases != null)
         {
-            foreach(GameObject canv in Canvases)
+            foreach (GameObject canv in Canvases)
             {
                 if (canv.activeSelf)
                 {
@@ -80,7 +89,55 @@ public class PlayerMovement : MonoBehaviour
             movement.x = 0;
             movement.y = 0;
         }
-
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////// testing here
+        if (Input.GetMouseButtonDown(0) == true && RightLeg == true && canMove == true)
+        {
+            RightLeg = false;
+            LeftLeg = true;
+            /* countTime = CheckSpeed(countTime);
+             if (movement.x == 1 && canMoveRight == true) //going right
+             {
+                 GotoNumberX(rb.position + movement * moveSpeed, canMove);
+             }
+             if (movement.x == -1 && canMoveLeft == true) //going left
+             {
+                 GotoNumberX(rb.position + movement * moveSpeed, canMove);
+             }
+             if (movement.y == 1 && canMoveUp == true) //going up
+             {
+                 GotoNumberY(rb.position + movement * moveSpeed, canMove);
+             }
+             if (movement.y == -1 && canMoveDown == true) //going down
+             {
+                 GotoNumberY(rb.position + movement * moveSpeed, canMove);
+             }*/
+            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        }
+        if (Input.GetMouseButtonDown(1) == true && LeftLeg == true && canMove == true)
+        {
+            RightLeg = true;
+            LeftLeg = false;
+            /*if (movement.x == 1 && canMoveRight == true) //going right
+            {
+                GotoNumberX(rb.position + movement * moveSpeed, canMove);
+            }
+            if (movement.x == -1 && canMoveLeft == true) //going left
+            {
+                GotoNumberX(rb.position + movement * moveSpeed, canMove);
+            }
+            if (movement.y == 1 && canMoveUp == true) //going up
+            {
+                GotoNumberY(rb.position + movement * moveSpeed, canMove);
+            }
+            if (movement.y == -1 && canMoveDown == true) //going down
+            {
+                GotoNumberY(rb.position + movement * moveSpeed, canMove);
+            }*/
+            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         //Check the states for the walk animation.
         #region ChecKWalkStates 
@@ -111,8 +168,8 @@ public class PlayerMovement : MonoBehaviour
                     anim.SetBool("walkingRight", true);
                 }
             }
-            
-            if(movement.y != 0)
+
+            if (movement.y != 0)
             {
                 if (movement.y < 0)
                 {
@@ -148,15 +205,17 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void FixedUpdate()
-    {
-        // Movement
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+    {    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+         // Movement
+
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);  // take the comments out to go back to normal
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         if (Camera != null)
         {
             Camera.transform.position = myRoom.getCameraPoint().transform.position;
         }
 
-        if(cndlTmr >= duration)
+        if (cndlTmr >= duration)
         {
             CheckCandle();
             cndlTmr = 0f;
@@ -190,3 +249,33 @@ public class PlayerMovement : MonoBehaviour
         return Canvases[2];
     }
 }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////// new stuff here, testing
+    /*public void GotoNumberX(Vector2 maxValue, bool canMove) // min is current value and max is the value we want to move to
+    {
+        if (canMove)
+        {
+            LeanTween.moveX(this.gameObject, maxValue.x, walkTime).setEaseOutQuad();
+        }
+    }
+    public void GotoNumberY(Vector2 maxValue, bool canMove) // min is current value and max is the value we want to move to
+    {
+        if (canMove)
+        {
+            LeanTween.moveY(this.gameObject, maxValue.y, walkTime).setEaseOutQuad();
+        }
+    }
+    public float CheckSpeed(float countTime)
+    {
+        if (countTime < 0.4f) // the player is clicking fast
+        {
+            walkTime = .2f; // walkTime is the amount of time it takes to move the character.
+        }
+        else // the player is clicking slow
+        {
+            walkTime = .5f;
+        }
+        countTime = 0;
+        return countTime;
+    }
+}*/

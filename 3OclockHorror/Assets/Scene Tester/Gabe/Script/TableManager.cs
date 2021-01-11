@@ -141,28 +141,45 @@ public class TableManager : MonoBehaviour
             if(SelectPuzzle == 1)
             {
                 allCoinsPos = puzzle1;
-
                 puzzleAnswer = answer1;
-                
             }
             if (SelectPuzzle == 2)
             {
                 allCoinsPos = puzzle2;
                 puzzleAnswer = answer2;
-                
             }
             if (SelectPuzzle == 3)
             {
                 allCoinsPos = puzzle3;
-
                 puzzleAnswer = answer3;
-                
             }
             puzzleSelected = true;
         }
         setPosition();
     }
-
+    public void ResetPuzzle() // this is currently being tested 01/10/2021
+    {
+        tablePosition = 0;
+        switch (SelectPuzzle)
+        { 
+            case 1:
+                allCoinsPos = puzzle1;
+                LeanTween.rotateZ(gameObject, table[tablePosition], 1);
+                break;
+            case 2:
+                allCoinsPos = puzzle2;
+                LeanTween.rotateZ(gameObject, table[tablePosition], 1);
+                break;
+            case 3:
+                allCoinsPos = puzzle3;
+                LeanTween.rotateZ(gameObject, table[tablePosition], 1);
+                break;
+            default:
+                UnityEngine.Debug.Log("Select Puzzle is Out of bounds");
+                break;
+        }
+        setPosition();
+    }
 
     private void OnMouseOver()
     {
@@ -997,7 +1014,7 @@ public class TableManager : MonoBehaviour
         }
         return false;
     }
-    private void setPosition() // work in progress
+    private void setPosition() 
     {
         int square = 0;
         for (int i = 0; i <= 3; i++)

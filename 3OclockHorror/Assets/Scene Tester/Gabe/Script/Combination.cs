@@ -411,7 +411,7 @@ public class Combination : MonoBehaviour
         }
         else // if show is FALSE then HIDE
         {
-            tempSymbol.a = 0f;
+            tempSymbol.a = 0.1f;
         }
         symbol.color = tempSymbol;
     }
