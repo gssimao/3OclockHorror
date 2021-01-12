@@ -1187,7 +1187,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4605737869869458124, guid: 92a2e8fcaf4cacf439bc3ce3f525f556, type: 3}
       propertyPath: m_Name
-      value: RoomLayout
+      value: Floor3
       objectReference: {fileID: 0}
     - target: {fileID: 4605737869869458125, guid: 92a2e8fcaf4cacf439bc3ce3f525f556, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1520,6 +1520,7 @@ MonoBehaviour:
   player: {fileID: 0}
   Listener: {fileID: 0}
   invCanv: {fileID: 0}
+  sceneChanger: {fileID: 0}
   emptyObjectsRC: []
   emptyObjectsCC: []
   emptyObjectsWC: []
@@ -1528,7 +1529,6 @@ MonoBehaviour:
   emptyObjectsFSM: []
   emptyObjectsCT: []
   emptyObjectsWAI: []
-  sceneChanger: {fileID: 0}
   inputPlyBool: 0
   plyCamera: {fileID: 79741027}
   transferCanvas: {fileID: 976284319}
@@ -1536,6 +1536,7 @@ MonoBehaviour:
   Watcher: {fileID: 218918014}
   TheBlindCreep: {fileID: 2099441839}
   sanityManager: {fileID: 0}
+  clockCntrl: {fileID: 0}
   plyCanvases: []
 --- !u!4 &159660527
 Transform:
@@ -2333,7 +2334,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 44fb85a0e85009c43bc4560029909af1, type: 2}
+  - {fileID: 2100000, guid: 42ed5379127f09f4dbfd1b3a9be43932, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4235,6 +4236,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1010640143}
     m_Modifications:
+    - target: {fileID: 4319032879280252870, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 42ed5379127f09f4dbfd1b3a9be43932, type: 2}
     - target: {fileID: 4319032879928100928, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
       propertyPath: m_Name
       value: Candle
@@ -6834,6 +6839,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1734360197}
     m_Modifications:
+    - target: {fileID: 4319032879280252870, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 42ed5379127f09f4dbfd1b3a9be43932, type: 2}
     - target: {fileID: 4319032879928100928, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
       propertyPath: m_Name
       value: Candle
@@ -9399,6 +9408,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1974632994}
     m_Modifications:
+    - target: {fileID: 4319032879280252870, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 42ed5379127f09f4dbfd1b3a9be43932, type: 2}
     - target: {fileID: 4319032879928100928, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
       propertyPath: m_Name
       value: Candle
@@ -12280,6 +12293,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 415927359}
     m_Modifications:
+    - target: {fileID: 4319032879280252870, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 42ed5379127f09f4dbfd1b3a9be43932, type: 2}
     - target: {fileID: 4319032879928100928, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
       propertyPath: m_Name
       value: Candle

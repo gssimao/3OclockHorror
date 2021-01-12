@@ -8,7 +8,7 @@ public class sceneManager : MonoBehaviour
     public PlayerMovement player;
     public invInput Listener;
     public GameObject invCanv;
-    public SceneChanger sceneChanger;
+    public FloorChanger sceneChanger;
 
     //Gameobject Variables
     public roomCntrl[] emptyObjectsRC;
