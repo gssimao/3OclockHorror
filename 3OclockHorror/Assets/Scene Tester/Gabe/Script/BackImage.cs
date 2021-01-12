@@ -26,7 +26,9 @@ public class BackImage : MonoBehaviour
 
             LeanTween.rotateZ(gameObject, Star[StarLocation], 1);
 
-            /*combine.revelImage("Player1"); //This is an exmple of how to make the symbols show. */
+            combine.revelImage("Player1"); //This is an exmple of how to make the symbols show. 
+            combine.revelImage("Player2");
+            combine.revelImage("Player3");
 
 
             combine.callImage();
