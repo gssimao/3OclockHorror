@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="IdleState", menuName = "FSM/States/Idle", order = 1)] //make object creatable
-public class idleState : abstractFSMState
+[CreateAssetMenu(fileName ="transferState", menuName = "FSM/States/Transfer", order = 4)] //make object creatable
+public class transferState : abstractFSMState
 {
     List<room> Rooms;
     room ChosenRoom;
