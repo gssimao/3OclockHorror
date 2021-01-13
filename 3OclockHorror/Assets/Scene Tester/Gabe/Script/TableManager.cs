@@ -130,11 +130,7 @@ public class TableManager : MonoBehaviour
 
     private void Start()
     {
-        /*coin1.transform.position = new Vector3(coinPositionH[coin1Pos[0]], coinPositionV[coin1Pos[1]], -2); // coinPositionH and coinPositionV are just numbers 
-        coin2.transform.position = new Vector3(coinPositionH[coin2Pos[0]], coinPositionV[coin2Pos[1]], -2); //      to where to coins are going to be placed on
-        coin3.transform.position = new Vector3(coinPositionH[coin3Pos[0]], coinPositionV[coin3Pos[1]], -2);
-        coin4.transform.position = new Vector3(coinPositionH[coin4Pos[0]], coinPositionV[coin4Pos[1]], -2);// coin4Pos keeps track of coin Number 4 position
-        */
+        
         if(!puzzleSelected)
         {
             SelectPuzzle = Random.Range(1, 4); // this generates a random number from 1 to 3.
@@ -161,24 +157,34 @@ public class TableManager : MonoBehaviour
     {
         tablePosition = 0;
         switch (SelectPuzzle)
-        { 
+        {
             case 1:
-                allCoinsPos = puzzle1;
                 LeanTween.rotateZ(gameObject, table[tablePosition], 1);
+                allCoinsPos = puzzle1;
                 break;
             case 2:
-                allCoinsPos = puzzle2;
                 LeanTween.rotateZ(gameObject, table[tablePosition], 1);
+                allCoinsPos = puzzle2;
                 break;
             case 3:
-                allCoinsPos = puzzle3;
                 LeanTween.rotateZ(gameObject, table[tablePosition], 1);
+                allCoinsPos = puzzle3;
                 break;
             default:
                 UnityEngine.Debug.Log("Select Puzzle is Out of bounds");
                 break;
         }
+
+        coin1Pos = new int[] { 0, 2 };
+        coin2Pos = new int[] { 1, 2 };
+        coin3Pos = new int[] { 2, 2 };
+        coin4Pos = new int[] { 3, 2 };
         setPosition();
+        /*coin1.transform.position = new Vector3(coinPositionH[coin1Pos[0]], coinPositionV[coin1Pos[1]], -2); // coinPositionH and coinPositionV are just numbers 
+        coin2.transform.position = new Vector3(coinPositionH[coin2Pos[0]], coinPositionV[coin2Pos[1]], -2); //      to where to coins are going to be placed on
+        coin3.transform.position = new Vector3(coinPositionH[coin3Pos[0]], coinPositionV[coin3Pos[1]], -2);
+        coin4.transform.position = new Vector3(coinPositionH[coin4Pos[0]], coinPositionV[coin4Pos[1]], -2);// coin4Pos keeps track of coin Number 4 position*/
+
     }
 
     private void OnMouseOver()
@@ -294,7 +300,6 @@ public class TableManager : MonoBehaviour
         {
             case 0: //H1  // for H1 we are moving PositionV only // the bounds is going up to the number "2"
 
-                //I should check who should go first before anything
                 for (int i = 0; i <= 3;  i++)
                 {
                     
