@@ -1050,6 +1050,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 572837538}
   entrance: {fileID: 0}
   roomName: LivingRoom
+  floorNum: 1
 --- !u!60 &49731052
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2825,6 +2826,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 317649881}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 0
   blackWallanim: {fileID: 339300083}
@@ -3320,7 +3322,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 750731169}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!212 &137632909
@@ -3391,6 +3394,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 418391085}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -3503,7 +3507,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!61 &140408490
@@ -3549,6 +3554,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1557083971}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 0
   blackWallanim: {fileID: 339300083}
@@ -3963,7 +3969,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!212 &151345647
@@ -4060,6 +4067,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1918994361}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -4268,6 +4276,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 465509288}
   entrance: {fileID: 0}
   roomName: UnknownRoom
+  floorNum: 3
 --- !u!60 &155413762
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -4437,85 +4446,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
---- !u!1 &159592479
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 159592480}
-  - component: {fileID: 159592482}
-  - component: {fileID: 159592481}
-  m_Layer: 5
-  m_Name: TooltipText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &159592480
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159592479}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 817364201}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.100006, y: -105.3}
-  m_SizeDelta: {x: 231.7077, y: 48.48355}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &159592481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159592479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-    m_FontSize: 18
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 1
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 1
-    m_LineSpacing: 1
-  m_Text: 
---- !u!222 &159592482
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159592479}
-  m_CullTransparentMesh: 0
 --- !u!1 &165892621
 GameObject:
   m_ObjectHideFlags: 0
@@ -5869,7 +5799,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!61 &212378629
@@ -5915,6 +5846,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 60217424}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 0
   blackWallanim: {fileID: 339300083}
@@ -6110,6 +6042,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 755845981}
   entrance: {fileID: 0}
   roomName: SEBathroom
+  floorNum: 2
 --- !u!60 &217504422
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -6616,6 +6549,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 692082933}
   entrance: {fileID: 0}
   roomName: Kitchen
+  floorNum: 1
 --- !u!60 &241857675
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7111,6 +7045,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 178981056}
   entrance: {fileID: 0}
   roomName: SWBedroom
+  floorNum: 2
 --- !u!60 &262800667
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7436,6 +7371,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 496686436}
   entrance: {fileID: 0}
   roomName: SEBedroom
+  floorNum: 2
 --- !u!60 &269684367
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7670,7 +7606,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!212 &274169426
@@ -7767,6 +7704,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1801091897}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -8222,7 +8160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 750731169}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!114 &282474153
@@ -8242,6 +8181,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 414386210}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -10353,7 +10293,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 376984298}
   m_LocalRotation: {x: -0, y: -0, z: 0.002881122, w: -0.9999959}
-  m_LocalPosition: {x: -0.05968552, y: 0.4939537, z: -0.00034647807}
+  m_LocalPosition: {x: 0.009, y: 0.546, z: -0.00034647807}
   m_LocalScale: {x: 1.0705796, y: 1.07058, z: 1.0705799}
   m_Children: []
   m_Father: {fileID: 1628862310}
@@ -11087,6 +11027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 750731169}
+  startupMessage: 
   Message: 
   toolSwitch: 0
 --- !u!114 &408585208
@@ -11612,6 +11553,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1932145299}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -11700,6 +11642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!61 &429790645
@@ -12172,7 +12115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 750731169}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!114 &443546401
@@ -12192,6 +12136,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1128903237}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -12508,6 +12453,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 1243111950}
   entrance: {fileID: 0}
   roomName: Study
+  floorNum: 3
 --- !u!60 &446742131
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -12935,7 +12881,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 750731169}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!212 &466896592
@@ -13006,6 +12953,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1698541713}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -13444,6 +13392,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 815182202}
   entrance: {fileID: 0}
   roomName: HubRoom
+  floorNum: 3
 --- !u!60 &483672562
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -13600,6 +13549,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 689203271}
   entrance: {fileID: 0}
   roomName: MirrorRoom
+  floorNum: 3
 --- !u!60 &487498598
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -13891,6 +13841,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1766307819}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 0
   blackWallanim: {fileID: 339300083}
@@ -14834,6 +14785,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 1751751450}
   entrance: {fileID: 0}
   roomName: WestCloset
+  floorNum: 2
 --- !u!60 &550767500
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -15813,6 +15765,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 1649583509}
   entrance: {fileID: 0}
   roomName: EastCloset
+  floorNum: 2
 --- !u!60 &585402108
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -16391,7 +16344,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!212 &599668883
@@ -16488,6 +16442,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 376984298}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -17216,7 +17171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!212 &626419261
@@ -17313,6 +17269,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 342987836}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -19385,6 +19342,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 590769086}
   entrance: {fileID: 0}
   roomName: F2HubRoom
+  floorNum: 2
 --- !u!60 &690108783
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -20221,7 +20179,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 750731169}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!114 &720174237
@@ -20241,6 +20200,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1825275357}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -20778,7 +20738,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!212 &737373816
@@ -20875,6 +20836,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1291373454}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -21402,6 +21364,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 599899497}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -21424,6 +21387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!61 &749716158
@@ -21490,6 +21454,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 1370158563}
   entrance: {fileID: 0}
   roomName: Kitchen
+  floorNum: 1
 --- !u!60 &749903260
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -23024,7 +22989,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 750731169}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!212 &794390868
@@ -23095,6 +23061,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 731906091}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -23726,7 +23693,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 750731169}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!114 &807708229
@@ -23746,6 +23714,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 192430505}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -23859,6 +23828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
+  startupMessage: Use WASD to Move
   Message: 
   toolSwitch: 0
 --- !u!114 &807807278
@@ -24127,121 +24097,6 @@ Transform:
   m_Father: {fileID: 483672564}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &817364200
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 817364201}
-  - component: {fileID: 817364205}
-  - component: {fileID: 817364204}
-  - component: {fileID: 817364203}
-  - component: {fileID: 817364202}
-  m_Layer: 5
-  m_Name: Canvas
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &817364201
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 817364200}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_Children:
-  - {fileID: 159592480}
-  m_Father: {fileID: 1698210223}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
---- !u!114 &817364202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 817364200}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
-  Message: 
-  toolSwitch: 0
---- !u!114 &817364203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 817364200}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
---- !u!114 &817364204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 817364200}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
---- !u!223 &817364205
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 817364200}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
 --- !u!1 &818279753
 GameObject:
   m_ObjectHideFlags: 0
@@ -24917,7 +24772,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 0}
+  startupMessage: 
   Message: Press E to use Stairs
   toolSwitch: 0
 --- !u!114 &844520475
@@ -26069,7 +25925,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!212 &873314576
@@ -26166,6 +26023,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1108969045}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -26406,6 +26264,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 445217473}
   entrance: {fileID: 0}
   roomName: NEBathroom
+  floorNum: 2
 --- !u!60 &904339989
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -27137,6 +26996,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 2030695506}
   entrance: {fileID: 0}
   roomName: DiningRoom
+  floorNum: 1
 --- !u!60 &927790502
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -28213,7 +28073,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!212 &951504680
@@ -28310,6 +28171,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 2090319055}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -29482,6 +29344,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 376634522}
   entrance: {fileID: 0}
   roomName: SpecialRoom
+  floorNum: 2
 --- !u!60 &983347895
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -29605,7 +29468,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 983347893}
   m_LocalRotation: {x: -0.7071068, y: -0, z: 0, w: -0.7071068}
-  m_LocalPosition: {x: -6.6, y: 0.3, z: 10.4}
+  m_LocalPosition: {x: -6.469, y: 0.3, z: 10.4}
   m_LocalScale: {x: 0.9664766, y: 0.96647626, z: 0.96647626}
   m_Children:
   - {fileID: 1823505513}
@@ -29850,6 +29713,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 179658432}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -29898,6 +29762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: Press 'E' to Go Through Doors
   toolSwitch: 0
 --- !u!61 &989003034
@@ -30356,6 +30221,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 57259130}
   entrance: {fileID: 0}
   roomName: Library
+  floorNum: 1
 --- !u!60 &1010640145
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -31282,7 +31148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!212 &1054248853
@@ -31379,6 +31246,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 527442591}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -32305,6 +32173,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 261371839}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -32327,6 +32196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!61 &1090399931
@@ -32428,7 +32298,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!61 &1090724817
@@ -32474,6 +32345,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 378214268}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 0
   blackWallanim: {fileID: 339300083}
@@ -32858,7 +32730,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!212 &1110659347
@@ -32955,6 +32828,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1096079423}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -33668,6 +33542,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1909547115}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -33741,6 +33616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!61 &1132408749
@@ -33979,6 +33855,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 434830829}
   entrance: {fileID: 0}
   roomName: SWBathroom
+  floorNum: 2
 --- !u!60 &1137405010
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -34294,6 +34171,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1679202536}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -34367,6 +34245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!61 &1141305687
@@ -34974,6 +34853,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 1515465092}
   entrance: {fileID: 0}
   roomName: NEBedroom
+  floorNum: 2
 --- !u!60 &1155409911
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -36764,6 +36644,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 650084101}
   entrance: {fileID: 0}
   roomName: WestHallway
+  floorNum: 2
 --- !u!60 &1206698824
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -37057,6 +36938,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 499767271}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -37130,6 +37012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!61 &1209090069
@@ -37317,6 +37200,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 117287927}
   entrance: {fileID: 0}
   roomName: WestHallway
+  floorNum: 3
 --- !u!60 &1215427296
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -37763,7 +37647,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!61 &1224362299
@@ -37809,6 +37694,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 718016037}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 0
   blackWallanim: {fileID: 339300083}
@@ -39817,6 +39703,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 333776810}
   entrance: {fileID: 0}
   roomName: EastHallway
+  floorNum: 2
 --- !u!60 &1281250007
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -40042,6 +39929,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1644800746}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -40130,6 +40018,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!61 &1287688270
@@ -40195,6 +40084,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 1470713550}
   entrance: {fileID: 0}
   roomName: NWBedroom
+  floorNum: 2
 --- !u!60 &1289565747
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -40831,6 +40721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: Press E to use Stairs
   toolSwitch: 0
 --- !u!1 &1314386018
@@ -41307,6 +41198,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd9a1f4055e5aef4c956f74be1f9f91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floor3Rooms:
+  - {fileID: 1604306732}
+  - {fileID: 487498597}
+  - {fileID: 1215427295}
+  - {fileID: 483672561}
+  - {fileID: 2001717781}
+  - {fileID: 446742130}
+  - {fileID: 155413761}
+  floor2Rooms:
+  - {fileID: 1289565746}
+  - {fileID: 983347894}
+  - {fileID: 1155409910}
+  - {fileID: 904339988}
+  - {fileID: 690108782}
+  - {fileID: 1137405009}
+  - {fileID: 262800666}
+  - {fileID: 269684366}
+  - {fileID: 217504421}
+  - {fileID: 1206698823}
+  - {fileID: 1281250006}
+  floor1Rooms:
+  - {fileID: 1734360194}
+  - {fileID: 927790501}
+  - {fileID: 749903259}
+  - {fileID: 241857674}
+  - {fileID: 49731051}
+  - {fileID: 1010640144}
+  - {fileID: 1501061210}
   Rooms:
   - {fileID: 1734360194}
   - {fileID: 1010640144}
@@ -42395,7 +42314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!61 &1381804285
@@ -42441,6 +42361,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1082262197}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 0
   blackWallanim: {fileID: 339300083}
@@ -45471,7 +45392,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!212 &1499079435
@@ -45568,6 +45490,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 328132434}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -45639,6 +45562,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 1243932353}
   entrance: {fileID: 0}
   roomName: Garage
+  floorNum: 1
 --- !u!212 &1501061211
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -46285,7 +46209,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!1 &1523536534
 GameObject:
@@ -46837,7 +46761,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!61 &1535702134
@@ -46883,6 +46808,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 574065552}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 0
   blackWallanim: {fileID: 339300083}
@@ -47175,7 +47101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!212 &1542147971
@@ -47272,6 +47199,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1732006934}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -47385,7 +47313,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!114 &1547564627
@@ -47405,6 +47334,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 59200199}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -49101,6 +49031,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 8478994}
   entrance: {fileID: 0}
   roomName: MasterBedroom
+  floorNum: 3
 --- !u!60 &1604306733
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -49811,7 +49742,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0012817383, y: -0.3108585}
+  m_Offset: {x: 0, y: -0.3108585}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -50416,6 +50347,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1617756544}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 0
   blackWallanim: {fileID: 339300083}
@@ -50626,7 +50558,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!212 &1628862313
@@ -50723,6 +50656,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1931316762}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -50959,6 +50893,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 138169203}
   entrance: {fileID: 0}
   roomName: TutorialRoom
+  floorNum: 1
 --- !u!1 &1636197164
 GameObject:
   m_ObjectHideFlags: 0
@@ -52147,7 +52082,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!61 &1674227935
@@ -52193,6 +52129,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1836825950}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 0
   blackWallanim: {fileID: 339300083}
@@ -52530,7 +52467,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!212 &1682860482
@@ -52627,6 +52565,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 856991122}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -52980,11 +52919,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92a2e8fcaf4cacf439bc3ce3f525f556, type: 3}
---- !u!4 &1698210223 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4605737870697592602, guid: 92a2e8fcaf4cacf439bc3ce3f525f556, type: 3}
-  m_PrefabInstance: {fileID: 1698210222}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1698210224 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4605737869113684421, guid: 92a2e8fcaf4cacf439bc3ce3f525f556, type: 3}
@@ -54176,6 +54110,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 1151409955}
   entrance: {fileID: 0}
   roomName: F1HubRoom
+  floorNum: 1
 --- !u!60 &1734360195
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -54613,7 +54548,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!212 &1743503905
@@ -54710,6 +54646,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1010288353}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -55214,7 +55151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 750731169}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!212 &1762720282
@@ -55285,6 +55223,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1917111751}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -56150,7 +56089,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!61 &1795530412
@@ -56196,6 +56136,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 721918283}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 0
   blackWallanim: {fileID: 339300083}
@@ -56957,7 +56898,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!212 &1818211154
@@ -57054,6 +56996,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 397343727}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -57487,7 +57430,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!212 &1826556214
@@ -57584,6 +57528,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 181377688}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -57991,6 +57936,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1423361344}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -58090,6 +58036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!61 &1841355177
@@ -60058,6 +60005,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 302763825}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -60131,6 +60079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!61 &1929385778
@@ -60807,6 +60756,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1588349109}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -60880,6 +60830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!61 &1936929855
@@ -61385,7 +61336,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!114 &1948781498
@@ -61405,6 +61357,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 605022996}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -61786,7 +61739,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 750731169}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!114 &1952726111
@@ -61806,6 +61760,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1699171827}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -61914,7 +61869,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 750731169}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!114 &1952929461
@@ -61934,6 +61890,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1230456973}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -62064,7 +62021,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!212 &1956795703
@@ -62161,6 +62119,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1783106631}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -62977,7 +62936,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 750731169}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!114 &1973596544
@@ -62997,6 +62957,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1831552472}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -63709,6 +63670,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1059485045}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -63797,6 +63759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!61 &1988763070
@@ -64087,7 +64050,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!212 &1998687947
@@ -64184,6 +64148,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1786988226}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -64230,6 +64195,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 960358724}
   entrance: {fileID: 0}
   roomName: EastHallway
+  floorNum: 3
 --- !u!60 &2001717782
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -65215,6 +65181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: Press 'Q' when near a candle to light it. Press 'E' near a workbench to
     access it.
   toolSwitch: 0
@@ -65919,7 +65886,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!212 &2044342783
@@ -66016,6 +65984,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 241482039}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -66170,6 +66139,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1140262547}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 0
   blackWallanim: {fileID: 339300083}
@@ -66873,7 +66843,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 159592481}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!212 &2068368702
@@ -66970,6 +66941,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1178536087}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -67978,6 +67950,7 @@ MonoBehaviour:
   cameraPoint: {fileID: 179398054}
   entrance: {fileID: 0}
   roomName: Hallway
+  floorNum: 1
 --- !u!60 &2125430958
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -68326,7 +68299,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 750731169}
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!114 &2134453011
@@ -68346,6 +68320,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 1732217092}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -68758,6 +68733,7 @@ MonoBehaviour:
   entrancePointRoom: {fileID: 644083374}
   player: {fileID: 1619042896}
   Listener: {fileID: 1677718118}
+  toolTipScript: {fileID: 0}
   transition: {fileID: 358797188}
   transitionOnOff: 1
   blackWallanim: {fileID: 339300083}
@@ -68780,6 +68756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
+  startupMessage: 
   Message: '''E'''
   toolSwitch: 0
 --- !u!61 &2143602357

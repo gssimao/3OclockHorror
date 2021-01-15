@@ -10,6 +10,7 @@ public class roomCntrl : MonoBehaviour
     public GameObject entrancePointRoom;
     public PlayerMovement player;
     public invInput Listener;
+    public Tooltip toolTipScript;
 
     public Animator transition;
     public bool transitionOnOff = true; //Use this toggle the transition on and off
@@ -34,6 +35,7 @@ public class roomCntrl : MonoBehaviour
         {
             blackWall.SetActive(false);
         }
+        toolTipScript = gameObject.GetComponent<Tooltip>();
     }
 
     // Update is called once per frame
@@ -86,10 +88,20 @@ public class roomCntrl : MonoBehaviour
             }
         }
     }
-    void OnDrawGizmos()// Draws a blue circle around the candle in the editor to help visualize the disance of the interactableRange
+    void OnDrawGizmos()//Shows how far the play needs to be in order to use the door
     {
         Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(gameObject.transform.position, 0.5f);
+        Vector3 plyPos = entrancePointRoom.transform.position;
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(new Vector3(plyPos.x, plyPos.y - 0.3108585f, plyPos.z), new Vector3(0.1573486f, 0.1247783f, 1f));
+    }
+    private void OnDrawGizmosSelected()//Draws a line between the door and it's destination, which is markered by a red circle
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(gameObject.transform.position, entrancePointRoom.transform.position);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(entrancePointRoom.transform.position, 0.1f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

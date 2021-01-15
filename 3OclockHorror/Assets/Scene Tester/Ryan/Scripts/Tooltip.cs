@@ -7,6 +7,7 @@ public class Tooltip : MonoBehaviour
 {
     public Text TooltipText;
     private bool walked = false;
+    public string startupMessage = "";
     public string Message;
 
     public bool toolSwitch; //What type of tooltip? constant or prompt
@@ -14,19 +15,9 @@ public class Tooltip : MonoBehaviour
 
     //Constant Tooltip
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        TooltipText.text = Message;
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        TooltipText.text = "";
-    }
-
     void Start()
     {
-        TooltipText.text = "Use 'WASD' to move";
+        TooltipText.text = startupMessage;
     }
 
     // Update is called once per frame
@@ -37,5 +28,15 @@ public class Tooltip : MonoBehaviour
             TooltipText.text = "";
             walked = true;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        TooltipText.text = Message;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        TooltipText.text = "";
     }
 }

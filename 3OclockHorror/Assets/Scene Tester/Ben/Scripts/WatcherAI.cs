@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class WatcherAI : MonoBehaviour
 {
+    public room[] floor3Rooms;
+    public room[] floor2Rooms;
+    public room[] floor1Rooms;
     public room[] Rooms;
 
     public GameObject player;
@@ -37,6 +40,7 @@ public class WatcherAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Rooms = floor1Rooms;
         Candles = currentRoom.getRoomObject().GetComponentsInChildren<CandleScript>();
         spawnPoint = currentRoom.getWatcherSpawn().transform.position;
 
@@ -106,6 +110,8 @@ public class WatcherAI : MonoBehaviour
     
     void MoveWatcher() //Moves the watcher between the rooms
     {
+        CheckRoom();
+
         if (emptyRoomCount == 0)
         {
             int i = 0;
@@ -163,6 +169,7 @@ public class WatcherAI : MonoBehaviour
         }
 
         CheckRoom();
+
         if (!playerInRoom)
         {
             emptyRoomCount++;
@@ -254,9 +261,7 @@ public class WatcherAI : MonoBehaviour
         for(int i = 0; i < Rooms.Length; i++)
         {
             if(Rooms[i] != playerRoom)
-
             {
-
                 plyIndex = i;
 
             }
@@ -277,7 +282,14 @@ public class WatcherAI : MonoBehaviour
         }
         else
         {
-            playerInRoom = false;
+            if (currentRoom.getFloorNum() != playerRoom.getFloorNum())
+            {
+                ChangeFloor(playerRoom.getFloorNum());
+            }
+            else
+            {
+                playerInRoom = false;
+            }
         }
     }
 
@@ -297,6 +309,25 @@ public class WatcherAI : MonoBehaviour
         else if(plyAngle <= 60 && plyAngle > 0)
         {
             watcherAnim.SetTrigger("Right");
+        }
+    }
+
+    void ChangeFloor(int floorNum)
+    {
+        switch (floorNum)
+        {
+            case 1:
+                Rooms = floor1Rooms;
+                break;
+            case 2:
+                Rooms = floor2Rooms;
+                break;
+            case 3:
+                Rooms = floor3Rooms;
+                break;
+            default:
+                Rooms = floor1Rooms;
+                break;
         }
     }
 

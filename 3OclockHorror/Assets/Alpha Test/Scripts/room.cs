@@ -18,6 +18,8 @@ public class room : MonoBehaviour
     Collider2D entrance; //Collider for entrance/exit - Might be depreciated alongside entrance.
     [SerializeField]
     string roomName; //Name for the room, can serve as a way to sort them
+    [SerializeField]
+    int floorNum; //What number of floor the room is on. Basement is zero
 
     #region Get/Set
 
@@ -45,6 +47,10 @@ public class room : MonoBehaviour
     public GameObject getCameraPoint()
     {
         return cameraPoint;
+    }
+    public int getFloorNum()
+    {
+        return floorNum;
     }
 
     #endregion
