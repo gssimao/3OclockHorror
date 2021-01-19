@@ -9,7 +9,7 @@ public class room : MonoBehaviour
     [SerializeField]
     GameObject roomObject; //Object that actually serves as the room parent.
     [SerializeField]
-    GameObject watcherSpawn; //Point the watcher teleports to if he goes to this room
+    GameObject[] watcherSpawn; //Point the watcher teleports to if he goes to this room
     [SerializeField]
     connectedPatrolPoint entrancePoint; //Stores gameobject at door, for purposes of spawning hunter/creep
     [SerializeField]
@@ -29,7 +29,11 @@ public class room : MonoBehaviour
     }
     public GameObject getWatcherSpawn()
     {
-        return watcherSpawn;
+        int i = 0;
+        
+        i = Random.Range(0, watcherSpawn.Length);
+
+        return watcherSpawn[i];
     }
     public connectedPatrolPoint getEntrancePoint()
     {
@@ -43,7 +47,6 @@ public class room : MonoBehaviour
     {
         return roomName;
     }
-
     public GameObject getCameraPoint()
     {
         return cameraPoint;
