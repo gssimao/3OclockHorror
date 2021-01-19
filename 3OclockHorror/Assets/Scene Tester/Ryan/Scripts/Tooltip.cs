@@ -10,10 +10,14 @@ public class Tooltip : MonoBehaviour
     public string startupMessage = "";
     public string Message;
 
+    public GameObject player;
+
     public bool toolSwitch; //What type of tooltip? constant or prompt
     //Prompt Tooltip
 
     //Constant Tooltip
+
+    float timer = 0;
 
     void Start()
     {
@@ -23,10 +27,29 @@ public class Tooltip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameObject.Find("Player2").GetComponent<PlayerMovement>().walking == true && walked == false)
+        if(timer > 0)
         {
-            TooltipText.text = "";
-            walked = true;
+            timer -= Time.deltaTime;
+        }
+        else if(timer < 0)
+        {
+            timer = 0;
+            Message = "";
+        }
+
+        if (startupMessage != "")
+        {
+            if (player.GetComponent<PlayerMovement>().walking == true && walked == false)
+            {
+                TooltipText.text = "";
+                walked = true;
+            }
+        }
+
+        if(Message == "The door is locked")
+        {
+            timer = 5;
+            Message = "You need to find a key";
         }
     }
 

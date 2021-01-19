@@ -105,9 +105,30 @@ public class WatcherAI : MonoBehaviour
                 }
                 else isPlaying = false;
             }
+
+            if(distance <= 0.6)
+            {
+                if (isPlaying == false && manager != null)
+                {
+                    manager.Play(""); //Player is very close to Watcher
+                    isPlaying = true;
+                }
+                else isPlaying = false;
+            }
+
+            if (distance <= 1)
+            {
+                if (isPlaying == false && manager != null)
+                {
+                    manager.Play(""); //Player is getting closer to Watcher
+                    isPlaying = true;
+                }
+                else isPlaying = false;
+            }
+
         }
     }
-    
+
     void MoveWatcher() //Moves the watcher between the rooms
     {
         CheckRoom();
