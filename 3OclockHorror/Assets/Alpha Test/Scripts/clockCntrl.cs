@@ -29,7 +29,7 @@ public class clockCntrl : MonoBehaviour
     // Start is called before the first frame update 
     void Start()
     {
-        endTime = 1200.0f; //set endtime, to however long we want it to run - Adjust to full time
+        endTime = 2400.0f; //set endtime, to however long we want it to run - Adjust to full time
         watcher.SetActive(false);
         creep.SetActive(false);
     }
