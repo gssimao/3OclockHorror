@@ -7,6 +7,8 @@ public class connectedPatrolPoint : patrolPoint
     [SerializeField]
     protected float connectivityRadius = 10f;
     [SerializeField]
+    bool drawConnecRadius;
+    [SerializeField]
     List<connectedPatrolPoint> connections;
 
     public string waypointTag; //This is used to prevent points from getting points in other scenes
@@ -30,8 +32,11 @@ public class connectedPatrolPoint : patrolPoint
     public override void OnDrawGizmos()
     {
         base.OnDrawGizmos();
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, connectivityRadius);
+        if (drawConnecRadius)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position, connectivityRadius);
+        }
     }
 
     public connectedPatrolPoint nextWaypoint(connectedPatrolPoint prevPoint)

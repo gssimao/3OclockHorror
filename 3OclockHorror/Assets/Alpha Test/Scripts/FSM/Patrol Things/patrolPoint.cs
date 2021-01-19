@@ -5,10 +5,15 @@ public class patrolPoint : MonoBehaviour
 {
     [SerializeField]
     protected float debugDrawRadius = 1.0f;
+    [SerializeField]
+    bool drawDebug;
 
     public virtual void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, debugDrawRadius);
+        if (drawDebug)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, debugDrawRadius);
+        }
     }
 }
