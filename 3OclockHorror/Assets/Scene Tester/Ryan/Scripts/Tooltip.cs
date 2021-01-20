@@ -7,34 +7,46 @@ public class Tooltip : MonoBehaviour
 {
     public Text TooltipText;
     private bool walked = false;
-    public string startupMessage = "";
-    public string Message;
-
     public GameObject player;
 
-    public bool toolSwitch; //What type of tooltip? constant or prompt
-    //Prompt Tooltip
+    //Prompt Message
+    public string PromptMessage;
 
-    //Constant Tooltip
+    //Timed Message
+    public string TimedMessage;
 
-    float timer = 0;
+    //OnStartup Message
+    public bool masterSwitch = false;
+    public string startupMessage = "";
+
+    public float timer = 0;
 
     void Start()
     {
-        TooltipText.text = startupMessage;
+        if (masterSwitch == true)
+        {
+            TooltipText.text = "";
+            TooltipText.text = startupMessage;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(timer > 0)
+        if (TimedMessage != "")
+        {
+            TooltipText.text = TimedMessage;
+        }
+
+        if (timer > 0)
         {
             timer -= Time.deltaTime;
         }
         else if(timer < 0)
         {
             timer = 0;
-            Message = "";
+            TimedMessage = "";
+            TooltipText.text = "";
         }
 
         if (startupMessage != "")
@@ -46,16 +58,15 @@ public class Tooltip : MonoBehaviour
             }
         }
 
-        if(Message == "The door is locked")
+        if(TooltipText.text != "" && timer == 0)
         {
             timer = 5;
-            Message = "You need to find a key";
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        TooltipText.text = Message;
+        TooltipText.text = PromptMessage;
     }
 
     private void OnTriggerExit2D(Collider2D collision)

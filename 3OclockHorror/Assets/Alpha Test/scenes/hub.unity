@@ -2806,7 +2806,7 @@ GameObject:
   - component: {fileID: 127088122}
   - component: {fileID: 127088126}
   m_Layer: 0
-  m_Name: Door(HallwayToLiving)
+  m_Name: Pathway(HallwayToLiving)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3281,7 +3281,6 @@ GameObject:
   - component: {fileID: 137632905}
   - component: {fileID: 137632910}
   - component: {fileID: 137632909}
-  - component: {fileID: 137632908}
   - component: {fileID: 137632907}
   - component: {fileID: 137632906}
   m_Layer: 0
@@ -3358,22 +3357,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.63, y: 0.27996394}
   m_EdgeRadius: 0
---- !u!114 &137632908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 137632904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!212 &137632909
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3496,7 +3479,7 @@ GameObject:
   - component: {fileID: 140408489}
   - component: {fileID: 140408488}
   m_Layer: 0
-  m_Name: Door(EastHallToHub)
+  m_Name: Pathway(EastHallToHub)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3557,8 +3540,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
   startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
+  masterSwitch: 0
+  player: {fileID: 0}
+  PromptMessage: 
+  TimedMessage: 
 --- !u!61 &140408490
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3963,7 +3948,6 @@ GameObject:
   - component: {fileID: 151345649}
   - component: {fileID: 151345648}
   - component: {fileID: 151345647}
-  - component: {fileID: 151345646}
   - component: {fileID: 151345645}
   m_Layer: 0
   m_Name: Door(SpecialToNWBed)
@@ -4013,22 +3997,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.18, y: 0.90607107}
   m_EdgeRadius: 0
---- !u!114 &151345646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 151345643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!212 &151345647
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5819,7 +5787,7 @@ GameObject:
   - component: {fileID: 212378628}
   - component: {fileID: 212378627}
   m_Layer: 0
-  m_Name: Door(WestClosetToWestHall)
+  m_Name: Pathway(WestClosetToWestHall)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5880,8 +5848,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
   startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
+  masterSwitch: 0
+  player: {fileID: 0}
+  PromptMessage: 
+  TimedMessage: 
 --- !u!61 &212378629
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7647,7 +7617,6 @@ GameObject:
   - component: {fileID: 274169428}
   - component: {fileID: 274169427}
   - component: {fileID: 274169426}
-  - component: {fileID: 274169425}
   - component: {fileID: 274169424}
   m_Layer: 0
   m_Name: Door(NEBathToEastHall)
@@ -7697,22 +7666,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.66, y: 0.25281888}
   m_EdgeRadius: 0
---- !u!114 &274169425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 274169422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!212 &274169426
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8182,7 +8135,6 @@ GameObject:
   - component: {fileID: 282474149}
   - component: {fileID: 282474154}
   - component: {fileID: 282474153}
-  - component: {fileID: 282474152}
   - component: {fileID: 282474151}
   - component: {fileID: 282474150}
   m_Layer: 0
@@ -8259,22 +8211,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6787317, y: 0.23251954}
   m_EdgeRadius: 0
---- !u!114 &282474152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 282474148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!114 &282474153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10346,7 +10282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c097ab818c7c62548ab7284c8a1714db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1619042889}
   GrandfatherClock: {fileID: 364542454}
   soundRange: 3
 --- !u!212 &364542457
@@ -11248,8 +11184,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 750731169}
   startupMessage: 
-  Message: 
-  toolSwitch: 0
+  masterSwitch: 0
+  player: {fileID: 0}
+  PromptMessage: 
+  TimedMessage: 
 --- !u!114 &408585208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11728,7 +11666,6 @@ GameObject:
   - component: {fileID: 429790641}
   - component: {fileID: 429790640}
   - component: {fileID: 429790643}
-  - component: {fileID: 429790644}
   - component: {fileID: 429790645}
   m_Layer: 0
   m_Name: Door(KitchenToUnknown)
@@ -11856,22 +11793,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
---- !u!114 &429790644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 429790639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!61 &429790645
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12267,7 +12188,7 @@ GameObject:
   - component: {fileID: 443546399}
   - component: {fileID: 443546398}
   m_Layer: 0
-  m_Name: Door(EHToHub)
+  m_Name: Pathway(EHToHub)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12354,8 +12275,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
   startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
+  masterSwitch: 0
+  player: {fileID: 0}
+  PromptMessage: 
+  TimedMessage: 
 --- !u!114 &443546401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13034,7 +12957,6 @@ GameObject:
   - component: {fileID: 466896588}
   - component: {fileID: 466896593}
   - component: {fileID: 466896592}
-  - component: {fileID: 466896591}
   - component: {fileID: 466896590}
   - component: {fileID: 466896589}
   m_Layer: 0
@@ -13111,22 +13033,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.66, y: 0.19561091}
   m_EdgeRadius: 0
---- !u!114 &466896591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 466896587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!212 &466896592
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14042,7 +13948,7 @@ GameObject:
   - component: {fileID: 499757945}
   - component: {fileID: 499757949}
   m_Layer: 0
-  m_Name: Door(HubToDining)
+  m_Name: Pathway(HubToDining)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16568,7 +16474,6 @@ GameObject:
   - component: {fileID: 599668885}
   - component: {fileID: 599668884}
   - component: {fileID: 599668883}
-  - component: {fileID: 599668882}
   - component: {fileID: 599668881}
   m_Layer: 0
   m_Name: Door(WestHallToSpecial)
@@ -16618,22 +16523,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.63, y: 0.32610515}
   m_EdgeRadius: 0
---- !u!114 &599668882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 599668879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!212 &599668883
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17403,7 +17292,6 @@ GameObject:
   - component: {fileID: 626419263}
   - component: {fileID: 626419262}
   - component: {fileID: 626419261}
-  - component: {fileID: 626419260}
   - component: {fileID: 626419259}
   m_Layer: 0
   m_Name: Door(EastHallToNEBath)
@@ -17453,22 +17341,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.63, y: 0.31205088}
   m_EdgeRadius: 0
---- !u!114 &626419260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 626419257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!212 &626419261
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20504,7 +20376,6 @@ GameObject:
   - component: {fileID: 720174233}
   - component: {fileID: 720174238}
   - component: {fileID: 720174237}
-  - component: {fileID: 720174236}
   - component: {fileID: 720174235}
   - component: {fileID: 720174234}
   m_Layer: 0
@@ -20581,22 +20452,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.63062406, y: 0.3038659}
   m_EdgeRadius: 0
---- !u!114 &720174236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 720174232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!114 &720174237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21094,7 +20949,6 @@ GameObject:
   - component: {fileID: 737373818}
   - component: {fileID: 737373817}
   - component: {fileID: 737373816}
-  - component: {fileID: 737373815}
   - component: {fileID: 737373814}
   m_Layer: 0
   m_Name: Door(SEBedToSEBath)
@@ -21144,22 +20998,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.19971374, y: 1.19}
   m_EdgeRadius: 0
---- !u!114 &737373815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 737373812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!212 &737373816
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -21670,7 +21508,6 @@ GameObject:
   - component: {fileID: 749716156}
   - component: {fileID: 749716155}
   - component: {fileID: 749716154}
-  - component: {fileID: 749716157}
   - component: {fileID: 749716158}
   m_Layer: 0
   m_Name: Door(LibraryToLiving)
@@ -21798,22 +21635,6 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
---- !u!114 &749716157
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 749716152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!61 &749716158
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23429,7 +23250,6 @@ GameObject:
   - component: {fileID: 794390864}
   - component: {fileID: 794390869}
   - component: {fileID: 794390868}
-  - component: {fileID: 794390867}
   - component: {fileID: 794390866}
   - component: {fileID: 794390865}
   m_Layer: 0
@@ -23506,22 +23326,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.66, y: 0.19985665}
   m_EdgeRadius: 0
---- !u!114 &794390867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 794390863}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!212 &794390868
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -24141,7 +23945,6 @@ GameObject:
   - component: {fileID: 807708225}
   - component: {fileID: 807708230}
   - component: {fileID: 807708229}
-  - component: {fileID: 807708228}
   - component: {fileID: 807708227}
   - component: {fileID: 807708226}
   m_Layer: 0
@@ -24218,22 +24021,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7600943, y: 0.31599325}
   m_EdgeRadius: 0
---- !u!114 &807708228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 807708224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!114 &807708229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24366,8 +24153,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
   startupMessage: Use WASD to Move
-  Message: 
-  toolSwitch: 0
+  masterSwitch: 1
+  player: {fileID: 1619042889}
+  PromptMessage: 
+  TimedMessage: 
 --- !u!114 &807807278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25321,10 +25110,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TooltipText: {fileID: 0}
+  TooltipText: {fileID: 460473766}
   startupMessage: 
-  Message: Press E to use Stairs
-  toolSwitch: 0
+  masterSwitch: 0
+  player: {fileID: 0}
+  PromptMessage: E
+  TimedMessage: 
 --- !u!114 &844520475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26424,7 +26215,6 @@ GameObject:
   - component: {fileID: 873314578}
   - component: {fileID: 873314577}
   - component: {fileID: 873314576}
-  - component: {fileID: 873314575}
   - component: {fileID: 873314574}
   m_Layer: 0
   m_Name: Door(EastHallToSEBath)
@@ -26474,22 +26264,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.63, y: 0.20294249}
   m_EdgeRadius: 0
---- !u!114 &873314575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 873314572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!212 &873314576
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -27763,7 +27537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c097ab818c7c62548ab7284c8a1714db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1619042889}
   GrandfatherClock: {fileID: 928211686}
   soundRange: 3
 --- !u!212 &928211689
@@ -28595,7 +28369,6 @@ GameObject:
   - component: {fileID: 951504682}
   - component: {fileID: 951504681}
   - component: {fileID: 951504680}
-  - component: {fileID: 951504679}
   - component: {fileID: 951504678}
   m_Layer: 0
   m_Name: Door(SWBathToSWBed)
@@ -28645,22 +28418,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.22397764, y: 1.19}
   m_EdgeRadius: 0
---- !u!114 &951504679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 951504676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!212 &951504680
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -30227,6 +29984,7 @@ GameObject:
   - component: {fileID: 989003031}
   - component: {fileID: 989003033}
   - component: {fileID: 989003034}
+  - component: {fileID: 989003035}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -30366,8 +30124,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
   startupMessage: 
-  Message: Press 'E' to Go Through Doors
-  toolSwitch: 0
+  masterSwitch: 0
+  player: {fileID: 0}
+  PromptMessage: 
+  TimedMessage: 
 --- !u!61 &989003034
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30394,6 +30154,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.63, y: 0.26191634}
   m_EdgeRadius: 0
+--- !u!114 &989003035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989003028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TooltipText: {fileID: 460473766}
+  startupMessage: 
+  masterSwitch: 0
+  player: {fileID: 1619042889}
+  PromptMessage: E
+  TimedMessage: 
 --- !u!1001 &989236686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31793,7 +31571,6 @@ GameObject:
   - component: {fileID: 1054248855}
   - component: {fileID: 1054248854}
   - component: {fileID: 1054248853}
-  - component: {fileID: 1054248852}
   - component: {fileID: 1054248851}
   m_Layer: 0
   m_Name: Door(WestHallToSWBed
@@ -31843,22 +31620,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.63, y: 0.24873152}
   m_EdgeRadius: 0
---- !u!114 &1054248852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1054248849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!212 &1054248853
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -32775,7 +32536,6 @@ GameObject:
   - component: {fileID: 1090399929}
   - component: {fileID: 1090399928}
   - component: {fileID: 1090399927}
-  - component: {fileID: 1090399930}
   - component: {fileID: 1090399931}
   m_Layer: 0
   m_Name: Door(LibraryToHub)
@@ -32903,22 +32663,6 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
---- !u!114 &1090399930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1090399925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!61 &1090399931
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -32959,7 +32703,7 @@ GameObject:
   - component: {fileID: 1090724816}
   - component: {fileID: 1090724815}
   m_Layer: 0
-  m_Name: Door(HubToWestHall)
+  m_Name: Pathway(HubToWestHall)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33020,8 +32764,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
   startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
+  masterSwitch: 0
+  player: {fileID: 0}
+  PromptMessage: 
+  TimedMessage: 
 --- !u!61 &1090724817
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33392,7 +33138,6 @@ GameObject:
   - component: {fileID: 1110659349}
   - component: {fileID: 1110659348}
   - component: {fileID: 1110659347}
-  - component: {fileID: 1110659346}
   - component: {fileID: 1110659345}
   m_Layer: 0
   m_Name: Door(NWBedToSpecial)
@@ -33442,22 +33187,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.18, y: 0.9202096}
   m_EdgeRadius: 0
---- !u!114 &1110659346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1110659343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!212 &1110659347
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -34242,7 +33971,6 @@ GameObject:
   - component: {fileID: 1132408744}
   - component: {fileID: 1132408746}
   - component: {fileID: 1132408747}
-  - component: {fileID: 1132408748}
   - component: {fileID: 1132408749}
   - component: {fileID: 1132408745}
   m_Layer: 0
@@ -34371,22 +34099,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
---- !u!114 &1132408748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1132408743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!61 &1132408749
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34873,7 +34585,6 @@ GameObject:
   - component: {fileID: 1141305684}
   - component: {fileID: 1141305683}
   - component: {fileID: 1141305685}
-  - component: {fileID: 1141305686}
   - component: {fileID: 1141305687}
   m_Layer: 0
   m_Name: Door(KitchenToDining)
@@ -35001,22 +34712,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
---- !u!114 &1141305686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1141305681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!61 &1141305687
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -37682,7 +37377,6 @@ GameObject:
   - component: {fileID: 1209090066}
   - component: {fileID: 1209090065}
   - component: {fileID: 1209090067}
-  - component: {fileID: 1209090068}
   - component: {fileID: 1209090069}
   m_Layer: 0
   m_Name: Door(LivingToLibrary)
@@ -37810,22 +37504,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
---- !u!114 &1209090068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1209090063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!61 &1209090069
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38408,7 +38086,7 @@ GameObject:
   - component: {fileID: 1224362298}
   - component: {fileID: 1224362297}
   m_Layer: 0
-  m_Name: Door(WestHallToWestCloset)
+  m_Name: Pathway(WestHallToWestCloset)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38469,8 +38147,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
   startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
+  masterSwitch: 0
+  player: {fileID: 0}
+  PromptMessage: 
+  TimedMessage: 
 --- !u!61 &1224362299
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40728,7 +40408,6 @@ GameObject:
   - component: {fileID: 1287688266}
   - component: {fileID: 1287688265}
   - component: {fileID: 1287688268}
-  - component: {fileID: 1287688269}
   - component: {fileID: 1287688270}
   m_Layer: 0
   m_Name: Door(DiningToKitchen)
@@ -40856,22 +40535,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
---- !u!114 &1287688269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1287688264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!61 &1287688270
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41580,8 +41243,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
   startupMessage: 
-  Message: Press E to use Stairs
-  toolSwitch: 0
+  masterSwitch: 0
+  player: {fileID: 0}
+  PromptMessage: 
+  TimedMessage: 
 --- !u!1 &1314386018
 GameObject:
   m_ObjectHideFlags: 0
@@ -43149,7 +42814,7 @@ GameObject:
   - component: {fileID: 1381804284}
   - component: {fileID: 1381804283}
   m_Layer: 0
-  m_Name: Door(WestHallToHub)
+  m_Name: Pathway(WestHallToHub)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43210,8 +42875,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
   startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
+  masterSwitch: 0
+  player: {fileID: 0}
+  PromptMessage: 
+  TimedMessage: 
 --- !u!61 &1381804285
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46525,7 +46192,6 @@ GameObject:
   - component: {fileID: 1499079437}
   - component: {fileID: 1499079436}
   - component: {fileID: 1499079435}
-  - component: {fileID: 1499079434}
   - component: {fileID: 1499079433}
   m_Layer: 0
   m_Name: Door(NEBathToNEBed)
@@ -46575,22 +46241,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3216712, y: 0.90158665}
   m_EdgeRadius: 0
---- !u!114 &1499079434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1499079431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!212 &1499079435
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -47908,7 +47558,7 @@ GameObject:
   - component: {fileID: 1535702133}
   - component: {fileID: 1535702132}
   m_Layer: 0
-  m_Name: Door(EastHallToEastCloset)
+  m_Name: Pathway(EastHallToEastCloset)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47969,8 +47619,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
   startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
+  masterSwitch: 0
+  player: {fileID: 0}
+  PromptMessage: 
+  TimedMessage: 
 --- !u!61 &1535702134
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48249,7 +47901,6 @@ GameObject:
   - component: {fileID: 1542147973}
   - component: {fileID: 1542147972}
   - component: {fileID: 1542147971}
-  - component: {fileID: 1542147970}
   - component: {fileID: 1542147969}
   m_Layer: 0
   m_Name: Door(WestHallToNWBed)
@@ -48299,22 +47950,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.63, y: 0.3120776}
   m_EdgeRadius: 0
---- !u!114 &1542147970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1542147967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!212 &1542147971
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -48461,7 +48096,6 @@ GameObject:
   - component: {fileID: 1547564629}
   - component: {fileID: 1547564628}
   - component: {fileID: 1547564627}
-  - component: {fileID: 1547564626}
   - component: {fileID: 1547564625}
   m_Layer: 0
   m_Name: Door(SEBathToEHallway)
@@ -48511,22 +48145,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.63, y: 0.35900134}
   m_EdgeRadius: 0
---- !u!114 &1547564626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1547564623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!114 &1547564627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51539,7 +51157,7 @@ GameObject:
   - component: {fileID: 1626619251}
   - component: {fileID: 1626619254}
   m_Layer: 0
-  m_Name: Door(HubToLibrary)
+  m_Name: Pathway(HubToLibrary)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51752,7 +51370,6 @@ GameObject:
   - component: {fileID: 1628862315}
   - component: {fileID: 1628862314}
   - component: {fileID: 1628862313}
-  - component: {fileID: 1628862312}
   - component: {fileID: 1628862311}
   m_Layer: 0
   m_Name: Door(SpecialToWestHall)
@@ -51802,22 +51419,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.66, y: 0.22810256}
   m_EdgeRadius: 0
---- !u!114 &1628862312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1628862309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!212 &1628862313
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -53550,7 +53151,7 @@ GameObject:
   - component: {fileID: 1674227934}
   - component: {fileID: 1674227933}
   m_Layer: 0
-  m_Name: Door(EastClosetToEastHall)
+  m_Name: Pathway(EastClosetToEastHall)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53611,8 +53212,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
   startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
+  masterSwitch: 0
+  player: {fileID: 0}
+  PromptMessage: 
+  TimedMessage: 
 --- !u!61 &1674227935
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53936,7 +53539,6 @@ GameObject:
   - component: {fileID: 1682860484}
   - component: {fileID: 1682860483}
   - component: {fileID: 1682860482}
-  - component: {fileID: 1682860481}
   - component: {fileID: 1682860480}
   m_Layer: 0
   m_Name: Door(NEBedToEastHall)
@@ -53986,22 +53588,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.66, y: 0.23876843}
   m_EdgeRadius: 0
---- !u!114 &1682860481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1682860478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!212 &1682860482
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -56046,7 +55632,6 @@ GameObject:
   - component: {fileID: 1743503907}
   - component: {fileID: 1743503906}
   - component: {fileID: 1743503905}
-  - component: {fileID: 1743503904}
   - component: {fileID: 1743503903}
   m_Layer: 0
   m_Name: Door(WestHallToSWBath)
@@ -56096,22 +55681,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.63, y: 0.25303918}
   m_EdgeRadius: 0
---- !u!114 &1743503904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1743503901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!212 &1743503905
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -56630,7 +56199,6 @@ GameObject:
   - component: {fileID: 1762720278}
   - component: {fileID: 1762720283}
   - component: {fileID: 1762720282}
-  - component: {fileID: 1762720281}
   - component: {fileID: 1762720280}
   - component: {fileID: 1762720279}
   m_Layer: 0
@@ -56707,22 +56275,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.63, y: 0.21263346}
   m_EdgeRadius: 0
---- !u!114 &1762720281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1762720277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!212 &1762720282
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -57616,7 +57168,7 @@ GameObject:
   - component: {fileID: 1795530411}
   - component: {fileID: 1795530410}
   m_Layer: 0
-  m_Name: Door(HubToEastHall)
+  m_Name: Pathway(HubToEastHall)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57677,8 +57229,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
   startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
+  masterSwitch: 0
+  player: {fileID: 0}
+  PromptMessage: 
+  TimedMessage: 
 --- !u!61 &1795530412
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58434,7 +57988,6 @@ GameObject:
   - component: {fileID: 1818211156}
   - component: {fileID: 1818211155}
   - component: {fileID: 1818211154}
-  - component: {fileID: 1818211153}
   - component: {fileID: 1818211152}
   m_Layer: 0
   m_Name: Door(NEBedToNEBath)
@@ -58484,22 +58037,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.18, y: 0.93137205}
   m_EdgeRadius: 0
---- !u!114 &1818211153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1818211150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!212 &1818211154
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -58970,7 +58507,6 @@ GameObject:
   - component: {fileID: 1826556216}
   - component: {fileID: 1826556215}
   - component: {fileID: 1826556214}
-  - component: {fileID: 1826556213}
   - component: {fileID: 1826556212}
   m_Layer: 0
   m_Name: Door(NWBedtoWestHall)
@@ -59020,22 +58556,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.66, y: 0.2357803}
   m_EdgeRadius: 0
---- !u!114 &1826556213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1826556210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!212 &1826556214
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -59499,7 +59019,6 @@ GameObject:
   - component: {fileID: 1841355174}
   - component: {fileID: 1841355173}
   - component: {fileID: 1841355175}
-  - component: {fileID: 1841355176}
   - component: {fileID: 1841355177}
   m_Layer: 0
   m_Name: Door(GarageToLibrary)
@@ -59627,22 +59146,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.18, y: 0.94572246}
   m_EdgeRadius: 0
---- !u!114 &1841355176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1841355171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!61 &1841355177
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -61576,7 +61079,6 @@ GameObject:
   - component: {fileID: 1929385775}
   - component: {fileID: 1929385774}
   - component: {fileID: 1929385776}
-  - component: {fileID: 1929385777}
   - component: {fileID: 1929385778}
   m_Layer: 0
   m_Name: Door(DiningToHub)
@@ -61704,22 +61206,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
---- !u!114 &1929385777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1929385772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!61 &1929385778
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -62333,7 +61819,6 @@ GameObject:
   - component: {fileID: 1936929852}
   - component: {fileID: 1936929851}
   - component: {fileID: 1936929853}
-  - component: {fileID: 1936929854}
   - component: {fileID: 1936929855}
   m_Layer: 0
   m_Name: Door(UnknownToHallway)
@@ -62461,22 +61946,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
---- !u!114 &1936929854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1936929849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!61 &1936929855
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -62928,7 +62397,6 @@ GameObject:
   - component: {fileID: 1948781500}
   - component: {fileID: 1948781499}
   - component: {fileID: 1948781498}
-  - component: {fileID: 1948781497}
   - component: {fileID: 1948781496}
   m_Layer: 0
   m_Name: Door(SEBathToSEBed)
@@ -62978,22 +62446,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.29318205, y: 0.9298158}
   m_EdgeRadius: 0
---- !u!114 &1948781497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1948781494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!114 &1948781498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63310,7 +62762,7 @@ GameObject:
   - component: {fileID: 1952726109}
   - component: {fileID: 1952726108}
   m_Layer: 0
-  m_Name: Door(HubToWH)
+  m_Name: Pathway(HubToWH)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63397,8 +62849,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
   startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
+  masterSwitch: 0
+  player: {fileID: 0}
+  PromptMessage: 
+  TimedMessage: 
 --- !u!114 &1952726111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63440,7 +62894,7 @@ GameObject:
   - component: {fileID: 1952929459}
   - component: {fileID: 1952929458}
   m_Layer: 0
-  m_Name: Door(HubToEH)
+  m_Name: Pathway(HubToEH)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63527,8 +62981,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
   startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
+  masterSwitch: 0
+  player: {fileID: 0}
+  PromptMessage: 
+  TimedMessage: 
 --- !u!114 &1952929461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63617,7 +63073,6 @@ GameObject:
   - component: {fileID: 1956795705}
   - component: {fileID: 1956795704}
   - component: {fileID: 1956795703}
-  - component: {fileID: 1956795702}
   - component: {fileID: 1956795701}
   m_Layer: 0
   m_Name: Door(EastHallToNEBed)
@@ -63667,22 +63122,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.63, y: 0.29857737}
   m_EdgeRadius: 0
---- !u!114 &1956795702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1956795699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!212 &1956795703
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -64602,7 +64041,6 @@ GameObject:
   - component: {fileID: 1973596540}
   - component: {fileID: 1973596545}
   - component: {fileID: 1973596544}
-  - component: {fileID: 1973596543}
   - component: {fileID: 1973596542}
   - component: {fileID: 1973596541}
   m_Layer: 0
@@ -64679,22 +64117,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6787317, y: 0.17676732}
   m_EdgeRadius: 0
---- !u!114 &1973596543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1973596539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!114 &1973596544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65383,7 +64805,6 @@ GameObject:
   - component: {fileID: 1988763066}
   - component: {fileID: 1988763065}
   - component: {fileID: 1988763068}
-  - component: {fileID: 1988763069}
   - component: {fileID: 1988763070}
   m_Layer: 0
   m_Name: Door(LivingToHallway)
@@ -65511,22 +64932,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
---- !u!114 &1988763069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1988763064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!61 &1988763070
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -65761,7 +65166,6 @@ GameObject:
   - component: {fileID: 1998687949}
   - component: {fileID: 1998687948}
   - component: {fileID: 1998687947}
-  - component: {fileID: 1998687946}
   - component: {fileID: 1998687945}
   m_Layer: 0
   m_Name: Door(SWBedToWestHall)
@@ -65811,22 +65215,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.63, y: 0.358651}
   m_EdgeRadius: 0
---- !u!114 &1998687946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1998687943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!212 &1998687947
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -66976,9 +66364,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
   startupMessage: 
-  Message: Press 'Q' when near a candle to light it. Press 'E' near a workbench to
-    access it.
-  toolSwitch: 0
+  masterSwitch: 0
+  player: {fileID: 0}
+  PromptMessage: 
+  TimedMessage: 
 --- !u!61 &2024609712
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -67622,7 +67011,6 @@ GameObject:
   - component: {fileID: 2044342785}
   - component: {fileID: 2044342784}
   - component: {fileID: 2044342783}
-  - component: {fileID: 2044342782}
   - component: {fileID: 2044342781}
   m_Layer: 0
   m_Name: Door(SWBedToSWBath)
@@ -67672,22 +67060,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.19690064, y: 1.19}
   m_EdgeRadius: 0
---- !u!114 &2044342782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2044342779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!212 &2044342783
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -67873,7 +67245,7 @@ GameObject:
   - component: {fileID: 2049539072}
   - component: {fileID: 2049539076}
   m_Layer: 0
-  m_Name: Door(HallwayToUnknown)
+  m_Name: Pathway(HallwayToUnknown)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68585,7 +67957,6 @@ GameObject:
   - component: {fileID: 2068368704}
   - component: {fileID: 2068368703}
   - component: {fileID: 2068368702}
-  - component: {fileID: 2068368701}
   - component: {fileID: 2068368700}
   m_Layer: 0
   m_Name: Door(SWBathToWestHall)
@@ -68635,22 +68006,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.63, y: 0.32813203}
   m_EdgeRadius: 0
---- !u!114 &2068368701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2068368698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!212 &2068368702
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -70044,7 +69399,7 @@ GameObject:
   - component: {fileID: 2134453009}
   - component: {fileID: 2134453008}
   m_Layer: 0
-  m_Name: Door(WHToHub)
+  m_Name: Pathway(WHToHub)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70131,8 +69486,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
   startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
+  masterSwitch: 0
+  player: {fileID: 0}
+  PromptMessage: 
+  TimedMessage: 
 --- !u!114 &2134453011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70447,7 +69804,6 @@ GameObject:
   - component: {fileID: 2143602355}
   - component: {fileID: 2143602354}
   - component: {fileID: 2143602353}
-  - component: {fileID: 2143602356}
   - component: {fileID: 2143602357}
   m_Layer: 0
   m_Name: Door(LibraryToGarage)
@@ -70576,22 +69932,6 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
---- !u!114 &2143602356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2143602351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 460473766}
-  startupMessage: 
-  Message: '''E'''
-  toolSwitch: 0
 --- !u!61 &2143602357
 BoxCollider2D:
   m_ObjectHideFlags: 0

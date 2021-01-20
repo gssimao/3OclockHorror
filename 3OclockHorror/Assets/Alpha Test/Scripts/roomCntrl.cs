@@ -186,7 +186,7 @@ public class roomCntrl : MonoBehaviour
             }
             else
             {
-                toolTipScript.Message = "The door is locked";
+                toolTipScript.TimedMessage = "The door is locked";
             }
         }
         else if(lockCanv != null && !lockCanv.activeSelf)
