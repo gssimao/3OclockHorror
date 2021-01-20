@@ -100,4 +100,9 @@ public class ContainerControl : MonoBehaviour
     {
         tooltip = input;
     }
+
+    public int getItemCount()
+    {
+        return Items.Count;
+    }
 }
