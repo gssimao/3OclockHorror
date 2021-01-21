@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class LPhotoCntrl : MonoBehaviour, IBeginDragHandler, IDragHandler
+public class LPhotoCntrl : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     Item myPhoto;
     [SerializeField]
@@ -15,6 +15,8 @@ public class LPhotoCntrl : MonoBehaviour, IBeginDragHandler, IDragHandler
     Text date;
     [SerializeField]
     Text numeral;
+    [SerializeField]
+    PicSlot[] pictureSlots;
 
     bool isFlipped;
 
@@ -65,10 +67,22 @@ public class LPhotoCntrl : MonoBehaviour, IBeginDragHandler, IDragHandler
     {
         transform.localPosition += new Vector3(eventData.delta.x, eventData.delta.y, 0) / transform.lossyScale.x;
         transform.SetAsLastSibling();
+        for(int i = 0; i < pictureSlots.Length; i++)
+        {
+            pictureSlots[i].selectedPhoto = this.gameObject;
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         transform.localPosition += new Vector3(eventData.delta.x, eventData.delta.y, 0) / transform.lossyScale.x;
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        for (int i = 0; i < pictureSlots.Length; i++)
+        {
+            pictureSlots[i].selectedPhoto = null;
+        }
     }
 }
