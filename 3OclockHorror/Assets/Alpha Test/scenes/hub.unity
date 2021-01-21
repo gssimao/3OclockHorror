@@ -3539,11 +3539,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
-  startupMessage: 
-  masterSwitch: 0
   player: {fileID: 0}
   PromptMessage: 
   TimedMessage: 
+  masterSwitch: 0
+  startupMessage: 
+  timer: 0
 --- !u!61 &140408490
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5847,11 +5848,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
-  startupMessage: 
-  masterSwitch: 0
   player: {fileID: 0}
   PromptMessage: 
   TimedMessage: 
+  masterSwitch: 0
+  startupMessage: 
+  timer: 0
 --- !u!61 &212378629
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11183,11 +11185,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 750731169}
-  startupMessage: 
-  masterSwitch: 0
   player: {fileID: 0}
   PromptMessage: 
   TimedMessage: 
+  masterSwitch: 0
+  startupMessage: 
+  timer: 0
 --- !u!114 &408585208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12274,11 +12277,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
-  startupMessage: 
-  masterSwitch: 0
   player: {fileID: 0}
   PromptMessage: 
   TimedMessage: 
+  masterSwitch: 0
+  startupMessage: 
+  timer: 0
 --- !u!114 &443546401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13362,6 +13366,7 @@ GameObject:
   - component: {fileID: 477410280}
   - component: {fileID: 477410279}
   - component: {fileID: 477410278}
+  - component: {fileID: 477410282}
   m_Layer: 0
   m_Name: Entrance Hall
   m_TagString: NoteContainer
@@ -13505,6 +13510,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &477410282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477410276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d30f16e7efed1e94d8ac4d6a837e19db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myContainer: {fileID: 477410278}
+  sr: {fileID: 477410281}
+  filled: {fileID: 21300000, guid: 281c80e58b3bbdf46a0e1d67a9d891f5, type: 3}
+  empty: {fileID: 21300000, guid: 312dc7cba0621e249bff73d9f538b4df, type: 3}
 --- !u!1 &483672560
 GameObject:
   m_ObjectHideFlags: 0
@@ -24152,11 +24173,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
-  startupMessage: Use WASD to Move
-  masterSwitch: 1
   player: {fileID: 1619042889}
   PromptMessage: 
   TimedMessage: 
+  masterSwitch: 1
+  startupMessage: Use WASD to Move
+  timer: 0
 --- !u!114 &807807278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25111,11 +25133,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
-  startupMessage: 
-  masterSwitch: 0
   player: {fileID: 0}
   PromptMessage: E
   TimedMessage: 
+  masterSwitch: 0
+  startupMessage: 
+  timer: 0
 --- !u!114 &844520475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30123,11 +30146,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
-  startupMessage: 
-  masterSwitch: 0
   player: {fileID: 0}
   PromptMessage: 
   TimedMessage: 
+  masterSwitch: 0
+  startupMessage: 
+  timer: 0
 --- !u!61 &989003034
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30167,11 +30191,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
-  startupMessage: 
-  masterSwitch: 0
   player: {fileID: 1619042889}
   PromptMessage: E
   TimedMessage: 
+  masterSwitch: 0
+  startupMessage: 
+  timer: 0
 --- !u!1001 &989236686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32763,11 +32788,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
-  startupMessage: 
-  masterSwitch: 0
   player: {fileID: 0}
   PromptMessage: 
   TimedMessage: 
+  masterSwitch: 0
+  startupMessage: 
+  timer: 0
 --- !u!61 &1090724817
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38146,11 +38172,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
-  startupMessage: 
-  masterSwitch: 0
   player: {fileID: 0}
   PromptMessage: 
   TimedMessage: 
+  masterSwitch: 0
+  startupMessage: 
+  timer: 0
 --- !u!61 &1224362299
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41242,11 +41269,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
-  startupMessage: 
-  masterSwitch: 0
   player: {fileID: 0}
   PromptMessage: 
   TimedMessage: 
+  masterSwitch: 0
+  startupMessage: 
+  timer: 0
 --- !u!1 &1314386018
 GameObject:
   m_ObjectHideFlags: 0
@@ -42874,11 +42902,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
-  startupMessage: 
-  masterSwitch: 0
   player: {fileID: 0}
   PromptMessage: 
   TimedMessage: 
+  masterSwitch: 0
+  startupMessage: 
+  timer: 0
 --- !u!61 &1381804285
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47618,11 +47647,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
-  startupMessage: 
-  masterSwitch: 0
   player: {fileID: 0}
   PromptMessage: 
   TimedMessage: 
+  masterSwitch: 0
+  startupMessage: 
+  timer: 0
 --- !u!61 &1535702134
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53211,11 +53241,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
-  startupMessage: 
-  masterSwitch: 0
   player: {fileID: 0}
   PromptMessage: 
   TimedMessage: 
+  masterSwitch: 0
+  startupMessage: 
+  timer: 0
 --- !u!61 &1674227935
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -57228,11 +57259,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
-  startupMessage: 
-  masterSwitch: 0
   player: {fileID: 0}
   PromptMessage: 
   TimedMessage: 
+  masterSwitch: 0
+  startupMessage: 
+  timer: 0
 --- !u!61 &1795530412
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -62848,11 +62880,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
-  startupMessage: 
-  masterSwitch: 0
   player: {fileID: 0}
   PromptMessage: 
   TimedMessage: 
+  masterSwitch: 0
+  startupMessage: 
+  timer: 0
 --- !u!114 &1952726111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62980,11 +63013,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
-  startupMessage: 
-  masterSwitch: 0
   player: {fileID: 0}
   PromptMessage: 
   TimedMessage: 
+  masterSwitch: 0
+  startupMessage: 
+  timer: 0
 --- !u!114 &1952929461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66363,11 +66397,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
-  startupMessage: 
-  masterSwitch: 0
   player: {fileID: 0}
   PromptMessage: 
   TimedMessage: 
+  masterSwitch: 0
+  startupMessage: 
+  timer: 0
 --- !u!61 &2024609712
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -69485,11 +69520,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 460473766}
-  startupMessage: 
-  masterSwitch: 0
   player: {fileID: 0}
   PromptMessage: 
   TimedMessage: 
+  masterSwitch: 0
+  startupMessage: 
+  timer: 0
 --- !u!114 &2134453011
 MonoBehaviour:
   m_ObjectHideFlags: 0
