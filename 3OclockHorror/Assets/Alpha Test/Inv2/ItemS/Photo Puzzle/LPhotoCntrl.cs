@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class LPhotoCntrl : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class LPhotoCntrl : MonoBehaviour, IBeginDragHandler, IDragHandler
 {
     Item myPhoto;
     [SerializeField]
@@ -19,7 +19,6 @@ public class LPhotoCntrl : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     PicSlot[] pictureSlots;
 
     bool isFlipped;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -70,19 +69,12 @@ public class LPhotoCntrl : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         for(int i = 0; i < pictureSlots.Length; i++)
         {
             pictureSlots[i].selectedPhoto = this.gameObject;
+            pictureSlots[i].pointerData = eventData;
         }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         transform.localPosition += new Vector3(eventData.delta.x, eventData.delta.y, 0) / transform.lossyScale.x;
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        for (int i = 0; i < pictureSlots.Length; i++)
-        {
-            pictureSlots[i].selectedPhoto = null;
-        }
     }
 }
