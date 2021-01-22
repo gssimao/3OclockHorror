@@ -21944,6 +21944,7 @@ Transform:
   - {fileID: 566974807}
   - {fileID: 1528284385}
   - {fileID: 1671727581}
+  - {fileID: 1344848800}
   m_Father: {fileID: 110148189}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -42118,6 +42119,36 @@ MonoBehaviour:
   drawConnecRadius: 1
   connections: []
   waypointTag: WaypointF1
+--- !u!1 &1344848799
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1344848800}
+  m_Layer: 0
+  m_Name: PlayerTPPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1344848800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344848799}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.690167, y: 0.09045476, z: -0.008727847}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 749903263}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1351367645
 GameObject:
   m_ObjectHideFlags: 0
@@ -54899,6 +54930,7 @@ MonoBehaviour:
       - {fileID: 1010640144}
       - {fileID: 1734360194}
       - {fileID: 927790501}
+  playerTPPoint: {fileID: 1344848799}
   player: {fileID: 1619042889}
   anim: {fileID: 1710219382}
   curPoint: {fileID: 1972923899}

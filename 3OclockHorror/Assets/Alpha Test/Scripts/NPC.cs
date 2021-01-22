@@ -8,6 +8,8 @@ public class NPC : MonoBehaviour
 {
     [SerializeField]
     public ArrayLayout rooms;
+    [SerializeField]
+    GameObject playerTPPoint;
 
     //Public (editor assigned) Variables
     public GameObject player; //The player target for the Blind Creep to head towards / check against
@@ -150,6 +152,7 @@ public class NPC : MonoBehaviour
             hitTmr = 200;
 
             //Script to fade to black and transfer rooms to cover time change
+            target.transform.position = playerTPPoint.transform.position;
         }
     }
 
