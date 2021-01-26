@@ -1796,7 +1796,6 @@ GameObject:
   - component: {fileID: 81007462}
   - component: {fileID: 81007461}
   - component: {fileID: 81007460}
-  - component: {fileID: 81007459}
   - component: {fileID: 81007458}
   m_Layer: 0
   m_Name: Door(ClosetToMain)
@@ -1846,25 +1845,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.18, y: 1.19}
   m_EdgeRadius: 0
---- !u!114 &81007459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 81007456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 0}
-  player: {fileID: 0}
-  PromptMessage: 
-  TimedMessage: 
-  masterSwitch: 0
-  startupMessage: 
-  timer: 0
 --- !u!61 &81007460
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11294,7 +11274,6 @@ GameObject:
   - component: {fileID: 393776728}
   - component: {fileID: 393776727}
   - component: {fileID: 393776726}
-  - component: {fileID: 393776725}
   - component: {fileID: 393776724}
   m_Layer: 0
   m_Name: Door(MainToCloset)
@@ -11344,25 +11323,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.18, y: 1.19}
   m_EdgeRadius: 0
---- !u!114 &393776725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 393776722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a007641fb17b284ca70074edf6e9da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TooltipText: {fileID: 0}
-  player: {fileID: 0}
-  PromptMessage: 
-  TimedMessage: 
-  masterSwitch: 0
-  startupMessage: 
-  timer: 0
 --- !u!61 &393776726
 BoxCollider2D:
   m_ObjectHideFlags: 0
