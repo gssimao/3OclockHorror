@@ -15,11 +15,6 @@ public class PlayerMovement : MonoBehaviour
     public AudioManager manager;
     public bool isPlaying = false; //for audio
 
-    public CandleScript[] Candles;
-    public CandleScript CandleInRange;
-    float cndlTmr;
-    float duration = 1f;
-
     //For Changing Scenes
     public GameObject Cntnr;
     public InventoryManager charPanel;
@@ -29,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
 
     //A list of all canvases that should block player movement
     public List<GameObject> Canvases; //Canvases that won't be deleted between scenes
-    public List<GameObject> tempCanvases; //Canvases that will be deleted
     bool canMove;
 
     bool RightLeg = true;
@@ -63,16 +57,7 @@ public class PlayerMovement : MonoBehaviour
                 if (canv.activeSelf)
                 {
                     canMove = false;
-                }
-            }
-        }
-        if (tempCanvases != null)
-        {
-            foreach (GameObject canv in tempCanvases)
-            {
-                if (canv.activeSelf)
-                {
-                    canMove = false;
+                    Debug.Log("Canvas open");
                 }
             }
         }
@@ -89,8 +74,14 @@ public class PlayerMovement : MonoBehaviour
             movement.x = 0;
             movement.y = 0;
         }
+
+        Debug.Log("X: " + movement.x + " Y: " + movement.y);
+
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+
+        #region depreciated_mouse_test
+        /**
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////// testing here
         if (Input.GetMouseButtonDown(0) == true && RightLeg == true && canMove == true)
         {
@@ -112,14 +103,14 @@ public class PlayerMovement : MonoBehaviour
              if (movement.y == -1 && canMoveDown == true) //going down
              {
                  GotoNumberY(rb.position + movement * moveSpeed, canMove);
-             }*/
+             }
             rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
         }
         if (Input.GetMouseButtonDown(1) == true && LeftLeg == true && canMove == true)
         {
             RightLeg = true;
             LeftLeg = false;
-            /*if (movement.x == 1 && canMoveRight == true) //going right
+            if (movement.x == 1 && canMoveRight == true) //going right
             {
                 GotoNumberX(rb.position + movement * moveSpeed, canMove);
             }
@@ -134,10 +125,12 @@ public class PlayerMovement : MonoBehaviour
             if (movement.y == -1 && canMoveDown == true) //going down
             {
                 GotoNumberY(rb.position + movement * moveSpeed, canMove);
-            }*/
+            }
             rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        **/
+        #endregion
 
         //Check the states for the walk animation.
         #region ChecKWalkStates 
@@ -205,45 +198,19 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void FixedUpdate()
-    {    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-         // Movement
+    {
+        // Movement
+        if (canMove)
+        {
+            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);  // take the comments out to go back to normal
+        }
 
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);  // take the comments out to go back to normal
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         if (Camera != null)
         {
             Camera.transform.position = myRoom.getCameraPoint().transform.position;
         }
-
-        if (cndlTmr >= duration)
-        {
-            CheckCandle();
-            cndlTmr = 0f;
-        }
-        else
-        {
-            cndlTmr += Time.deltaTime;
-        }
     }
-
-    void CheckCandle()
-    {
-        if (myRoom != null)
-        {
-            Candles = myRoom.getRoomObject().GetComponentsInChildren<CandleScript>();
-
-            foreach (CandleScript candle in Candles)
-            {
-                float dist = Vector2.Distance(gameObject.transform.position, candle.transform.position);
-                if (dist < 1)
-                {
-                    CandleInRange = candle;
-                    return;
-                }
-            }
-        }
-    }
-
+    
     public GameObject getJournal()
     {
         return Canvases[2];

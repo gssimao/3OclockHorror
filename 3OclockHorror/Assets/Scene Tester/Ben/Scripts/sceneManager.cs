@@ -46,7 +46,6 @@ public class sceneManager : MonoBehaviour
                 player.Canvases[1].GetComponent<Canvas>().worldCamera = plyCamera;
                 clockCntrl.SetWatcher(Watcher);
                 clockCntrl.SetCreep(TheBlindCreep);
-                player.tempCanvases.AddRange(plyCanvases);
                 Listener.ClearObjsList();
                 player.myRoom = startRoom;
                 player.Camera = plyCamera;
