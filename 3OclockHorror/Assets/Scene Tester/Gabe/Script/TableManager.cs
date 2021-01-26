@@ -179,7 +179,19 @@ public class TableManager : MonoBehaviour
         coin2Pos = new int[] { 1, 2 };
         coin3Pos = new int[] { 2, 2 };
         coin4Pos = new int[] { 3, 2 };
+        LeanTween.moveLocalY(coin1, coinPositionV[coin1Pos[0]], .1f);
+        LeanTween.moveLocalY(coin1, coinPositionH[coin1Pos[1]], .1f);
+
+        LeanTween.moveLocalY(coin2, coinPositionV[coin2Pos[0]], .1f);
+        LeanTween.moveLocalY(coin2, coinPositionH[coin2Pos[1]], .1f);
+
+        LeanTween.moveLocalY(coin3, coinPositionV[coin3Pos[0]], .1f);
+        LeanTween.moveLocalY(coin3, coinPositionH[coin3Pos[1]], .1f);
+
+        LeanTween.moveLocalY(coin4, coinPositionV[coin4Pos[0]], .1f);
+        LeanTween.moveLocalY(coin4, coinPositionH[coin4Pos[1]], .1f);
         setPosition();
+
         /*coin1.transform.position = new Vector3(coinPositionH[coin1Pos[0]], coinPositionV[coin1Pos[1]], -2); // coinPositionH and coinPositionV are just numbers 
         coin2.transform.position = new Vector3(coinPositionH[coin2Pos[0]], coinPositionV[coin2Pos[1]], -2); //      to where to coins are going to be placed on
         coin3.transform.position = new Vector3(coinPositionH[coin3Pos[0]], coinPositionV[coin3Pos[1]], -2);
