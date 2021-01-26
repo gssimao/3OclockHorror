@@ -5,6 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PatrolState", menuName = "FSM/States/Patrol", order = 2)] //Allow creation in project area
 public class patrolState : abstractFSMState
 {
+    /**
+    * Patrol State
+    * 
+    * This is the state where the BC goes as she traverses the room. Just like Idle, it ticks up her room traverse timer.
+    * She will navigate around obstacles, walking around the room until she hits her goal, at which point she will transition to idle.
+    **/
     [SerializeField]
     float speed;
 

@@ -9,7 +9,9 @@ public class NPC : MonoBehaviour
     [SerializeField]
     public ArrayLayout rooms;
     [SerializeField]
-    GameObject playerTPPoint;
+    TeleportPoint playerTPPoint;
+    [SerializeField]
+    TeleportPoint BCTPPoint;
     [SerializeField]
     GameObject BCAnimationCanvas;
 
@@ -156,12 +158,15 @@ public class NPC : MonoBehaviour
             if(Random.Range(1, 5) == 1)
             {
                 target.transform.position = playerTPPoint.transform.position;
+                target.GetComponent<PlayerMovement>().changeRoom(playerTPPoint.myRoom);
             }
             //Script to fade to black and transfer rooms to cover time change
             //Trigger animation / fade to black, on timer
             //timer is inherent to the screen for now, as it's a temporary placeholder feature
             //Whilst the screen is covered, the BC should be dealt with so that they are not in the same room when the player awakes
             BCAnimationCanvas.SetActive(true);
+            this.gameObject.transform.position = BCTPPoint.gameObject.transform.position;
+            myRoom = BCTPPoint.myRoom;
         }
     }
 

@@ -248,6 +248,11 @@ public class PlayerMovement : MonoBehaviour
     {
         return Canvases[2];
     }
+
+    public void changeRoom(room room)
+    {
+        myRoom = room;
+    }
 }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////// new stuff here, testing

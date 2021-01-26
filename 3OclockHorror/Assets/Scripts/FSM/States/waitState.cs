@@ -5,6 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "waitState", menuName = "FSM/States/Wait", order = 5)] //make object creatable
 public class waitState : abstractFSMState
 {
+    /**
+     * Wait State
+     * 
+     * The Blind Creep enters the wait state if the player leaves the room after getting agro.
+     * If the player re-enters the room, she will lock back on. 
+     * Otherwise, she will resume idling upon timer running out.
+    **/
+
     [SerializeField] //Duration trackers so we don't stay idle longer than desired
     float duration = 15f;
     float totalDuration;
@@ -39,34 +47,6 @@ public class waitState : abstractFSMState
             {
                 fsm.enterState(FSMStateType.CHASE);
             }
-
-            /*
-            totalDuration += Time.deltaTime; //Time that BC has been idle
-            executor.pTime += Time.deltaTime; //Time since last room transfer
-
-            if (executor.pTime >= 30f && executor.myRoom != player.myRoom)
-            {
-                fsm.enterState(FSMStateType.TRANSFER);
-            }
-            else if (totalDuration >= duration)
-            {
-                fsm.enterState(FSMStateType.PATROL);
-            }
-
-            if (totalDuration >= 0.3f)
-            {
-                if (player.movement.x != 0 && player.myRoom == executor.myRoom)
-                {
-                    executor.patrolTime = 0f;
-                    fsm.enterState(FSMStateType.CHASE);
-                }
-                else if (player.movement.y != 0 && player.myRoom == executor.myRoom)
-                {
-                    executor.patrolTime = 0f;
-                    fsm.enterState(FSMStateType.CHASE);
-                }
-            }
-            */
         }
     }
 

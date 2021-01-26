@@ -5,6 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ChaseState", menuName = "FSM/States/Chase", order = 3)] //Allow creation in project area
 public class chaseState : abstractFSMState
 {
+    /**
+     * Chase State
+     * 
+     * This is the state the Blind Creep enters upon catching the player from Idle.
+     * The BC will navigate towards the player, attempting to close the distance until either:
+     *      * The player leaves the room, triggering a change to idle
+     *      * The player is caught, triggering hit and causing the BC to lock
+    **/
     [SerializeField]
     float speed;
     float tmr = 0f;
@@ -46,7 +54,7 @@ public class chaseState : abstractFSMState
                 if (!cnt && executor.myRoom == player.myRoom) //Check if its just cnt that has decided it's done, in which case hit that player
                 {
                     executor.hit(player.gameObject);
-                    fsm.enterState(FSMStateType.IDLE);
+                    fsm.enterState(FSMStateType.LOCKED);
                 }
                 else if (executor.myRoom != player.myRoom && cnt) //This will only fire if the player has left the room whilst being chased.
                 {

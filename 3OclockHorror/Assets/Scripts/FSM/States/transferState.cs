@@ -5,6 +5,15 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="transferState", menuName = "FSM/States/Transfer", order = 4)] //make object creatable
 public class transferState : abstractFSMState
 {
+    /**
+    * Transfer State
+    * 
+    * In this state, the Blind Creep will attempt to transfer rooms. 
+    * First, she will look at the player's room, finding it in her list if it's there.
+    * Then she will form a list of nearby rooms, assuming at least one is adjacent. If so, she will teleport there.
+    * If she finds nothing, her timers will reset and she will stay in her current room.
+    * In either case, she will resume idling. 
+    **/
     List<room> Rooms;
     room ChosenRoom;
 

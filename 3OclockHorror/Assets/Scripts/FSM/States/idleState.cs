@@ -5,6 +5,15 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="idleState", menuName = "FSM/States/Idle", order = 1)] //make object creatable
 public class idleState : abstractFSMState
 {
+    /**
+     * Idle State
+     * 
+     * This is the state where the BC goes when not patrolling, chasing, or doing something else.
+     * It is her base state, where she stands still and listens.
+     * If she hears the player in that time, she will engage her chase routine.
+     * If she does not hear the player before the timer ends, she will patrol.
+     * If her transfer timer is high enough, she will transfer rooms if able.
+    **/
     [SerializeField] //Duration trackers so we don't stay idle longer than desired
     float duration = 5f;
     float totalDuration;
