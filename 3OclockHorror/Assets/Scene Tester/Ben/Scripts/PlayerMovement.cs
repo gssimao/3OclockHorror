@@ -15,11 +15,6 @@ public class PlayerMovement : MonoBehaviour
     public AudioManager manager;
     public bool isPlaying = false; //for audio
 
-    public CandleScript[] Candles;
-    public CandleScript CandleInRange;
-    float cndlTmr;
-    float duration = 1f;
-
     //For Changing Scenes
     public GameObject Cntnr;
     public InventoryManager charPanel;
@@ -32,8 +27,9 @@ public class PlayerMovement : MonoBehaviour
     public List<GameObject> tempCanvases; //Canvases that will be deleted
     bool canMove;
 
-    bool RightLeg = true;
-    bool LeftLeg = true;
+    //bool RightLeg = true;
+    //bool LeftLeg = true;
+
     public float walkTime = .5f;
     public float countTime = 0;
     public bool canMoveRight = true;
@@ -49,13 +45,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        canMove = true;
-
-        anim.SetBool("walkingLeft", false);
-        anim.SetBool("walkingRight", false);
-        anim.SetBool("walkingForwards", false);
-        anim.SetBool("walkingBackwards", false);
-
+        resetState();
         if (Canvases != null)
         {
             foreach (GameObject canv in Canvases)
@@ -77,8 +67,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        // Input
-
+        //Check if the player can move and is registering input
         if (canMove)
         {
             movement.x = Input.GetAxisRaw("Horizontal");
@@ -91,12 +80,15 @@ public class PlayerMovement : MonoBehaviour
         }
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+
+        #region Depreciated_mouse_control
+        /*
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////// testing here
         if (Input.GetMouseButtonDown(0) == true && RightLeg == true && canMove == true)
         {
             RightLeg = false;
             LeftLeg = true;
-            /* countTime = CheckSpeed(countTime);
+            countTime = CheckSpeed(countTime);
              if (movement.x == 1 && canMoveRight == true) //going right
              {
                  GotoNumberX(rb.position + movement * moveSpeed, canMove);
@@ -112,14 +104,14 @@ public class PlayerMovement : MonoBehaviour
              if (movement.y == -1 && canMoveDown == true) //going down
              {
                  GotoNumberY(rb.position + movement * moveSpeed, canMove);
-             }*/
+             }
             rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
         }
         if (Input.GetMouseButtonDown(1) == true && LeftLeg == true && canMove == true)
         {
             RightLeg = true;
             LeftLeg = false;
-            /*if (movement.x == 1 && canMoveRight == true) //going right
+            if (movement.x == 1 && canMoveRight == true) //going right
             {
                 GotoNumberX(rb.position + movement * moveSpeed, canMove);
             }
@@ -134,10 +126,12 @@ public class PlayerMovement : MonoBehaviour
             if (movement.y == -1 && canMoveDown == true) //going down
             {
                 GotoNumberY(rb.position + movement * moveSpeed, canMove);
-            }*/
+            }
             rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        */
+        #endregion
 
         //Check the states for the walk animation.
         #region ChecKWalkStates 
@@ -205,42 +199,15 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void FixedUpdate()
-    {    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-         // Movement
-
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);  // take the comments out to go back to normal
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    {
+        // Movement
+        if (canMove)
+        {
+            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);  // take the comments out to go back to normal
+        }
         if (Camera != null)
         {
             Camera.transform.position = myRoom.getCameraPoint().transform.position;
-        }
-
-        if (cndlTmr >= duration)
-        {
-            CheckCandle();
-            cndlTmr = 0f;
-        }
-        else
-        {
-            cndlTmr += Time.deltaTime;
-        }
-    }
-
-    void CheckCandle()
-    {
-        if (myRoom != null)
-        {
-            Candles = myRoom.getRoomObject().GetComponentsInChildren<CandleScript>();
-
-            foreach (CandleScript candle in Candles)
-            {
-                float dist = Vector2.Distance(gameObject.transform.position, candle.transform.position);
-                if (dist < 1)
-                {
-                    CandleInRange = candle;
-                    return;
-                }
-            }
         }
     }
 
@@ -252,6 +219,15 @@ public class PlayerMovement : MonoBehaviour
     public void changeRoom(room room)
     {
         myRoom = room;
+    }
+    public void resetState()
+    {
+        canMove = true;
+
+        anim.SetBool("walkingLeft", false);
+        anim.SetBool("walkingRight", false);
+        anim.SetBool("walkingForwards", false);
+        anim.SetBool("walkingBackwards", false);
     }
 }
 
