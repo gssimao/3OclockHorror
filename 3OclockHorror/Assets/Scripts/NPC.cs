@@ -11,6 +11,8 @@ public class NPC : MonoBehaviour
     [SerializeField]
     GameObject playerTPPoint;
     [SerializeField]
+    room TPPointRoom;
+    [SerializeField]
     GameObject BCAnimationCanvas;
 
     //Public (editor assigned) Variables
@@ -156,6 +158,7 @@ public class NPC : MonoBehaviour
             if(Random.Range(1, 5) == 1)
             {
                 target.transform.position = playerTPPoint.transform.position;
+                target.GetComponent<PlayerMovement>().myRoom = TPPointRoom;
             }
             //Script to fade to black and transfer rooms to cover time change
             //Trigger animation / fade to black, on timer
