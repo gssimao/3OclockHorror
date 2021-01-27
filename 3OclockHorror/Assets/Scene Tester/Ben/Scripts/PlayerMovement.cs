@@ -57,7 +57,6 @@ public class PlayerMovement : MonoBehaviour
                 if (canv.activeSelf)
                 {
                     canMove = false;
-                    Debug.Log("Canvas open");
                 }
             }
         }
@@ -74,8 +73,6 @@ public class PlayerMovement : MonoBehaviour
             movement.x = 0;
             movement.y = 0;
         }
-
-        Debug.Log("X: " + movement.x + " Y: " + movement.y);
 
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
