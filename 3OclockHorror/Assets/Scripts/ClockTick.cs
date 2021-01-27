@@ -8,7 +8,7 @@ public class ClockTick : MonoBehaviour
     public GameObject GrandfatherClock;
 
     public float soundRange;
-
+    bool isPlaying;
     float dist;
 
     AudioManager manager; //Bake it up here, helps to reduce stack time
@@ -23,19 +23,29 @@ public class ClockTick : MonoBehaviour
     void Update()
     {
         dist = Vector3.Distance(player.transform.position, this.transform.position);
+        Debug.Log("Clock Dist: " + dist);
 
         if (manager != null) //Then just gotta add a new if to make sure manager isn't null (always good practice to have such a thing)
         {
             if (dist <= soundRange)
             {
                 //FindObjectOfType<AudioManager>().Play("Clock Tick");
-                manager.Play("Clock Tick"); //Same call, just uses the baked instance instead
+                playSound();
             }
             else
             {
                 //FindObjectOfType<AudioManager>().Stop("Clock Tick");
                 manager.Stop("Clock Tick");
             }
+        }
+    }
+
+    void playSound()
+    {
+        if (!isPlaying)
+        {
+            manager.Play("Clock Tick");
+            isPlaying = true;
         }
     }
 }

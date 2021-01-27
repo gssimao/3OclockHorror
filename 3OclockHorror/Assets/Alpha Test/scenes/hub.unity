@@ -1742,6 +1742,50 @@ MonoBehaviour:
   drawConnecRadius: 0
   connections: []
   waypointTag: WaypointF2
+--- !u!1 &73525976
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 73525977}
+  - component: {fileID: 73525978}
+  m_Layer: 0
+  m_Name: BCTPPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &73525977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73525976}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.769, y: 0, z: -0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 749903263}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &73525978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73525976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186e3978e90c213419b069756e0edf57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myRoom: {fileID: 749903259}
 --- !u!1 &74430574
 GameObject:
   m_ObjectHideFlags: 0
@@ -23790,6 +23834,7 @@ Transform:
   - {fileID: 566974807}
   - {fileID: 1528284385}
   - {fileID: 1671727581}
+  - {fileID: 73525977}
   m_Father: {fileID: 110148189}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -38524,7 +38569,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1170369317}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01, y: 0.835, z: -0.042}
+  m_LocalPosition: {x: 0, y: 0.69, z: -0.042}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1810868329}
@@ -54055,8 +54100,6 @@ MonoBehaviour:
   movement: {x: 0, y: 0}
   manager: {fileID: 0}
   isPlaying: 0
-  Candles: []
-  CandleInRange: {fileID: 0}
   Cntnr: {fileID: 1192421596}
   charPanel: {fileID: 1932810098}
   ToolTip: {fileID: 858607486}
@@ -54067,7 +54110,7 @@ MonoBehaviour:
   - {fileID: 545888523}
   - {fileID: 404624914}
   tempCanvases:
-  - {fileID: 339300082}
+  - {fileID: 358797187}
   - {fileID: 1978921846}
   - {fileID: 1450514288}
   - {fileID: 1628193632}
@@ -55050,7 +55093,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629177948}
   m_LocalRotation: {x: -0, y: -0, z: 0.6087903, w: 0.79333127}
-  m_LocalPosition: {x: -0.744, y: 0.561, z: -0.1}
+  m_LocalPosition: {x: -0.744, y: 0.417, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1840341055}
@@ -58146,7 +58189,7 @@ MonoBehaviour:
       - {fileID: 1734360194}
       - {fileID: 927790501}
   playerTPPoint: {fileID: 1344848801}
-  BCTPPoint: {fileID: 0}
+  BCTPPoint: {fileID: 73525978}
   BCAnimationCanvas: {fileID: 404624914}
   player: {fileID: 1619042889}
   anim: {fileID: 1710219382}
@@ -64203,7 +64246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2422191158755921884, guid: 88e2b8f8676cf15428a1a69aa8d61b5b, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2422191158755921884, guid: 88e2b8f8676cf15428a1a69aa8d61b5b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -70031,7 +70074,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4319032879928100929, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4319032879928100929, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

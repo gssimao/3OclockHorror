@@ -167,6 +167,8 @@ public class NPC : MonoBehaviour
             BCAnimationCanvas.SetActive(true);
             this.gameObject.transform.position = BCTPPoint.gameObject.transform.position;
             myRoom = BCTPPoint.myRoom;
+            curPoint = myRoom.getEntrancePoint();
+            //Eventually, this should cause her to idle then switch rooms after a while
         }
     }
 
