@@ -42,6 +42,8 @@ public class NPC : MonoBehaviour
     public bool isWalking = false;
     public bool isRunning = false;
     public bool isPlaying = false;
+    public bool isWanPlaying = false; //Is the Wander Sound effect playing?
+    public bool isRunPlaying = false; //Is the Run Sound effect playing?
 
     int hitTmr;
 
@@ -251,6 +253,15 @@ public class NPC : MonoBehaviour
         else
         {
             isPlaying = false;
+        }
+
+        if (fsm.GetState() != FSMStateType.CHASE && isWanPlaying == false && manager != null)
+        {
+            manager.Play("BC Wander");
+        }
+        else
+        {
+            manager.Stop("BC Wander");
         }
     }
 

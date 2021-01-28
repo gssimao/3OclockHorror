@@ -10,6 +10,7 @@ public class clockCntrl : MonoBehaviour
     public int WatcherTime = 240;
     public int CreepTime = 480;
     public PlayerMovement player;
+    AudioManager manager;
 
     [SerializeField]
     float Clock = 0;
@@ -32,14 +33,24 @@ public class clockCntrl : MonoBehaviour
         endTime = 2400.0f; //set endtime, to however long we want it to run - Adjust to full time
         watcher.SetActive(false);
         creep.SetActive(false);
+        manager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (player.myRoom != null && manager != null)
+        {
+            manager.Play("Drone");
+        }
+
         if (player.myRoom != null && player.myRoom.getName() != "TutorialRoom")
         {
             Clock += Time.deltaTime;
+            if (manager != null)
+            {
+                manager.Play("Game ST");
+            }
 
             if (Clock >= endTime) //Check if sys time is beyond end time, if so quit
             {

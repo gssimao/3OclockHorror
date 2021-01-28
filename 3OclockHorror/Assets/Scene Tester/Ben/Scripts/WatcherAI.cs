@@ -110,7 +110,7 @@ public class WatcherAI : MonoBehaviour
             {
                 if (isPlaying == false && manager != null)
                 {
-                    manager.Play(""); //Player is very close to Watcher
+                    manager.Play("Watcher Close"); //Player is very close to Watcher
                     isPlaying = true;
                 }
                 else isPlaying = false;
@@ -120,7 +120,7 @@ public class WatcherAI : MonoBehaviour
             {
                 if (isPlaying == false && manager != null)
                 {
-                    manager.Play(""); //Player is getting closer to Watcher
+                    manager.Play("Watcher Far"); //Player is getting closer to Watcher
                     isPlaying = true;
                 }
                 else isPlaying = false;
