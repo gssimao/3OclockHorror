@@ -9,5 +9,6 @@ public class ArrayLayout  {
 		public room[] row;
 	}
 
-	public rowData[] rows = new rowData[3]; //Grid of 3
+	public rowData[] rows = new rowData[2];
+
 }

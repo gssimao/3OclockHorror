@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 movement;
     public AudioManager manager;
     public bool isPlaying = false; //for audio
+    public string playerFloor = "FirstFloor";
 
     //For Changing Scenes
     public GameObject Cntnr;

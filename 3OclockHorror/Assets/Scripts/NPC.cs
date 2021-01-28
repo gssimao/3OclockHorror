@@ -7,7 +7,14 @@ using Pathfinding;
 public class NPC : MonoBehaviour
 {
     [SerializeField]
+    public ArrayLayout FirstFloor;
+    [SerializeField]
+    public ArrayLayout SecondFloor;
+    [SerializeField]
+    public ArrayLayout ThirdFloor;
+
     public ArrayLayout rooms;
+
     [SerializeField]
     TeleportPoint playerTPPoint;
     [SerializeField]
@@ -72,7 +79,19 @@ public class NPC : MonoBehaviour
 
     void Update()
     {
-        
+        if (pmove.playerFloor == "FirstFloor")
+        {
+            rooms = FirstFloor;
+        }
+        else if(pmove.playerFloor == "SecondFloor")
+        {
+            rooms = SecondFloor;
+        }
+        else if(pmove.playerFloor == "ThirdFloor")
+        {
+            rooms = ThirdFloor;
+        }
+
         if (hitTmr > 0)
         {
             hitTmr--;

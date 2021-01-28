@@ -12,7 +12,7 @@ public class CustPropertyDrawer : PropertyDrawer {
 		newposition.y += 18f;
 		SerializedProperty data = property.FindPropertyRelative("rows");
 		//data.rows[0][]
-		for(int j=0;j<3;j++){
+		for(int j=0;j<2;j++){
 			SerializedProperty row = data.GetArrayElementAtIndex(j).FindPropertyRelative("row");
 			newposition.height = 18f;
 			if(row.arraySize != 4)
@@ -29,6 +29,6 @@ public class CustPropertyDrawer : PropertyDrawer {
 	}
 
 	public override float GetPropertyHeight(SerializedProperty property,GUIContent label){
-		return 18f * 8;
+		return 18f * 4;
 	}
 }

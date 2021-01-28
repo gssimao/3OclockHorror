@@ -18,6 +18,9 @@ public class FloorChanger : MonoBehaviour
     public GameObject crossFade;
     public GameObject blackWall;
 
+    [SerializeField]
+    string destString;
+
     float dist;
     bool animIsDone = false;
     // Start is called before the first frame update
@@ -41,6 +44,7 @@ public class FloorChanger : MonoBehaviour
                 animIsDone = true;
                 player.transform.position = spawnPoint.transform.position;
                 player.GetComponent<PlayerMovement>().myRoom = destRoom;
+                player.GetComponent<PlayerMovement>().playerFloor = destString;
             }
             /*if (blackWallanim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.85 && animIsDone)
             {
