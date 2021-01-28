@@ -1161,7 +1161,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.4, y: 3.2}
+    oldSize: {x: 12.8, y: 5.86}
     newSize: {x: 6.4, y: 3.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -27214,6 +27214,7 @@ MonoBehaviour:
   blackWallanim: {fileID: 339300083}
   crossFade: {fileID: 1957214474}
   blackWall: {fileID: 339300082}
+  destString: FirstFloor
 --- !u!61 &844520476
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44104,6 +44105,7 @@ MonoBehaviour:
   blackWallanim: {fileID: 339300083}
   crossFade: {fileID: 1957214474}
   blackWall: {fileID: 339300082}
+  destString: SecondFloor
 --- !u!61 &1312436726
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54100,6 +54102,7 @@ MonoBehaviour:
   movement: {x: 0, y: 0}
   manager: {fileID: 0}
   isPlaying: 0
+  playerFloor: FloorOne
   Cntnr: {fileID: 1192421596}
   charPanel: {fileID: 1932810098}
   ToolTip: {fileID: 858607486}
@@ -58171,20 +58174,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1358479cf7db6489a7b9dfc64996c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FirstFloor:
+    rows:
+    - row:
+      - {fileID: 49731051}
+      - {fileID: 2125430957}
+      - {fileID: 155413761}
+      - {fileID: 0}
+    - row:
+      - {fileID: 1010640144}
+      - {fileID: 0}
+      - {fileID: 927790501}
+      - {fileID: 0}
+  SecondFloor:
+    rows:
+    - row:
+      - {fileID: 1289565746}
+      - {fileID: 983347894}
+      - {fileID: 1155409910}
+      - {fileID: 0}
+    - row:
+      - {fileID: 1137405009}
+      - {fileID: 262800666}
+      - {fileID: 0}
+      - {fileID: 0}
+  ThirdFloor:
+    rows:
+    - row:
+      - {fileID: 1604306732}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - row:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
   rooms:
     rows:
     - row:
       - {fileID: 0}
       - {fileID: 0}
-      - {fileID: 2125430957}
-      - {fileID: 241857674}
+      - {fileID: 0}
+      - {fileID: 0}
     - row:
       - {fileID: 0}
-      - {fileID: 49731051}
       - {fileID: 0}
-      - {fileID: 749903259}
+      - {fileID: 0}
+      - {fileID: 0}
     - row:
-      - {fileID: 1501061210}
+      - {fileID: 0}
       - {fileID: 1010640144}
       - {fileID: 1734360194}
       - {fileID: 927790501}
@@ -58202,6 +58241,8 @@ MonoBehaviour:
   isWalking: 0
   isRunning: 0
   isPlaying: 0
+  isWanPlaying: 0
+  isRunPlaying: 0
 --- !u!114 &1710219379
 MonoBehaviour:
   m_ObjectHideFlags: 0
