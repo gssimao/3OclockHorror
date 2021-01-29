@@ -22,6 +22,9 @@ public class WatcherAI : MonoBehaviour
     int randInd;
     public bool candlesOut;
     public bool isPlaying = false;
+    public bool isFarPlaying = false;
+    public bool isClosePlaying = false;
+    public bool isScreamPlaying = false;
     public bool timerLock = true;
     int candleNum;
     int[] candlesOn;
@@ -98,32 +101,71 @@ public class WatcherAI : MonoBehaviour
             if (distance <= 0.4)
             {
                 sanityManager.ChangeSanity(-2 * Time.deltaTime);
-                if (isPlaying == false && manager != null)
+                if (manager != null && isClosePlaying == true)
+                {
+                    manager.Stop("Watcher Close");
+                    isClosePlaying = false;
+                }
+
+                if (isScreamPlaying == false && manager != null)
                 {
                     manager.Play("Watcher Scream");
-                    isPlaying = true;
+                    isScreamPlaying = true;
                 }
-                else isPlaying = false;
+                else isScreamPlaying = false;
             }
 
-            if(distance <= 0.6)
+            if(distance <= 0.6) //Player is very close to Watcher
             {
-                if (isPlaying == false && manager != null)
+                if (manager != null && isScreamPlaying == true)
                 {
-                    manager.Play("Watcher Close"); //Player is very close to Watcher
-                    isPlaying = true;
+                    manager.Stop("Watcher Scream");
+                    isScreamPlaying = false;
                 }
-                else isPlaying = false;
+                if(manager != null && isFarPlaying == true)
+                {
+                    manager.Stop("Watcher Far");
+                    isFarPlaying = false;
+                }
+
+                if (isClosePlaying == false && manager != null)
+                {
+                    manager.Play("Watcher Close"); 
+                    isClosePlaying = true;
+                }
+
+                else isClosePlaying = false;
             }
 
-            if (distance <= 1)
+            if (distance <= 1.25) //Player is getting closer to Watcher
             {
-                if (isPlaying == false && manager != null)
+                if (manager != null && isClosePlaying == true)
                 {
-                    manager.Play("Watcher Far"); //Player is getting closer to Watcher
-                    isPlaying = true;
+                    manager.Stop("Watcher Close");
+                    isClosePlaying = false;
                 }
-                else isPlaying = false;
+                if (isFarPlaying == false && manager != null)
+                {
+                    manager.Play("Watcher Far"); 
+                    isFarPlaying = true;
+                }
+                else isFarPlaying = false;
+            }
+
+            if (manager != null && isScreamPlaying == true)
+            {
+                manager.Stop("Watcher Scream");
+                isScreamPlaying = false;
+            }
+            if (manager != null && isFarPlaying == true)
+            {
+                manager.Stop("Watcher Far");
+                isFarPlaying = false;
+            }
+            if (manager != null && isClosePlaying == true)
+            {
+                manager.Stop("Watcher Close");
+                isClosePlaying = false;
             }
 
         }
@@ -208,7 +250,7 @@ public class WatcherAI : MonoBehaviour
 
         if (manager != null)
         {
-            manager.Play("Blow Out Candle");
+            manager.Play("Candle Blow Out");
         }
 
         for (int i = 0; i <= selectedAmt; i++)

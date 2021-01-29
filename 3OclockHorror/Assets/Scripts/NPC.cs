@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
@@ -50,7 +50,7 @@ public class NPC : MonoBehaviour
     public bool isRunning = false;
     public bool isPlaying = false;
     public bool isWanPlaying = false; //Is the Wander Sound effect playing?
-    public bool isRunPlaying = false; //Is the Run Sound effect playing?
+    public bool isChasePlaying = false; //Is the Run Sound effect playing?
 
     int hitTmr;
 
@@ -274,13 +274,22 @@ public class NPC : MonoBehaviour
             isPlaying = false;
         }
 
-        if (fsm.GetState() != FSMStateType.CHASE && isWanPlaying == false && manager != null)
+        if (fsm.GetState() != FSMStateType.CHASE && isWanPlaying == false && manager != null && pmove.myRoom == myRoom)
         {
             manager.Play("BC Wander");
+            manager.Play("BC Chase");
+        }
+        else if (fsm.GetState() == FSMStateType.CHASE && isChasePlaying == false && manager != null && pmove.myRoom == myRoom)
+        {
+            manager.Stop("BC Wander");
+            manager.Play("BC Chase");
         }
         else
         {
             manager.Stop("BC Wander");
+            isWanPlaying = false;
+            manager.Stop("BC Chase");
+            isChasePlaying = false;
         }
     }
 
