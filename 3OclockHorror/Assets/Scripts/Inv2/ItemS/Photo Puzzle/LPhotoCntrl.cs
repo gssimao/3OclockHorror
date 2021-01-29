@@ -27,7 +27,7 @@ public class LPhotoCntrl : MonoBehaviour, IBeginDragHandler, IDragHandler
     // Update is called once per frame
     void Update()
     {
-        if (isFlipped)
+        /*if (isFlipped)
         {
             me.sprite = back;
             date.gameObject.SetActive(true);
@@ -38,7 +38,7 @@ public class LPhotoCntrl : MonoBehaviour, IBeginDragHandler, IDragHandler
             me.sprite = myPhoto.Icon;
             date.gameObject.SetActive(false);
             numeral.gameObject.SetActive(false);
-        }
+        }*/
     }
 
     public void InitLargePhoto(Item photo)
