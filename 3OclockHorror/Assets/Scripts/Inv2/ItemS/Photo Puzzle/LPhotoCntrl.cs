@@ -6,9 +6,8 @@ using UnityEngine.EventSystems;
 
 public class LPhotoCntrl : MonoBehaviour, IBeginDragHandler, IDragHandler
 {
-    Item myPhoto;
-    [SerializeField]
-    Image me;
+    public Item myPhoto;
+    public Image me;
     [SerializeField]
     Sprite back;
     [SerializeField]

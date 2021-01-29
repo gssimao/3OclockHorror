@@ -12,6 +12,8 @@ public class PicSlot : MonoBehaviour
     public float lockRange;
     public float dist;
 
+    GameObject photoinSlot;
+
     // Start is called before the first frame update
     void Start()
     {
