@@ -23,7 +23,6 @@ public class ClockTick : MonoBehaviour
     void Update()
     {
         dist = Vector3.Distance(player.transform.position, this.transform.position);
-        Debug.Log("Clock Dist: " + dist);
 
         if (manager != null) //Then just gotta add a new if to make sure manager isn't null (always good practice to have such a thing)
         {

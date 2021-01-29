@@ -259,37 +259,40 @@ public class NPC : MonoBehaviour
             Debug.Log("No matching state, can't update");
         }
 
-        if (isWalking == true && manager != null && isPlaying == false && pmove.myRoom == myRoom)
+        if (manager != null)
         {
-            manager.Play("Blind Creep Footsteps"); //For now I'm having them be the same sound effect. Will change later.
-            isPlaying = true;
-        }
-        else if (isRunning == true && manager != null && isPlaying == false && pmove.myRoom == myRoom)
-        {
-            manager.Play("Blind Creep Footsteps");
-            isPlaying = true;
-        }
-        else
-        {
-            isPlaying = false;
-        }
+            if (isWalking == true && manager != null && isPlaying == false && pmove.myRoom == myRoom)
+            {
+                manager.Play("Blind Creep Footsteps"); //For now I'm having them be the same sound effect. Will change later.
+                isPlaying = true;
+            }
+            else if (isRunning == true && manager != null && isPlaying == false && pmove.myRoom == myRoom)
+            {
+                manager.Play("Blind Creep Footsteps");
+                isPlaying = true;
+            }
+            else
+            {
+                isPlaying = false;
+            }
 
-        if (fsm.GetState() != FSMStateType.CHASE && isWanPlaying == false && manager != null && pmove.myRoom == myRoom)
-        {
-            manager.Play("BC Wander");
-            manager.Play("BC Chase");
-        }
-        else if (fsm.GetState() == FSMStateType.CHASE && isChasePlaying == false && manager != null && pmove.myRoom == myRoom)
-        {
-            manager.Stop("BC Wander");
-            manager.Play("BC Chase");
-        }
-        else
-        {
-            manager.Stop("BC Wander");
-            isWanPlaying = false;
-            manager.Stop("BC Chase");
-            isChasePlaying = false;
+            if (fsm.GetState() != FSMStateType.CHASE && isWanPlaying == false && manager != null && pmove.myRoom == myRoom)
+            {
+                manager.Play("BC Wander");
+                manager.Play("BC Chase");
+            }
+            else if (fsm.GetState() == FSMStateType.CHASE && isChasePlaying == false && manager != null && pmove.myRoom == myRoom)
+            {
+                manager.Stop("BC Wander");
+                manager.Play("BC Chase");
+            }
+            else
+            {
+                manager.Stop("BC Wander");
+                isWanPlaying = false;
+                manager.Stop("BC Chase");
+                isChasePlaying = false;
+            }
         }
     }
 
