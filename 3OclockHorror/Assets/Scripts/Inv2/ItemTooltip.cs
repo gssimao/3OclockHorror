@@ -24,9 +24,9 @@ public class ItemTooltip : MonoBehaviour
     {
         if (gameObject.activeSelf)
         {
-            updateRect();
-            Vector2 movePos = new Vector2(Input.mousePosition.x + xmod, Input.mousePosition.y - ymod);
-            transform.position = movePos;
+            //updateRect();
+            //Vector2 movePos = new Vector2(Input.mousePosition.x + xmod, Input.mousePosition.y - ymod);
+            //transform.position = movePos;
         }
         
     }
