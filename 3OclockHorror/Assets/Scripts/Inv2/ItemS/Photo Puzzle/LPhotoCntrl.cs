@@ -16,6 +16,8 @@ public class LPhotoCntrl : MonoBehaviour, IBeginDragHandler, IDragHandler
     Text numeral;
     [SerializeField]
     PicSlot[] pictureSlots;
+    [SerializeField]
+    PhotoPuzzle Puzzle;
 
     bool isFlipped;
     // Start is called before the first frame update
