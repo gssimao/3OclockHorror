@@ -12,6 +12,8 @@ public class PhotoPuzzle : MonoBehaviour
     GameObject puzzleGO;
     [SerializeField]
     PicSlot[] Slots;
+    [SerializeField]
+    Inventory myInv;
 
     float dist;
     // Start is called before the first frame update
@@ -30,20 +32,37 @@ public class PhotoPuzzle : MonoBehaviour
         {
             for (int i = 0; i < photos.Length; i++)
             {
-                if (plyInv.ContainsItem(photos[i].myPhoto))
+                if (!plyInv.ContainsItem(photos[i].myPhoto) || photos[i].myPhoto == null)
                 {
-                    if (photos[i].me != null)
+                    if (myInv.ContainsItem(photos[i].myPhoto))
                     {
                         photos[i].me.enabled = true;
-                        Debug.Log("This is set to true");
+                    }
+                    else
+                    {
+                        photos[i].me.enabled = false;
                     }
                 }
                 else
                 {
                     if (photos[i].me != null)
                     {
-                        photos[i].me.enabled = false;
+                        photos[i].me.enabled = true;
                     }
+                }
+            }
+        }
+        for (int i = 0; i < Slots.Length; i++)
+        {
+            if (Slots[i].photoinSlot != null)
+            {
+                Item photo = Slots[i].photoinSlot.GetComponent<LPhotoCntrl>().myPhoto;
+
+                if (photo != null)
+                {
+                    plyInv.RemoveItem(photo);
+
+                    myInv.AddItem(photo);
                 }
             }
         }

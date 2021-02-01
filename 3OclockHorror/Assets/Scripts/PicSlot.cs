@@ -12,7 +12,7 @@ public class PicSlot : MonoBehaviour
     public float lockRange;
     public float dist;
 
-    GameObject photoinSlot;
+    public GameObject photoinSlot;
 
     // Start is called before the first frame update
     void Start()
@@ -24,14 +24,25 @@ public class PicSlot : MonoBehaviour
     void Update()
     {
         dist = Vector3.Distance(this.transform.position, selectedPhoto.transform.position);
-
         if(dist <= lockRange)
         {
             if (!pointerData.dragging)
             {
                 selectedPhoto.transform.position = this.transform.position;
+                photoinSlot = selectedPhoto;
             }
         }
+
+        dist = Vector3.Distance(this.transform.position, photoinSlot.transform.position);
+        if(dist > lockRange)
+        {
+            photoinSlot = null;
+        }
+        else if(photoinSlot != null && !pointerData.dragging)
+        {
+            photoinSlot.transform.position = this.transform.position;
+        }
+
     }
 
     private void OnDrawGizmos()
