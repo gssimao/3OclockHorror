@@ -17,9 +17,9 @@ public class PhotoController : MonoBehaviour
     int dateSelector;
     List<string> SelectedDate;
 
-    List<string> Dates1 = new List<string> {"4/4/1903", "8/01/1927", "19/29/-97", "11/7/1919" };
-    List<string> Dates2 = new List<string> { "4/3/1907", "5/07/1890", "5/2/1999", "8/6/1856" };
-    List<string> Dates3 = new List<string> { "4/5/1908", "4/6/1851", "7/25/-98", "4/8/1880" };
+    List<string> Dates1 = new List<string> {"1903", "1897", "1896", "1899" };
+    List<string> Dates2 = new List<string> { "1900", "1892", "1899", "1894" };
+    List<string> Dates3 = new List<string> { "1907", "1891", "1898", "1905" };
     List<string> Numerals = new List<string> { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X" };
 
     public bool Distributed;

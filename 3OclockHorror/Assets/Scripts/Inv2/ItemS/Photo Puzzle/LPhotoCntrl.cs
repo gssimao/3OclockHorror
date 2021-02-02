@@ -23,6 +23,12 @@ public class LPhotoCntrl : MonoBehaviour, IBeginDragHandler, IDragHandler
     // Start is called before the first frame update
     void Start()
     {
+        if(myPhoto != null)
+        {
+            me.sprite = myPhoto.Icon;
+            date.text = myPhoto.date;
+            numeral.text = myPhoto.numeral;
+        }
         isFlipped = false;
     }
 
