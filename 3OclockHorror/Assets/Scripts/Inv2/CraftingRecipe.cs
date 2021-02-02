@@ -6,8 +6,10 @@ using UnityEngine;
 public class CraftingRecipe : ScriptableObject
 {
     public List<Item> Pieces;
+    public Item result;
     public GameObject myButton;
     public int minItems;
+    public bool notPuzzle;
 
     public bool CanCraft(IItemContainer container)
     {
@@ -38,11 +40,22 @@ public class CraftingRecipe : ScriptableObject
     {
         if (CanCraft(container))
         {
-            foreach(Item item in Pieces)
+            if (notPuzzle)
             {
-                container.RemoveItem(item);
+                foreach(Item item in Pieces)
+                {
+                    container.RemoveItem(item);
+                }
+                container.AddItem(result);
             }
-            myButton.SetActive(true);
+            else
+            {
+                foreach (Item item in Pieces)
+                {
+                    container.RemoveItem(item);
+                }
+                myButton.SetActive(true);
+            }
         }
     }
 }
