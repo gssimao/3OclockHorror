@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Recipe", menuName = "Inventory/Recipe", order = 2)]
@@ -30,7 +29,7 @@ public class CraftingRecipe : ScriptableObject
             }
             return craft;
         }
-        else 
+        else
         {
             return false;
         }
@@ -42,11 +41,28 @@ public class CraftingRecipe : ScriptableObject
         {
             if (notPuzzle)
             {
-                foreach(Item item in Pieces)
+                List<Item> removed = new List<Item>();
+                int itemsRemoved = 0;
+
+                foreach (Item item in Pieces)
                 {
-                    container.RemoveItem(item);
+                    if (container.RemoveItem(item))
+                    {
+                        removed.Add(item);
+                        itemsRemoved++;
+                    }
                 }
-                container.AddItem(result);
+                if (itemsRemoved != minItems)
+                {
+                    foreach (Item itm in removed)
+                    {
+                        container.AddItem(itm);
+                    }
+                }
+                else
+                {
+                    container.AddItem(result);
+                }
             }
             else
             {
