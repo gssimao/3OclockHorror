@@ -22,10 +22,12 @@ public class workbench_cntrl : MonoBehaviour
     GameObject tooltip;
     public invInput Listener;
     public GameObject invCanv;
+    //private GameObject[] ItemPopups;
 
     private void Start()
     {
-        if(myInv == null)
+        //ItemPopups = GameObject.FindGameObjectsWithTag("ItemPopup");
+        if (myInv == null)
         {
             myInv = gameObject.GetComponent<Inventory>();
         }
@@ -37,7 +39,7 @@ public class workbench_cntrl : MonoBehaviour
         {
             invCanv = GameObject.FindGameObjectWithTag("invUI");
         }
-        
+
         active = false;
         myInv.CloseInv();
 
@@ -49,7 +51,7 @@ public class workbench_cntrl : MonoBehaviour
     void Update()
     {
         float dist = Vector3.Distance(player.transform.position, transform.position); //Get the position of player
-        if(dist <= 0.25f) //If the player is in range
+        if (dist <= 0.25f) //If the player is in range
         {
             Listener.enabled = false;
             if (Input.GetKeyDown("e") && !active)
@@ -62,7 +64,7 @@ public class workbench_cntrl : MonoBehaviour
                 IM.craftField.SetActive(true);
                 tooltip.SetActive(false);
             }
-            else if(Input.GetKeyDown("e") && active)
+            else if (Input.GetKeyDown("e") && active)
             {
                 if (invCanv.activeSelf)
                 {
@@ -76,12 +78,25 @@ public class workbench_cntrl : MonoBehaviour
         }
         else
         {
-            if(Listener != null)
+            if (Listener != null)
             {
                 Listener.enabled = true;
             }
         }
     }
+
+    //For checking Item Popup collision
+    /*private bool CheckItemCollision()
+    {
+        foreach (GameObject ItemPopup in ItemPopups)
+        {
+            if (ItemPopup.GetComponent<ObjectRender>().colliding == true)
+            {
+                return true;
+            }
+        }
+        return false;
+    }*/
 
     //Used for Scene Manager
 
