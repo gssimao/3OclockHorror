@@ -11,9 +11,20 @@ public class NotifCntrl : MonoBehaviour
     //Standard Variables
     float x = 0; //Float for tracking time
 
+    AudioManager manager;
+
+    void Start()
+    {
+        manager = FindObjectOfType<AudioManager>();
+    }
+
     private void OnEnable()
     {
         LeanTween.moveY(Notification, 100, 1.5f);
+        if (manager != null)
+        {
+            manager.Play("Writing");
+        }
     }
 
     // Update is called once per frame

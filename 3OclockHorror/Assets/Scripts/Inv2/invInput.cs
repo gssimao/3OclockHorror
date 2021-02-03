@@ -19,6 +19,13 @@ public class invInput : MonoBehaviour
     [SerializeField]
     List<GameObject> objs;
 
+    AudioManager manager;
+
+    void Start()
+    {
+        manager = FindObjectOfType<AudioManager>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -36,10 +43,13 @@ public class invInput : MonoBehaviour
             if (Journal.activeSelf)
             {
                 Journal.SetActive(false);
+                playSound();
+                
             }
             else
             {
                 Journal.SetActive(true);
+                playSound();
             }
 
             /*
@@ -59,5 +69,13 @@ public class invInput : MonoBehaviour
     public void ClearObjsList()//Used for changing scenes
     {
         objs.Clear();
+    }
+
+    void playSound()
+    {
+        if (manager != null)
+        {
+            manager.Play("Journal");
+        }
     }
 }

@@ -39,17 +39,23 @@ public class LockControl : MonoBehaviour, IPointerClickHandler
     Sprite numeralIX;
     [SerializeField]
     Sprite numeralX;
+    AudioManager manager;
 
     public void Start()
     {
         left.sprite = numeralX;
         center.sprite = numeralI;
         right.sprite = numeralII;
+        manager = FindObjectOfType<AudioManager>();
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
         UpdateNumeral();
+        if (manager != null)
+        {
+            manager.Play("Lock turn");
+        }
     }
 
     public void UpdateNumeral()

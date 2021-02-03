@@ -28,6 +28,8 @@ public class roomCntrl : MonoBehaviour
     [SerializeField]
     GameObject lockCanv;
 
+    AudioManager manager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +38,7 @@ public class roomCntrl : MonoBehaviour
             blackWall.SetActive(false);
         }
         toolTipScript = gameObject.GetComponent<Tooltip>();
+        manager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -57,10 +60,18 @@ public class roomCntrl : MonoBehaviour
                     if (player.myRoom == room1) //Check the room states then update as necessary
                     {
                         CameraCrossfade(player.gameObject, entrancePointRoom, player, room2);
+                        if(manager != null)
+                        {
+                            manager.Play("Door Open");
+                        }
                     }
                     else// player.myRoom == room2
                     {
                         CameraCrossfade(player.gameObject, entrancePointRoom, player, room1);
+                        if (manager != null)
+                        {
+                            manager.Play("Door Open");
+                        }
                     }
                 }
 
@@ -187,6 +198,10 @@ public class roomCntrl : MonoBehaviour
             else
             {
                 toolTipScript.TimedMessage = "The door is locked";
+                if(manager != null)
+                {
+                    manager.Play("Locked Door");
+                }
             }
         }
         else if(lockCanv != null && !lockCanv.activeSelf)
