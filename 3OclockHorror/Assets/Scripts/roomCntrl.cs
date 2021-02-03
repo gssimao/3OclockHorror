@@ -74,11 +74,6 @@ public class roomCntrl : MonoBehaviour
                         }
                     }
                 }
-
-                if (locked)
-                {
-                    Debug.Log("Could not open door due to lock. Will need canvas here at some point.");
-                }
             }
         }
         if (Listener != null)
