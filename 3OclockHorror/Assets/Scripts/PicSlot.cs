@@ -6,13 +6,14 @@ using UnityEngine.EventSystems;
 
 public class PicSlot : MonoBehaviour
 {
-    public GameObject selectedPhoto;
+    public LPhotoCntrl selectedPhoto;
     public PointerEventData pointerData;
 
     public float lockRange;
     public float dist;
+    float dist2;
 
-    public GameObject photoinSlot;
+    public LPhotoCntrl photoinSlot;
 
     // Start is called before the first frame update
     void Start()
@@ -33,8 +34,8 @@ public class PicSlot : MonoBehaviour
             }
         }
 
-        dist = Vector3.Distance(this.transform.position, photoinSlot.transform.position);
-        if(dist > lockRange)
+        dist2 = Vector3.Distance(this.transform.position, photoinSlot.transform.position);
+        if(dist2 > lockRange)
         {
             photoinSlot = null;
         }

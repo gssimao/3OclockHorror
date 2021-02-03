@@ -16,8 +16,6 @@ public class LPhotoCntrl : MonoBehaviour, IBeginDragHandler, IDragHandler
     Text numeral;
     [SerializeField]
     PicSlot[] pictureSlots;
-    [SerializeField]
-    PhotoPuzzle Puzzle;
 
     bool isFlipped;
     // Start is called before the first frame update
@@ -75,7 +73,7 @@ public class LPhotoCntrl : MonoBehaviour, IBeginDragHandler, IDragHandler
         transform.SetAsLastSibling();
         for(int i = 0; i < pictureSlots.Length; i++)
         {
-            pictureSlots[i].selectedPhoto = this.gameObject;
+            pictureSlots[i].selectedPhoto = this;
             pictureSlots[i].pointerData = eventData;
         }
     }

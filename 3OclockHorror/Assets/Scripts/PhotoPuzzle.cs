@@ -21,48 +21,40 @@ public class PhotoPuzzle : MonoBehaviour
     {
         for (int i = 0; i < photos.Length; i++)
         {
-            photos[i].me.enabled = false;
+            photos[i].gameObject.SetActive(false);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (puzzleGO.activeSelf)
+        for (int i = 0; i < photos.Length; i++)
         {
-            for (int i = 0; i < photos.Length; i++)
+            if (!plyInv.ContainsItem(photos[i].myPhoto) || photos[i].myPhoto == null)
             {
-                if (!plyInv.ContainsItem(photos[i].myPhoto) || photos[i].myPhoto == null)
-                {
-                    if (myInv.ContainsItem(photos[i].myPhoto))
-                    {
-                        photos[i].me.enabled = true;
-                    }
-                    else
-                    {
-                        photos[i].me.enabled = false;
-                    }
-                }
-                else
-                {
-                    if (photos[i].me != null)
-                    {
-                        photos[i].me.enabled = true;
-                    }
-                }
+                photos[i].gameObject.SetActive(false);
+            }
+            else if (myInv.ContainsItem(photos[i].myPhoto))
+            {
+                photos[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                photos[i].gameObject.SetActive(true);
             }
         }
         for (int i = 0; i < Slots.Length; i++)
         {
             if (Slots[i].photoinSlot != null)
             {
-                Item photo = Slots[i].photoinSlot.GetComponent<LPhotoCntrl>().myPhoto;
+                Item photo = Slots[i].photoinSlot.myPhoto;
 
                 if (photo != null)
                 {
                     plyInv.RemoveItem(photo);
 
                     myInv.AddItem(photo);
+                    Debug.Log(photo.ItemName + " has been added to the inventory");
                 }
             }
         }

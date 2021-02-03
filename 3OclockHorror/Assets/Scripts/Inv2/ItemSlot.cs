@@ -22,7 +22,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
     private Color normColor = Color.white;
     private Color disabledColor = new Color(255, 255, 255, 0.1f);
 
-    public Item Item { get; set; }
+    public Item Item; //{ get; set; }
     public bool PlayerInv;
 
     public void Awake()
