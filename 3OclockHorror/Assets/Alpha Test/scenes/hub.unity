@@ -6164,7 +6164,7 @@ RectTransform:
   m_GameObject: {fileID: 207532910}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4747, y: 1.4747, z: 1.4747}
   m_Children:
   - {fileID: 1308470729}
   - {fileID: 402794857}
@@ -6237,6 +6237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plyInv: {fileID: 1615222956}
+  invCanv: {fileID: 1044781339}
   photos:
   - {fileID: 1138370858}
   - {fileID: 770322182}
@@ -6250,7 +6251,6 @@ MonoBehaviour:
   - {fileID: 901818602}
   - {fileID: 1843004361}
   - {fileID: 1484911534}
-  myInv: {fileID: 207532915}
 --- !u!114 &207532915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47714,7 +47714,7 @@ RectTransform:
   m_Children:
   - {fileID: 207532911}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -50413,7 +50413,7 @@ RectTransform:
   - {fileID: 174419414}
   - {fileID: 27587679}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -54338,7 +54338,7 @@ RectTransform:
   - {fileID: 1199351911}
   - {fileID: 856087406}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -55404,6 +55404,8 @@ MonoBehaviour:
   player: {fileID: 1619042889}
   Puzzle: {fileID: 1450514288}
   range: 0.5
+  invCanvas: {fileID: 1044781339}
+  charPanel: {fileID: 1932810096}
   listener: {fileID: 1677718118}
 --- !u!1 &1649583509
 GameObject:

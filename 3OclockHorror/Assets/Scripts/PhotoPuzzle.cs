@@ -7,19 +7,19 @@ public class PhotoPuzzle : MonoBehaviour
     [SerializeField]
     Inventory plyInv;
     [SerializeField]
-    LPhotoCntrl[] photos;
+    GameObject invCanv;
+    [SerializeField]
+    List<LPhotoCntrl> photos;
     [SerializeField]
     GameObject puzzleGO;
     [SerializeField]
     PicSlot[] Slots;
-    [SerializeField]
-    Inventory myInv;
 
     float dist;
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < photos.Length; i++)
+        for (int i = 0; i < photos.Count; i++)
         {
             photos[i].gameObject.SetActive(false);
         }
@@ -28,33 +28,28 @@ public class PhotoPuzzle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < photos.Length; i++)
+        if (puzzleGO.activeSelf)
         {
-            if (!plyInv.ContainsItem(photos[i].myPhoto) || photos[i].myPhoto == null)
+            for (int i = 0; i < photos.Count; i++)
             {
-                photos[i].gameObject.SetActive(false);
-            }
-            else if (myInv.ContainsItem(photos[i].myPhoto))
-            {
-                photos[i].gameObject.SetActive(true);
-            }
-            else
-            {
-                photos[i].gameObject.SetActive(true);
-            }
-        }
-        for (int i = 0; i < Slots.Length; i++)
-        {
-            if (Slots[i].photoinSlot != null)
-            {
-                Item photo = Slots[i].photoinSlot.myPhoto;
-
-                if (photo != null)
+                if (!plyInv.ContainsItem(photos[i].myPhoto) || photos[i].myPhoto == null)
                 {
-                    plyInv.RemoveItem(photo);
+                    photos[i].gameObject.SetActive(false);
+                }
+                else
+                {
+                    invCanv.SetActive(true);
 
-                    myInv.AddItem(photo);
-                    Debug.Log(photo.ItemName + " has been added to the inventory");
+                    photos[i].gameObject.SetActive(true);
+                    plyInv.RemoveItem(photos[i].myPhoto);
+                    Debug.Log("Item: " + photos[i].myPhoto.ItemName + " at index: " + i + " has been removed");
+                    if (plyInv.ContainsItem(photos[i].myPhoto))
+                    {
+                        Debug.Log("Item was not deleted");
+                    }
+                    photos.RemoveAt(i);
+
+                    invCanv.SetActive(false);
                 }
             }
         }

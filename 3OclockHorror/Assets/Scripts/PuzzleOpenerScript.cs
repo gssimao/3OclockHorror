@@ -14,6 +14,7 @@ public class PuzzleOpenerScript : MonoBehaviour
     public invInput listener;
 
     float dist;
+    bool canvasActive = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,11 +31,11 @@ public class PuzzleOpenerScript : MonoBehaviour
             listener.enabled = false;
             if (Input.GetKeyDown("e") && !Puzzle.activeSelf)
             {
-                Puzzle.SetActive(true);
+                OpenInventoryToggle();
             }
             else if(Input.GetKeyDown("e") && Puzzle.activeSelf)
             {
-                Puzzle.SetActive(false);
+                OpenInventoryToggle();
             }
         }
         else
@@ -50,5 +51,21 @@ public class PuzzleOpenerScript : MonoBehaviour
     {
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(this.transform.position, range);
+    }
+
+    void OpenInventoryToggle()
+    {
+        if (!canvasActive)
+        {
+            Puzzle.SetActive(true);
+            canvasActive = true;
+        }
+        else
+        {
+
+            Puzzle.SetActive(false);
+            canvasActive = false;
+        }
+
     }
 }
