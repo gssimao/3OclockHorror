@@ -17,7 +17,6 @@ public class LPhotoCntrl : MonoBehaviour, IBeginDragHandler, IDragHandler
     [SerializeField]
     PicSlot[] pictureSlots;
 
-    bool isFlipped;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,24 +26,12 @@ public class LPhotoCntrl : MonoBehaviour, IBeginDragHandler, IDragHandler
             date.text = myPhoto.date;
             numeral.text = myPhoto.numeral;
         }
-        isFlipped = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*if (isFlipped)
-        {
-            me.sprite = back;
-            date.gameObject.SetActive(true);
-            numeral.gameObject.SetActive(true);
-        }
-        else
-        {
-            me.sprite = myPhoto.Icon;
-            date.gameObject.SetActive(false);
-            numeral.gameObject.SetActive(false);
-        }*/
+
     }
 
     public void InitLargePhoto(Item photo)
@@ -53,18 +40,6 @@ public class LPhotoCntrl : MonoBehaviour, IBeginDragHandler, IDragHandler
         me.sprite = myPhoto.Icon;
         date.text = myPhoto.date;
         numeral.text = myPhoto.numeral;
-    }
-
-    public void Flip()
-    {
-        if (isFlipped)
-        {
-            isFlipped = false;
-        }
-        else
-        {
-            isFlipped = true;
-        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
