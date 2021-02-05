@@ -53,7 +53,7 @@ public class WatcherAI : MonoBehaviour
         playerRoom = player.GetComponent<PlayerMovement>().myRoom;
         manager = FindObjectOfType<AudioManager>();
 
-        Debug.Log("Watcher current room: " + currentRoom.name);
+        Debug.Log("Watcher Current Room: " + currentRoom.name);
     }
 
     // Update is called once per frame

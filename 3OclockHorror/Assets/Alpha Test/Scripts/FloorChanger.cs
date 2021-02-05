@@ -13,10 +13,7 @@ public class FloorChanger : MonoBehaviour
     public invInput Listener;
     public room destRoom;
 
-    public Animator transition;
-    public Animator blackWallanim;
-    public GameObject crossFade;
-    public GameObject blackWall;
+    public Animator Fade;
 
     [SerializeField]
     string destString;
@@ -38,20 +35,9 @@ public class FloorChanger : MonoBehaviour
             Listener.enabled = false;
             if (Input.GetKeyDown("e"))
             {
-                blackWall.SetActive(true);
-                crossFade.SetActive(true);
-                transition.SetTrigger("End");
-                animIsDone = true;
-                player.transform.position = spawnPoint.transform.position;
-                player.GetComponent<PlayerMovement>().myRoom = destRoom;
-                player.GetComponent<PlayerMovement>().playerFloor = destString;
+                StartCoroutine(ChangeCamera());
             }
-            /*if (blackWallanim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.85 && animIsDone)
-            {
-                player.GetComponent<PlayerMovement>().tempCanvases.Clear();
-                animIsDone = false;
-                StartCoroutine(LoadYourAsyncScene(player));
-            }*/
+
         }
         else
         {
@@ -60,9 +46,30 @@ public class FloorChanger : MonoBehaviour
                 Listener.enabled = true;
             }
         }
+
+        if(Fade != null)
+        {
+            if(Fade.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
+            {
+                Fade.gameObject.SetActive(false);
+            }
+        }
     }
 
-    IEnumerator LoadYourAsyncScene(GameObject Instance)
+    IEnumerator ChangeCamera()
+    {
+        Fade.gameObject.SetActive(true);
+        Fade.SetTrigger("fadeOut");
+
+        player.transform.position = spawnPoint.transform.position;
+        player.GetComponent<PlayerMovement>().myRoom = destRoom;
+        player.GetComponent<PlayerMovement>().playerFloor = destString;
+
+        yield return new WaitForSeconds(0.5f);
+        Fade.SetTrigger("fadeIn");
+    }
+
+    /*IEnumerator LoadYourAsyncScene(GameObject Instance)
     {
         currentScene = SceneManager.GetActiveScene();
 
@@ -80,5 +87,5 @@ public class FloorChanger : MonoBehaviour
         SceneManager.MoveGameObjectToScene(Instance, SceneManager.GetSceneByName(sceneName));
 
         SceneManager.UnloadSceneAsync(currentScene);
-    }
+    }*/
 }

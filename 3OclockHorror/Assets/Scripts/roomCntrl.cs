@@ -12,14 +12,9 @@ public class roomCntrl : MonoBehaviour
     public invInput Listener;
     public Tooltip toolTipScript;
 
-    public Animator transition;
     public bool transitionOnOff = true; //Use this toggle the transition on and off
     float transitionTime = 0.5f;
     float dist;
-    
-    public Animator blackWallanim;
-    public GameObject crossFade;
-    public GameObject blackWall;
 
     public bool locked;
     public Inventory pInv;
@@ -30,13 +25,11 @@ public class roomCntrl : MonoBehaviour
 
     AudioManager manager;
 
+    public Animator Fade;
+
     // Start is called before the first frame update
     void Start()
     {
-        if (blackWall != null)
-        {
-            blackWall.SetActive(false);
-        }
         toolTipScript = gameObject.GetComponent<Tooltip>();
         manager = FindObjectOfType<AudioManager>();
     }
@@ -81,16 +74,11 @@ public class roomCntrl : MonoBehaviour
             Listener.enabled = true;
         }
 
-        if (blackWallanim != null)
+        if (Fade != null)
         {
-            if (blackWallanim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.20)
+            if(Fade.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
             {
-                crossFade.SetActive(false);
-            }
-
-            if (blackWallanim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
-            {
-                blackWall.SetActive(false);
+                Fade.gameObject.SetActive(false);
             }
         }
     }
@@ -156,9 +144,8 @@ public class roomCntrl : MonoBehaviour
     {
         if (transitionOnOff)
         {
-            crossFade.SetActive(true);
-            transition.SetTrigger("Start");
-            play.enabled = false;
+            Fade.gameObject.SetActive(true);
+            Fade.SetTrigger("fadeOut");
         }
 
         player.transform.position = entranceP.transform.position;
@@ -166,20 +153,10 @@ public class roomCntrl : MonoBehaviour
         if (transitionOnOff)
         {
             yield return new WaitForSeconds(transitionTime);
-        }
-
-        if (transitionOnOff)
-        {
-            blackWall.SetActive(true);
-            transition.SetTrigger("End");
+            Fade.SetTrigger("fadeIn");
         }
 
         play.myRoom = RoomNum;
-
-        if (transitionOnOff)
-        {
-            play.enabled = true;
-        }
     }
 
     public void CheckKey()
