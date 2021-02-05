@@ -101,71 +101,72 @@ public class WatcherAI : MonoBehaviour
             if (distance <= 0.4)
             {
                 sanityManager.ChangeSanity(-2 * Time.deltaTime);
+
                 if (manager != null && isClosePlaying == true)
                 {
                     manager.Stop("Watcher Close");
                     isClosePlaying = false;
                 }
 
-                if (isScreamPlaying == false && manager != null)
+                else if (isScreamPlaying == false && manager != null)
                 {
                     manager.Play("Watcher Scream");
                     isScreamPlaying = true;
                 }
                 else isScreamPlaying = false;
             }
-
-            if(distance <= 0.6) //Player is very close to Watcher
+            else if (distance <= 0.6) //Player is very close to Watcher
             {
                 if (manager != null && isScreamPlaying == true)
                 {
                     manager.Stop("Watcher Scream");
                     isScreamPlaying = false;
                 }
-                if(manager != null && isFarPlaying == true)
+                else if (manager != null && isFarPlaying == true)
                 {
                     manager.Stop("Watcher Far");
                     isFarPlaying = false;
                 }
 
-                if (isClosePlaying == false && manager != null)
+                else if (isClosePlaying == false && manager != null)
                 {
-                    manager.Play("Watcher Close"); 
+                    manager.Play("Watcher Close");
                     isClosePlaying = true;
                 }
 
                 else isClosePlaying = false;
             }
-
-            if (distance <= 1.25) //Player is getting closer to Watcher
+            else if (distance <= 1.25) //Player is getting closer to Watcher
             {
                 if (manager != null && isClosePlaying == true)
                 {
                     manager.Stop("Watcher Close");
                     isClosePlaying = false;
                 }
-                if (isFarPlaying == false && manager != null)
+                else if (isFarPlaying == false && manager != null)
                 {
-                    manager.Play("Watcher Far"); 
+                    manager.Play("Watcher Far");
                     isFarPlaying = true;
                 }
                 else isFarPlaying = false;
             }
-
-            if (manager != null && isScreamPlaying == true)
+            else
             {
-                manager.Stop("Watcher Scream");
-                isScreamPlaying = false;
-            }
-            if (manager != null && isFarPlaying == true)
-            {
-                manager.Stop("Watcher Far");
-                isFarPlaying = false;
-            }
-            if (manager != null && isClosePlaying == true)
-            {
-                manager.Stop("Watcher Close");
-                isClosePlaying = false;
+                if (manager != null && isScreamPlaying == true)
+                {
+                    manager.Stop("Watcher Scream");
+                    isScreamPlaying = false;
+                }
+                else if (manager != null && isFarPlaying == true)
+                {
+                    manager.Stop("Watcher Far");
+                    isFarPlaying = false;
+                }
+                else if (manager != null && isClosePlaying == true)
+                {
+                    manager.Stop("Watcher Close");
+                    isClosePlaying = false;
+                }
             }
 
         }
