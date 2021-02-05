@@ -21,18 +21,37 @@ public class TaskListTracker : MonoBehaviour
      * reference to popup notif
      */
     [SerializeField]
+    PlayerMovement player;
+    [SerializeField]
+    room tuiRoom;
+    [Space]
+    [SerializeField]
     Text taskList;
+    [SerializeField]
+    GameObject alertCanv;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //Set base task to explore house
-        taskList.text = "- Explore the house";
-    }
+    bool playerInHouse = false;
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(!playerInHouse && player.myRoom != tuiRoom)
+        {
+            StartDynamTaskSys();
+            playerInHouse = true;
+        }   
+    }
+
+    public void StartDynamTaskSys()
+    {
+        //Set base task to explore house
+        taskList.text = "- Explore the house";
+        SendAlert();
+    }
+
+    public void SendAlert()
+    {
+        //This would be a potential option for triggering sound. Alternatively can also be associated with canvas.
+        alertCanv.SetActive(true);
     }
 }
