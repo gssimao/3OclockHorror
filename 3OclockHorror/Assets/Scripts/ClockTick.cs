@@ -11,40 +11,55 @@ public class ClockTick : MonoBehaviour
     bool isPlaying;
     float dist;
 
-    AudioManager manager; //Bake it up here, helps to reduce stack time
+    public room currentRoom;
+    room playerRoom;
+    public bool playerInRoom;
+
+    AudioManager manager; 
 
     // Start is called before the first frame update
     void Start()
     {
-        manager = FindObjectOfType<AudioManager>(); //Then the baked instance can be set during start, so it only happens on load time but then is always there
+        manager = FindObjectOfType<AudioManager>();
+        playerRoom = player.GetComponent<PlayerMovement>().myRoom;
     }
 
     // Update is called once per frame
     void Update()
     {
-        dist = Vector3.Distance(player.transform.position, this.transform.position);
+        CheckRoom();
+        /*dist = Vector3.Distance(player.transform.position, this.transform.position);
+         if (dist <= soundRange)
+         {
+            // playSound();
+         }
+         else if (dist > soundRange)
+         {
+            // manager.Stop("Clock Tick");
+         }*/
 
-        if (manager != null) //Then just gotta add a new if to make sure manager isn't null (always good practice to have such a thing)
-        {
-            if (dist <= soundRange)
-            {
-                //FindObjectOfType<AudioManager>().Play("Clock Tick");
-                playSound();
-            }
-            else
-            {
-                //FindObjectOfType<AudioManager>().Stop("Clock Tick");
-                manager.Stop("Clock Tick");
-            }
-        }
     }
 
     void playSound()
     {
-        if (!isPlaying)
+        if (!isPlaying && manager != null)
         {
             manager.Play("Clock Tick");
             isPlaying = true;
         }
+    }
+
+    void CheckRoom() //Checks to see if the room the watcher is in has the player
+    {
+        if (currentRoom == playerRoom)
+        {
+            playerInRoom = true;
+            playSound();
+        }
+        else
+        {
+            playerInRoom = false;
+            //manager.Stop("Clock Tick");
+         }
     }
 }

@@ -121,12 +121,7 @@ public class WatcherAI : MonoBehaviour
             }
             else if (distance <= 0.6) //Player is very close to Watcher
             {
-                if (manager != null && isScreamPlaying == true)
-                {
-                    manager.Stop("Watcher Scream");
-                    isScreamPlaying = false;
-                }
-                else if (manager != null && isFarPlaying == true)
+                if (manager != null && isFarPlaying == true)
                 {
                     manager.Stop("Watcher Far");
                     isFarPlaying = false;

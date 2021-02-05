@@ -18,13 +18,14 @@ public class PuzzleOpenerScript : MonoBehaviour
     public invInput listener;
     public bool coinPuzzle = false;
 
+    AudioManager manager;
     float dist;
     bool canvasActive = false;
     bool havCoins = false;
     // Start is called before the first frame update
     void Start()
     {
-        
+        manager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame

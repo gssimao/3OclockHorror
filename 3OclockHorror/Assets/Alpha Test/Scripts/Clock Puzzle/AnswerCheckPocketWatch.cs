@@ -33,6 +33,8 @@ public class AnswerCheckPocketWatch : MonoBehaviour
     [SerializeField]
     GameObject isSolved;
 
+    AudioManager manager;
+
     private void Start()
     {
         answerBig = Random.Range(0, 12);
@@ -56,6 +58,7 @@ public class AnswerCheckPocketWatch : MonoBehaviour
         MedText.text = showAnswerMed.ToString();
         SmallText.text = showAnswerSmall.ToString();
 
+        manager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -64,6 +67,7 @@ public class AnswerCheckPocketWatch : MonoBehaviour
         if(medGear.GetComponent<RotationMedGear>().Medmovement == answerMed && smallGear.GetComponent<RotationSmallGear>().Smallmovement == answerSmall && bigGear.GetComponent<RotationBigGear>().Bigmovement == answerBig)
         {
             solved = true;
+            manager.Play("Success");
         }
 
         if (solved && !endTriggered)

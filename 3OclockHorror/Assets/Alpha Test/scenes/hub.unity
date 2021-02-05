@@ -11522,6 +11522,8 @@ MonoBehaviour:
   player: {fileID: 1619042889}
   GrandfatherClock: {fileID: 364542454}
   soundRange: 3
+  currentRoom: {fileID: 0}
+  playerInRoom: 0
 --- !u!212 &364542457
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -29187,6 +29189,8 @@ MonoBehaviour:
   player: {fileID: 1619042889}
   GrandfatherClock: {fileID: 928211686}
   soundRange: 3
+  currentRoom: {fileID: 0}
+  playerInRoom: 0
 --- !u!212 &928211689
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -38242,7 +38246,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1619042889}
   GrandfatherClock: {fileID: 928211686}
-  soundRange: 4
+  soundRange: 1
+  currentRoom: {fileID: 1734360194}
+  playerInRoom: 0
 --- !u!1 &1170586145
 GameObject:
   m_ObjectHideFlags: 0

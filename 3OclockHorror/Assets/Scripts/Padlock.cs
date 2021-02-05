@@ -28,6 +28,13 @@ public class Padlock : MonoBehaviour
     GameObject isSolved;
 
     public bool solved { get; set; }
+    AudioManager manager;
+
+    void Start()
+    {
+        manager = FindObjectOfType<AudioManager>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -52,6 +59,7 @@ public class Padlock : MonoBehaviour
                             }
                             solved = true;
                             isSolved.SetActive(true);
+                            manager.Play("Success");
                         }
                     }
                 }
