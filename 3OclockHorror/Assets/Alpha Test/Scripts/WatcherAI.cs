@@ -51,8 +51,9 @@ public class WatcherAI : MonoBehaviour
         ovTimer = coolDownTimer;;
         sanityManager = player.GetComponent<SanityManager>();
         playerRoom = player.GetComponent<PlayerMovement>().myRoom;
-        Debug.Log("Room Array Length: " + Rooms.Length);
         manager = FindObjectOfType<AudioManager>();
+
+        Debug.Log("Watcher current room: " + currentRoom.name);
     }
 
     // Update is called once per frame
@@ -62,6 +63,8 @@ public class WatcherAI : MonoBehaviour
         CheckRoom();
         candlesOut = CheckCandles();
         UpdateFace();
+        // candlesOut Explaination:
+
         // False means all the candles are off or don't exist
         // True means there are still candles on
 
@@ -74,7 +77,7 @@ public class WatcherAI : MonoBehaviour
             }
         }
 
-        if (candlesOut == true && !playerInRoom)// The candles are not out and the player is not in the room
+        if (candlesOut && !playerInRoom)// The candles are not out and the player is not in the room
         {
             BlowOutCandle();
         }
@@ -82,6 +85,7 @@ public class WatcherAI : MonoBehaviour
         {
             MoveWatcher();
             timerLock = false;
+            Debug.Log("Watcher Current Room: " + currentRoom.name);
         }
 
         if (timerLock == false)
@@ -271,18 +275,13 @@ public class WatcherAI : MonoBehaviour
             return false;
         }
 
-        for (int i = 0; i < candleNum; i++)
+        foreach (CandleScript candle in Candles)
         {
-            if (Candles[i].flame != null)
-
+            if (candle.flame != null)
             {
-
-                if (Candles[i].flame.isActiveAndEnabled)
-
+                if (candle.flame.isActiveAndEnabled)
                 {
-
                     candleCount++;
-
                 }
             }
 
@@ -293,17 +292,11 @@ public class WatcherAI : MonoBehaviour
         for(int i = 0; i < candleNum; i++)
         {
             if (Candles[i].flame != null)
-
             {
-
                 if (Candles[i].flame.isActiveAndEnabled)
-
                 {
-
                     candlesOn[j] = i;
-
                     j++;
-
                 }
 
             }
@@ -327,12 +320,7 @@ public class WatcherAI : MonoBehaviour
             if(Rooms[i] != playerRoom)
             {
                 plyIndex = i;
-
             }
-            /*if(i >= Rooms.Length - 1)
-            {
-                i = 0;
-            }*/
         }
 
         return plyIndex;

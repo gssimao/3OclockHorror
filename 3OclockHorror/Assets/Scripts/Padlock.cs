@@ -27,7 +27,7 @@ public class Padlock : MonoBehaviour
     [SerializeField]
     GameObject isSolved;
 
-    bool solved;
+    public bool solved { get; set; }
     // Update is called once per frame
     void Update()
     {

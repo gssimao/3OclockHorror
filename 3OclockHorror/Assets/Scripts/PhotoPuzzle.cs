@@ -43,10 +43,6 @@ public class PhotoPuzzle : MonoBehaviour
                     photos[i].gameObject.SetActive(true);
                     plyInv.RemoveItem(photos[i].myPhoto);
                     Debug.Log("Item: " + photos[i].myPhoto.ItemName + " at index: " + i + " has been removed");
-                    if (plyInv.ContainsItem(photos[i].myPhoto))
-                    {
-                        Debug.Log("Item was not deleted");
-                    }
                     photos.RemoveAt(i);
 
                     invCanv.SetActive(false);

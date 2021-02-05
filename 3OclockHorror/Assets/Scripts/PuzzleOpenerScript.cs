@@ -7,14 +7,20 @@ public class PuzzleOpenerScript : MonoBehaviour
     [SerializeField]
     GameObject player;
     [SerializeField]
+    Inventory plyInv;
+    [SerializeField]
     GameObject Puzzle;
+    [SerializeField]
+    List<Item> coins;
     [SerializeField]
     float range;
 
     public invInput listener;
+    public bool coinPuzzle = false;
 
     float dist;
     bool canvasActive = false;
+    bool havCoins = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,13 +35,29 @@ public class PuzzleOpenerScript : MonoBehaviour
         if(dist <= range)
         {
             listener.enabled = false;
-            if (Input.GetKeyDown("e") && !Puzzle.activeSelf)
+            if (Input.GetKeyDown("e"))
             {
-                OpenInventoryToggle();
-            }
-            else if(Input.GetKeyDown("e") && Puzzle.activeSelf)
-            {
-                OpenInventoryToggle();
+                if (!coinPuzzle || havCoins)
+                {
+                    OpenInventoryToggle();
+                }
+                else
+                {
+                   if(plyInv.ContainsItem(coins[0]))
+                   {
+                        if (plyInv.ContainsItem(coins[1]))
+                        {
+                            if (plyInv.ContainsItem(coins[2]))
+                            {
+                                if (plyInv.ContainsItem(coins[3]))
+                                {
+                                    havCoins = true;
+                                    OpenInventoryToggle();
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
         else
