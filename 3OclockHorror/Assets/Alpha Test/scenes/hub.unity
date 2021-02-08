@@ -1705,7 +1705,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &72738361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2078,6 +2078,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!212 &81007462
 SpriteRenderer:
@@ -2674,6 +2675,210 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!1 &107689256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 107689257}
+  - component: {fileID: 107689259}
+  - component: {fileID: 107689258}
+  m_Layer: 5
+  m_Name: Content
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &107689257
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107689256}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 434793577}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 469.52026}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &107689258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107689256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: c2b4119846e767d4e89635acf2d06934, type: 3}
+    m_FontSize: 25
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &107689259
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107689256}
+  m_CullTransparentMesh: 0
+--- !u!1 &109672439
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 109672440}
+  - component: {fileID: 109672443}
+  - component: {fileID: 109672442}
+  - component: {fileID: 109672441}
+  m_Layer: 5
+  m_Name: Scrollbar Vertical
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &109672440
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109672439}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 864029658}
+  m_Father: {fileID: 1115756440}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 20, y: -17}
+  m_Pivot: {x: 1, y: 1}
+--- !u!114 &109672441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109672439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 986772288}
+  m_HandleRect: {fileID: 986772287}
+  m_Direction: 2
+  m_Value: 1
+  m_Size: 0.55848545
+  m_NumberOfSteps: 0
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &109672442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109672439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &109672443
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109672439}
+  m_CullTransparentMesh: 0
 --- !u!1001 &110148188
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3326,6 +3531,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!212 &127088124
 SpriteRenderer:
@@ -3878,6 +4084,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &138169203
 GameObject:
@@ -4038,6 +4245,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &141441076
 GameObject:
@@ -4493,6 +4701,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &151391044
 GameObject:
@@ -6158,6 +6367,7 @@ GameObject:
   - component: {fileID: 207532912}
   - component: {fileID: 207532914}
   - component: {fileID: 207532915}
+  - component: {fileID: 207532916}
   m_Layer: 5
   m_Name: PhotoInterface
   m_TagString: Untagged
@@ -6284,6 +6494,26 @@ MonoBehaviour:
   itemsParent: {fileID: 0}
   PInv: 0
   active: 0
+--- !u!114 &207532916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207532910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ba527985a9ee2f48897b3404b1eb526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  photos:
+  - {fileID: 1138370856}
+  - {fileID: 770322180}
+  - {fileID: 192224936}
+  - {fileID: 1586681886}
+  - {fileID: 1951906750}
+  - {fileID: 1432521271}
+  taskManager: {fileID: 1223795197}
 --- !u!1 &209860704
 GameObject:
   m_ObjectHideFlags: 0
@@ -8391,6 +8621,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &274226991
 GameObject:
@@ -8936,6 +9167,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!212 &282474154
 SpriteRenderer:
@@ -10038,6 +10270,7 @@ MonoBehaviour:
   player: {fileID: 1619042889}
   plyInv: {fileID: 1615222956}
   Puzzle: {fileID: 1525165273}
+  taskManager: {fileID: 1223795197}
   coins:
   - {fileID: 11400000, guid: 0a6bc6523a2dcaa4abefd749a2e8d193, type: 2}
   - {fileID: 11400000, guid: 21a4f74f1e9023f4ca4dfe069b49bdad, type: 2}
@@ -10045,6 +10278,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6c7fb91a9917f0344a456a3fb10ba204, type: 2}
   range: 0.5
   toolTipScript: {fileID: 807807277}
+  TaskString: -Four slots for four coins, they must have some importance.
   listener: {fileID: 1677718118}
 --- !u!60 &335026183
 PolygonCollider2D:
@@ -11926,6 +12160,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!212 &393776728
 SpriteRenderer:
@@ -13009,6 +13244,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!4 &429790642
 Transform:
@@ -13249,6 +13485,96 @@ MonoBehaviour:
   drawConnecRadius: 0
   connections: []
   waypointTag: WaypointF2
+--- !u!1 &434793576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 434793577}
+  - component: {fileID: 434793580}
+  - component: {fileID: 434793579}
+  - component: {fileID: 434793578}
+  m_Layer: 5
+  m_Name: Viewport
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &434793577
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434793576}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 107689257}
+  m_Father: {fileID: 1115756440}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -17, y: 0}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &434793578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434793576}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 0
+--- !u!114 &434793579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434793576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &434793580
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434793576}
+  m_CullTransparentMesh: 0
 --- !u!1 &434830829
 GameObject:
   m_ObjectHideFlags: 0
@@ -13665,6 +13991,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!212 &443546402
 SpriteRenderer:
@@ -14571,6 +14898,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 11400000, guid: e253d80f2ad6c1b488379832746daa70, type: 2}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &467069455
 GameObject:
@@ -15393,6 +15721,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!4 &499757947
 Transform:
@@ -18208,6 +18537,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &599899497
 GameObject:
@@ -19023,6 +19353,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &627670215
 GameObject:
@@ -22358,6 +22689,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!212 &720174238
 SpriteRenderer:
@@ -22981,6 +23313,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &737438540
 GameObject:
@@ -23598,6 +23931,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!61 &749716158
 BoxCollider2D:
@@ -24050,6 +24384,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!212 &752303911
 SpriteRenderer:
@@ -25676,6 +26011,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &798340832
 GameObject:
@@ -26049,6 +26385,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!212 &807708230
 SpriteRenderer:
@@ -27578,6 +27915,42 @@ MonoBehaviour:
   drawConnecRadius: 0
   connections: []
   waypointTag: WaypointF2
+--- !u!1 &864029657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 864029658}
+  m_Layer: 5
+  m_Name: Sliding Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &864029658
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864029657}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 986772287}
+  m_Father: {fileID: 109672440}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: -20}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &864885553
 GameObject:
   m_ObjectHideFlags: 0
@@ -28108,6 +28481,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &874885653
 GameObject:
@@ -30155,6 +30529,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &952727970
 GameObject:
@@ -31402,6 +31777,81 @@ MonoBehaviour:
   drawConnecRadius: 1
   connections: []
   waypointTag: WaypointF1
+--- !u!1 &986772286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 986772287}
+  - component: {fileID: 986772289}
+  - component: {fileID: 986772288}
+  m_Layer: 5
+  m_Name: Handle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &986772287
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986772286}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 864029658}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.44151455}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 20, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &986772288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986772286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &986772289
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986772286}
+  m_CullTransparentMesh: 0
 --- !u!1 &988181346
 GameObject:
   m_ObjectHideFlags: 0
@@ -31591,6 +32041,7 @@ MonoBehaviour:
   pInv: {fileID: 1615222956}
   MyKey: {fileID: 11400000, guid: 66f84c16d75a6944f946268d7ec5a146, type: 2}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!61 &989003032
 BoxCollider2D:
@@ -33011,6 +33462,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!212 &1027898198
 SpriteRenderer:
@@ -33862,6 +34314,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &1056203612
 GameObject:
@@ -34867,6 +35320,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!61 &1090399931
 BoxCollider2D:
@@ -34950,6 +35404,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 1628193632}
+  taskManager: {fileID: 1223795197}
   Fade: {fileID: 592893175}
 --- !u!212 &1090724819
 SpriteRenderer:
@@ -35414,6 +35869,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &1112786641
 GameObject:
@@ -35647,6 +36103,114 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 373e33b0fc7e722489292af052344e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1115756439
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1115756440}
+  - component: {fileID: 1115756443}
+  - component: {fileID: 1115756442}
+  - component: {fileID: 1115756441}
+  m_Layer: 5
+  m_Name: Tasks(Scrollable)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1115756440
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115756439}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 434793577}
+  - {fileID: 109672440}
+  m_Father: {fileID: 1920594584}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 4.9, y: -16.81}
+  m_SizeDelta: {x: 402.99872, y: 262.22025}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1115756441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115756439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Content: {fileID: 107689257}
+  m_Horizontal: 0
+  m_Vertical: 1
+  m_MovementType: 1
+  m_Elasticity: 0.1
+  m_Inertia: 1
+  m_DecelerationRate: 0.135
+  m_ScrollSensitivity: 1
+  m_Viewport: {fileID: 434793577}
+  m_HorizontalScrollbar: {fileID: 0}
+  m_VerticalScrollbar: {fileID: 109672441}
+  m_HorizontalScrollbarVisibility: 2
+  m_VerticalScrollbarVisibility: 2
+  m_HorizontalScrollbarSpacing: -3
+  m_VerticalScrollbarSpacing: -3
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1115756442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115756439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1115756443
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115756439}
+  m_CullTransparentMesh: 0
 --- !u!1 &1117598392
 GameObject:
   m_ObjectHideFlags: 0
@@ -36117,6 +36681,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!212 &1132408747
 SpriteRenderer:
@@ -36614,6 +37179,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!212 &1141305685
 SpriteRenderer:
@@ -39591,6 +40157,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!212 &1209090067
 SpriteRenderer:
@@ -40288,10 +40855,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5d924e72c6cc149b380be8a44d3465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  tuiRoom: {fileID: 0}
-  taskList: {fileID: 995471583}
-  alertCanv: {fileID: 0}
+  player: {fileID: 1619042896}
+  tuiRoom: {fileID: 1632624971}
+  taskList: {fileID: 107689258}
+  orgTaskList: {fileID: 995471581}
+  dynTaskList: {fileID: 1115756439}
+  alertCanv: {fileID: 72738360}
 --- !u!4 &1223795198
 Transform:
   m_ObjectHideFlags: 0
@@ -42486,6 +43055,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!4 &1287688267
 Transform:
@@ -45457,6 +46027,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &1382370568
 GameObject:
@@ -49709,6 +50280,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &1501061208
 GameObject:
@@ -51083,6 +51655,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &1536094597
 GameObject:
@@ -51458,6 +52031,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 11400000, guid: e37a3340002e8aa468a3856341885584, type: 2}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &1542878431
 GameObject:
@@ -51573,6 +52147,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!61 &1547564628
 BoxCollider2D:
@@ -51733,6 +52308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a92c03fb1f1c3624c877701fa3e0a500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskManager: {fileID: 0}
   SelectPuzzle: 0
   puzzleSelected: 0
   tablePosition: 0
@@ -54281,6 +54857,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!61 &1626619254
 BoxCollider2D:
@@ -54570,6 +55147,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &1629177948
 GameObject:
@@ -55421,11 +55999,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinPuzzle: 0
   player: {fileID: 1619042889}
-  plyInv: {fileID: 0}
+  plyInv: {fileID: 1615222956}
   Puzzle: {fileID: 1450514288}
+  taskManager: {fileID: 1223795197}
   coins: []
   range: 0.5
   toolTipScript: {fileID: 0}
+  TaskString: -Photos appear to be missing, maybe I should find them.
   listener: {fileID: 1677718118}
 --- !u!1 &1649583509
 GameObject:
@@ -56392,6 +56972,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &1676254879
 GameObject:
@@ -56812,6 +57393,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!4 &1683414723 stripped
 Transform:
@@ -58936,6 +59518,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &1744820604
 GameObject:
@@ -59602,6 +60185,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 11400000, guid: e37a3340002e8aa468a3856341885584, type: 2}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &1763896178
 GameObject:
@@ -60484,6 +61068,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &1796023526
 GameObject:
@@ -61335,6 +61920,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &1821597261
 GameObject:
@@ -61821,6 +62407,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &1828602430
 GameObject:
@@ -62212,6 +62799,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!212 &1841355174
 SpriteRenderer:
@@ -64311,6 +64899,7 @@ RectTransform:
   m_Children:
   - {fileID: 540097650}
   - {fileID: 995471582}
+  - {fileID: 1115756440}
   m_Father: {fileID: 625909795}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -64583,6 +65172,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!212 &1929385776
 SpriteRenderer:
@@ -65623,6 +66213,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!61 &1948781499
 BoxCollider2D:
@@ -66100,6 +66691,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &1952929456
 GameObject:
@@ -66230,6 +66822,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &1954135250
 GameObject:
@@ -66441,6 +67034,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &1957214474
 GameObject:
@@ -67269,6 +67863,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!212 &1973596545
 SpriteRenderer:
@@ -67898,6 +68493,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!4 &1988763067
 Transform:
@@ -68348,6 +68944,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &2001717780
 GameObject:
@@ -69781,6 +70378,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1001 &2046055986
 PrefabInstance:
@@ -70802,6 +71400,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1 &2068495095
 GameObject:
@@ -72352,6 +72951,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!1001 &2134488444
 PrefabInstance:
@@ -72619,6 +73219,7 @@ MonoBehaviour:
   pInv: {fileID: 0}
   MyKey: {fileID: 0}
   lockCanv: {fileID: 0}
+  taskManager: {fileID: 0}
   Fade: {fileID: 592893175}
 --- !u!61 &2143602357
 BoxCollider2D:

@@ -25,8 +25,14 @@ public class TaskListTracker : MonoBehaviour
     [SerializeField]
     room tuiRoom;
     [Space]
+
     [SerializeField]
     Text taskList;
+    [SerializeField]
+    GameObject orgTaskList;
+    [SerializeField]
+    GameObject dynTaskList;
+
     [SerializeField]
     GameObject alertCanv;
 
@@ -45,6 +51,8 @@ public class TaskListTracker : MonoBehaviour
     public void StartDynamTaskSys()
     {
         //Set base task to explore house
+        orgTaskList.SetActive(false);
+        dynTaskList.SetActive(true);
         taskList.text = "- Explore the house";
         SendAlert();
     }

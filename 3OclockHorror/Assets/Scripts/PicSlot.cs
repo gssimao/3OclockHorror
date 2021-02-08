@@ -24,24 +24,30 @@ public class PicSlot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dist = Vector3.Distance(this.transform.position, selectedPhoto.transform.position);
-        if(dist <= lockRange)
+        if (selectedPhoto != null)
         {
-            if (!pointerData.dragging)
+            dist = Vector3.Distance(this.transform.position, selectedPhoto.transform.position);
+            if (dist <= lockRange)
             {
-                selectedPhoto.transform.position = this.transform.position;
-                photoinSlot = selectedPhoto;
+                if (!pointerData.dragging)
+                {
+                    selectedPhoto.transform.position = this.transform.position;
+                    photoinSlot = selectedPhoto;
+                }
             }
         }
 
-        dist2 = Vector3.Distance(this.transform.position, photoinSlot.transform.position);
-        if(dist2 > lockRange)
+        if (photoinSlot != null)
         {
-            photoinSlot = null;
-        }
-        else if(photoinSlot != null && !pointerData.dragging)
-        {
-            photoinSlot.transform.position = this.transform.position;
+            dist2 = Vector3.Distance(this.transform.position, photoinSlot.transform.position);
+            if (dist2 > lockRange)
+            {
+                photoinSlot = null;
+            }
+            else if (photoinSlot != null && !pointerData.dragging)
+            {
+                photoinSlot.transform.position = this.transform.position;
+            }
         }
 
     }

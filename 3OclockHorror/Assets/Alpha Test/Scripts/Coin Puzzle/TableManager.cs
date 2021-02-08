@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TableManager : MonoBehaviour
 {
+    [SerializeField]
+    TaskListTracker taskManager;
     public int SelectPuzzle = 0;
     public bool puzzleSelected = false;
 
@@ -226,6 +228,7 @@ public class TableManager : MonoBehaviour
             if(checkAnswer(allCoinsPos, puzzleAnswer))
             {
                 UnityEngine.Debug.Log("Yaaaaaaaayyyyy you win");
+                taskManager.updateList("\n - Where does this key go? Maybe I should check the third floor.");
             }
 
 
@@ -253,6 +256,7 @@ public class TableManager : MonoBehaviour
             if (checkAnswer(allCoinsPos, puzzleAnswer))
             {
                 UnityEngine.Debug.Log("Yaaaaaaaayyyyy you win");
+                taskManager.updateList("\n - Where does this key go? Maybe I should check the third floor.");
             }
 
         }

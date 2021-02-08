@@ -21,6 +21,10 @@ public class PuzzleOpenerScript : MonoBehaviour
     [SerializeField]
     Tooltip toolTipScript;
 
+    [Space]
+    [SerializeField]
+    string TaskString;
+
     public invInput listener;
 
     AudioManager manager;
@@ -46,7 +50,9 @@ public class PuzzleOpenerScript : MonoBehaviour
             {
                 if (!opened)
                 {
-                    taskManager.updateList("\n -Photos appear to be missing, maybe I should find them.");
+                    TaskString = "\n " + TaskString;
+                    taskManager.updateList(TaskString);
+                    opened = true;
                 }
                 if (!coinPuzzle || havCoins)
                 {
@@ -64,13 +70,15 @@ public class PuzzleOpenerScript : MonoBehaviour
                                 {
                                     havCoins = true;
                                     OpenInventoryToggle();
+
+                                    taskManager.updateList("\n - I have to get the coins in their matching slots, but how?");
                                 }
                             }
                         }
                    }
                    else
                     {
-                        toolTipScript.TimedMessage = "I need four coins";
+                        //toolTipScript.TimedMessage = "I need four coins";
                     }
                 }
             }

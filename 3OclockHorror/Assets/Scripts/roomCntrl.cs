@@ -22,6 +22,8 @@ public class roomCntrl : MonoBehaviour
 
     [SerializeField]
     GameObject lockCanv;
+    [SerializeField]
+    TaskListTracker taskManager;
 
     AudioManager manager;
 
@@ -178,6 +180,7 @@ public class roomCntrl : MonoBehaviour
         else if(lockCanv != null && !lockCanv.activeSelf)
         {
             lockCanv.SetActive(true);
+            taskManager.updateList("\n - A lock with roman numerals? Where would I get the code?");
         }
         else
         {
