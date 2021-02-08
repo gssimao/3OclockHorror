@@ -30,7 +30,6 @@ public class roomCntrl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        toolTipScript = gameObject.GetComponent<Tooltip>();
         manager = FindObjectOfType<AudioManager>();
     }
 
@@ -182,6 +181,7 @@ public class roomCntrl : MonoBehaviour
         }
         else
         {
+            toolTipScript.TimedMessage = "The door is locked";
             Debug.LogError("Door is locked but there is no key or inv set");
         }
     }

@@ -62,6 +62,12 @@ public class CandleScript : MonoBehaviour
                 Flicker.SetActive(false);
                 lightEffect.SetActive(false);
             }
+            else if (flame != null && LightMask != null)
+            {
+                flame.enabled = false;
+                LightMask.enabled = false;
+                lightEffect.SetActive(false);
+            }
         }
         else if(trigger == true)
         {
@@ -70,6 +76,12 @@ public class CandleScript : MonoBehaviour
                 flame.enabled = true;
                 LightMask.enabled = true;
                 Flicker.SetActive(true);
+                lightEffect.SetActive(true);
+            }
+            else if (flame != null && LightMask != null)
+            {
+                flame.enabled = true;
+                LightMask.enabled = true;
                 lightEffect.SetActive(true);
             }
         }

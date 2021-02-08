@@ -5,6 +5,8 @@ using UnityEngine;
 public class PuzzleOpenerScript : MonoBehaviour
 {
     [SerializeField]
+    bool coinPuzzle = false;
+    [SerializeField]
     GameObject player;
     [SerializeField]
     Inventory plyInv;
@@ -14,9 +16,10 @@ public class PuzzleOpenerScript : MonoBehaviour
     List<Item> coins;
     [SerializeField]
     float range;
+    [SerializeField]
+    Tooltip toolTipScript;
 
     public invInput listener;
-    public bool coinPuzzle = false;
 
     AudioManager manager;
     float dist;
@@ -57,6 +60,10 @@ public class PuzzleOpenerScript : MonoBehaviour
                                 }
                             }
                         }
+                   }
+                   else
+                    {
+                        toolTipScript.TimedMessage = "I need four coins";
                     }
                 }
             }

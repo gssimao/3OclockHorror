@@ -61,12 +61,24 @@ public class FloorChanger : MonoBehaviour
         Fade.gameObject.SetActive(true);
         Fade.SetTrigger("fadeOut");
 
+        yield return new WaitForSeconds(0.5f);
+
         player.transform.position = spawnPoint.transform.position;
         player.GetComponent<PlayerMovement>().myRoom = destRoom;
         player.GetComponent<PlayerMovement>().playerFloor = destString;
 
-        yield return new WaitForSeconds(0.5f);
         Fade.SetTrigger("fadeIn");
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(this.transform.position, 0.6f);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(spawnPoint.transform.position, 0.1f);
+        Vector3 plyPos = spawnPoint.transform.position;
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(new Vector3(plyPos.x, plyPos.y - 0.3108585f, plyPos.z), new Vector3(0.1573486f, 0.1247783f, 1f));
     }
 
     /*IEnumerator LoadYourAsyncScene(GameObject Instance)
