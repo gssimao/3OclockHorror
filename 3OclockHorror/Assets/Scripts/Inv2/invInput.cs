@@ -63,6 +63,7 @@ public class invInput : MonoBehaviour
                 invCanvas.SetActive(true);
             }
             */
+            
         }
     }
 
