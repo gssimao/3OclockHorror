@@ -11,6 +11,7 @@ public class NotifCntrl : MonoBehaviour
     //Standard Variables
     float x = 0; //Float for tracking time
 
+    public bool hasPlayed = false;
     AudioManager manager;
 
     void Start()
@@ -23,7 +24,7 @@ public class NotifCntrl : MonoBehaviour
         LeanTween.moveY(Notification, 100, 1.5f);
         if (manager != null)
         {
-            manager.Play("Writing");
+            //manager.Play("Writing");
         }
     }
 
@@ -32,11 +33,21 @@ public class NotifCntrl : MonoBehaviour
     {
         if (this.gameObject.activeSelf == true)
         {
+            if (manager != null && hasPlayed == false)
+            {
+                manager.Play("Writing");
+                hasPlayed = true;
+            }
+
             x += Time.deltaTime;
             if (x > 4)
             {
                 resetCanvas();
             }
+        }
+        else if (hasPlayed == true)
+        {
+            hasPlayed = false;
         }
     }
 
