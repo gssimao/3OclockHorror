@@ -54,4 +54,23 @@ public class TaskListTracker : MonoBehaviour
         //This would be a potential option for triggering sound. Alternatively can also be associated with canvas.
         alertCanv.SetActive(true);
     }
+
+    public bool updateList(string update)
+    {
+        bool rtrn = false;
+
+        //Update task
+        if(update == "")
+        {
+            Debug.Log("No task to add in.");
+        }
+        else
+        {
+            taskList.text += update;
+            SendAlert();
+            rtrn = true;
+        }
+
+        return rtrn;
+    }
 }

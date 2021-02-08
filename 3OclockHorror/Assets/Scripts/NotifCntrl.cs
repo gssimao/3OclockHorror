@@ -21,9 +21,9 @@ public class NotifCntrl : MonoBehaviour
 
     private void OnEnable()
     {
-        LeanTween.moveY(Notification, 100, 1.5f);
-        if (manager != null)
-        {
+        LeanTween.moveY(Notification, 100, 1.5f);
+        if (manager != null)
+        {
             //manager.Play("Writing");
         }
     }
@@ -32,11 +32,11 @@ public class NotifCntrl : MonoBehaviour
     void Update()
     {
         if (this.gameObject.activeSelf == true)
-        {
-            if (manager != null && hasPlayed == false)
-            {
-                manager.Play("Writing");
-                hasPlayed = true;
+        {
+            if (manager != null && hasPlayed == false)
+            {
+                manager.Play("Writing");
+                hasPlayed = true;
             }
 
             x += Time.deltaTime;
@@ -45,9 +45,9 @@ public class NotifCntrl : MonoBehaviour
                 resetCanvas();
             }
         }
-        else if (hasPlayed == true)
-        {
-            hasPlayed = false;
+        else if (hasPlayed == true)
+        {
+            hasPlayed = false;
         }
     }
 

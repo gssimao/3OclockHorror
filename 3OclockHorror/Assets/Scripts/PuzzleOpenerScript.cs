@@ -13,6 +13,8 @@ public class PuzzleOpenerScript : MonoBehaviour
     [SerializeField]
     GameObject Puzzle;
     [SerializeField]
+    TaskListTracker taskManager;
+    [SerializeField]
     List<Item> coins;
     [SerializeField]
     float range;
@@ -25,6 +27,7 @@ public class PuzzleOpenerScript : MonoBehaviour
     float dist;
     bool canvasActive = false;
     bool havCoins = false;
+    bool opened = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +44,10 @@ public class PuzzleOpenerScript : MonoBehaviour
             listener.enabled = false;
             if (Input.GetKeyDown("e"))
             {
+                if (!opened)
+                {
+                    taskManager.updateList("\n -Photos appear to be missing, maybe I should find them.");
+                }
                 if (!coinPuzzle || havCoins)
                 {
                     OpenInventoryToggle();
