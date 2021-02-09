@@ -12,7 +12,7 @@ public class BCKnockoutPlayer : MonoBehaviour
         if(this.gameObject.activeSelf == true)
         {
             x += Time.deltaTime;
-            if(x > 4)
+            if(x > 7)
             {
                 x = 0;
                 this.gameObject.SetActive(false);
