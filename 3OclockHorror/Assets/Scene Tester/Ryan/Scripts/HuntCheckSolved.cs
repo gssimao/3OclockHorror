@@ -26,6 +26,7 @@ public class HuntCheckSolved : MonoBehaviour
 
     public bool solved = false;
     public GameObject clock;
+    public bool timercheck;
 
     public Inventory pInv;
     public Item cKey;
@@ -58,6 +59,11 @@ public class HuntCheckSolved : MonoBehaviour
         Text2.text = showanswer2.ToString();
         Text3.text = showanswer3.ToString();
 
+        if (!timercheck)
+        {
+            GameObject.Find("Timer").SetActive(false);
+        }
+
         //TimerText = GameObject.Find("Timer").Text;
     }
     
@@ -79,22 +85,9 @@ public class HuntCheckSolved : MonoBehaviour
         }
     }
 
-    public void startClock()
-    {
-        isSolved.SetActive(true);
-        isSolved.transform.SetAsLastSibling();
-
-        clock.SetActive(true);
-        if (pInv != null && cKey != null && !endTriggered)
-        {
-            pInv.AddItem(cKey);
-        }
-        endTriggered = true;
-    }
-
     void Update()
     {
-        if (!lost && !solved)
+        if (!lost && !solved && timercheck)
         {
             timer -= Time.deltaTime;
             TimerText.text = System.Math.Round(timer,2).ToString();
