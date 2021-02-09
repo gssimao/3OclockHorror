@@ -34,6 +34,7 @@ public class transferState : abstractFSMState
     {
         if (enteredState && ChosenRoom != null)
         {
+            Debug.Log("Room chosen. Room: " + ChosenRoom.name);
             //Enter new chosen room.
             executor.transform.position = ChosenRoom.getEntrancePoint().gameObject.transform.position;
             executor.curPoint = ChosenRoom.getEntrancePoint();

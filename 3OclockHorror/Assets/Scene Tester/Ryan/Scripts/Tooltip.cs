@@ -53,7 +53,7 @@ public class Tooltip : MonoBehaviour
         {
             if (player.GetComponent<PlayerMovement>().walking == true && walked == false)
             {
-                TooltipText.text = "";
+                TooltipText.text = "Press E to open the Journal. Use the arrows on the pages to navigate.";
                 walked = true;
             }
         }
