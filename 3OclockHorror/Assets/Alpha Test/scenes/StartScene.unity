@@ -2112,7 +2112,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &325755639
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7578,7 +7578,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1125768053
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9225,11 +9225,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdbeae8c7944eaf4392eed6d345622a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EntrancePuzzle: {fileID: 1353230632}
   player: {fileID: 239561713}
-  sceneName: hub
+  EntrancePuzzle: {fileID: 1353230632}
+  plyinv: {fileID: 1949765224}
+  sceneName: Main_Menu_Alpha_(options)
   Fade: {fileID: 1213580888}
   Listener: {fileID: 1998136547}
+  key: {fileID: 11400000, guid: 66f84c16d75a6944f946268d7ec5a146, type: 2}
+  tooltipScript: {fileID: 36532278}
+  dist: 0
 --- !u!1 &1384614716
 GameObject:
   m_ObjectHideFlags: 0
@@ -12491,6 +12495,7 @@ GameObject:
   - component: {fileID: 1887692082}
   - component: {fileID: 1887692083}
   - component: {fileID: 1887692084}
+  - component: {fileID: 1887692085}
   m_Layer: 0
   m_Name: DeadGuy
   m_TagString: Untagged
@@ -12589,6 +12594,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.58868325, y: 0.27168417}
   m_EdgeRadius: 0
+--- !u!114 &1887692085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887692081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f6e68c5a99ca84086f9896505358d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plyInv: {fileID: 1949765224}
+  key: {fileID: 11400000, guid: 66f84c16d75a6944f946268d7ec5a146, type: 2}
+  tooltipScript: {fileID: 36532278}
+  invCanv: {fileID: 1110697979}
+  Listener: {fileID: 1998136547}
 --- !u!1 &1908625683
 GameObject:
   m_ObjectHideFlags: 0

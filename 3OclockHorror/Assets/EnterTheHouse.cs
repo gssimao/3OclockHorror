@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 public class EnterTheHouse : MonoBehaviour
 {
     [SerializeField]
+    GameObject player;
+    [SerializeField]
     HuntCheckSolved EntrancePuzzle;
     [SerializeField]
-    GameObject player;
+    Inventory plyinv;
     Scene currentScene;
     [SerializeField]
     string sceneName; // name of scene to transfer to
@@ -16,8 +18,12 @@ public class EnterTheHouse : MonoBehaviour
     Animator Fade;
     [SerializeField]
     invInput Listener;
+    [SerializeField]
+    Item key;
+    [SerializeField]
+    Tooltip tooltipScript;
 
-    float dist;
+    public float dist;
     float range = 0.5f;
     // Start is called before the first frame update
     void Start()
@@ -30,19 +36,24 @@ public class EnterTheHouse : MonoBehaviour
     {
         dist = Vector3.Distance(this.transform.position, player.transform.position);
 
-        if(EntrancePuzzle.solved)
-        {
-
-        }
-
         if (dist <= range)
         {
+            Listener.enabled = false;
             if (Input.GetKeyDown("e"))
             {
-                Listener.enabled = false;
-                Enterthehouse();
+                if (plyinv.ContainsItem(key) && EntrancePuzzle.solved)
+                {
+                    Debug.Log("This works");
+                    Enterthehouse();
+                }
+                else
+                {
+                    tooltipScript.TimedMessage = "Hmmm, looks like I need a key of some sort?";
+                }
             }
         }
+
+        Listener.enabled = true;
 
         if (Fade != null)
         {

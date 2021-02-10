@@ -68,6 +68,7 @@ public class Inventory : MonoBehaviour, IItemContainer
             if(itemSlots[i].Item == null)
             {
                 itemSlots[i].Item = item;
+
                 return true;
             }
         }
