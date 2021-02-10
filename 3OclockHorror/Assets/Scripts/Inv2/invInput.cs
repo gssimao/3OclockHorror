@@ -9,6 +9,8 @@ public class invInput : MonoBehaviour
     [SerializeField]
     KeyCode invKey;
     [SerializeField]
+    KeyCode escKey;
+    [SerializeField]
     GameObject Journal;
     [SerializeField]
     GameObject invCanvas;
@@ -18,6 +20,8 @@ public class invInput : MonoBehaviour
     InputField jInput;
     [SerializeField]
     List<GameObject> objs;
+    [SerializeField]
+    GameObject escCanv;
 
     AudioManager manager;
 
@@ -64,6 +68,17 @@ public class invInput : MonoBehaviour
             }
             */
             
+        }
+        if (Input.GetKeyDown(escKey))
+        {
+            if (!escCanv.activeSelf)
+            {
+                escCanv.SetActive(true);
+            }
+            else
+            {
+                escCanv.SetActive(false);
+            }
         }
     }
 
