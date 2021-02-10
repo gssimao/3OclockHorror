@@ -13,6 +13,7 @@ public class HuntCheckSolved : MonoBehaviour
     private int answer2;
     private int answer3;
 
+    public PlayerMovement playermovement;
     public int showanswer1;
     public int showanswer2;
     public int showanswer3;
@@ -23,6 +24,8 @@ public class HuntCheckSolved : MonoBehaviour
     public GameObject Solved;
     public Text SolvedText;
     public Text TimerText;
+    public bool timeractive;
+    private GameObject ExitButton;
 
     public bool solved = false;
     public GameObject clock;
@@ -41,6 +44,7 @@ public class HuntCheckSolved : MonoBehaviour
 
     private void Start()
     {
+        playermovement.enabled = false;
         answer1 = Random.Range(0, 5);
         answer2 = Random.Range(0, 5);
         answer3 = Random.Range(0, 5);
@@ -59,14 +63,18 @@ public class HuntCheckSolved : MonoBehaviour
         Text2.text = showanswer2.ToString();
         Text3.text = showanswer3.ToString();
 
-        if (!timercheck)
-        {
-            GameObject.Find("Timer").SetActive(false);
-        }
-
+        timeractive = false;
         //TimerText = GameObject.Find("Timer").Text;
     }
-    
+
+    public void Awake()
+    {
+        ExitButton = GameObject.Find("ExitButton");
+        ExitButton.SetActive(false);
+        GameObject.Find("SolvedText").SetActive(false);
+        GameObject.Find("BeartrapPuzzle").SetActive(false);
+    }
+
     public void checkAnswer()
     {
         Debug.Log("GearRotation 1: " + Gear1.GetComponent<GearRotation>().movement + " Answer 1: " + answer1);
@@ -77,6 +85,7 @@ public class HuntCheckSolved : MonoBehaviour
             solved = true;
             Solved.SetActive(true);
             Debug.Log("Solved");
+            ExitButton.SetActive(true);
         }
 
         if (solved && !endTriggered)
@@ -85,9 +94,32 @@ public class HuntCheckSolved : MonoBehaviour
         }
     }
 
+    public void ExitPuzzle()
+    {
+        GameObject.Find("BeartrapPuzzle").SetActive(false);
+        playermovement.enabled = true;
+
+    }
+
+    public void Activate(GameObject Puzzle)
+    {
+        if (!solved)
+        {
+            Puzzle.SetActive(true);
+            if (!timercheck)
+            {
+                GameObject.Find("Timer").SetActive(false);
+            }
+            else
+            {
+                timeractive = true;
+            }
+        }
+    }
+
     void Update()
     {
-        if (!lost && !solved && timercheck)
+        if (!lost && !solved && timercheck && timeractive)
         {
             timer -= Time.deltaTime;
             TimerText.text = System.Math.Round(timer,2).ToString();
