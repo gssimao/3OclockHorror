@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Padlock : MonoBehaviour
 {
+    [SerializeField]
+    bool solved;
+
     //Rotating elements of the lock
     [SerializeField]
     LockControl lock1;
@@ -27,7 +30,6 @@ public class Padlock : MonoBehaviour
     [SerializeField]
     GameObject isSolved;
 
-    public bool solved { get; set; }
     AudioManager manager;
 
     void Start()
