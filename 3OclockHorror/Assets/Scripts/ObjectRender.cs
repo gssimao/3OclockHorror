@@ -23,7 +23,6 @@ public class ObjectRender : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         Listener.enabled = false;
-        //Debug.Log("In Collider");
         if (Input.GetKeyDown(KeyCode.E) && !active)
         {
             Debug.Log("Key pressed");
@@ -51,11 +50,5 @@ public class ObjectRender : MonoBehaviour
         item = GameObject.Find("Image");
         image = GameObject.Find("PopupImage").GetComponent<Image>();
         transparent = image.sprite;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

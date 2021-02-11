@@ -31,9 +31,6 @@ public class HuntCheckSolved : MonoBehaviour
     public GameObject clock;
     public bool timercheck;
 
-    public Inventory pInv;
-    public Item cKey;
-
     bool endTriggered = false;
 
     float timer = 15.0f;
@@ -77,20 +74,11 @@ public class HuntCheckSolved : MonoBehaviour
 
     public void checkAnswer()
     {
-        Debug.Log("GearRotation 1: " + Gear1.GetComponent<GearRotation>().movement + " Answer 1: " + answer1);
-        Debug.Log("GearRotation 2: " + Gear2.GetComponent<GearRotation>().movement + " Answer 2: " + answer2);
-        Debug.Log("GearRotation 3: " + Gear3.GetComponent<GearRotation>().movement + " Answer 3: " + answer3);
         if (Gear1.GetComponent<GearRotation>().movement == answer1 && Gear2.GetComponent<GearRotation>().movement == answer2 && Gear3.GetComponent<GearRotation>().movement == answer3 && !lost)
         {
             solved = true;
             Solved.SetActive(true);
-            Debug.Log("Solved");
             ExitButton.SetActive(true);
-        }
-
-        if (solved && !endTriggered)
-        {
-            //startClock();
         }
     }
 
