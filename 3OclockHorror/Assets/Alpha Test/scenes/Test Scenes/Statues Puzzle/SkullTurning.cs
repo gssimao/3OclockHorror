@@ -14,6 +14,11 @@ public class SkullTurning : MonoBehaviour
     public int SkullPosition3 = 0;
     public int SkullPosition4 = 0;
 
+    //Stage booleans
+    bool stg1;
+    bool stg2;
+    bool stg3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,9 +33,22 @@ public class SkullTurning : MonoBehaviour
     }
     void Update()
     {
+        /*
         if(SkullPosition1 == 2 && SkullPosition2 == 0 && SkullPosition3 == 2 && SkullPosition4 == 0)
         {
             Debug.Log("Solved");
+        }
+        */
+        if (!stg1)
+        {
+            if(SkullPosition1 == 2 && SkullPosition2 == 0 && SkullPosition3 == 2 && SkullPosition4 == 0)
+            {
+
+            }
+        }
+        else
+        {
+
         }
     }
 
