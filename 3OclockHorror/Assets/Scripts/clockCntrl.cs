@@ -42,6 +42,7 @@ public class clockCntrl : MonoBehaviour
         if (player.myRoom != null && manager != null)
         {
             manager.Play("Drone");
+            manager.Play("Heavy Wind");
         }
 
         if (player.myRoom != null && player.myRoom.getName() != "TutorialRoom")
@@ -50,6 +51,7 @@ public class clockCntrl : MonoBehaviour
             if (manager != null)
             {
                 manager.Play("Game ST");
+                manager.Stop("Heavy Wind");
             }
 
             if (Clock >= endTime) //Check if sys time is beyond end time, if so quit

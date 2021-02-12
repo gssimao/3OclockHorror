@@ -20,10 +20,13 @@ public class FloorChanger : MonoBehaviour
 
     float dist;
     bool animIsDone = false;
+
+    AudioManager manager;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        manager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -36,6 +39,7 @@ public class FloorChanger : MonoBehaviour
             if (Input.GetKeyDown("e"))
             {
                 StartCoroutine(ChangeCamera());
+                
             }
 
         }
@@ -79,6 +83,15 @@ public class FloorChanger : MonoBehaviour
         Vector3 plyPos = spawnPoint.transform.position;
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(new Vector3(plyPos.x, plyPos.y - 0.3108585f, plyPos.z), new Vector3(0.1573486f, 0.1247783f, 1f));
+    }
+
+    void playSound()
+    {
+        if (manager != null)
+        {
+            manager.Stop("Game ST");
+            manager.Play("2nd Floor ST");
+        }
     }
 
     /*IEnumerator LoadYourAsyncScene(GameObject Instance)

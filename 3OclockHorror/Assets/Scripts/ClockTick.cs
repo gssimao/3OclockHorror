@@ -27,16 +27,16 @@ public class ClockTick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckRoom();
-        /*dist = Vector3.Distance(player.transform.position, this.transform.position);
+        //CheckRoom();
+        dist = Vector3.Distance(player.transform.position, this.transform.position);
          if (dist <= soundRange)
          {
-            // playSound();
+             playSound();
          }
          else if (dist > soundRange)
          {
-            // manager.Stop("Clock Tick");
-         }*/
+             manager.Stop("Clock Tick");
+         }
 
     }
 
@@ -59,7 +59,7 @@ public class ClockTick : MonoBehaviour
         else
         {
             playerInRoom = false;
-            //manager.Stop("Clock Tick");
+            manager.Stop("Clock Tick");
          }
     }
 }
