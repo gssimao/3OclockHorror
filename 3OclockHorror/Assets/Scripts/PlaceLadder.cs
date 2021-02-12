@@ -50,10 +50,9 @@ public class PlaceLadder : MonoBehaviour
 
         if(ladAcquired != null)
         {
+            sprite.enabled = true;
             if (dist <= 0.5f)
             {
-                sprite.enabled = true;
-
                 if (Input.GetKeyDown("e"))
                 {
                     LadderFunction();
