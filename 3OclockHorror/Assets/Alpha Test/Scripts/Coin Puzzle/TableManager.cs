@@ -7,7 +7,7 @@ public class TableManager : MonoBehaviour
     [SerializeField]
     TaskListTracker taskManager;
     public int SelectPuzzle = 0;
-    public bool puzzleSelected = false;
+    public bool puzzleSelected = true;
 
     int[] table = new int[] { 0, 90, 180, 270 };
     public int tablePosition = 0;
@@ -136,6 +136,7 @@ public class TableManager : MonoBehaviour
         if(!puzzleSelected)
         {
             SelectPuzzle = Random.Range(1, 4); // this generates a random number from 1 to 3.
+            UnityEngine.Debug.Log(SelectPuzzle);
             if(SelectPuzzle == 1)
             {
                 allCoinsPos = puzzle1;
