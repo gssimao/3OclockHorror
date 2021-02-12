@@ -7,20 +7,26 @@ public class AudioManager : MonoBehaviour
 
 	public static AudioManager instance; //Is there an audio manager? Used to ensure only one instance
 
+	[SerializeField]
+	bool isTutorial = false;
+
 	public AudioMixerGroup mixerGroup; //For audio source mixing
 
 	public Sound[] sounds; //List of sounds managed by the manager
 
 	void Awake()
 	{
-		if (instance != null)
+		if (!isTutorial)
 		{
-			Destroy(gameObject); //Is there a manager? If yes then I'm gone
-		}
-		else
-		{
-			instance = this;  //There isnt a manager? I'm it
-			DontDestroyOnLoad(gameObject);
+			if (instance != null && instance != null)
+			{
+				Destroy(gameObject); //Is there a manager? If yes then I'm gone
+			}
+			else
+			{
+				instance = this;  //There isnt a manager? I'm it
+				DontDestroyOnLoad(gameObject);
+			}
 		}
 
 		foreach (Sound s in sounds) //Init each sound - give it a source and init that source to make it playable

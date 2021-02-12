@@ -133,8 +133,8 @@ public class TableManager : MonoBehaviour
     private void Start()
     {
         
-        if(!puzzleSelected)
-        {
+        //if(!puzzleSelected)
+       // {
             SelectPuzzle = Random.Range(1, 4); // this generates a random number from 1 to 3.
             UnityEngine.Debug.Log(SelectPuzzle);
             if(SelectPuzzle == 1)
@@ -153,7 +153,7 @@ public class TableManager : MonoBehaviour
                 puzzleAnswer = answer3;
             }
             puzzleSelected = true;
-        }
+        //}
         setPosition();
     }
     public void ResetPuzzle() // this is currently being tested 01/10/2021
