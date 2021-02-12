@@ -15,16 +15,16 @@ public class SkullTurning : MonoBehaviour
     public int SkullPosition4 = 0;
 
     //Stage booleans
-    bool stg1;
-    bool stg2;
-    bool stg3;
+    bool stg1 = false;
+    bool stg2 = false;
+    bool stg3 = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        SkullPosition1 = Random.Range(0, 4);
+        SkullPosition1 = Random.Range(0, 3);
         SkullPosition2 = Random.Range(0, 3);
-        SkullPosition3 = Random.Range(0, 4);
+        SkullPosition3 = Random.Range(0, 3);
         SkullPosition4 = Random.Range(0, 3);
         SkullRotation1.SetInteger("SkullPosition", SkullPosition1);
         SkullRotation2.SetInteger("SkullPosition", SkullPosition2);
@@ -39,27 +39,39 @@ public class SkullTurning : MonoBehaviour
             Debug.Log("Solved");
         }
         */
-        if (!stg1)
-        {
-            if(SkullPosition1 == 2 && SkullPosition2 == 0 && SkullPosition3 == 2 && SkullPosition4 == 0)
-            {
 
-            }
+        if (SkullPosition1 == 2 && SkullPosition2 == 0 && SkullPosition3 == 2 && SkullPosition4 == 0)
+        {
+            stg1 = true;
+            //STG one code;
+            Debug.Log("Stg 1 Complete");
         }
-        else
+        if (SkullPosition1 == 1 && SkullPosition2 == 1 && SkullPosition3 == 3 && SkullPosition4 == 3 && stg1)
         {
-
+            stg2 = true;
+            //STG one code;
+            Debug.Log("Stg 2 complete");
+        }
+        if (SkullPosition1 == 0 && SkullPosition2 == 2 && SkullPosition3 == 0 && SkullPosition4 == 2 && stg1 && stg2)
+        {
+            stg3 = true;
+            //STG one code;
+            Debug.Log("Stg 3 complete");
+        }
+        if (stg3)
+        {
+            //lock the puzzle, allow progression
         }
     }
 
     public void Turning1()
     {
-        /*SkullPosition1++;
+        SkullPosition1++;
         if(SkullPosition1 > 3)
         {
             SkullPosition1 = 0;
         }
-        SkullRotation1.SetInteger("SkullPosition", SkullPosition1);*/
+        SkullRotation1.SetInteger("SkullPosition", SkullPosition1);
     }
     public void Turning2()
     {
