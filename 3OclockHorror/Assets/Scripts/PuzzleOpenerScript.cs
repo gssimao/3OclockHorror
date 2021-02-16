@@ -20,6 +20,8 @@ public class PuzzleOpenerScript : MonoBehaviour
     float range;
     [SerializeField]
     Tooltip toolTipScript;
+    [SerializeField]
+    GameObject invCan;
 
     [Space]
     [SerializeField]
@@ -70,6 +72,13 @@ public class PuzzleOpenerScript : MonoBehaviour
                                 {
                                     havCoins = true;
                                     OpenInventoryToggle();
+
+                                    invCan.SetActive(true);
+                                    plyInv.RemoveItem(coins[0]);
+                                    plyInv.RemoveItem(coins[1]);
+                                    plyInv.RemoveItem(coins[2]);
+                                    plyInv.RemoveItem(coins[3]);
+                                    invCan.SetActive(false);
 
                                     taskManager.updateList("\n - I have to get the coins in their matching slots, but how?");
                                 }

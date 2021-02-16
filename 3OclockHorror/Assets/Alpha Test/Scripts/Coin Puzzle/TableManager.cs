@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class TableManager : MonoBehaviour
 {
+
     [SerializeField]
     TaskListTracker taskManager;
     public int SelectPuzzle = 0;
     public bool puzzleSelected = true;
+    [SerializeField]
+    Item brokenLadder;
+    [SerializeField]
+    Inventory plyInv;
 
     int[] table = new int[] { 0, 90, 180, 270 };
     public int tablePosition = 0;
@@ -134,7 +139,7 @@ public class TableManager : MonoBehaviour
     {
         
         //if(!puzzleSelected)
-       // {
+       //{
             SelectPuzzle = Random.Range(1, 4); // this generates a random number from 1 to 3.
             UnityEngine.Debug.Log(SelectPuzzle);
             if(SelectPuzzle == 1)
@@ -229,7 +234,9 @@ public class TableManager : MonoBehaviour
             if(checkAnswer(allCoinsPos, puzzleAnswer))
             {
                 UnityEngine.Debug.Log("Yaaaaaaaayyyyy you win");
-                taskManager.updateList("\n - Where does this key go? Maybe I should check the third floor.");
+                plyInv.AddItem(brokenLadder);
+                taskManager.updateList("\n - A broken piece of a ladder, I bet I can fix this.");
+                
             }
 
 
@@ -257,7 +264,8 @@ public class TableManager : MonoBehaviour
             if (checkAnswer(allCoinsPos, puzzleAnswer))
             {
                 UnityEngine.Debug.Log("Yaaaaaaaayyyyy you win");
-                taskManager.updateList("\n - Where does this key go? Maybe I should check the third floor.");
+                plyInv.AddItem(brokenLadder);
+                taskManager.updateList("\n - A broken piece of a ladder, I bet I can fix this.");
             }
 
         }

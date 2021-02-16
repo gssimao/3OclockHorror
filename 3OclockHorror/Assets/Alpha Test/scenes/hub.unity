@@ -10943,6 +10943,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6c7fb91a9917f0344a456a3fb10ba204, type: 2}
   range: 0.5
   toolTipScript: {fileID: 807807277}
+  invCan: {fileID: 1044781339}
   TaskString: -Four slots for four coins, they must have some importance.
   listener: {fileID: 1677718118}
 --- !u!60 &335026183
@@ -34064,7 +34065,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &989003029
 Transform:
   m_ObjectHideFlags: 0
@@ -55174,6 +55175,8 @@ MonoBehaviour:
   taskManager: {fileID: 0}
   SelectPuzzle: 0
   puzzleSelected: 1
+  brokenLadder: {fileID: 11400000, guid: efd3b8ea66fde004d9cbfe6946312b94, type: 2}
+  plyInv: {fileID: 1615222956}
   tablePosition: 0
   coinCue: 01000000020000000300000004000000
   coin1Pos: 0000000002000000
@@ -57196,7 +57199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 11400000, guid: 6383709784d088d448354c2771f47787, type: 2}
+  - {fileID: 0}
   itemSlots: []
   itemsParent: {fileID: 1615222955}
   PInv: 1
@@ -59086,6 +59089,7 @@ MonoBehaviour:
   coins: []
   range: 0.5
   toolTipScript: {fileID: 0}
+  invCan: {fileID: 0}
   TaskString: -Photos appear to be missing, maybe I should find them.
   listener: {fileID: 1677718118}
 --- !u!1 &1649583509
