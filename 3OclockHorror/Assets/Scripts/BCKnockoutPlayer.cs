@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BCKnockoutPlayer : MonoBehaviour
 {
-    float x = 0;
+    public float x = 0;
 
     // Update is called once per frame
     void Update()
@@ -12,7 +12,7 @@ public class BCKnockoutPlayer : MonoBehaviour
         if(this.gameObject.activeSelf == true)
         {
             x += Time.deltaTime;
-            if(x > 7)
+            if(x > 2)
             {
                 x = 0;
                 this.gameObject.SetActive(false);
