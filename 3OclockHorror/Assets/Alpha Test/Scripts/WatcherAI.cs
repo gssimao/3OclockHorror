@@ -26,7 +26,6 @@ public class WatcherAI : MonoBehaviour
     public bool isClosePlaying = false;
     public bool isScreamPlaying = false;
     public bool timerLock = true;
-    int candleNum;
     int[] candlesOn;
     float ovTimer;
     float distance;
@@ -47,7 +46,6 @@ public class WatcherAI : MonoBehaviour
         Candles = currentRoom.getRoomObject().GetComponentsInChildren<CandleScript>();
         spawnPoint = currentRoom.getWatcherSpawn().transform.position;
 
-        candleNum = Candles.Length;
         ovTimer = coolDownTimer;;
         sanityManager = player.GetComponent<SanityManager>();
         playerRoom = player.GetComponent<PlayerMovement>().myRoom;
@@ -61,10 +59,9 @@ public class WatcherAI : MonoBehaviour
     {
         playerRoom = player.GetComponent<PlayerMovement>().myRoom;
         CheckRoom();
-        candlesOut = CheckCandles();
         UpdateFace();
+        candlesOut = CheckCandles();
         // candlesOut Explaination:
-
         // False means all the candles are off or don't exist
         // True means there are still candles on
 
@@ -284,7 +281,7 @@ public class WatcherAI : MonoBehaviour
 
         candlesOn = new int[candleCount];
 
-        for(int i = 0; i < candleNum; i++)
+        for(int i = 0; i < Candles.Length; i++)
         {
             if (Candles[i].flame != null)
             {

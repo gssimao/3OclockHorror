@@ -29,6 +29,7 @@ public class roomCntrl : MonoBehaviour
 
     public Animator Fade;
 
+    bool opened = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -180,7 +181,11 @@ public class roomCntrl : MonoBehaviour
         else if(lockCanv != null && !lockCanv.activeSelf)
         {
             lockCanv.SetActive(true);
-            taskManager.updateList("\n - A lock with roman numerals? Where would I get the code?");
+            if (!opened)
+            {
+                taskManager.updateList("\n - A lock with roman numerals? Where would I get the code?");
+                opened = true;
+            }
         }
         else
         {
