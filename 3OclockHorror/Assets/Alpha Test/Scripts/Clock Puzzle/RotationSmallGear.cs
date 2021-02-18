@@ -6,6 +6,7 @@ public class RotationSmallGear : MonoBehaviour
 {
     public GameObject BigGear;
     public GameObject MedGear;
+    AudioManager manager;
 
     int[] bigGearPosition = new int[] { 2, 25, 53, 81, 110, 138, 165, 193, 220, 248, 275, 305, 332 };
     int[] medGearPosition = new int[] { 0, 60, 120, 180, 240, 300 };
@@ -13,7 +14,10 @@ public class RotationSmallGear : MonoBehaviour
 
     public int Smallmovement = 0;
 
-
+    void Start()
+    {
+        manager = FindObjectOfType<AudioManager>();
+    }
 
     private void OnMouseOver()
     {
@@ -26,6 +30,7 @@ public class RotationSmallGear : MonoBehaviour
             LeanTween.rotateZ(BigGear, bigGearPosition[BigGear.GetComponent<RotationBigGear>().Bigmovement], 1); // move big gear
             LeanTween.rotateZ(MedGear, medGearPosition[MedGear.GetComponent<RotationMedGear>().Medmovement], 1); // move med gear
             LeanTween.rotateZ(gameObject, smallGearPosition[Smallmovement], 1); // move small gear
+            playSound();
         }
         if (Input.GetMouseButtonUp(0)) //this should turn the big to the left
         {
@@ -36,6 +41,7 @@ public class RotationSmallGear : MonoBehaviour
             LeanTween.rotateZ(BigGear, bigGearPosition[BigGear.GetComponent<RotationBigGear>().Bigmovement], 1);
             LeanTween.rotateZ(MedGear, medGearPosition[MedGear.GetComponent<RotationMedGear>().Medmovement], 1); // move med gear
             LeanTween.rotateZ(gameObject, smallGearPosition[Smallmovement], 1); // move small gear
+            playSound();
         }
     }
 
@@ -106,6 +112,14 @@ public class RotationSmallGear : MonoBehaviour
                 break;
         }
         return moviment;
+    }
+
+    void playSound()
+    {
+        if (manager != null)
+        {
+            manager.Play("Lock Turn");
+        }
     }
 }
 

@@ -41,6 +41,10 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         manager = FindObjectOfType<AudioManager>();
+        if (manager != null)
+        {
+            //manager.Play("Heavy Wind");
+        }
     }
 
     // Update is called once per frame

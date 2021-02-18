@@ -6,9 +6,10 @@ public class ClockTick : MonoBehaviour
 {
     public GameObject player;
     public GameObject GrandfatherClock;
+    public PlayerMovement playerMove;
 
     public float soundRange;
-    bool isPlaying;
+    bool isPlaying = false;
     float dist;
 
     public room currentRoom;
@@ -21,7 +22,7 @@ public class ClockTick : MonoBehaviour
     void Start()
     {
         manager = FindObjectOfType<AudioManager>();
-        playerRoom = player.GetComponent<PlayerMovement>().myRoom;
+        //playerRoom = player.GetComponent<PlayerMovement>().myRoom;
     }
 
     // Update is called once per frame
@@ -31,11 +32,12 @@ public class ClockTick : MonoBehaviour
         dist = Vector3.Distance(player.transform.position, this.transform.position);
          if (dist <= soundRange)
          {
-             playSound();
+             //playSound();
          }
          else if (dist > soundRange)
          {
-             manager.Stop("Clock Tick");
+            isPlaying = false;
+             //manager.Stop("Clock Tick");
          }
 
     }
@@ -59,7 +61,7 @@ public class ClockTick : MonoBehaviour
         else
         {
             playerInRoom = false;
-            manager.Stop("Clock Tick");
+            //manager.Stop("Clock Tick");
          }
     }
 }

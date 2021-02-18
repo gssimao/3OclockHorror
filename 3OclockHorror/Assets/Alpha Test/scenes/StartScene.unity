@@ -1513,6 +1513,7 @@ GameObject:
   - component: {fileID: 239561716}
   - component: {fileID: 239561715}
   - component: {fileID: 239561714}
+  - component: {fileID: 239561722}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -1711,6 +1712,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.15734863, y: 0.12477827}
   m_EdgeRadius: 0
+--- !u!114 &239561722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239561713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99730a3ce9fccae448e8980f802d128d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myRoom: {fileID: 796928476}
+  is1stPlaying: 0
+  is2ndPlaying: 0
 --- !u!114 &239561723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3394,7 +3410,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Lock Turn
     clip: {fileID: 8300000, guid: 5ffb97b82aa0b7b4eb1df15bd3ac4d59, type: 3}
-    volume: 0.5
+    volume: 0.502
     pitch: 1
     loop: 0
     mixerGroup: {fileID: 0}
