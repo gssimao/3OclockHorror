@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class HuntCheckSolved : MonoBehaviour
 {
+    public GameObject Player;
+    public GameObject TP;
     public GameObject Gear1;
     public GameObject Gear2;
     public GameObject Gear3;
@@ -25,10 +27,11 @@ public class HuntCheckSolved : MonoBehaviour
     public Text SolvedText;
     public Text TimerText;
     public bool timeractive;
+    public GameObject JumpscareCanvas;
     private GameObject ExitButton;
 
     public bool solved = false;
-    public GameObject clock;
+    //public GameObject clock;
     public bool timercheck;
 
     bool endTriggered = false;
@@ -36,8 +39,8 @@ public class HuntCheckSolved : MonoBehaviour
     float timer = 15.0f;
     bool lost = false;
 
-    [SerializeField]
-    GameObject isSolved;
+    //[SerializeField]
+    //GameObject isSolved;
 
     private void Start()
     {
@@ -55,19 +58,24 @@ public class HuntCheckSolved : MonoBehaviour
         showanswer1 = answer1 + 1;
         showanswer2 = answer2 + 1;
         showanswer3 = answer3 + 1;
+        Debug.Log("Answer 1: " + answer1);
+        Debug.Log("Answer 2: " + answer2);
+        Debug.Log("Answer 3: " + answer3);
 
         Text1.text = showanswer1.ToString();
         Text2.text = showanswer2.ToString();
         Text3.text = showanswer3.ToString();
 
-        timeractive = false;
         //TimerText = GameObject.Find("Timer").Text;
     }
 
     public void Awake()
     {
+        timeractive = false;
         ExitButton = GameObject.Find("ExitButton");
         ExitButton.SetActive(false);
+        JumpscareCanvas = GameObject.Find("Jumpscare");
+        JumpscareCanvas.SetActive(false);
         GameObject.Find("SolvedText").SetActive(false);
         GameObject.Find("BeartrapPuzzle").SetActive(false);
     }
@@ -78,7 +86,9 @@ public class HuntCheckSolved : MonoBehaviour
         {
             solved = true;
             Solved.SetActive(true);
-            ExitButton.SetActive(true);
+            //yield return new WaitForSeconds(2);
+            playermovement.enabled = true;
+            GameObject.Find("BeartrapPuzzle").SetActive(false);
         }
     }
 
@@ -97,9 +107,11 @@ public class HuntCheckSolved : MonoBehaviour
             if (!timercheck)
             {
                 GameObject.Find("Timer").SetActive(false);
+                Debug.Log("False TimerCheck");
             }
             else
             {
+                Debug.Log("True TimerCheck");
                 timeractive = true;
             }
         }
@@ -114,9 +126,13 @@ public class HuntCheckSolved : MonoBehaviour
             if(timer <= 0)
             {
                 lost = true;
-                SolvedText.text = "Lost";
-                Solved.SetActive(true);
-                GameObject.Find("AnswerButton").SetActive(false);
+                JumpscareCanvas.SetActive(true);
+                Player.transform.position = TP.transform.position;
+                playermovement.enabled = true;
+                GameObject.Find("BeartrapPuzzle").SetActive(false);
+                //SolvedText.text = "Lost";
+                //Solved.SetActive(true);
+                //GameObject.Find("AnswerButton").SetActive(false);
             }
         }
 
