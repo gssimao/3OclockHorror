@@ -1724,7 +1724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99730a3ce9fccae448e8980f802d128d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myRoom: {fileID: 796928476}
+  player: {fileID: 239561723}
   is1stPlaying: 0
   is2ndPlaying: 0
 --- !u!114 &239561723
@@ -9773,6 +9773,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75cf07d61a4cd7c4d93157289a87f83d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  TP: {fileID: 0}
   Gear1: {fileID: 1719525818}
   Gear2: {fileID: 1418232538}
   Gear3: {fileID: 783218341}
@@ -9787,10 +9789,9 @@ MonoBehaviour:
   SolvedText: {fileID: 1435165088}
   TimerText: {fileID: 1886536824}
   timeractive: 0
+  JumpscareCanvas: {fileID: 0}
   solved: 0
-  clock: {fileID: 0}
   timercheck: 0
-  isSolved: {fileID: 0}
 --- !u!1 &1354495490
 GameObject:
   m_ObjectHideFlags: 0

@@ -60559,6 +60559,7 @@ GameObject:
   - component: {fileID: 1619042901}
   - component: {fileID: 1619042893}
   - component: {fileID: 1619042894}
+  - component: {fileID: 1619042900}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -60819,6 +60820,21 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 681daf5b1dc2345458e7d2e532440d59, type: 2}
   effectOn: 0
   effectCue: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+--- !u!114 &1619042900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619042889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99730a3ce9fccae448e8980f802d128d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1619042896}
+  is1stPlaying: 0
+  is2ndPlaying: 0
 --- !u!114 &1619042901
 MonoBehaviour:
   m_ObjectHideFlags: 0

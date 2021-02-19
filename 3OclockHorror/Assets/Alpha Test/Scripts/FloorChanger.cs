@@ -70,7 +70,7 @@ public class FloorChanger : MonoBehaviour
         player.transform.position = spawnPoint.transform.position;
         player.GetComponent<PlayerMovement>().myRoom = destRoom;
         player.GetComponent<PlayerMovement>().playerFloor = destString;
-
+        //playSound();
         Fade.SetTrigger("fadeIn");
     }
 
@@ -89,8 +89,8 @@ public class FloorChanger : MonoBehaviour
     {
         if (manager != null)
         {
-            manager.Stop("Game ST");
-            manager.Play("2nd Floor ST");
+            //manager.AudioFadeOut("Drone", 5);
+            //manager.AudioFadeOut("Game ST", 5);
         }
     }
 

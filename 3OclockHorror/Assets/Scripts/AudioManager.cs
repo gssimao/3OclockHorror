@@ -1,5 +1,6 @@
 using UnityEngine.Audio;
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -63,6 +64,23 @@ public class AudioManager : MonoBehaviour
         if (s != null & s.source.isPlaying)
         {
             s.source.Stop();
+        }
+    }
+
+    public void AudioFadeOut(string sound, int FadeTime)
+    {
+        Sound s = Array.Find(sounds, item => item.name == sound);
+        float startVolume = s.volume;
+
+        if (s != null & s.source.isPlaying)
+        {
+            while (s.source.volume > 0)
+            {
+                s.source.volume -= startVolume * Time.deltaTime / FadeTime;
+            }
+
+            s.source.Stop();
+            s.source.volume = startVolume;
         }
     }
 
