@@ -8,7 +8,7 @@ public class TableManager : MonoBehaviour
     [SerializeField]
     TaskListTracker taskManager;
     public int SelectPuzzle = 0;
-    public bool puzzleSelected = true;
+    //public bool puzzleSelected = true;
     [SerializeField]
     Item brokenLadder;
     [SerializeField]
@@ -117,7 +117,7 @@ public class TableManager : MonoBehaviour
 
 
     //{Horizonta , Vertical} {i,j} where they are in the table
-    public int[] coin1Pos = new int[] { 0, 2 }; //first number is PositionH // second number is PoitionV
+    public int[] coin1Pos = new int[] { 0, 2 }; //first number is PositionH // second number is PositionV
     public int[] coin2Pos = new int[] { 1, 2 };
     public int[] coin3Pos = new int[] { 2, 2 };
     public int[] coin4Pos = new int[] { 3, 2 };
@@ -157,7 +157,7 @@ public class TableManager : MonoBehaviour
                 allCoinsPos = puzzle3;
                 puzzleAnswer = answer3;
             }
-            puzzleSelected = true;
+            //puzzleSelected = true;
         //}
         setPosition();
     }
