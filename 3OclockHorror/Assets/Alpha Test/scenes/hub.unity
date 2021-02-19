@@ -6035,18 +6035,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1044781339}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &174419416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22671,7 +22659,10 @@ MonoBehaviour:
   myInvDisplay: {fileID: 1114499257}
   IM: {fileID: 1932810098}
   interactDist: 0
-  Items: []
+  Items:
+  - {fileID: 11400000, guid: 4ca24adb2ca0086418e73be326951504, type: 2}
+  - {fileID: 11400000, guid: 0fdadefcee5406c4c89c54f572df7158, type: 2}
+  - {fileID: 11400000, guid: 6bb689f060a966a419b9bbee822e5651, type: 2}
   tooltip: {fileID: 858607486}
   Listener: {fileID: 1677718118}
   invCanv: {fileID: 1044781339}
@@ -36571,7 +36562,6 @@ MonoBehaviour:
   solved: 0
   clock: {fileID: 451061562}
   pInv: {fileID: 1615222956}
-  cKey: {fileID: 11400000, guid: 66f84c16d75a6944f946268d7ec5a146, type: 2}
   isSolved: {fileID: 445167155}
 --- !u!4 &1017543119 stripped
 Transform:
