@@ -26,7 +26,7 @@ public class AnswerCheckPocketWatch : MonoBehaviour
     public GameObject clock;
 
     public Inventory pInv;
-    public Item cKey;
+    //public Item cKey;
 
     bool endTriggered = false;
 
@@ -82,9 +82,9 @@ public class AnswerCheckPocketWatch : MonoBehaviour
         isSolved.transform.SetAsLastSibling();
 
         clock.SetActive(true);
-        if(pInv != null && cKey != null && !endTriggered)
+        if(pInv != null && /*cKey != null &&*/ !endTriggered)
         {
-            pInv.AddItem(cKey);
+            //pInv.AddItem(cKey);
         }
         endTriggered = true;
     }
