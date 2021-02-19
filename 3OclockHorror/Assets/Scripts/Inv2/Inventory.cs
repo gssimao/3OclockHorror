@@ -145,6 +145,10 @@ public class Inventory : MonoBehaviour, IItemContainer
     public void OpenInv()
     {
         itemSlots = itemsParent.GetComponentsInChildren<ItemSlot>();
+        if(itemSlots == null)
+        {
+            Debug.Log("Slots not found");
+        }
         for (int i = 0; i < itemSlots.Length; i++)
         {
             AddInvokers(itemSlots[i]);

@@ -296,4 +296,10 @@ public class NPC : MonoBehaviour
         }
     }
 
+    public void forceStateChangeIdle()
+    {
+        //Forces a state change to idle.
+        fsm.enterState(FSMStateType.IDLE);
+    }
+
 }

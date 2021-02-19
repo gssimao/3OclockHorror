@@ -47,6 +47,8 @@ public class ST_Cntrl : MonoBehaviour
             manager.Play("Clock Tick");
         }
         else
+        {
             manager.Stop("Clock Tick");
+        }
     }
 }

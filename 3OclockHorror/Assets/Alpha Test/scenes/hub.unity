@@ -15339,6 +15339,51 @@ Transform:
   m_Father: {fileID: 1137405012}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &435122749
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 435122751}
+  - component: {fileID: 435122750}
+  m_Layer: 0
+  m_Name: InvLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &435122750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435122749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a70f048abfaee6448b4ec6a5de3b1ffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InvCanv: {fileID: 1044781339}
+  CntCanv: {fileID: 1192421596}
+--- !u!4 &435122751
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435122749}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1024.7751, y: 16.67766, z: 3.8118951}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 27
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &439073454
 GameObject:
   m_ObjectHideFlags: 0
@@ -32746,7 +32791,7 @@ MonoBehaviour:
   items:
   - {fileID: 0}
   itemSlots: []
-  itemsParent: {fileID: 0}
+  itemsParent: {fileID: 1108702598}
   PInv: 0
   active: 0
 --- !u!60 &937828938
@@ -44906,7 +44951,7 @@ MonoBehaviour:
   IM: {fileID: 1932810098}
   interactDist: 0
   Items:
-  - {fileID: 11400000, guid: 6c7fb91a9917f0344a456a3fb10ba204, type: 2}
+  - {fileID: 11400000, guid: ade9d95265c23734e8f28d0a3045294e, type: 2}
   tooltip: {fileID: 858607486}
   Listener: {fileID: 1677718118}
   invCanv: {fileID: 1044781339}
@@ -44925,7 +44970,7 @@ MonoBehaviour:
   items:
   - {fileID: 0}
   itemSlots: []
-  itemsParent: {fileID: 0}
+  itemsParent: {fileID: 1108702598}
   PInv: 0
   active: 0
 --- !u!60 &1231345895
@@ -45778,8 +45823,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d30f16e7efed1e94d8ac4d6a837e19db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myContainer: {fileID: 477410278}
-  sr: {fileID: 477410281}
+  myContainer: {fileID: 1250297258}
+  sr: {fileID: 1250297261}
   filled: {fileID: 21300000, guid: 281c80e58b3bbdf46a0e1d67a9d891f5, type: 3}
   empty: {fileID: 21300000, guid: 312dc7cba0621e249bff73d9f538b4df, type: 3}
 --- !u!1001 &1252055811
@@ -56688,7 +56733,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskManager: {fileID: 0}
   SelectPuzzle: 0
-  puzzleSelected: 1
   brokenLadder: {fileID: 11400000, guid: efd3b8ea66fde004d9cbfe6946312b94, type: 2}
   plyInv: {fileID: 1615222956}
   tablePosition: 0
@@ -57389,7 +57433,7 @@ MonoBehaviour:
   IM: {fileID: 1932810098}
   interactDist: 0
   Items:
-  - {fileID: 11400000, guid: 6c7fb91a9917f0344a456a3fb10ba204, type: 2}
+  - {fileID: 0}
   tooltip: {fileID: 858607486}
   Listener: {fileID: 1677718118}
   invCanv: {fileID: 1044781339}
@@ -57408,7 +57452,7 @@ MonoBehaviour:
   items:
   - {fileID: 0}
   itemSlots: []
-  itemsParent: {fileID: 0}
+  itemsParent: {fileID: 1108702598}
   PInv: 0
   active: 0
 --- !u!60 &1575333284
@@ -67005,6 +67049,7 @@ GameObject:
   - component: {fileID: 1814495922}
   - component: {fileID: 1814495921}
   - component: {fileID: 1814495920}
+  - component: {fileID: 1814495924}
   m_Layer: 8
   m_Name: NWBedroomCnt
   m_TagString: NoteContainer
@@ -67148,6 +67193,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1814495924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814495918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49f8f7fec7a85c94a9e6c0d2ea872570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BlindCreep: {fileID: 1710219375}
+  TPRoom: {fileID: 1289565746}
+  TPPoint: {fileID: 1732006934}
+  ItemContainer: {fileID: 1814495920}
+  trigger: {fileID: 11400000, guid: 0a6bc6523a2dcaa4abefd749a2e8d193, type: 2}
 --- !u!1 &1814896491
 GameObject:
   m_ObjectHideFlags: 0
@@ -70835,7 +70897,6 @@ GameObject:
   - component: {fileID: 1932810097}
   - component: {fileID: 1932810098}
   - component: {fileID: 1932810099}
-  - component: {fileID: 1932810100}
   - component: {fileID: 1932810101}
   m_Layer: 5
   m_Name: Character Panel
@@ -70883,7 +70944,7 @@ MonoBehaviour:
   craftInventory: {fileID: 945060883}
   itemTooltip: {fileID: 858607488}
   draggableSlot: {fileID: 123655278}
-  noteStarter: {fileID: 1932810100}
+  noteStarter: {fileID: 0}
   photoControl: {fileID: 1932810101}
   Journal: {fileID: 545888525}
   craftField: {fileID: 945060880}
@@ -70901,29 +70962,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventories: []
   items: []
---- !u!114 &1932810100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1932810096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5faffb429b92b1645ba76992058a1274, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FirstNote: {fileID: 11400000, guid: 04587bb51079ad24aab22ad7676e5683, type: 2}
-  Notes:
-  - {fileID: 11400000, guid: f8a925cda472bb0449529991a682f935, type: 2}
-  - {fileID: 11400000, guid: 530da1f309db0424aa2446e0b082b05b, type: 2}
-  - {fileID: 11400000, guid: c39545ae84ca71c489bba3de6ba67d60, type: 2}
-  - {fileID: 11400000, guid: cca4b85ab297ca342afd28015a364e75, type: 2}
-  LastNote: {fileID: 11400000, guid: ff3f580b1e96a014d9a8b23e90d95d30, type: 2}
-  StarterInv: {fileID: 2072140670}
-  FinalInv: {fileID: 627670218}
-  key: {fileID: 11400000, guid: fb520a66c35a1af4db2b23e67ea90306, type: 2}
-  amulet: {fileID: 11400000, guid: ade9d95265c23734e8f28d0a3045294e, type: 2}
 --- !u!114 &1932810101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73036,7 +73074,7 @@ MonoBehaviour:
   IM: {fileID: 1932810098}
   interactDist: 0
   Items:
-  - {fileID: 11400000, guid: 6c7fb91a9917f0344a456a3fb10ba204, type: 2}
+  - {fileID: 0}
   tooltip: {fileID: 858607486}
   Listener: {fileID: 1677718118}
   invCanv: {fileID: 1044781339}
@@ -73055,7 +73093,7 @@ MonoBehaviour:
   items:
   - {fileID: 0}
   itemSlots: []
-  itemsParent: {fileID: 0}
+  itemsParent: {fileID: 1108702598}
   PInv: 0
   active: 0
 --- !u!60 &1971497861
@@ -76902,7 +76940,7 @@ MonoBehaviour:
   IM: {fileID: 1932810098}
   interactDist: 0
   Items:
-  - {fileID: 11400000, guid: 04587bb51079ad24aab22ad7676e5683, type: 2}
+  - {fileID: 0}
   tooltip: {fileID: 858607486}
   Listener: {fileID: 1677718118}
   invCanv: {fileID: 1044781339}

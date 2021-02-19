@@ -52,21 +52,13 @@ public class ContainerControl : MonoBehaviour
             Listener.enabled = false;
             if (Input.GetKeyDown("e") && !active)
             {
-                IM.ActivateInventory(myInv);
-                myInv.OpenInv();
-                active = true;
-                cntnrDisp.SetActive(true);
-                invCanv.SetActive(true);
-                tooltip.SetActive(false);
+                openInventory();
             }
             else if (Input.GetKeyDown("e") && active)
             {
                 if (invCanv.activeSelf) 
                 {
-                    IM.DeactivateInventory(myInv);
-                    active = false;
-                    invCanv.SetActive(false);
-                    cntnrDisp.SetActive(false);
+                    closeInventory();
                 }
             }
         }
@@ -77,6 +69,23 @@ public class ContainerControl : MonoBehaviour
                 Listener.enabled = true;
             }
         }
+    }
+
+    public void openInventory()
+    {
+        IM.ActivateInventory(myInv);
+        myInv.OpenInv();
+        active = true;
+        cntnrDisp.SetActive(true);
+        invCanv.SetActive(true);
+        tooltip.SetActive(false);
+    }
+    public void closeInventory()
+    {
+        IM.DeactivateInventory(myInv);
+        active = false;
+        invCanv.SetActive(false);
+        cntnrDisp.SetActive(false);
     }
 
     //Used for Scene manager
@@ -104,5 +113,25 @@ public class ContainerControl : MonoBehaviour
     public int getItemCount()
     {
         return Items.Count;
+    }
+
+    public bool containsItem( Item obj)
+    {
+        bool rtrn = false;
+
+        foreach(Item item in Items)
+        {
+            if(item == obj)
+            {
+                rtrn = true;
+            }
+        }
+
+        return rtrn;
+    }
+
+    public bool getActive()
+    {
+        return active;
     }
 }

@@ -35,7 +35,7 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
-        noteStarter.initNotePuzzle();
+        //noteStarter.initNotePuzzle();
     }
 
     //Sets all inventory event references for the given inventory.
@@ -140,6 +140,7 @@ public class InventoryManager : MonoBehaviour
 
                 if (draggedItem.Note && dropItemSlot.PlayerInv && !draggedItem.isRead)
                 {
+                    /*
                     if (draggedItem.RusselNote)
                     {
                         if (draggedItem.nextNote != null)
@@ -149,6 +150,7 @@ public class InventoryManager : MonoBehaviour
                         draggedItem.isRead = true;
 
                     }
+                    */
                     Journal.AddNote(draggedItem);
 
                     dropItemSlot.Item = null;
