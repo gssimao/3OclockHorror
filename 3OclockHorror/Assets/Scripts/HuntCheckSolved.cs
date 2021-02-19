@@ -74,8 +74,11 @@ public class HuntCheckSolved : MonoBehaviour
         timeractive = false;
         ExitButton = GameObject.Find("ExitButton");
         ExitButton.SetActive(false);
-        JumpscareCanvas = GameObject.Find("Jumpscare");
-        JumpscareCanvas.SetActive(false);
+        if (GameObject.Find("Jumpscare") != null)
+        {
+            JumpscareCanvas = GameObject.Find("Jumpscare");
+            JumpscareCanvas.SetActive(false);
+        }
         GameObject.Find("SolvedText").SetActive(false);
         GameObject.Find("BeartrapPuzzle").SetActive(false);
     }
