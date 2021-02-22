@@ -31,6 +31,7 @@ public class WatcherAI : MonoBehaviour
     float distance;
     int plyIndex;
     public float plyAngle = 0;
+    public bool WatcherHallway = false;
 
     //Room Specific variables
     public room currentRoom;
@@ -38,6 +39,9 @@ public class WatcherAI : MonoBehaviour
     room playerRoom;
     Vector3 spawnPoint;
     AudioManager manager;
+
+    [SerializeField]
+    room eastHallway;
 
     // Start is called before the first frame update
     void Start()
@@ -83,6 +87,10 @@ public class WatcherAI : MonoBehaviour
             MoveWatcher();
             timerLock = false;
             Debug.Log("Watcher Current Room: " + currentRoom.name);
+        }
+        else if(WatcherHallway == true)
+        {
+            ChangePositionHW();
         }
 
         if (timerLock == false)
@@ -182,9 +190,7 @@ public class WatcherAI : MonoBehaviour
                 i++;
             }
 
-            this.transform.position = Rooms[randInd].getWatcherSpawn().transform.position;
-            currentRoom = Rooms[randInd];
-            Candles = currentRoom.getRoomObject().GetComponentsInChildren<CandleScript>();
+            ChangeRoom(Rooms[randInd]);
         }
         else if(emptyRoomCount == 1)
         {
@@ -198,9 +204,7 @@ public class WatcherAI : MonoBehaviour
                 i++;
             }
 
-            this.transform.position = Rooms[randInd].getWatcherSpawn().transform.position;
-            currentRoom = Rooms[randInd];
-            Candles = currentRoom.getRoomObject().GetComponentsInChildren<CandleScript>();
+            ChangeRoom(Rooms[randInd]);
         }
         else if(emptyRoomCount == 2)
         {
@@ -218,14 +222,11 @@ public class WatcherAI : MonoBehaviour
             {
                 this.transform.position = Rooms[randInd].getWatcherSpawn().transform.position;
             }
-            currentRoom = Rooms[randInd];
-            Candles = currentRoom.getRoomObject().GetComponentsInChildren<CandleScript>();
+            ChangeRoom(Rooms[randInd]);
         }
         else// if emptyRoomCount >= 3
         {
-            this.transform.position = playerRoom.getWatcherSpawn().transform.position;
-            currentRoom = playerRoom;
-            Candles = currentRoom.getRoomObject().GetComponentsInChildren<CandleScript>();
+            ChangeRoom(playerRoom);
         }
 
         CheckRoom();
@@ -337,6 +338,13 @@ public class WatcherAI : MonoBehaviour
         }
     }
 
+    void ChangeRoom(room target)
+    {
+        this.transform.position = target.getWatcherSpawn().transform.position;
+        currentRoom = target;
+        Candles = currentRoom.getRoomObject().GetComponentsInChildren<CandleScript>();
+    }
+
     void UpdateFace()
     {
         Vector3 direction = player.transform.position - this.gameObject.transform.position;
@@ -372,6 +380,23 @@ public class WatcherAI : MonoBehaviour
             default:
                 Rooms = floor1Rooms;
                 break;
+        }
+    }
+
+    void ChangePositionHW()
+    {
+        if(currentRoom != eastHallway)
+        {
+            ChangeRoom(eastHallway);
+            this.transform.position = eastHallway.getWatcherSpawn().transform.position;
+        }
+        else
+        {
+            if(timerLock == false)
+            {
+                this.transform.position = eastHallway.getWatcherSpawn().transform.position;
+                timerLock = false;
+            }
         }
     }
 

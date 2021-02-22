@@ -30,6 +30,8 @@ public class roomCntrl : MonoBehaviour
     public Animator Fade;
 
     bool opened = false;
+    [HideInInspector]
+    public bool trigger = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -159,6 +161,7 @@ public class roomCntrl : MonoBehaviour
         }
 
         play.myRoom = RoomNum;
+        trigger = true;
     }
 
     public void CheckKey()
