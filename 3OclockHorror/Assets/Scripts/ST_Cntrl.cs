@@ -49,7 +49,14 @@ public class ST_Cntrl : MonoBehaviour
         }
         else
         {
-            manager.Stop("Clock Tick");
+            if (manager != null)
+            {
+                manager.Stop("Clock Tick");
+            }
+            else
+            {
+                Debug.LogError("AudioManager not found. Likely not an error.");
+            }
         }
     }
 }

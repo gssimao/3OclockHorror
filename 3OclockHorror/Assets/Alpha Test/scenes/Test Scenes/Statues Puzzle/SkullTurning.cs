@@ -14,6 +14,7 @@ public class SkullTurning : MonoBehaviour
     public int SkullPosition3 = 0;
     public int SkullPosition4 = 0;
 
+
     //Stage booleans
     bool stg1 = false;
     bool stg2 = false;
@@ -39,89 +40,98 @@ public class SkullTurning : MonoBehaviour
             Debug.Log("Solved");
         }
         */
-
-        if (SkullPosition1 == 2 && SkullPosition2 == 0 && SkullPosition3 == 2 && SkullPosition4 == 0)
+        if (!stg3)
         {
-            stg1 = true;
-            //STG one code;
-            Debug.Log("Stg 1 Complete");
-        }
-        if (SkullPosition1 == 1 && SkullPosition2 == 1 && SkullPosition3 == 3 && SkullPosition4 == 3 && stg1)
-        {
-            stg2 = true;
-            //STG one code;
-            Debug.Log("Stg 2 complete");
-        }
-        if (SkullPosition1 == 0 && SkullPosition2 == 2 && SkullPosition3 == 0 && SkullPosition4 == 2 && stg1 && stg2)
-        {
-            stg3 = true;
-            //STG one code;
-            Debug.Log("Stg 3 complete");
-        }
-        if (stg3)
-        {
-            //lock the puzzle, allow progression
+            if (SkullPosition1 == 2 && SkullPosition2 == 0 && SkullPosition3 == 2 && SkullPosition4 == 0)
+            {
+                stg1 = true;
+                Debug.Log("Stg 1 Complete");
+            }
+            if (SkullPosition1 == 1 && SkullPosition2 == 1 && SkullPosition3 == 3 && SkullPosition4 == 3 && stg1)
+            {
+                stg2 = true;
+                Debug.Log("Stg 2 complete");
+            }
+            if (SkullPosition1 == 0 && SkullPosition2 == 2 && SkullPosition3 == 0 && SkullPosition4 == 2 && stg1 && stg2)
+            {
+                stg3 = true;
+                Debug.Log("Stg 3 complete, locking puzzle");
+                //taskManager.updateList("Some sort of noise eminated from the Library - What could it be?");
+                this.GetComponent<SkullEnd>().OpenLeftEnding();
+            }
         }
     }
 
     public void Turning1()
     {
-        SkullPosition1++;
-        if(SkullPosition1 > 3)
-        {
-            SkullPosition1 = 0;
+        if (!stg3)
+        { 
+            SkullPosition1++;
+            if (SkullPosition1 > 3)
+            {
+                SkullPosition1 = 0;
+            }
+            SkullRotation1.SetInteger("SkullPosition", SkullPosition1);
         }
-        SkullRotation1.SetInteger("SkullPosition", SkullPosition1);
     }
     public void Turning2()
     {
-        SkullPosition2++;
-        SkullPosition4++;
-        if (SkullPosition2 > 3)
+        if (!stg3)
         {
-            SkullPosition2 = 0;
+            SkullPosition2++;
+            SkullPosition4++;
+            if (SkullPosition2 > 3)
+            {
+                SkullPosition2 = 0;
+            }
+            if (SkullPosition4 > 3)
+            {
+                SkullPosition4 = 0;
+            }
+            SkullRotation2.SetInteger("SkullPosition", SkullPosition2);
+            SkullRotation4.SetInteger("SkullPosition", SkullPosition4);
         }
-        if (SkullPosition4 > 3)
-        {
-            SkullPosition4 = 0;
-        }
-        SkullRotation2.SetInteger("SkullPosition", SkullPosition2);
-        SkullRotation4.SetInteger("SkullPosition", SkullPosition4);
     }
     public void Turning3()
     {
-        SkullPosition1++;
-        SkullPosition4++;
-        if (SkullPosition1 > 3)
+        if (!stg3)
         {
-            SkullPosition1 = 0;
+            SkullPosition1++;
+            SkullPosition4++;
+            if (SkullPosition1 > 3)
+            {
+                SkullPosition1 = 0;
+            }
+            if (SkullPosition4 > 3)
+            {
+                SkullPosition4 = 0;
+            }
+            SkullRotation1.SetInteger("SkullPosition", SkullPosition1);
+            SkullRotation4.SetInteger("SkullPosition", SkullPosition4);
         }
-        if (SkullPosition4 > 3)
-        {
-            SkullPosition4 = 0;
-        }
-        SkullRotation1.SetInteger("SkullPosition", SkullPosition1);
-        SkullRotation4.SetInteger("SkullPosition", SkullPosition4);
     }
     public void Turning4()
     {
-        SkullPosition1++;
-        SkullPosition3++;
-        SkullPosition4++;
-        if (SkullPosition1 > 3)
+        if (!stg3)
         {
-            SkullPosition1 = 0;
+            SkullPosition1++;
+            SkullPosition3++;
+            SkullPosition4++;
+            if (SkullPosition1 > 3)
+            {
+                SkullPosition1 = 0;
+            }
+            if (SkullPosition3 > 3)
+            {
+                SkullPosition3 = 0;
+            }
+            if (SkullPosition4 > 3)
+            {
+                SkullPosition4 = 0;
+            }
+            SkullRotation1.SetInteger("SkullPosition", SkullPosition1);
+            SkullRotation3.SetInteger("SkullPosition", SkullPosition3);
+            SkullRotation4.SetInteger("SkullPosition", SkullPosition4);
         }
-        if (SkullPosition3 > 3)
-        {
-            SkullPosition3 = 0;
-        }
-        if (SkullPosition4 > 3)
-        {
-            SkullPosition4 = 0;
-        }
-        SkullRotation1.SetInteger("SkullPosition", SkullPosition1);
-        SkullRotation3.SetInteger("SkullPosition", SkullPosition3);
-        SkullRotation4.SetInteger("SkullPosition", SkullPosition4);
     }
 }
