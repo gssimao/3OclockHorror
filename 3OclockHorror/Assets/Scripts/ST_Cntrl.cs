@@ -21,24 +21,25 @@ public class ST_Cntrl : MonoBehaviour
     void Update()
     {
         //manager.Play("Heavy Wind");
-        if (player.myRoom != null && manager != null)
+        if (player.myRoom != null && manager != null && player.myRoom.getName() == "Outside")
         {
             manager.Play("Heavy Wind");
         }
 
-        if (player.myRoom != null && player.myRoom.getName() != "Outside" && is1stPlaying == false && manager != null)
+        if (player.myRoom != null && player.myRoom.getName() != "Outside" && is1stPlaying == false && manager != null && player.myRoom.floorNum == 1)
         {
             manager.Play("Drone");
             manager.Play("Game ST");
             manager.Stop("Heavy Wind");
+            manager.StartFade("2nd Floor ST", 10);
             is1stPlaying = true;
             // I'll be moving all of the SoundTrack code here once the Floor Manager is complete.
         }
-        else //if (sRoom != null && sRoom.getName() != "Outside" && is2ndPlaying == false && manager != null)
+        else if (player.myRoom != null && player.myRoom.getName() != "Outside" && is2ndPlaying == false && manager != null && player.myRoom.floorNum == 2)
         {
-            //manager.Stop("Drone");
-            //manager.Stop("Game ST");
-            //manager.Play("2nd");
+            manager.StartFade("Drone", 10);
+            manager.StartFade("Game ST", 10);
+            //manager.Play("2nd Floor ST");
             is1stPlaying = false;
 
         }

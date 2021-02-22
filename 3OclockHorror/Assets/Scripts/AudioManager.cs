@@ -67,21 +67,31 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void AudioFadeOut(string sound, int FadeTime)
+    public void StartFade(string sound, float ttq)
     {
         Sound s = Array.Find(sounds, item => item.name == sound);
-        float startVolume = s.volume;
-
-        if (s != null & s.source.isPlaying)
-        {
-            while (s.source.volume > 0)
-            {
-                s.source.volume -= startVolume * Time.deltaTime / FadeTime;
-            }
-
-            s.source.Stop();
-            s.source.volume = startVolume;
-        }
+        s.setStartTIme(Time.time);
+        s.setFading(true);
+        s.setFadeTime(ttq);
     }
+        
+        /*
+    public static IEnumerator AudioFadeOut(string sound, float fadingTime, Func<float, float, float, float> Interpolate)
+    {
+        Sound s = Array.Find(sounds, item => item.name == sound);
+        float startVolume = s.source.volume;
+        float frameCount = fadingTime / Time.deltaTime;
+        float framesPassed = 0;
 
+        while (framesPassed <= frameCount)
+        {
+            var t = framesPassed++ / frameCount;
+            s.source.volume = Interpolate(startVolume, 0, t);
+            yield return null;
+        }
+
+        s.source.volume = 0;
+        s.source.Pause();
+    }
+    */
 }

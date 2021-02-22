@@ -23,5 +23,67 @@ public class Sound {
 
 	[HideInInspector]
 	public AudioSource source; //Source associated with this sound - not in editor, controlled behind the scene
+    [HideInInspector]
+    float fadeStartTime;
+    bool isFading;
+    float timeToFade;
 
+    #region get/set
+    public float getStartTime()
+    {
+        return fadeStartTime;
+    }
+    public void setStartTIme(float newStartTime)
+    {
+        fadeStartTime = newStartTime;
+    }
+    public bool getFading()
+    {
+        return isFading;
+    }
+    public void setFading(bool fading)
+    {
+        isFading = fading;
+    }
+    public void setFadeTime(float nF)
+    {
+        timeToFade = nF;
+    }
+    #endregion
+
+    private void update()
+    {
+        if (isFading)
+        {
+            AudioFadeOut();
+        }
+    }
+
+    public void AudioFadeOut()
+    { 
+        float startVolume = this.source.volume;
+
+        if (this.source.isPlaying && isFading)
+        {
+            /*
+            while (s.source.volume > 0)
+            {
+                s.source.volume -= startVolume * (Time.deltaTime / FadeTime);
+            }
+            */
+
+            if (this.source.volume < 0)
+            {
+                this.source.Stop();
+                this.source.volume = startVolume;
+                isFading = false;
+            }
+            else
+            {
+                float dTime = Time.time - fadeStartTime;
+                this.source.volume -= startVolume * (dTime / timeToFade);
+            }
+        }
+
+    }
 }
