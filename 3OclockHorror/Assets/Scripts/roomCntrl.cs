@@ -13,6 +13,7 @@ public class roomCntrl : MonoBehaviour
     public Tooltip toolTipScript;
 
     public bool transitionOnOff = true; //Use this toggle the transition on and off
+    public float range = 0.5f;
     float transitionTime = 0.5f;
     float dist;
 
@@ -42,7 +43,7 @@ public class roomCntrl : MonoBehaviour
     void Update()
     {
         dist = Vector3.Distance(player.gameObject.transform.position, this.gameObject.transform.position);
-        if (dist <= 0.5f)
+        if (dist <= range)
         {
             Listener.enabled = false;
             if (Input.GetKeyDown("e") && transitionOnOff)
@@ -89,7 +90,7 @@ public class roomCntrl : MonoBehaviour
     void OnDrawGizmos()//Shows how far the play needs to be in order to use the door
     {
         Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(gameObject.transform.position, 0.5f);
+        Gizmos.DrawWireSphere(gameObject.transform.position, range);
         Vector3 plyPos = entrancePointRoom.transform.position;
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(new Vector3(plyPos.x, plyPos.y - 0.3108585f, plyPos.z), new Vector3(0.1573486f, 0.1247783f, 1f));

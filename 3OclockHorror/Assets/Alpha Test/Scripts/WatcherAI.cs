@@ -90,7 +90,7 @@ public class WatcherAI : MonoBehaviour
         }
         else if(WatcherHallway == true)
         {
-            ChangePositionHW();
+            
         }
 
         if (timerLock == false)
@@ -383,7 +383,7 @@ public class WatcherAI : MonoBehaviour
         }
     }
 
-    void ChangePositionHW()
+    /*void ChangePositionHW()
     {
         if(currentRoom != eastHallway)
         {
@@ -398,7 +398,7 @@ public class WatcherAI : MonoBehaviour
                 timerLock = false;
             }
         }
-    }
+    }*/
 
     void activate() //Turns on the Watcher
     {
