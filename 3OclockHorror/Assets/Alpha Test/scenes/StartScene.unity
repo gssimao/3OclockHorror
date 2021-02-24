@@ -585,6 +585,7 @@ GameObject:
   - component: {fileID: 36532280}
   - component: {fileID: 36532279}
   - component: {fileID: 36532278}
+  - component: {fileID: 36532282}
   m_Layer: 5
   m_Name: TuitorialPopup
   m_TagString: Untagged
@@ -626,11 +627,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TooltipText: {fileID: 1659172460}
   player: {fileID: 239561713}
+  cnvGroup: {fileID: 36532282}
   PromptMessage: 
   TimedMessage: 
   masterSwitch: 1
-  startupMessage: 0
-  timer: 0
+  startupMessage: Use WASD to Move - Press E to open the journal, and use the arrows
+    to flip pages.
+  timer: 6
 --- !u!114 &36532279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -691,6 +694,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 5
   m_TargetDisplay: 0
+--- !u!225 &36532282
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36532276}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &58556394
 GameObject:
   m_ObjectHideFlags: 0
@@ -2959,6 +2974,7 @@ MonoBehaviour:
   lightEffect: {fileID: 1256523615}
   LightMask: {fileID: 194136412}
   flame: {fileID: 436997495}
+  LeaveOn: 1
   interRange: 1
 --- !u!108 &436997495
 Light:
@@ -7368,6 +7384,7 @@ MonoBehaviour:
   lightEffect: {fileID: 738648882}
   LightMask: {fileID: 1387016950}
   flame: {fileID: 980293986}
+  LeaveOn: 0
   interRange: 1
 --- !u!108 &980293986
 Light:
@@ -10845,6 +10862,7 @@ MonoBehaviour:
   lightEffect: {fileID: 709228956}
   LightMask: {fileID: 1562389504}
   flame: {fileID: 1513001655}
+  LeaveOn: 0
   interRange: 1
 --- !u!108 &1513001655
 Light:
@@ -12599,6 +12617,7 @@ MonoBehaviour:
   lightEffect: {fileID: 1823098343}
   LightMask: {fileID: 2143849815}
   flame: {fileID: 1795257768}
+  LeaveOn: 0
   interRange: 1
 --- !u!108 &1795257768
 Light:

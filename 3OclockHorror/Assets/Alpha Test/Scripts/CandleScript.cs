@@ -10,6 +10,8 @@ public class CandleScript : MonoBehaviour
     public GameObject lightEffect;
     public SpriteMask LightMask;
     public Light flame; //Variable to that holds the light component of the game object
+    [SerializeField]
+    bool LeaveOn = false; // Tick this if you want to leave light on during start up
 
     public float interRange;
 
@@ -19,7 +21,10 @@ public class CandleScript : MonoBehaviour
     void Start()
     {
         flame = Light.GetComponent<Light>(); //gets the light component of the child of this game object and sets it to the variable
-        CandleToggle(false);
+        if (!LeaveOn)
+        {
+            CandleToggle(false);
+        }
         manager = FindObjectOfType<AudioManager>();
     }
 

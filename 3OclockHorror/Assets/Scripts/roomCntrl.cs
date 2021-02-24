@@ -59,11 +59,6 @@ public class roomCntrl : MonoBehaviour
                     CheckKey();
                 }
 
-                if(WatchHallwayTrigger)
-                {
-                    watcher.WatcherHallway = true;
-                }
-
                 if (player != null && !locked) //Make sure it's not null, check if door is locked
                 {
                     if (player.myRoom == room1) //Check the room states then update as necessary
@@ -161,6 +156,12 @@ public class roomCntrl : MonoBehaviour
 
     public void CameraCrossfade(GameObject player, GameObject entranceP, PlayerMovement play, room RoomNum)
     {
+        if (WatchHallwayTrigger)
+        {
+            watcher.WatcherHallway = true;
+            player.GetComponent<LightMatch>().enabled = false;
+        }
+
         StartCoroutine(ChangeCamera(player, entranceP, play, RoomNum));
     }
 
