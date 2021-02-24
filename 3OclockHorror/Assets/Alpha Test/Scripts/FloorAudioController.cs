@@ -6,10 +6,24 @@ public class FloorAudioController : MonoBehaviour
 {
     [SerializeField]
     PlayerMovement player;
+    AudioManager manager;
+
+    [Space]
+    [SerializeField]
+    List<room> Floor2A;
+    /*
+    [SerializeField]
+    ArrayLayout Floor2B;
+    */
 
     float t = 0;
     int floor;
     int lFloor;
+
+    private void Awake()
+    {
+        manager = FindObjectOfType<AudioManager>();
+    }
 
     // Update Function, WIP not yet finished
     void Update()
@@ -72,6 +86,8 @@ public class FloorAudioController : MonoBehaviour
         }
     }
 
+    //Regions for each floor. Click the little plus on the left end of the line to open the region and add in the music files
+
     //Functions for floor one
     #region Floor One
     public void PlayFloorOne()
@@ -83,7 +99,18 @@ public class FloorAudioController : MonoBehaviour
     #region Floor Two
     public void CheckFloorTwo()
     {
-
+        foreach(room room in Floor2A)
+        {
+            if(player.myRoom == room)
+            {
+                PlayFloorTwoB();
+            }
+            else
+            {
+                //Can either keep as is or write code to check rooms on left side
+                PlayFloorTwoA();
+            }
+        }
     }
     public void PlayFloorTwoA()
     {
@@ -96,10 +123,17 @@ public class FloorAudioController : MonoBehaviour
     #endregion
     //Functions for floor three
     #region Floor Three
-
+    public void PlayFloorThree()
+    {
+        //Music for floor 3 should be played here
+    }
     #endregion
     //Functions for basement
     #region Basement
+    public void PlayBasement()
+    {
+        //Music for the basement would be played from here
+    }
     #endregion
     //In case of error
     #region Error Catch
