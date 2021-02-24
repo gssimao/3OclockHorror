@@ -40,8 +40,14 @@ public class WatcherAI : MonoBehaviour
     Vector3 spawnPoint;
     AudioManager manager;
 
+    //Watcher Hallway Variables
+    [Space]
     [SerializeField]
     room eastHallway;
+    [SerializeField]
+    GameObject[] Spawns;
+    int i;
+    float spwnDist;
 
     // Start is called before the first frame update
     void Start()
@@ -78,19 +84,22 @@ public class WatcherAI : MonoBehaviour
             }
         }
 
-        if (candlesOut && !playerInRoom)// The candles are not out and the player is not in the room
+        if (WatcherHallway == true)
         {
-            BlowOutCandle();
+            MoveWatcherHW();
         }
-        else if(!candlesOut && !playerInRoom && timerLock)
+        else
         {
-            MoveWatcher();
-            timerLock = false;
-            Debug.Log("Watcher Current Room: " + currentRoom.name);
-        }
-        else if(WatcherHallway == true)
-        {
-            
+            if (candlesOut && !playerInRoom)// The candles are not out and the player is not in the room
+            {
+                BlowOutCandle();
+            }
+            else if (!candlesOut && !playerInRoom && timerLock)
+            {
+                MoveWatcher();
+                timerLock = false;
+                Debug.Log("Watcher Current Room: " + currentRoom.name);
+            }
         }
 
         if (timerLock == false)
@@ -383,22 +392,26 @@ public class WatcherAI : MonoBehaviour
         }
     }
 
-    /*void ChangePositionHW()
+    void MoveWatcherHW()
     {
-        if(currentRoom != eastHallway)
+        this.transform.position = Spawns[i].transform.position;
+        spwnDist = Vector3.Distance(player.transform.position, Spawns[i].transform.position);
+
+        if (plyAngle <= 90)
         {
-            ChangeRoom(eastHallway);
-            this.transform.position = eastHallway.getWatcherSpawn().transform.position;
-        }
-        else
-        {
-            if(timerLock == false)
+            if (i + 1 != Spawns.Length)
             {
-                this.transform.position = eastHallway.getWatcherSpawn().transform.position;
-                timerLock = false;
+                i++;
             }
         }
-    }*/
+        else if (spwnDist > 0.7f)
+        {
+            if (i - 1 >= 0)
+            {
+                i--;
+            }
+        }
+    }
 
     void activate() //Turns on the Watcher
     {

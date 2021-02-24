@@ -5,7 +5,7 @@ using UnityEngine;
 public class roomCntrl : MonoBehaviour
 {
     public room room1;
-    public room room2;
+    public room room2; //DestRoom
 
     public GameObject entrancePointRoom;
     public PlayerMovement player;
@@ -31,12 +31,18 @@ public class roomCntrl : MonoBehaviour
     public Animator Fade;
 
     bool opened = false;
-    [HideInInspector]
-    public bool trigger = false;
+    
+    public bool WatchHallwayTrigger = false;
+    WatcherAI watcher;
     // Start is called before the first frame update
     void Start()
     {
         manager = FindObjectOfType<AudioManager>();
+
+        if(WatchHallwayTrigger)
+        {
+            watcher = FindObjectOfType<WatcherAI>();
+        }
     }
 
     // Update is called once per frame
@@ -51,6 +57,11 @@ public class roomCntrl : MonoBehaviour
                 if (locked)
                 {
                     CheckKey();
+                }
+
+                if(WatchHallwayTrigger)
+                {
+                    watcher.WatcherHallway = true;
                 }
 
                 if (player != null && !locked) //Make sure it's not null, check if door is locked
@@ -84,6 +95,14 @@ public class roomCntrl : MonoBehaviour
             if(Fade.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
             {
                 Fade.gameObject.SetActive(false);
+            }
+        }
+
+        if(WatchHallwayTrigger)
+        {
+            if(player.myRoom != room2)
+            {
+                watcher.WatcherHallway = false;
             }
         }
     }
@@ -162,7 +181,6 @@ public class roomCntrl : MonoBehaviour
         }
 
         play.myRoom = RoomNum;
-        trigger = true;
     }
 
     public void CheckKey()
