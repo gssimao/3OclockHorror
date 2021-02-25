@@ -10,6 +10,7 @@ public class HuntCheckSolved : MonoBehaviour
     public GameObject Gear1;
     public GameObject Gear2;
     public GameObject Gear3;
+    private GameObject timerObject;
 
     private int answer1;
     private int answer2;
@@ -72,6 +73,7 @@ public class HuntCheckSolved : MonoBehaviour
     public void Awake()
     {
         timeractive = false;
+        timerObject = GameObject.Find("Timer");
         ExitButton = GameObject.Find("ExitButton");
         ExitButton.SetActive(false);
         if (GameObject.Find("Jumpscare") != null)
@@ -107,9 +109,10 @@ public class HuntCheckSolved : MonoBehaviour
         if (!solved)
         {
             Puzzle.SetActive(true);
+            Puzzle.SetActive(true); //Second call is needed to avoid a bug of trap not activating.
             if (!timercheck)
             {
-                GameObject.Find("Timer").SetActive(false);
+                timerObject.SetActive(false);
                 Debug.Log("False TimerCheck");
             }
             else
@@ -117,6 +120,7 @@ public class HuntCheckSolved : MonoBehaviour
                 Debug.Log("True TimerCheck");
                 timeractive = true;
             }
+            // Play Audio Here
         }
     }
 
