@@ -263,12 +263,12 @@ public class NPC : MonoBehaviour
         {
             if (isWalking == true && manager != null && isPlaying == false && pmove.myRoom == myRoom)
             {
-                manager.Play("Blind Creep Footsteps"); //For now I'm having them be the same sound effect. Will change later.
+                manager.Play("Blind Creep Footsteps", true); //For now I'm having them be the same sound effect. Will change later.
                 isPlaying = true;
             }
             else if (isRunning == true && manager != null && isPlaying == false && pmove.myRoom == myRoom)
             {
-                manager.Play("Blind Creep Footsteps");
+                manager.Play("Blind Creep Footsteps", true);
                 isPlaying = true;
             }
             else
@@ -278,13 +278,13 @@ public class NPC : MonoBehaviour
 
             if (fsm.GetState() != FSMStateType.CHASE && isWanPlaying == false && manager != null && pmove.myRoom == myRoom)
             {
-                manager.Play("BC Wander");
-                manager.Play("BC Chase");
+                manager.Play("BC Wander", false);
+                manager.Play("BC Chase", false);
             }
             else if (fsm.GetState() == FSMStateType.CHASE && isChasePlaying == false && manager != null && pmove.myRoom == myRoom)
             {
                 manager.Stop("BC Wander");
-                manager.Play("BC Chase");
+                manager.Play("BC Chase", false);
             }
             else
             {

@@ -19,13 +19,13 @@ public class GearRotation : MonoBehaviour
         {
             movement = ControlBound(movement, true);
             LeanTween.rotateZ(gameObject, GearPosition[movement], 1); // move gear
-            manager.Play("Lock Turn");
+            manager.Play("Gear Turn", true);
         }
         if (Input.GetMouseButtonUp(0)) //this should turn the big to the left
         {
             movement = ControlBound(movement, false);
             LeanTween.rotateZ(gameObject, GearPosition[movement], 1); // move gear
-            manager.Play("Lock Turn");
+            manager.Play("Gear Turn", true);
         }
     }
     private int ControlBound(int moviment, bool addOrSubtract) // the bool should tell if the we are adding or subtracting. True is adding

@@ -67,7 +67,7 @@ public class AnswerCheckPocketWatch : MonoBehaviour
         if(medGear.GetComponent<RotationMedGear>().Medmovement == answerMed && smallGear.GetComponent<RotationSmallGear>().Smallmovement == answerSmall && bigGear.GetComponent<RotationBigGear>().Bigmovement == answerBig)
         {
             solved = true;
-            manager.Play("Success");
+            manager.Play("Success", true);
         }
 
         if (solved && !endTriggered)

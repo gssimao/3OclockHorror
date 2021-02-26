@@ -5,7 +5,7 @@ using UnityEngine;
 public class FloorAudioController : MonoBehaviour
 {
     [SerializeField]
-    PlayerMovement player;
+    public PlayerMovement player;
     AudioManager manager;
 
     [Space]
@@ -17,7 +17,7 @@ public class FloorAudioController : MonoBehaviour
     */
 
     float t = 0;
-    int floor;
+    public int floor;
     int lFloor;
 
     private void Awake()

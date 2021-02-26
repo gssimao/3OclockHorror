@@ -54,7 +54,7 @@ public class LockControl : MonoBehaviour, IPointerClickHandler
         UpdateNumeral();
         if (manager != null)
         {
-            manager.Play("Lock turn");
+            manager.Play("Lock turn", true);
         }
     }
 

@@ -22,7 +22,6 @@ public class JournalFunction : MonoBehaviour
         if(Input.GetKeyDown("j"))
         {
             SetJounralToggle();
-            FindObjectOfType<AudioManager>().Play("Journal");
         }
     }
     public void SetJounralToggle()

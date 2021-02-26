@@ -194,7 +194,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (walking == true && isPlaying == false && manager != null)
         {
-            manager.Play("Player Footsteps");
+            manager.Play("Player Footsteps", true);
             isPlaying = true;
         }
         else

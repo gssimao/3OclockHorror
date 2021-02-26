@@ -66,7 +66,7 @@ public class roomCntrl : MonoBehaviour
                         CameraCrossfade(player.gameObject, entrancePointRoom, player, room2);
                         if(manager != null)
                         {
-                            manager.Play("Door Open");
+                            manager.Play("Door Open", true);
                         }
                     }
                     else// player.myRoom == room2
@@ -74,7 +74,7 @@ public class roomCntrl : MonoBehaviour
                         CameraCrossfade(player.gameObject, entrancePointRoom, player, room1);
                         if (manager != null)
                         {
-                            manager.Play("Door Open");
+                            manager.Play("Door Open", true);
                         }
                     }
                 }
@@ -197,7 +197,7 @@ public class roomCntrl : MonoBehaviour
                 toolTipScript.TimedMessage = "The door is locked";
                 if(manager != null)
                 {
-                    manager.Play("Locked Door");
+                    manager.Play("Locked Door", false);
                 }
             }
         }

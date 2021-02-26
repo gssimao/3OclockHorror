@@ -137,7 +137,7 @@ public class WatcherAI : MonoBehaviour
 
                 else if (isScreamPlaying == false && manager != null)
                 {
-                    manager.Play("Watcher Scream");
+                    manager.Play("Watcher Scream", true);
                     isScreamPlaying = true;
                 }
                 else isScreamPlaying = false;
@@ -152,7 +152,7 @@ public class WatcherAI : MonoBehaviour
 
                 else if (isClosePlaying == false && manager != null)
                 {
-                    manager.Play("Watcher Close");
+                    manager.Play("Watcher Close", false);
                     isClosePlaying = true;
                 }
 
@@ -167,7 +167,7 @@ public class WatcherAI : MonoBehaviour
                 }
                 else if (isFarPlaying == false && manager != null)
                 {
-                    manager.Play("Watcher Far");
+                    manager.Play("Watcher Far", false);
                     isFarPlaying = true;
                 }
                 else isFarPlaying = false;
@@ -266,7 +266,7 @@ public class WatcherAI : MonoBehaviour
 
         if (manager != null)
         {
-            manager.Play("Candle Blow Out");
+            manager.Play("Candle Blow Out", true);
         }
 
         for (int i = 0; i <= selectedAmt; i++)

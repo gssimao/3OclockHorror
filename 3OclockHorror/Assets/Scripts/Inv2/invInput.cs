@@ -91,7 +91,7 @@ public class invInput : MonoBehaviour
     {
         if (manager != null)
         {
-            manager.Play("Journal");
+            manager.Play("Journal", true);
         }
     }
 }

@@ -39,7 +39,7 @@ public class NotifCntrl : MonoBehaviour
         {
             if (manager != null && hasPlayed == false)
             {
-                manager.Play("Writing");
+                manager.Play("Writing", true);
                 hasPlayed = true;
             }
 
@@ -47,11 +47,8 @@ public class NotifCntrl : MonoBehaviour
             if (x > 4)
             {
                 resetCanvas();
+                hasPlayed = false;
             }
-        }
-        else if (hasPlayed == true)
-        {
-            hasPlayed = false;
         }
     }
 

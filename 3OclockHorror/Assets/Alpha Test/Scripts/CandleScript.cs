@@ -40,7 +40,7 @@ public class CandleScript : MonoBehaviour
                 CandleToggle(true);
                 if(manager != null)
                 {
-                    manager.Play("Candle Light");
+                    manager.Play("Candle Light", true);
                 }
             }
             else

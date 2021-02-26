@@ -118,7 +118,7 @@ public class RotationSmallGear : MonoBehaviour
     {
         if (manager != null)
         {
-            manager.Play("Lock Turn");
+            manager.Play("Lock Turn", true);
         }
     }
 }

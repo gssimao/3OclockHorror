@@ -39,6 +39,7 @@ public class clockCntrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (player.myRoom != null && player.myRoom.getName() != "Outside")
         {
             Clock += Time.deltaTime;

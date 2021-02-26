@@ -28,7 +28,7 @@ public class RotationBigGear : MonoBehaviour
         
         if (Input.GetMouseButtonUp(1)) //this should turn the big to the right
         {
-            manager.Play("Lock Turn");
+            manager.Play("Lock Turn",true);
             Bigmovement = ControlBound(Bigmovement, 13, true);
             medGear.GetComponent<RotationMedGear>().Medmovement = ControlBound(medGear.GetComponent<RotationMedGear>().Medmovement, 6, false);
             smallGear.GetComponent<RotationSmallGear>().Smallmovement = ControlBound(smallGear.GetComponent<RotationSmallGear>().Smallmovement, 3, false);
@@ -131,7 +131,7 @@ public class RotationBigGear : MonoBehaviour
     {
         if (manager != null)
         {
-            manager.Play("Lock Turn");
+            manager.Play("Lock Turn", true);
         }
     }
    

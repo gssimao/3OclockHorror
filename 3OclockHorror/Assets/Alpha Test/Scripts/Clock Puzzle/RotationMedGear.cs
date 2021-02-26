@@ -18,17 +18,13 @@ public class RotationMedGear : MonoBehaviour
     void Start()
     {
         manager = FindObjectOfType<AudioManager>();
-        if (manager != null)
-        {
-            manager.Play("Heavy Wind");
-        }
     }
 
     private void OnMouseOver()
     {
         if (Input.GetMouseButtonUp(1)) //this should turn the big to the right
         {
-            manager.Play("Lock Turn");
+            manager.Play("Lock Turn", true);
             BigGear.GetComponent<RotationBigGear>().Bigmovement = ControlBound(BigGear.GetComponent<RotationBigGear>().Bigmovement, 13, false);
             Medmovement = ControlBound(Medmovement, 6, true);
             smallGear.GetComponent<RotationSmallGear>().Smallmovement = ControlBound(smallGear.GetComponent<RotationSmallGear>().Smallmovement, 3, true);
@@ -128,7 +124,7 @@ public class RotationMedGear : MonoBehaviour
     {
         if (manager != null)
         {
-            manager.Play("Lock Turn");
+            manager.Play("Lock Turn", true);
         }
     }
 }

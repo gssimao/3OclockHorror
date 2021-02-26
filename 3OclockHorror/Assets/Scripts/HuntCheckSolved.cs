@@ -40,6 +40,9 @@ public class HuntCheckSolved : MonoBehaviour
     float timer = 15.0f;
     bool lost = false;
 
+    AudioManager manager;
+    public bool HunterTrapActive = false; // When this is true, the SoundTrack plays. You can use it or anything else though as well.
+
     //[SerializeField]
     //GameObject isSolved;
 
@@ -66,6 +69,8 @@ public class HuntCheckSolved : MonoBehaviour
         Text1.text = showanswer1.ToString();
         Text2.text = showanswer2.ToString();
         Text3.text = showanswer3.ToString();
+
+        manager = FindObjectOfType<AudioManager>();
 
         //TimerText = GameObject.Find("Timer").Text;
     }
@@ -108,6 +113,7 @@ public class HuntCheckSolved : MonoBehaviour
     {
         if (!solved)
         {
+            HunterTrapActive = true; //This is called from ST_Ctrl.cs, where the SoundTrack is played.
             Puzzle.SetActive(true);
             Puzzle.SetActive(true); //Second call is needed to avoid a bug of trap not activating.
             if (!timercheck)
@@ -120,8 +126,8 @@ public class HuntCheckSolved : MonoBehaviour
                 Debug.Log("True TimerCheck");
                 timeractive = true;
             }
-            // Play Audio Here
         }
+        HunterTrapActive = false;
     }
 
     void Update()
