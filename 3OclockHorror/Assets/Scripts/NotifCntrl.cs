@@ -14,8 +14,7 @@ public class NotifCntrl : MonoBehaviour
 
     public bool hasPlayed = false;
     AudioManager manager;
-    [SerializeField]
-    Text notifText;
+    public Text notifText;
 
     string defString = "New Journal Entry!";
     void Start()

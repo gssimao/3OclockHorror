@@ -92,7 +92,6 @@ public class sceneManager : MonoBehaviour
             emptyObjects[i].setcntnrDisp(player.Cntnr);
             emptyObjects[i].setIM(player.charPanel);
             emptyObjects[i].settooltip(player.ToolTip);
-            emptyObjects[i].GetComponent<Inventory>().SetItemParent(player.contSlots);
         }
         return true;
     }
@@ -114,7 +113,6 @@ public class sceneManager : MonoBehaviour
             emptyObjects[i].setmyInvDisplay(player.wbInventory);
             emptyObjects[i].setIM(player.charPanel);
             emptyObjects[i].settooltip(player.ToolTip);
-            emptyObjects[i].GetComponent<Inventory>().SetItemParent(player.contSlots);
         }
         return true;
     }

@@ -92,7 +92,8 @@ public class TaskListTracker : MonoBehaviour
         }
         else
         {
-            
+            notif.notifText.text = message;
+            SendAlert();
         }
     }
 }

@@ -36,7 +36,7 @@ public class GiveKey : MonoBehaviour
                 invCanv.SetActive(true);
                 plyInv.AddItem(key);
                 invCanv.SetActive(false);
-                tooltipScript.TimedMessage = "There's a key in the pocket";
+                //tooltipScript.TimedMessage = "There's a key in the pocket";
             }
         }
 

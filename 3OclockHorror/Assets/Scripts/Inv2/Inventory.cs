@@ -15,6 +15,8 @@ public class Inventory : MonoBehaviour, IItemContainer
 
     [SerializeField]
     bool PInv; //True if this inventory is the player inventory.
+    [SerializeField]
+    TaskListTracker taskList;
 
     public bool active; //True if this is an active dynamic inventory.
     public event Action<ItemSlot> onPointerEnterEvent; //Event chain holders, for moving / interacting with items in various ways.
@@ -63,17 +65,27 @@ public class Inventory : MonoBehaviour, IItemContainer
 
     public bool AddItem(Item item)
     {
-        for(int i = 0; i < itemSlots.Length; i++)
+        for (int i = 0; i < itemSlots.Length; i++)
         {
-            if(itemSlots[i].Item == null)
+            if (PInv)
             {
-                if(PInv)
+                if (IsFull())
                 {
-                    if(IsFull())
-                    {
-
-                    }
+                    taskList.DisplayMessage("Inventory is Full");
                 }
+                else
+                {
+                    if (itemSlots[i].Item == null)
+                    {
+                        itemSlots[i].Item = item;
+                    }
+                    taskList.DisplayMessage("Item has been added to inventory");
+
+                    return true;
+                }
+            }
+            else if(itemSlots[i].Item == null)
+            {
                 itemSlots[i].Item = item;
 
                 return true;
@@ -202,9 +214,4 @@ public class Inventory : MonoBehaviour, IItemContainer
     }
 
     #endregion
-
-    public void SetItemParent(Transform input)
-    {
-        itemsParent = input;
-    }
 }
