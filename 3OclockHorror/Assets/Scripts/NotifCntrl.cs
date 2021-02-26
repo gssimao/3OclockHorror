@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NotifCntrl : MonoBehaviour
 {
@@ -13,7 +14,10 @@ public class NotifCntrl : MonoBehaviour
 
     public bool hasPlayed = false;
     AudioManager manager;
+    [SerializeField]
+    Text notifText;
 
+    string defString = "New Journal Entry!";
     void Start()
     {
         manager = FindObjectOfType<AudioManager>();
@@ -59,6 +63,8 @@ public class NotifCntrl : MonoBehaviour
 
         Vector3 orgPos = new Vector3(Notification.transform.position.x, -100f, Notification.transform.position.z);
         Notification.transform.position = orgPos;
+
+        notifText.text = defString;
 
         this.gameObject.SetActive(false);
     }

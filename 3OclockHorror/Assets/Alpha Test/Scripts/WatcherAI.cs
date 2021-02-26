@@ -37,13 +37,14 @@ public class WatcherAI : MonoBehaviour
     public room currentRoom;
     public CandleScript[] Candles;
     room playerRoom;
-    Vector3 spawnPoint;
     AudioManager manager;
 
     //Watcher Hallway Variables
     [Space]
     [SerializeField]
     room eastHallway;
+    [SerializeField]
+    GameObject startPoint;
     [SerializeField]
     GameObject[] Spawns;
     int i;
@@ -54,7 +55,6 @@ public class WatcherAI : MonoBehaviour
     {
         Rooms = floor1Rooms;
         Candles = currentRoom.getRoomObject().GetComponentsInChildren<CandleScript>();
-        spawnPoint = currentRoom.getWatcherSpawn().transform.position;
 
         ovTimer = coolDownTimer;;
         sanityManager = player.GetComponent<SanityManager>();
@@ -118,7 +118,16 @@ public class WatcherAI : MonoBehaviour
 
             if (distance <= 0.4)
             {
-                sanityManager.ChangeSanity(-2 * Time.deltaTime);
+                if (!WatcherHallway)
+                {
+                    sanityManager.ChangeSanity(-2 * Time.deltaTime);
+                }
+                else
+                {
+                    sanityManager.ChangeSanity(-5);
+
+                    player.transform.position = startPoint.transform.position;
+                }
 
                 if (manager != null && isClosePlaying == true)
                 {
@@ -416,5 +425,26 @@ public class WatcherAI : MonoBehaviour
     void activate() //Turns on the Watcher
     {
         gameObject.SetActive(true);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        foreach(GameObject spawn in Spawns)
+        {
+            Gizmos.DrawWireSphere(spawn.transform.position, 1.25f);
+        }
+
+        Gizmos.color = Color.yellow;
+        foreach (GameObject spawn in Spawns)
+        {
+            Gizmos.DrawWireSphere(spawn.transform.position, 0.6f);
+        }
+
+        Gizmos.color = Color.red;
+        foreach (GameObject spawn in Spawns)
+        {
+            Gizmos.DrawWireSphere(spawn.transform.position, 0.4f);
+        }
     }
 }

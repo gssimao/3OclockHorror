@@ -67,6 +67,13 @@ public class Inventory : MonoBehaviour, IItemContainer
         {
             if(itemSlots[i].Item == null)
             {
+                if(PInv)
+                {
+                    if(IsFull())
+                    {
+
+                    }
+                }
                 itemSlots[i].Item = item;
 
                 return true;
