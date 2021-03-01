@@ -33,16 +33,11 @@ public class roomCntrl : MonoBehaviour
     bool opened = false;
     
     public bool WatchHallwayTrigger = false;
-    WatcherAI watcher;
+    public WatcherAI watcher;
     // Start is called before the first frame update
     void Start()
     {
         manager = FindObjectOfType<AudioManager>();
-
-        if(WatchHallwayTrigger)
-        {
-            watcher = FindObjectOfType<WatcherAI>();
-        }
     }
 
     // Update is called once per frame
