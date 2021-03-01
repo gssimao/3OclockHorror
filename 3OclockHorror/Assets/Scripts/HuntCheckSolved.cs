@@ -99,6 +99,10 @@ public class HuntCheckSolved : MonoBehaviour
             //yield return new WaitForSeconds(2);
             playermovement.enabled = true;
             GameObject.Find("BeartrapPuzzle").SetActive(false);
+            if (manager != null)
+            {
+                manager.Play("Success", false);
+            }
         }
     }
 

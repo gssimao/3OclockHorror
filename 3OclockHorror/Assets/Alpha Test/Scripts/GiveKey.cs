@@ -15,12 +15,13 @@ public class GiveKey : MonoBehaviour
     [SerializeField]
     invInput Listener;
     public GameObject KeyPopUp;
+    AudioManager manager;
 
     float dist;
     // Start is called before the first frame update
     void Start()
     {
-        
+        manager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -34,6 +35,10 @@ public class GiveKey : MonoBehaviour
 
             if (Input.GetKeyDown("e"))
             {
+                if (manager != null)
+                {
+                    manager.Play("Key pickup", true);
+                }
                 KeyPopUp.SetActive(true);
                 invCanv.SetActive(true);
                 plyInv.AddItem(key);
