@@ -14,6 +14,7 @@ public class GiveKey : MonoBehaviour
     GameObject invCanv;
     [SerializeField]
     invInput Listener;
+    public GameObject KeyPopUp;
 
     float dist;
     // Start is called before the first frame update
@@ -33,6 +34,7 @@ public class GiveKey : MonoBehaviour
 
             if (Input.GetKeyDown("e"))
             {
+                KeyPopUp.SetActive(true);
                 invCanv.SetActive(true);
                 plyInv.AddItem(key);
                 invCanv.SetActive(false);
