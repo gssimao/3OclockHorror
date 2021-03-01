@@ -48,7 +48,7 @@ public class WatcherAI : MonoBehaviour
     [SerializeField]
     GameObject[] Spawns;
     int i;
-    float spwnDist;
+    public float spwnDist;
 
     // Start is called before the first frame update
     void Start()
@@ -61,7 +61,7 @@ public class WatcherAI : MonoBehaviour
         playerRoom = player.GetComponent<PlayerMovement>().myRoom;
         manager = FindObjectOfType<AudioManager>();
 
-        Debug.Log("Watcher Current Room: " + currentRoom.name);
+        Debug.Log("Watcher Current Room: " + currentRoom.name + "Floor: " + currentRoom.floorNum);
     }
 
     // Update is called once per frame
@@ -86,6 +86,7 @@ public class WatcherAI : MonoBehaviour
 
         if (WatcherHallway == true)
         {
+            ChangeRoom(eastHallway);
             MoveWatcherHW();
         }
         else
@@ -98,7 +99,7 @@ public class WatcherAI : MonoBehaviour
             {
                 MoveWatcher();
                 timerLock = false;
-                Debug.Log("Watcher Current Room: " + currentRoom.name);
+                Debug.Log("Watcher Current Room: " + currentRoom.name + "Floor: " + currentRoom.floorNum);
             }
         }
 
@@ -403,10 +404,11 @@ public class WatcherAI : MonoBehaviour
 
     void MoveWatcherHW()
     {
+        i = GetClosestSpawn(Spawns);
         this.transform.position = Spawns[i].transform.position;
         spwnDist = Vector3.Distance(player.transform.position, Spawns[i].transform.position);
-
-        if (plyAngle <= 90)
+        
+        if (plyAngle >= 90)
         {
             if (i + 1 != Spawns.Length)
             {
@@ -420,6 +422,29 @@ public class WatcherAI : MonoBehaviour
                 i--;
             }
         }
+    }
+
+    int GetClosestSpawn(GameObject[] array)
+    {
+        int closestObject = 0;
+        int i = 0;
+        float closestDist = Mathf.Infinity;
+        Vector3 plyPosition = player.transform.position;
+
+        foreach(GameObject Spawn in Spawns)
+        {
+            Vector3 directionToTarget = Spawn.transform.position - plyPosition;
+            float distanceToTarget = directionToTarget.sqrMagnitude;
+
+            if(distanceToTarget < closestDist)
+            {
+                closestObject = i;
+            }
+
+            i++;
+        }
+
+        return closestObject;
     }
 
     void activate() //Turns on the Watcher

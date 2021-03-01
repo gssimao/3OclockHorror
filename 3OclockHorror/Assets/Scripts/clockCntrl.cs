@@ -27,6 +27,7 @@ public class clockCntrl : MonoBehaviour
     [SerializeField]
     GameObject creep;
 
+    public WatcherAI watcherAI;
     // Start is called before the first frame update 
     void Start()
     {
@@ -34,6 +35,7 @@ public class clockCntrl : MonoBehaviour
         watcher.SetActive(false);
         creep.SetActive(false);
         manager = FindObjectOfType<AudioManager>();
+        watcherAI = watcher.GetComponent<WatcherAI>();
     }
 
     // Update is called once per frame
@@ -58,6 +60,10 @@ public class clockCntrl : MonoBehaviour
 
             //Check for events
             if (Clock >= WatcherTime)
+            {
+                watcher.SetActive(true);
+            }
+            else if(watcherAI.WatcherHallway)
             {
                 watcher.SetActive(true);
             }
