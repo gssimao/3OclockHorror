@@ -8,6 +8,7 @@ public class DrawPoint : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField]
     drawingPuzzle PuzzleCntrl;
+    public List<GameObject> connections; //Updated when a line is drawn from here
 
     Image sr;
 
@@ -24,7 +25,6 @@ public class DrawPoint : MonoBehaviour, IPointerClickHandler
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("Image " + this.gameObject.name + " clicked.");
         if(eventData.button == PointerEventData.InputButton.Left)
         {
             if(PuzzleCntrl.getSelected() == null)
