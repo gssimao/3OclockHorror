@@ -5,7 +5,7 @@ using UnityEngine;
 public class roomCntrl : MonoBehaviour
 {
     public room room1;
-    public room room2;
+    public room room2; //DestRoom
 
     public GameObject entrancePointRoom;
     public PlayerMovement player;
@@ -13,6 +13,7 @@ public class roomCntrl : MonoBehaviour
     public Tooltip toolTipScript;
 
     public bool transitionOnOff = true; //Use this toggle the transition on and off
+    public float range = 0.5f;
     float transitionTime = 0.5f;
     float dist;
 
@@ -30,8 +31,9 @@ public class roomCntrl : MonoBehaviour
     public Animator Fade;
 
     bool opened = false;
-    [HideInInspector]
-    public bool trigger = false;
+    
+    public bool WatchHallwayTrigger = false;
+    public WatcherAI watcher;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +44,7 @@ public class roomCntrl : MonoBehaviour
     void Update()
     {
         dist = Vector3.Distance(player.gameObject.transform.position, this.gameObject.transform.position);
-        if (dist <= 0.5f)
+        if (dist <= range)
         {
             Listener.enabled = false;
             if (Input.GetKeyDown("e") && transitionOnOff)
@@ -59,7 +61,7 @@ public class roomCntrl : MonoBehaviour
                         CameraCrossfade(player.gameObject, entrancePointRoom, player, room2);
                         if(manager != null)
                         {
-                            manager.Play("Door Open");
+                            manager.Play("Door Open", true);
                         }
                     }
                     else// player.myRoom == room2
@@ -67,7 +69,7 @@ public class roomCntrl : MonoBehaviour
                         CameraCrossfade(player.gameObject, entrancePointRoom, player, room1);
                         if (manager != null)
                         {
-                            manager.Play("Door Open");
+                            manager.Play("Door Open", true);
                         }
                     }
                 }
@@ -85,11 +87,19 @@ public class roomCntrl : MonoBehaviour
                 Fade.gameObject.SetActive(false);
             }
         }
+
+        if(WatchHallwayTrigger)
+        {
+            if(player.myRoom != room2)
+            {
+                watcher.WatcherHallway = false;
+            }
+        }
     }
     void OnDrawGizmos()//Shows how far the play needs to be in order to use the door
     {
         Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(gameObject.transform.position, 0.5f);
+        Gizmos.DrawWireSphere(gameObject.transform.position, range);
         Vector3 plyPos = entrancePointRoom.transform.position;
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(new Vector3(plyPos.x, plyPos.y - 0.3108585f, plyPos.z), new Vector3(0.1573486f, 0.1247783f, 1f));
@@ -141,6 +151,12 @@ public class roomCntrl : MonoBehaviour
 
     public void CameraCrossfade(GameObject player, GameObject entranceP, PlayerMovement play, room RoomNum)
     {
+        if (WatchHallwayTrigger)
+        {
+            watcher.WatcherHallway = true;
+            player.GetComponent<LightMatch>().enabled = false;
+        }
+
         StartCoroutine(ChangeCamera(player, entranceP, play, RoomNum));
     }
 
@@ -161,7 +177,6 @@ public class roomCntrl : MonoBehaviour
         }
 
         play.myRoom = RoomNum;
-        trigger = true;
     }
 
     public void CheckKey()
@@ -177,7 +192,7 @@ public class roomCntrl : MonoBehaviour
                 toolTipScript.TimedMessage = "The door is locked";
                 if(manager != null)
                 {
-                    manager.Play("Locked Door");
+                    manager.Play("Locked Door", false);
                 }
             }
         }

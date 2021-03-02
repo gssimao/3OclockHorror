@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WatcherHallway : MonoBehaviour
 {
@@ -13,21 +11,44 @@ public class WatcherHallway : MonoBehaviour
     [SerializeField]
     room eastHallway;
 
-    bool toggle;
+    [Space]
+    [SerializeField]
+    GameObject[] Spawns;
+    [SerializeField]
+    float plyAngle;
+
+    roomCntrl thisDoor;
+
+    bool toggle = false;
+    float dist;
+    float spwnDist;
+    int i = 0;
     // Start is called before the first frame update
     void Start()
     {
-        
+        thisDoor = GetComponent<roomCntrl>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(player.myRoom == eastHallway)
+        WatchHallwaySwitch();
+
+        dist = Vector3.Distance(this.transform.position, player.transform.position);
+        if(dist <= thisDoor.range)
         {
-            WatchHallwaySwitch();
+            if(Input.GetKeyDown("e"))
+            {
+                toggle = true;
+            }
         }
-        else
+
+        if(toggle)
+        {
+            MoveWatcherHW();
+        }
+
+        if(!toggle)
         {
             WatchHallwaySwitch();
         }
@@ -35,18 +56,39 @@ public class WatcherHallway : MonoBehaviour
 
     void WatchHallwaySwitch()
     {
-        if (!toggle)
+        if (toggle)
         {
             plyMatch.enabled = false;
             watcher.WatcherHallway = true;
-            toggle = true;
         }
         else
         {
             plyMatch.enabled = true;
             watcher.WatcherHallway = false;
-            toggle = false;
         }
+    }
 
+    void MoveWatcherHW()
+    {
+        Vector3 direction = player.transform.position - watcher.transform.position;
+        plyAngle = Vector3.Angle(direction, watcher.transform.right);
+
+        watcher.transform.position = Spawns[i].transform.position;
+        spwnDist = Vector3.Distance(player.transform.position, Spawns[i].transform.position);
+
+        if (plyAngle <= 90)
+        {
+            if (i + 1 != Spawns.Length)
+            {
+                i++;
+            }
+        }
+        else if(spwnDist > 0.7f)
+        {
+            if (i - 1 >= 0)
+            {
+                i--;
+            }
+        }
     }
 }

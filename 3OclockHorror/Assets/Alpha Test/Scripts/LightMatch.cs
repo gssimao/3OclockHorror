@@ -43,7 +43,7 @@ public class LightMatch : MonoBehaviour
 
             if (manager != null)
             {
-                manager.Play("Match Strike");
+                manager.Play("Match Strike", true);
             }
         }
 

@@ -2,6 +2,7 @@ using UnityEngine.Audio;
 using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class AudioManager : MonoBehaviour
 {
@@ -40,7 +41,7 @@ public class AudioManager : MonoBehaviour
 		}
 	}
 
-	public void Play(string sound) 
+	public void Play(string sound, bool isRandom) 
 	{
 		Sound s = Array.Find(sounds, item => item.name == sound); //Find the sound we want to play, ensure it's not null
 		if (s == null)
@@ -49,8 +50,16 @@ public class AudioManager : MonoBehaviour
 			return;
 		}
 
-		s.source.volume = s.volume; //Set the volume and pitch to the one contained by the sound
-		s.source.pitch = s.pitch;
+        if (!isRandom)
+        {
+            s.source.volume = s.volume; //Set the volume and pitch to the one contained by the sound
+            s.source.pitch = s.pitch;
+        }
+        else if (isRandom)
+        {
+            s.source.volume = Random.Range(s.volume - 0.1f, s.volume + 0.1f); //Random Volume
+            s.source.pitch = Random.Range(0.8f, 1.2f); // Random Pitch
+        }
 
 		if (!s.source.isPlaying) //Check if the sound is playing - if not, have at it.s
 		{
@@ -73,6 +82,24 @@ public class AudioManager : MonoBehaviour
         s.setStartTIme(Time.time);
         s.setFading(true);
         s.setFadeTime(ttq);
+    }
+
+    public void PlaySFX(string sound) // Same as play, but the volume and pitch are random
+    {
+        Sound s = Array.Find(sounds, item => item.name == sound); 
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+        }
+
+        s.source.volume = Random.Range(s.volume - 0.1f, s.volume + 0.1f); //Random Volume
+        s.source.pitch = Random.Range(0.8f, 1.2f); // Random Pitch
+
+        if (!s.source.isPlaying) //Check if the sound is playing - if not, have at it.s
+        {
+            s.source.Play();
+        }
     }
         
         /*

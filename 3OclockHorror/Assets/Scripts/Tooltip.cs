@@ -8,6 +8,7 @@ public class Tooltip : MonoBehaviour
     public Text TooltipText;
     private bool walked = false;
     public GameObject player;
+    public CanvasGroup cnvGroup;
 
     //Prompt Message
     public string PromptMessage;
@@ -20,9 +21,10 @@ public class Tooltip : MonoBehaviour
     public string startupMessage = "";
 
     public float timer = 0;
-
+    float alottedTime;
     void Start()
     {
+        alottedTime = timer;
         if (masterSwitch == true)
         {
             TooltipText.text = "";
@@ -45,22 +47,22 @@ public class Tooltip : MonoBehaviour
         else if(timer < 0)
         {
             timer = 0;
-            TimedMessage = "";
-            TooltipText.text = "";
         }
 
-        if (startupMessage != "")
+        if(timer == 0)
         {
-            if (player.GetComponent<PlayerMovement>().walking == true && walked == false)
+            cnvGroup.alpha -= Time.deltaTime;
+            if (cnvGroup.alpha == 0)
             {
-                TooltipText.text = "Press E to open the Journal. Use the arrows on the pages to navigate.";
-                walked = true;
+                TimedMessage = "";
+                TooltipText.text = "";
             }
         }
 
-        if(TooltipText.text != "" && timer == 0)
+        if (TooltipText.text != "" && timer == 0 && cnvGroup.alpha == 0)
         {
-            timer = 5;
+            timer = alottedTime;
+            cnvGroup.alpha = 1;
         }
     }
 

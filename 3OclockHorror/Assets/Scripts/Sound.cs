@@ -25,7 +25,7 @@ public class Sound {
 	public AudioSource source; //Source associated with this sound - not in editor, controlled behind the scene
     [HideInInspector]
     float fadeStartTime;
-    bool isFading;
+    bool isFading = false;
     float timeToFade;
 
     #region get/set

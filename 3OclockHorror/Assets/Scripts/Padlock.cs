@@ -61,7 +61,7 @@ public class Padlock : MonoBehaviour
                             }
                             solved = true;
                             isSolved.SetActive(true);
-                            manager.Play("Success");
+                            manager.Play("Success", false);
                         }
                     }
                 }

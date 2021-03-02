@@ -35,6 +35,8 @@ public class TaskListTracker : MonoBehaviour
 
     [SerializeField]
     GameObject alertCanv;
+    [SerializeField]
+    NotifCntrl notif;
 
     bool playerInHouse = false;
 
@@ -80,5 +82,18 @@ public class TaskListTracker : MonoBehaviour
         }
 
         return rtrn;
+    }
+
+    public void DisplayMessage(string message)
+    {
+        if(message == "")
+        {
+            Debug.Log("No Message to display.");
+        }
+        else
+        {
+            notif.notifText.text = message;
+            SendAlert();
+        }
     }
 }

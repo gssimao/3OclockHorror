@@ -14,12 +14,15 @@ public class GiveKey : MonoBehaviour
     GameObject invCanv;
     [SerializeField]
     invInput Listener;
+    public GameObject KeyPopUp;
+    public GameObject DeadGuyBW;
+    AudioManager manager;
 
     float dist;
     // Start is called before the first frame update
     void Start()
     {
-        
+        manager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -33,10 +36,16 @@ public class GiveKey : MonoBehaviour
 
             if (Input.GetKeyDown("e"))
             {
+                if (manager != null)
+                {
+                    manager.Play("Key pickup", true);
+                }
+                KeyPopUp.SetActive(true);
+                DeadGuyBW.SetActive(true);
                 invCanv.SetActive(true);
                 plyInv.AddItem(key);
                 invCanv.SetActive(false);
-                tooltipScript.TimedMessage = "There's a key in the pocket";
+                //tooltipScript.TimedMessage = "There's a key in the pocket";
             }
         }
 

@@ -10,6 +10,7 @@ public class HuntCheckSolved : MonoBehaviour
     public GameObject Gear1;
     public GameObject Gear2;
     public GameObject Gear3;
+    private GameObject timerObject;
 
     private int answer1;
     private int answer2;
@@ -39,6 +40,9 @@ public class HuntCheckSolved : MonoBehaviour
     float timer = 15.0f;
     bool lost = false;
 
+    AudioManager manager;
+    public bool HunterTrapActive = false; // When this is true, the SoundTrack plays. You can use it or anything else though as well.
+
     //[SerializeField]
     //GameObject isSolved;
 
@@ -66,12 +70,15 @@ public class HuntCheckSolved : MonoBehaviour
         Text2.text = showanswer2.ToString();
         Text3.text = showanswer3.ToString();
 
+        manager = FindObjectOfType<AudioManager>();
+
         //TimerText = GameObject.Find("Timer").Text;
     }
 
     public void Awake()
     {
         timeractive = false;
+        timerObject = GameObject.Find("Timer");
         ExitButton = GameObject.Find("ExitButton");
         ExitButton.SetActive(false);
         if (GameObject.Find("Jumpscare") != null)
@@ -92,6 +99,10 @@ public class HuntCheckSolved : MonoBehaviour
             //yield return new WaitForSeconds(2);
             playermovement.enabled = true;
             GameObject.Find("BeartrapPuzzle").SetActive(false);
+            if (manager != null)
+            {
+                manager.Play("Success", false);
+            }
         }
     }
 
@@ -106,10 +117,12 @@ public class HuntCheckSolved : MonoBehaviour
     {
         if (!solved)
         {
+            HunterTrapActive = true; //This is called from ST_Ctrl.cs, where the SoundTrack is played.
             Puzzle.SetActive(true);
+            Puzzle.SetActive(true); //Second call is needed to avoid a bug of trap not activating.
             if (!timercheck)
             {
-                GameObject.Find("Timer").SetActive(false);
+                timerObject.SetActive(false);
                 Debug.Log("False TimerCheck");
             }
             else
@@ -118,6 +131,7 @@ public class HuntCheckSolved : MonoBehaviour
                 timeractive = true;
             }
         }
+        HunterTrapActive = false;
     }
 
     void Update()

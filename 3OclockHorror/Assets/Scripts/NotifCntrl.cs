@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NotifCntrl : MonoBehaviour
 {
@@ -13,7 +14,9 @@ public class NotifCntrl : MonoBehaviour
 
     public bool hasPlayed = false;
     AudioManager manager;
+    public Text notifText;
 
+    string defString = "New Journal Entry!";
     void Start()
     {
         manager = FindObjectOfType<AudioManager>();
@@ -35,7 +38,7 @@ public class NotifCntrl : MonoBehaviour
         {
             if (manager != null && hasPlayed == false)
             {
-                manager.Play("Writing");
+                manager.Play("Writing", true);
                 hasPlayed = true;
             }
 
@@ -43,11 +46,8 @@ public class NotifCntrl : MonoBehaviour
             if (x > 4)
             {
                 resetCanvas();
+                hasPlayed = false;
             }
-        }
-        else if (hasPlayed == true)
-        {
-            hasPlayed = false;
         }
     }
 
@@ -59,6 +59,8 @@ public class NotifCntrl : MonoBehaviour
 
         Vector3 orgPos = new Vector3(Notification.transform.position.x, -100f, Notification.transform.position.z);
         Notification.transform.position = orgPos;
+
+        notifText.text = defString;
 
         this.gameObject.SetActive(false);
     }

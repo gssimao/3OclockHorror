@@ -17,7 +17,7 @@ public class MainMenu : MonoBehaviour
 
     void Awake()
     {
-        menuAudio.Play("Theme");
+        menuAudio.Play("Theme", false);
     }
     private void Update()
     {

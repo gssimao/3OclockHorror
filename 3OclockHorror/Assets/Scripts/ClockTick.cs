@@ -46,7 +46,6 @@ public class ClockTick : MonoBehaviour
     {
         if (!isPlaying && manager != null)
         {
-            manager.Play("Clock Tick");
             isPlaying = true;
         }
     }

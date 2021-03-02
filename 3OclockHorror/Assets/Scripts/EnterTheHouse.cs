@@ -22,13 +22,14 @@ public class EnterTheHouse : MonoBehaviour
     Item key;
     [SerializeField]
     Tooltip tooltipScript;
+    AudioManager manager;
 
     public float dist;
     float range = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        manager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame

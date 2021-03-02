@@ -37,25 +37,31 @@ public class WatcherAI : MonoBehaviour
     public room currentRoom;
     public CandleScript[] Candles;
     room playerRoom;
-    Vector3 spawnPoint;
     AudioManager manager;
 
+    //Watcher Hallway Variables
+    [Space]
     [SerializeField]
     room eastHallway;
+    [SerializeField]
+    GameObject startPoint;
+    [SerializeField]
+    GameObject[] Spawns;
+    int i;
+    public float spwnDist;
 
     // Start is called before the first frame update
     void Start()
     {
         Rooms = floor1Rooms;
         Candles = currentRoom.getRoomObject().GetComponentsInChildren<CandleScript>();
-        spawnPoint = currentRoom.getWatcherSpawn().transform.position;
 
         ovTimer = coolDownTimer;;
         sanityManager = player.GetComponent<SanityManager>();
         playerRoom = player.GetComponent<PlayerMovement>().myRoom;
         manager = FindObjectOfType<AudioManager>();
 
-        Debug.Log("Watcher Current Room: " + currentRoom.name);
+        Debug.Log("Watcher Current Room: " + currentRoom.name + "Floor: " + currentRoom.floorNum);
     }
 
     // Update is called once per frame
@@ -78,19 +84,23 @@ public class WatcherAI : MonoBehaviour
             }
         }
 
-        if (candlesOut && !playerInRoom)// The candles are not out and the player is not in the room
+        if (WatcherHallway == true)
         {
-            BlowOutCandle();
+            ChangeRoom(eastHallway);
+            MoveWatcherHW();
         }
-        else if(!candlesOut && !playerInRoom && timerLock)
+        else
         {
-            MoveWatcher();
-            timerLock = false;
-            Debug.Log("Watcher Current Room: " + currentRoom.name);
-        }
-        else if(WatcherHallway == true)
-        {
-            ChangePositionHW();
+            if (candlesOut && !playerInRoom)// The candles are not out and the player is not in the room
+            {
+                BlowOutCandle();
+            }
+            else if (!candlesOut && !playerInRoom && timerLock)
+            {
+                MoveWatcher();
+                timerLock = false;
+                Debug.Log("Watcher Current Room: " + currentRoom.name + "Floor: " + currentRoom.floorNum);
+            }
         }
 
         if (timerLock == false)
@@ -109,7 +119,16 @@ public class WatcherAI : MonoBehaviour
 
             if (distance <= 0.4)
             {
-                sanityManager.ChangeSanity(-2 * Time.deltaTime);
+                if (!WatcherHallway)
+                {
+                    sanityManager.ChangeSanity(-2 * Time.deltaTime);
+                }
+                else
+                {
+                    sanityManager.ChangeSanity(-5);
+
+                    player.transform.position = startPoint.transform.position;
+                }
 
                 if (manager != null && isClosePlaying == true)
                 {
@@ -119,7 +138,7 @@ public class WatcherAI : MonoBehaviour
 
                 else if (isScreamPlaying == false && manager != null)
                 {
-                    manager.Play("Watcher Scream");
+                    manager.Play("Watcher Scream", true);
                     isScreamPlaying = true;
                 }
                 else isScreamPlaying = false;
@@ -134,7 +153,7 @@ public class WatcherAI : MonoBehaviour
 
                 else if (isClosePlaying == false && manager != null)
                 {
-                    manager.Play("Watcher Close");
+                    manager.Play("Watcher Close", false);
                     isClosePlaying = true;
                 }
 
@@ -149,7 +168,7 @@ public class WatcherAI : MonoBehaviour
                 }
                 else if (isFarPlaying == false && manager != null)
                 {
-                    manager.Play("Watcher Far");
+                    manager.Play("Watcher Far", false);
                     isFarPlaying = true;
                 }
                 else isFarPlaying = false;
@@ -248,7 +267,7 @@ public class WatcherAI : MonoBehaviour
 
         if (manager != null)
         {
-            manager.Play("Candle Blow Out");
+            manager.Play("Candle Blow Out", true);
         }
 
         for (int i = 0; i <= selectedAmt; i++)
@@ -383,25 +402,74 @@ public class WatcherAI : MonoBehaviour
         }
     }
 
-    void ChangePositionHW()
+    void MoveWatcherHW()
     {
-        if(currentRoom != eastHallway)
+        i = GetClosestSpawn(Spawns);
+        this.transform.position = Spawns[i].transform.position;
+        spwnDist = Vector3.Distance(player.transform.position, Spawns[i].transform.position);
+        
+        if (plyAngle >= 90)
         {
-            ChangeRoom(eastHallway);
-            this.transform.position = eastHallway.getWatcherSpawn().transform.position;
-        }
-        else
-        {
-            if(timerLock == false)
+            if (i + 1 != Spawns.Length)
             {
-                this.transform.position = eastHallway.getWatcherSpawn().transform.position;
-                timerLock = false;
+                i++;
             }
         }
+        else if (spwnDist > 0.7f)
+        {
+            if (i - 1 >= 0)
+            {
+                i--;
+            }
+        }
+    }
+
+    int GetClosestSpawn(GameObject[] array)
+    {
+        int closestObject = 0;
+        int i = 0;
+        float closestDist = Mathf.Infinity;
+        Vector3 plyPosition = player.transform.position;
+
+        foreach(GameObject Spawn in Spawns)
+        {
+            Vector3 directionToTarget = Spawn.transform.position - plyPosition;
+            float distanceToTarget = directionToTarget.sqrMagnitude;
+
+            if(distanceToTarget < closestDist)
+            {
+                closestObject = i;
+            }
+
+            i++;
+        }
+
+        return closestObject;
     }
 
     void activate() //Turns on the Watcher
     {
         gameObject.SetActive(true);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        foreach(GameObject spawn in Spawns)
+        {
+            Gizmos.DrawWireSphere(spawn.transform.position, 1.25f);
+        }
+
+        Gizmos.color = Color.yellow;
+        foreach (GameObject spawn in Spawns)
+        {
+            Gizmos.DrawWireSphere(spawn.transform.position, 0.6f);
+        }
+
+        Gizmos.color = Color.red;
+        foreach (GameObject spawn in Spawns)
+        {
+            Gizmos.DrawWireSphere(spawn.transform.position, 0.4f);
+        }
     }
 }
