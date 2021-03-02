@@ -86,6 +86,7 @@ public class WatcherAI : MonoBehaviour
 
         if (WatcherHallway == true)
         {
+            timerLock = true;
             ChangeRoom(eastHallway);
             MoveWatcherHW();
         }
@@ -404,20 +405,18 @@ public class WatcherAI : MonoBehaviour
 
     void MoveWatcherHW()
     {
-        i = GetClosestSpawn(Spawns);
+        //i = GetClosestSpawn(Spawns);
+        i = 6;
         this.transform.position = Spawns[i].transform.position;
         spwnDist = Vector3.Distance(player.transform.position, Spawns[i].transform.position);
         
-        if (plyAngle >= 90)
+        if (plyAngle < 90)
         {
-            if (i + 1 != Spawns.Length)
+            /*if ((i + 1) < Spawns.Length)
             {
                 i++;
-            }
-        }
-        else if (spwnDist > 0.7f)
-        {
-            if (i - 1 >= 0)
+            }*/
+            if((i - 1) >= 0)
             {
                 i--;
             }
@@ -471,5 +470,11 @@ public class WatcherAI : MonoBehaviour
         {
             Gizmos.DrawWireSphere(spawn.transform.position, 0.4f);
         }
+
+        /*Gizmos.color = Color.white;
+        foreach (GameObject spawn in Spawns)
+        {
+            Gizmos.DrawWireSphere(spawn.transform.position, 0.7f);
+        }*/
     }
 }
