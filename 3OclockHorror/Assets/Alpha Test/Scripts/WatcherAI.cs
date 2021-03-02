@@ -409,17 +409,18 @@ public class WatcherAI : MonoBehaviour
             i = GetClosestSpawn(Spawns);
             timerLock = false;
         }
+
         this.transform.position = Spawns[i].transform.position;
         spwnDist = Vector3.Distance(player.transform.position, Spawns[i].transform.position);
         
-        if (plyAngle <= 90 && spwnDist > 0.7f)
+        if (plyAngle <= 90)
         {
             if (i + 1 != Spawns.Length)
             {
                 i++;
             }
         }
-        else if (plyAngle >= 90 && spwnDist > 0.7f)
+        else if (plyAngle > 90)
         {
             if (i - 1 >= 0)
             {
