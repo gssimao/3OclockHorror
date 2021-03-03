@@ -16,6 +16,10 @@ public class BCSummoner : MonoBehaviour
     ContainerControl ItemContainer;
     [SerializeField]
     Item trigger;
+
+    AudioManager manager;
+    public PlayerMovement player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +28,8 @@ public class BCSummoner : MonoBehaviour
         {
             Debug.LogError("Game object provided as Blind Creep for Summoner script attached to " + gameObject.name + " did not have a NPC script attached.");
         }
+
+        manager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -37,9 +43,14 @@ public class BCSummoner : MonoBehaviour
             {//Tp the Blind Creep into the desired location, adjust state/room as well.
                 BCNPC.forceStateChangeIdle();
                 BCNPC.myRoom = TPRoom;
-
+                
                 BlindCreep.transform.position = TPPoint.transform.position;
                 Debug.Log("TP BC");
+
+                if (manager != null && player.myRoom == BCNPC.myRoom)
+                {
+                    manager.Play("Watcher room", true);
+                }
             }
         }
     }

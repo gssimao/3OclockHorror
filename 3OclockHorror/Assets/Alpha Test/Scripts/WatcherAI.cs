@@ -247,6 +247,10 @@ public class WatcherAI : MonoBehaviour
         else// if emptyRoomCount >= 3
         {
             ChangeRoom(playerRoom);
+            if (manager != null)
+            {
+                manager.Play("Watcher room", true);
+            }
         }
 
         CheckRoom();
