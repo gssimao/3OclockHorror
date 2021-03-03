@@ -86,8 +86,6 @@ public class WatcherAI : MonoBehaviour
 
         if (WatcherHallway == true)
         {
-            timerLock = true;
-            ChangeRoom(eastHallway);
             MoveWatcherHW();
         }
         else
@@ -362,7 +360,7 @@ public class WatcherAI : MonoBehaviour
         }
     }
 
-    void ChangeRoom(room target)
+    public void ChangeRoom(room target)
     {
         this.transform.position = target.getWatcherSpawn().transform.position;
         currentRoom = target;
@@ -409,28 +407,36 @@ public class WatcherAI : MonoBehaviour
 
     void MoveWatcherHW()
     {
-        //i = GetClosestSpawn(Spawns);
-        i = 6;
+        if (true)
+        {
+            i = GetClosestSpawn();
+            Debug.Log("Teleported to: " + Spawns[i].name);
+            timerLock = false;
+        }
+
         this.transform.position = Spawns[i].transform.position;
         spwnDist = Vector3.Distance(player.transform.position, Spawns[i].transform.position);
         
         if (plyAngle < 90)
         {
+
+
             /*if ((i + 1) < Spawns.Length)
             {
                 i++;
-            }*/
-            if((i - 1) >= 0)
+            }
+            if ((i - 1) >= 0)
             {
                 i--;
-            }
+                Debug.Log("Teleported to: " + Spawns[i].name);
+            }*/
         }
     }
 
-    int GetClosestSpawn(GameObject[] array)
+    int GetClosestSpawn()
     {
         int closestObject = 0;
-        int i = 0;
+        int j = 0;
         float closestDist = Mathf.Infinity;
         Vector3 plyPosition = player.transform.position;
 
@@ -441,10 +447,11 @@ public class WatcherAI : MonoBehaviour
 
             if(distanceToTarget < closestDist)
             {
-                closestObject = i;
+                closestObject = j;
+                closestDist = distanceToTarget;
             }
 
-            i++;
+            j++;
         }
 
         return closestObject;
@@ -478,7 +485,7 @@ public class WatcherAI : MonoBehaviour
         /*Gizmos.color = Color.white;
         foreach (GameObject spawn in Spawns)
         {
-            Gizmos.DrawWireSphere(spawn.transform.position, 0.7f);
+            Gizmos.DrawWireSphere(spawn.transform.position, 0.9f);
         }*/
     }
 }

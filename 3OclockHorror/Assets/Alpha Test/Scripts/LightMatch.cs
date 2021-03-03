@@ -10,6 +10,7 @@ public class LightMatch : MonoBehaviour
     public GameObject lightEffect;
 
     bool timerLock = true;
+    bool lightOn = false;
     public float lifeTime;
     float ov;
     public float leanTime = 1;
@@ -35,11 +36,7 @@ public class LightMatch : MonoBehaviour
     {
         if (Input.GetKeyDown("q") && timerLock == true)
         {
-            match.enabled = true;
-            lightMask.transform.LeanScale(large, leanTime);
-            fLight.enabled = true;
-            timerLock = false;
-            lightEffect.SetActive(true);
+            Light();
 
             if (manager != null)
             {
@@ -54,12 +51,56 @@ public class LightMatch : MonoBehaviour
 
         if (lifeTime <= 0)
         {
+            Light();
+        }
+    }
+
+    void Light()
+    {
+        if (!lightOn)
+        {
+            match.enabled = true;
+            lightMask.transform.LeanScale(large, leanTime);
+            fLight.enabled = true;
+            timerLock = false;
+            lightEffect.SetActive(true);
+
+            lightOn = true;
+        }
+        else
+        {
             timerLock = true;
             match.enabled = false;
             lightMask.transform.LeanScale(small, leanTime);
             fLight.enabled = false;
             lifeTime = ov;
             lightEffect.SetActive(false);
+
+            lightOn = false;
+        }
+    }
+    public void Light(bool toggle)
+    {
+        if (toggle)
+        {
+            match.enabled = true;
+            lightMask.transform.LeanScale(large, leanTime);
+            fLight.enabled = true;
+            timerLock = false;
+            lightEffect.SetActive(true);
+
+            lightOn = true;
+        }
+        else
+        {
+            timerLock = true;
+            match.enabled = false;
+            lightMask.transform.LeanScale(small, leanTime);
+            fLight.enabled = false;
+            lifeTime = ov;
+            lightEffect.SetActive(false);
+
+            lightOn = false;
         }
     }
 }

@@ -154,6 +154,8 @@ public class roomCntrl : MonoBehaviour
         if (WatchHallwayTrigger)
         {
             watcher.WatcherHallway = true;
+            watcher.ChangeRoom(room2);
+            player.GetComponent<LightMatch>().Light(false);
             player.GetComponent<LightMatch>().enabled = false;
         }
 
