@@ -37,7 +37,7 @@ public class HuntCheckSolved : MonoBehaviour
 
     bool endTriggered = false;
 
-    float timer = 15.0f;
+    float timer = 10.0f;
     bool lost = false;
 
     AudioManager manager;
