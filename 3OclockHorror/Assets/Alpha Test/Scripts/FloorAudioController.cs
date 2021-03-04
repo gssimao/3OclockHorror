@@ -44,8 +44,10 @@ public class FloorAudioController : MonoBehaviour
                     CheckFloorTwo();
                     break;
                 case 3:
+                    PlayFloorThree();
                     break;
                 case 4:
+                    PlayBasement();
                     break;
                 case 20:
                     break;
