@@ -19,6 +19,16 @@ public class drawingPuzzle : MonoBehaviour
     [SerializeField]
     GameObject lineConnection; //The actual prefab line
 
+    [Space]
+    [SerializeField]
+    symbolUpdater sym1;
+    [SerializeField]
+    symbolUpdater sym2;
+    [SerializeField]
+    symbolUpdater sym3;
+    [SerializeField]
+    symbolUpdater sym4;
+
     bool symOne = false;
     bool symTwo = false;
     bool symThree = false;
@@ -155,6 +165,7 @@ public class drawingPuzzle : MonoBehaviour
             if (check)
             {
                 symOne = true;
+                sym1.UpdateSprite();
             }
         }
         //Would do more of the same for each of the other answers, to avoid checking a finished symbol later
