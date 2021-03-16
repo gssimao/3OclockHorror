@@ -16,6 +16,8 @@ public class chaseState : abstractFSMState
     [SerializeField]
     float speed;
     float tmr = 0f;
+    float tmrMax = 1;
+
     public override void OnEnable() //overide onEnable to set state type
     {
         base.OnEnable();
@@ -30,7 +32,7 @@ public class chaseState : abstractFSMState
             {
                 enteredState = true;
             }
-            if (speed == 0)
+            if (speed != 5)
             {
                 speed = 5;
                 Debug.LogError("Default speed not properly set");
@@ -45,7 +47,9 @@ public class chaseState : abstractFSMState
         if (enteredState)
         {
             //Update player posiiton
-            //executor.setDestination(player.gameObject);
+            updatePlayerPos();
+            tmr += Time.deltaTime;
+
             bool cnt = executor.move(speed); //determines if the NPC has reached the intended target
 
             //Determine if player is within range of an attack or has left room, either will trigger state change
@@ -65,6 +69,15 @@ public class chaseState : abstractFSMState
                     fsm.enterState(FSMStateType.IDLE);
                 }
             }
+        }
+    }
+
+    public void updatePlayerPos()
+    {
+        if(tmr > tmrMax)
+        {
+            executor.setDestination(player.gameObject);
+            tmr = 0.0f;
         }
     }
 }
