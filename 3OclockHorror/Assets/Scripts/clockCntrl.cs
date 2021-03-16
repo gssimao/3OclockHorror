@@ -45,7 +45,6 @@ public class clockCntrl : MonoBehaviour
         if (player.myRoom != null && player.myRoom.getName() != "Outside")
         {
             Clock += Time.deltaTime;
-            if (manager != null)
 
             if (Clock >= endTime) //Check if sys time is beyond end time, if so quit
             {
@@ -79,6 +78,52 @@ public class clockCntrl : MonoBehaviour
             else
             {
                 creep.SetActive(false);
+            }
+
+            //Check for each hour, play clock sound each time.
+            if (Clock == 0)
+            {
+                manager.Play("Clock 5", false);
+            }
+            else if (Clock == 240)
+            {
+                manager.Play("Clock 6", false);
+            }
+            else if (Clock == 480)
+            {
+                manager.Play("Clock 7", false);
+            }
+            else if (Clock == 720)
+            {
+                manager.Play("Clock 8", false);
+            }
+            else if (Clock == 960)
+            {
+                manager.Play("Clock 9", false);
+            }
+            else if (Clock == 1200)
+            {
+                manager.Play("Clock 10", false);
+            }
+            else if (Clock == 1440)
+            {
+                manager.Play("Clock 11", false);
+            }
+            else if (Clock == 1680)
+            {
+                manager.Play("Clock 12", false);
+            }
+            else if (Clock == 1920)
+            {
+                manager.Play("Clock 1", false);
+            }
+            else if (Clock == 2160)
+            {
+                manager.Play("Clock 2", false);
+            }
+            else if (Clock == 2400)
+            {
+                manager.Play("Clock 3", false);
             }
         }
     }

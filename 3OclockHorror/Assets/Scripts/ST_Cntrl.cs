@@ -40,7 +40,7 @@ public class ST_Cntrl : MonoBehaviour
                 is2ndPlaying = false;
             }
         }
-        else if (player.myRoom != null && player.myRoom.getName() != "Outside" && is2ndPlaying == false && player.myRoom.floorNum == 2 && StopALL == false)
+        else if (player.myRoom != null && player.myRoom.getName() != "Outside" && is2ndPlaying == false && player.myRoom.floorNum != 1 && StopALL == false)
         {
             manager.StartFade("Drone", 3);
             manager.StartFade("Game ST", 3);
