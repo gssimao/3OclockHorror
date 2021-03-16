@@ -465,6 +465,17 @@ public class WatcherAI : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(this.transform.position, 1.25f);
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(this.transform.position, 0.6f);
+
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(this.transform.position, 0.4f);
+
+        #region WatcherHallway
+        Gizmos.color = Color.green;
         foreach(GameObject spawn in Spawns)
         {
             Gizmos.DrawWireSphere(spawn.transform.position, 1.25f);
@@ -481,6 +492,7 @@ public class WatcherAI : MonoBehaviour
         {
             Gizmos.DrawWireSphere(spawn.transform.position, 0.4f);
         }
+        #endregion
 
         /*Gizmos.color = Color.white;
         foreach (GameObject spawn in Spawns)
