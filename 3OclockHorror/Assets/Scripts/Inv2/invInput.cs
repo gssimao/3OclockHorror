@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class invInput : MonoBehaviour
 {
-
     [SerializeField]
     KeyCode invKey;
     [SerializeField]
@@ -24,6 +23,7 @@ public class invInput : MonoBehaviour
     GameObject escCanv;
 
     AudioManager manager;
+    public bool isFocus = true;
 
     void Start()
     {
@@ -42,32 +42,35 @@ public class invInput : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(invKey) && !jInput.isFocused && !puzOpen)
+        if (isFocus)
         {
-            if (Journal.activeSelf)
+            if (Input.GetKeyDown(invKey) && !jInput.isFocused && !puzOpen)
             {
-                Journal.SetActive(false);
-                playSound();
-                
-            }
-            else
-            {
-                Journal.SetActive(true);
-                playSound();
-            }
+                if (Journal.activeSelf)
+                {
+                    Journal.SetActive(false);
+                    playSound();
 
-            /*
-            if (invCanvas.activeSelf)
-            {
-                tooltip.SetActive(false);
-                invCanvas.SetActive(false);
+                }
+                else
+                {
+                    Journal.SetActive(true);
+                    playSound();
+                }
+
+                /*
+                if (invCanvas.activeSelf)
+                {
+                    tooltip.SetActive(false);
+                    invCanvas.SetActive(false);
+                }
+                else
+                {
+                    invCanvas.SetActive(true);
+                }
+                */
+
             }
-            else
-            {
-                invCanvas.SetActive(true);
-            }
-            */
-            
         }
         if (Input.GetKeyDown(escKey))
         {
@@ -80,11 +83,7 @@ public class invInput : MonoBehaviour
                 escCanv.SetActive(false);
             }
         }
-    }
-
-    public void ClearObjsList()//Used for changing scenes
-    {
-        objs.Clear();
+        isFocus = true;
     }
 
     void playSound()

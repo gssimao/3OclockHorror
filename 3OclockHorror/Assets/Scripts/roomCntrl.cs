@@ -46,7 +46,7 @@ public class roomCntrl : MonoBehaviour
         dist = Vector3.Distance(player.gameObject.transform.position, this.gameObject.transform.position);
         if (dist <= range)
         {
-            Listener.enabled = false;
+            Listener.isFocus = false;
             if (Input.GetKeyDown("e") && transitionOnOff)
             {
                 if (locked)
@@ -74,10 +74,6 @@ public class roomCntrl : MonoBehaviour
                     }
                 }
             }
-        }
-        if (Listener != null)
-        {
-            Listener.enabled = true;
         }
 
         if (Fade != null)

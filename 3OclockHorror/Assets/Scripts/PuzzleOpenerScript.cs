@@ -47,7 +47,7 @@ public class PuzzleOpenerScript : MonoBehaviour
 
         if(dist <= range)
         {
-            listener.enabled = false;
+            listener.isFocus = false;
             if (Input.GetKeyDown("e"))
             {
                 if (!opened)
@@ -90,13 +90,6 @@ public class PuzzleOpenerScript : MonoBehaviour
                         //toolTipScript.TimedMessage = "I need four coins";
                     }
                 }
-            }
-        }
-        else
-        {
-            if (listener != null)
-            {
-                listener.enabled = true;
             }
         }
     }

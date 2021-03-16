@@ -35,19 +35,10 @@ public class FloorChanger : MonoBehaviour
         dist = Vector3.Distance(player.transform.position, this.transform.position);
         if (Mathf.Abs(dist) <= 0.6f)
         {
-            Listener.enabled = false;
+            Listener.isFocus = false;
             if (Input.GetKeyDown("e"))
             {
-                StartCoroutine(ChangeCamera());
-                
-            }
-
-        }
-        else
-        {
-            if (Listener != null)
-            {
-                Listener.enabled = true;
+                StartCoroutine(ChangeCamera());   
             }
         }
 

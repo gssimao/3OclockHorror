@@ -10,13 +10,16 @@ public class CursorController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Cursor.visible = false;
         Cursor.SetCursor(cursorArrow, Vector2.zero, CursorMode.Auto);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(!Cursor.visible)
+        {
+            Cursor.visible = true;
+        }
         //Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //transform.position = cursorPos;
     }

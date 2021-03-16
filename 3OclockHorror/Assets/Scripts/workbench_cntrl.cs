@@ -53,7 +53,7 @@ public class workbench_cntrl : MonoBehaviour
         float dist = Vector3.Distance(player.transform.position, transform.position); //Get the position of player
         if (dist <= 0.25f) //If the player is in range
         {
-            Listener.enabled = false;
+            Listener.isFocus = false;
             if (Input.GetKeyDown("e") && !active)
             {
                 IM.ActivateInventory(myInv);
@@ -74,13 +74,6 @@ public class workbench_cntrl : MonoBehaviour
                     myInvDisplay.SetActive(false);
                     IM.craftField.SetActive(false);
                 }
-            }
-        }
-        else
-        {
-            if (Listener != null)
-            {
-                Listener.enabled = true;
             }
         }
     }

@@ -47,7 +47,6 @@ public class sceneManager : MonoBehaviour
                 clockCntrl.SetWatcher(Watcher);
                 clockCntrl.SetCreep(TheBlindCreep);
                 player.tempCanvases.AddRange(plyCanvases);
-                Listener.ClearObjsList();
                 player.myRoom = startRoom;
                 player.Camera = plyCamera;
                 CallFindObjects();

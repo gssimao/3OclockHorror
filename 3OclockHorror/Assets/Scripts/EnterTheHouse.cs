@@ -39,7 +39,7 @@ public class EnterTheHouse : MonoBehaviour
 
         if (dist <= range)
         {
-            Listener.enabled = false;
+            Listener.isFocus = false;
             if (Input.GetKeyDown("e"))
             {
                 if (plyinv.ContainsItem(key) && EntrancePuzzle.solved)
@@ -53,8 +53,6 @@ public class EnterTheHouse : MonoBehaviour
                 }
             }
         }
-
-        Listener.enabled = true;
 
         if (Fade != null)
         {

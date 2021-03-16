@@ -32,7 +32,7 @@ public class GiveKey : MonoBehaviour
 
         if (dist <= 0.6f)
         {
-            Listener.enabled = false;
+            Listener.isFocus = false;
 
             if (Input.GetKeyDown("e"))
             {
@@ -48,7 +48,5 @@ public class GiveKey : MonoBehaviour
                 //tooltipScript.TimedMessage = "There's a key in the pocket";
             }
         }
-
-        Listener.enabled = true;
     }
 }

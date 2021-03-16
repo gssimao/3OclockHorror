@@ -49,7 +49,7 @@ public class ContainerControl : MonoBehaviour
         float dist = Vector3.Distance(player.transform.position, transform.position); //Get the position of player
         if (dist <= interactDist) //If the player is in range
         {
-            Listener.enabled = false;
+            Listener.isFocus = false;
             if (Input.GetKeyDown("e") && !active)
             {
                 openInventory();
@@ -60,13 +60,6 @@ public class ContainerControl : MonoBehaviour
                 {
                     closeInventory();
                 }
-            }
-        }
-        else
-        {
-            if (Listener != null)
-            {
-                Listener.enabled = true;
             }
         }
     }
