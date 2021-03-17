@@ -53,6 +53,7 @@ public class TrapController : MonoBehaviour
         {
             Trap.SetActive(false);
         }
+        GameObject.Find("TrapControl").SetActive(false);
     }
 
     private void ActivateTraps()
