@@ -28,7 +28,7 @@ public class WatcherAI : MonoBehaviour
     public bool timerLock = true;
     int[] candlesOn;
     float ovTimer;
-    float distance;
+    public float distance;
     int plyIndex;
     public float plyAngle = 0;
     public bool WatcherHallway = false;
@@ -174,18 +174,12 @@ public class WatcherAI : MonoBehaviour
             }
             else
             {
-                if (manager != null && isScreamPlaying == true)
+                if (manager != null)
                 {
                     manager.Stop("Watcher Scream");
                     isScreamPlaying = false;
-                }
-                else if (manager != null && isFarPlaying == true)
-                {
                     manager.Stop("Watcher Far");
                     isFarPlaying = false;
-                }
-                else if (manager != null && isClosePlaying == true)
-                {
                     manager.Stop("Watcher Close");
                     isClosePlaying = false;
                 }
