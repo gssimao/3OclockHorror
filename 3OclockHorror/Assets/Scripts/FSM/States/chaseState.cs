@@ -32,9 +32,9 @@ public class chaseState : abstractFSMState
             {
                 enteredState = true;
             }
-            if (speed != 5)
+            if (speed != 1)
             {
-                speed = 5;
+                speed = 1;
                 Debug.LogError("Default speed not properly set");
             }
         }

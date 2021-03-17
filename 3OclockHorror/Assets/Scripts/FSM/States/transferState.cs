@@ -25,6 +25,9 @@ public class transferState : abstractFSMState
     public override bool enterState() //Enter state, once entered set duration to 0
     {
         enteredState = base.enterState();
+
+        executor.changeRoomList();
+
         ChooseRoom();
         
         return enteredState;

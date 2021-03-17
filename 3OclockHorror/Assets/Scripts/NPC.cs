@@ -79,23 +79,11 @@ public class NPC : MonoBehaviour
 
     void Update()
     {
-        if (pmove.playerFloor == "FirstFloor")
-        {
-            rooms = FirstFloor;
-        }
-        else if(pmove.playerFloor == "SecondFloor")
-        {
-            rooms = SecondFloor;
-        }
-        else if(pmove.playerFloor == "ThirdFloor")
-        {
-            rooms = ThirdFloor;
-        }
-
         if (hitTmr > 0)
         {
             hitTmr--;
         }
+        
     }
 
     //Set a destination based on the current patrol index within the patrol points array.
@@ -302,4 +290,19 @@ public class NPC : MonoBehaviour
         fsm.enterState(FSMStateType.IDLE);
     }
 
+    public void changeRoomList()
+    {
+        if (pmove.playerFloor == "FirstFloor")
+        {
+            rooms = FirstFloor;
+        }
+        else if (pmove.playerFloor == "SecondFloor")
+        {
+            rooms = SecondFloor;
+        }
+        else if (pmove.playerFloor == "ThirdFloor")
+        {
+            rooms = ThirdFloor;
+        }
+    }
 }
