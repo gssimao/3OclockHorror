@@ -9,11 +9,12 @@ public class clockCntrl : MonoBehaviour
     float endTime; //Stores the current end time, allows easier modification than tracking and moding systime directly
     public int WatcherTime = 240;
     public int CreepTime = 480;
+    public int TrapTime = 1680;
     public PlayerMovement player;
     AudioManager manager;
 
     [SerializeField]
-    float Clock = 0;
+    public float Clock = 0;
 
     [SerializeField]
     GameObject minuteHand;
@@ -26,6 +27,9 @@ public class clockCntrl : MonoBehaviour
 
     [SerializeField]
     GameObject creep;
+
+    [SerializeField]
+    GameObject TrapCtrl;
 
     public WatcherAI watcherAI;
     // Start is called before the first frame update 
@@ -78,6 +82,15 @@ public class clockCntrl : MonoBehaviour
             else
             {
                 creep.SetActive(false);
+            }
+
+            if (Clock >= TrapTime)
+            {
+                TrapCtrl.SetActive(true);
+            }
+            else
+            {
+                TrapCtrl.SetActive(false);
             }
 
             //Check for each hour, play clock sound each time.

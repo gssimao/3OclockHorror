@@ -11,6 +11,7 @@ public class HuntCheckSolved : MonoBehaviour
     public GameObject Gear2;
     public GameObject Gear3;
     private GameObject timerObject;
+    public TrapController TrapCtrl;
 
     private int answer1;
     private int answer2;
@@ -70,6 +71,12 @@ public class HuntCheckSolved : MonoBehaviour
         Text2.text = showanswer2.ToString();
         Text3.text = showanswer3.ToString();
 
+        if (TrapCtrl.triggered == 0)
+        {
+            timer = 15.0f;
+        }
+        TrapCtrl.triggered++;
+
         manager = FindObjectOfType<AudioManager>();
 
         //TimerText = GameObject.Find("Timer").Text;
@@ -108,6 +115,10 @@ public class HuntCheckSolved : MonoBehaviour
 
     public void ExitPuzzle()
     {
+        if (TrapCtrl != null)
+        {
+            TrapCtrl.DeactivateTraps();
+        }
         GameObject.Find("BeartrapPuzzle").SetActive(false);
         playermovement.enabled = true;
 
@@ -143,6 +154,7 @@ public class HuntCheckSolved : MonoBehaviour
             if(timer <= 0)
             {
                 lost = true;
+                TrapCtrl.DeactivateTraps();
                 JumpscareCanvas.SetActive(true);
                 Player.transform.position = TP.transform.position;
                 playermovement.enabled = true;
