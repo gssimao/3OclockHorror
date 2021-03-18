@@ -6882,7 +6882,7 @@ GameObject:
   - component: {fileID: 155413762}
   - component: {fileID: 155413761}
   m_Layer: 8
-  m_Name: UnknownRoom
+  m_Name: MasterBedroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6896,7 +6896,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 155413759}
   m_LocalRotation: {x: -0.7071068, y: -0, z: 0, w: -0.7071068}
-  m_LocalPosition: {x: 11.99, y: 0.28, z: -12.81}
+  m_LocalPosition: {x: 17.27, y: 0.28, z: -9.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1083236214}
@@ -6927,7 +6927,7 @@ MonoBehaviour:
   entrancePoint: {fileID: 0}
   cameraPoint: {fileID: 465509288}
   entrance: {fileID: 0}
-  roomName: UnknownRoom
+  roomName: MasterBedroom
   floorNum: 3
 --- !u!60 &155413762
 PolygonCollider2D:
@@ -21509,7 +21509,6 @@ GameObject:
   - component: {fileID: 443546397}
   - component: {fileID: 443546402}
   - component: {fileID: 443546401}
-  - component: {fileID: 443546399}
   - component: {fileID: 443546398}
   m_Layer: 0
   m_Name: Pathway(EHToHub)
@@ -21526,15 +21525,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 443546396}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1.0000001}
-  m_LocalPosition: {x: -2.85, y: 0, z: -0.01}
+  m_LocalPosition: {x: -3.744, y: -0.322, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1230456974}
   m_Father: {fileID: 2001717784}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &443546398
-BoxCollider2D:
+--- !u!58 &443546398
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -21546,45 +21545,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.18, y: 1.19}
-    newSize: {x: 0.18, y: 1.19}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: -0.000061035156, y: 0}
   serializedVersion: 2
-  m_Size: {x: 0.18, y: 1.19}
-  m_EdgeRadius: 0
---- !u!61 &443546399
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 443546396}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.18, y: 1.19}
-    newSize: {x: 0.18, y: 1.19}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.18, y: 1.19}
-  m_EdgeRadius: 0
+  m_Radius: 0.5950003
 --- !u!114 &443546401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22517,7 +22480,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 466896587}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.05499277, y: -0.549, z: -0.01}
+  m_LocalPosition: {x: -2.813, y: -0.05, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1825275358}
@@ -22537,18 +22500,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.35555327}
+  m_Offset: {x: -0.028869435, y: 0.14217162}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.66, y: 0.87}
+    oldSize: {x: 0.17, y: 1.16}
     newSize: {x: 0.66, y: 0.87}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.66, y: 0.1588935}
+  m_Size: {x: 0.14550743, y: 1.1543434}
   m_EdgeRadius: 0
 --- !u!61 &466896590
 BoxCollider2D:
@@ -22563,18 +22526,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.33719456}
+  m_Offset: {x: -0.002862081, y: 0.14072967}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.66, y: 0.87}
+    oldSize: {x: 0.17, y: 1.16}
     newSize: {x: 0.66, y: 0.87}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.66, y: 0.19561091}
+  m_Size: {x: 0.2025015, y: 1.1514595}
   m_EdgeRadius: 0
 --- !u!212 &466896592
 SpriteRenderer:
@@ -22616,7 +22579,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: d9e000ded5dfe614a8b368467eb1cabb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ee46c1c43e501314abe83a23cbcd2616, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -23083,7 +23046,7 @@ GameObject:
   - component: {fileID: 483672562}
   - component: {fileID: 483672561}
   m_Layer: 8
-  m_Name: F3HubRoom
+  m_Name: UnlockablePath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23237,7 +23200,7 @@ GameObject:
   - component: {fileID: 487498598}
   - component: {fileID: 487498597}
   m_Layer: 8
-  m_Name: MirrorRoom
+  m_Name: Study
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23260,7 +23223,7 @@ MonoBehaviour:
   entrancePoint: {fileID: 0}
   cameraPoint: {fileID: 689203271}
   entrance: {fileID: 0}
-  roomName: MirrorRoom
+  roomName: Study
   floorNum: 3
 --- !u!60 &487498598
 PolygonCollider2D:
@@ -23358,7 +23321,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 487498596}
   m_LocalRotation: {x: -0.7071068, y: -0, z: 0, w: -0.7071068}
-  m_LocalPosition: {x: 10.38, y: 0.28, z: 8.29}
+  m_LocalPosition: {x: 24.83, y: 0.28, z: -1.32}
   m_LocalScale: {x: 0.9664766, y: 0.96647626, z: 0.96647626}
   m_Children:
   - {fileID: 689203272}
@@ -33842,7 +33805,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 720174232}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1.0000001}
-  m_LocalPosition: {x: 0.44, y: 1.034, z: -0.01}
+  m_LocalPosition: {x: -0.17, y: 0.22, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1698541714}
@@ -38494,7 +38457,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 807708224}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1.0000001}
-  m_LocalPosition: {x: -0.24, y: -0.51, z: -0.01}
+  m_LocalPosition: {x: -1.06, y: -1.39, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 418391086}
@@ -60793,7 +60756,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230456973}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.46440554, y: 0.030744676, z: 0}
+  m_LocalPosition: {x: 0.46440554, y: -0.321, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 443546397}
@@ -79507,7 +79470,7 @@ GameObject:
   - component: {fileID: 1604306733}
   - component: {fileID: 1604306732}
   m_Layer: 8
-  m_Name: MasterBedroom/Skull Room
+  m_Name: StatueRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79530,7 +79493,7 @@ MonoBehaviour:
   entrancePoint: {fileID: 0}
   cameraPoint: {fileID: 8478994}
   entrance: {fileID: 0}
-  roomName: MasterBedroom
+  roomName: StatueRoom
   floorNum: 3
 --- !u!60 &1604306733
 PolygonCollider2D:
@@ -102570,18 +102533,20 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -2.8960896, y: 0.7710214}
-      - {x: -2.8870642, y: 0.3855911}
-      - {x: -2.7561057, y: 0.39501727}
-      - {x: -2.758318, y: 0.5847503}
-      - {x: 2.8859904, y: 0.6355759}
-      - {x: 2.8808367, y: -0.6980021}
-      - {x: -2.729357, y: -0.7610619}
-      - {x: -2.7317755, y: -0.5101299}
-      - {x: -2.8903384, y: -0.51905525}
-      - {x: -2.885206, y: -0.8761509}
-      - {x: 3.024494, y: -0.8486137}
-      - {x: 3.038399, y: 0.38337666}
+    - - {x: -3.4146032, y: 0.76433015}
+      - {x: -3.9677997, y: -0.7557555}
+      - {x: -3.1334884, y: -0.2960813}
+      - {x: 2.9033332, y: -0.30254883}
+      - {x: 4.1242867, y: -1.0210488}
+      - {x: 4.1571827, y: -1.9120407}
+      - {x: -4.144327, y: -1.959321}
+      - {x: -4.1497545, y: -0.8384408}
+      - {x: -3.9880643, y: -0.76928365}
+      - {x: -4.0002756, y: -0.40109622}
+      - {x: -4.2531624, y: -0.74134064}
+      - {x: -4.2938056, y: -2.037866}
+      - {x: 4.7951093, y: -2.2982323}
+      - {x: 4.5605526, y: -0.74526054}
       - {x: 3.0346828, y: 0.7962821}
 --- !u!212 &2001717783
 SpriteRenderer:
