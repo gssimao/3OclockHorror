@@ -32,8 +32,11 @@ public class roomCntrl : MonoBehaviour
 
     bool opened = false;
     
+    [Space]
     public bool WatchHallwayTrigger = false;
     public WatcherAI watcher;
+    [SerializeField]
+    room WatcherHallway;
     // Start is called before the first frame update
     void Start()
     {
@@ -86,9 +89,20 @@ public class roomCntrl : MonoBehaviour
 
         if(WatchHallwayTrigger)
         {
-            if(player.myRoom != room2)
+            if(WatcherHallway == null)
             {
-                watcher.WatcherHallway = false;
+                Debug.LogError("Missing WatcherHallway room script");
+            }
+            else if(watcher == null)
+            {
+                Debug.LogError("Missing WatcherAI script");
+            }
+            else
+            {
+                if (player.myRoom != WatcherHallway)
+                {
+                    watcher.WatcherHallway = false;
+                }
             }
         }
     }
@@ -147,14 +161,6 @@ public class roomCntrl : MonoBehaviour
 
     public void CameraCrossfade(GameObject player, GameObject entranceP, PlayerMovement play, room RoomNum)
     {
-        if (WatchHallwayTrigger)
-        {
-            watcher.WatcherHallway = true;
-            watcher.ChangeRoom(room2);
-            player.GetComponent<LightMatch>().Light(false);
-            player.GetComponent<LightMatch>().enabled = false;
-        }
-
         StartCoroutine(ChangeCamera(player, entranceP, play, RoomNum));
     }
 
@@ -175,6 +181,14 @@ public class roomCntrl : MonoBehaviour
         }
 
         play.myRoom = RoomNum;
+
+        if (WatchHallwayTrigger)
+        {
+            watcher.WatcherHallway = true;
+            watcher.ChangeRoom(WatcherHallway);
+            player.GetComponent<LightMatch>().Light(false);
+            player.GetComponent<LightMatch>().enabled = false;
+        }
     }
 
     public void CheckKey()
