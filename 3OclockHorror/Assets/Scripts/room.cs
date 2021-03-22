@@ -56,4 +56,13 @@ public class room : MonoBehaviour
     }
 
     #endregion
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        foreach (GameObject Spawn in watcherSpawn)
+        {
+            Gizmos.DrawWireSphere(Spawn.transform.position, 0.2f);
+        }
+    }
 }

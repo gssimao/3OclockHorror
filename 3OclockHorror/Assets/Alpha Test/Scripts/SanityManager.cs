@@ -11,6 +11,7 @@ public class SanityManager : MonoBehaviour
     public Material material; //reference to the sprite renderer
     public bool effectOn = false; //see if there is something playing
     private int currentlyPlaying = 0; // see what effect is playing currently
+    public string GameOverScene;
    
     public int[] effectCue = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; // total of 11 slots going from 0 to 10 
     //cue list of effect that need to be be played next
@@ -21,6 +22,7 @@ public class SanityManager : MonoBehaviour
         //get reference from player's material
         material = GetComponent<SpriteRenderer>().material;
     }*/
+
     void Awake()
     {
         material.SetFloat("_Flick", 0f);
@@ -30,7 +32,7 @@ public class SanityManager : MonoBehaviour
     {
         if (sanityValue <= 0)
         {
-            SceneManager.LoadScene(2); //Load the Game Over scene
+            SceneManager.LoadScene(GameOverScene); //Load the Game Over scene
             Cursor.visible = true;
         }
 
