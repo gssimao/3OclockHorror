@@ -13,6 +13,12 @@ public class drawingPuzzle : MonoBehaviour
     [Space]
     [SerializeField]
     DrawingHolder answerOne;
+    [SerializeField]
+    DrawingHolder answerTwo;
+    [SerializeField]
+    DrawingHolder answerThree;
+    [SerializeField]
+    DrawingHolder answerFour;
     [Space]
     [SerializeField]
     GameObject LineParent; //The storage for all lines
@@ -168,11 +174,40 @@ public class drawingPuzzle : MonoBehaviour
                 sym1.UpdateSprite();
             }
         }
+        if (!symTwo)
+        {
+            check = compareBoards(mainBoard, answerTwo);
+            if (check)
+            {
+                symTwo = true;
+                sym2.UpdateSprite();
+            }
+        }
+        if (!symThree)
+        {
+            check = compareBoards(mainBoard, answerThree);
+            if (check)
+            {
+                symThree = true;
+                sym3.UpdateSprite();
+            }
+        }
+        /*
+        if (!symFour)
+        {
+            check = compareBoards(mainBoard, answerFour);
+            if (check)
+            {
+                symFour = true;
+                sym4.UpdateSprite();
+            }
+        }
+        */
         //Would do more of the same for each of the other answers, to avoid checking a finished symbol later
 
         if (check)
         {
-            Debug.Log("Answer correct");
+            
         }
         else
         {
