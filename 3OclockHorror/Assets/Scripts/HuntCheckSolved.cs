@@ -12,6 +12,7 @@ public class HuntCheckSolved : MonoBehaviour
     public GameObject Gear3;
     private GameObject timerObject;
     public TrapController TrapCtrl;
+    public room basement;
 
     private int answer1;
     private int answer2;
@@ -157,6 +158,7 @@ public class HuntCheckSolved : MonoBehaviour
                 TrapCtrl.DeactivateTraps();
                 JumpscareCanvas.SetActive(true);
                 Player.transform.position = TP.transform.position;
+                playermovement.myRoom = basement;
                 playermovement.enabled = true;
                 GameObject.Find("BeartrapPuzzle").SetActive(false);
                 //SolvedText.text = "Lost";

@@ -414,6 +414,7 @@ MonoBehaviour:
   Gear2: {fileID: 942058621}
   Gear3: {fileID: 684617609}
   TrapCtrl: {fileID: 1462572076}
+  basement: {fileID: 645778092}
   playermovement: {fileID: 1619042896}
   showanswer1: 0
   showanswer2: 0
@@ -1922,6 +1923,7 @@ Transform:
   - {fileID: 1935117522}
   - {fileID: 234734016}
   - {fileID: 2141455325}
+  - {fileID: 299692122}
   m_Father: {fileID: 110148189}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3178,7 +3180,7 @@ RectTransform:
   m_Children:
   - {fileID: 1020838440}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4840,7 +4842,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4605737869869458125, guid: 92a2e8fcaf4cacf439bc3ce3f525f556, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4605737869869458125, guid: 92a2e8fcaf4cacf439bc3ce3f525f556, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7658,7 +7660,7 @@ Transform:
   - {fileID: 276125803}
   - {fileID: 1904199633}
   m_Father: {fileID: 1734360197}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &167775324
 GameObject:
@@ -9031,7 +9033,7 @@ RectTransform:
   m_Children:
   - {fileID: 1268899369}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -14267,6 +14269,88 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 295387730}
   m_CullTransparentMesh: 0
+--- !u!1 &299692121
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 299692122}
+  - component: {fileID: 299692124}
+  - component: {fileID: 299692123}
+  m_Layer: 0
+  m_Name: Note
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &299692122
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299692121}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.7, y: 0.28, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 720723843}
+  m_Father: {fileID: 49731054}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &299692123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299692121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed905dda5678a74fbd35aa808219c81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 9a2ce9718d63ae542a6eda6350162b78, type: 3}
+  Note: "I had found what I think I can call a pagan object for dark rituals. It
+    looks like a simple Book and it seems to have pagan symbols written in it. I
+    tried destroying it to no avail. It appears to be connected to a door in the
+    basement, and since I can not get rid of it I lock the door and keep the key.\r\nIf
+    you\u2019re reading this and you want to use this pagan magic, you\u2019re gonna
+    have to come talk to me first in the house of God, because the key is my crucifix.\r\nMay
+    God bless your soul, go in peace.\r\n\tFather Paul W.\r"
+  active: 0
+  Listener: {fileID: 1677718118}
+  colliding: 0
+--- !u!61 &299692124
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299692121}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.096423626, y: -0.087567836}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.95, y: 6.64}
+    newSize: {x: 5.95, y: 6.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5615168, y: 0.47601026}
+  m_EdgeRadius: 0
 --- !u!1 &301670250
 GameObject:
   m_ObjectHideFlags: 0
@@ -20572,7 +20656,7 @@ RectTransform:
   m_Children:
   - {fileID: 731811673}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -21736,7 +21820,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &439073454
 GameObject:
@@ -23988,11 +24072,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 9a2ce9718d63ae542a6eda6350162b78, type: 3}
   Note: "I am almost done with this mansion, I swear I feel sick every hour I spend
-    in this shit hole. I have noticed that the amulet has symbols in it, I swear
-    I found some of the same symbols around the mansion and a slot that fits this
-    amulet just right in the basement. I was right about uncle Russel. He thought
-    no one would go there but I don\u2019t fear anything, I am getting the necklace
-    tonight.\r\n\r\n\r\n\tSadie Wright\r"
+    in this shit hole. I have noticed that the Red Book has a page of symbols in
+    it. I swear I found some of the same symbols around the mansion. I was right
+    about uncle Russel, he is hiding the necklace behind that door in the basement.
+    He thought no one would go there but I don\u2019t fear anything, I am getting
+    the necklace tonight.\r\n\r\n\r\n\tSadie Wright\r"
   active: 0
   Listener: {fileID: 1677718118}
   colliding: 0
@@ -28546,8 +28630,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 167327728}
-  m_RootOrder: 4
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -30069,6 +30153,7 @@ Transform:
   - {fileID: 8915344}
   - {fileID: 740882890}
   - {fileID: 1518529695}
+  - {fileID: 1216153500}
   m_Father: {fileID: 1495247286}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -34448,6 +34533,88 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!1 &720723842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 720723843}
+  - component: {fileID: 720723844}
+  m_Layer: 0
+  m_Name: NoteSprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &720723843
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720723842}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.116, y: 0, z: -0.0000034564}
+  m_LocalScale: {x: 0.5102163, y: 0.5102163, z: 0.5102163}
+  m_Children: []
+  m_Father: {fileID: 299692122}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &720723844
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720723842}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 42ed5379127f09f4dbfd1b3a9be43932, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 66bb4e66097db364596fcfb7c532e361, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 5.95, y: 6.64}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 1
+  m_SpriteSortPoint: 0
 --- !u!1 &721918283
 GameObject:
   m_ObjectHideFlags: 0
@@ -34591,7 +34758,7 @@ Transform:
   m_Children:
   - {fileID: 1787381373}
   m_Father: {fileID: 1734360197}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &724388505
 MonoBehaviour:
@@ -44017,7 +44184,7 @@ RectTransform:
   - {fileID: 274520926}
   - {fileID: 116118617}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -44346,7 +44513,7 @@ Transform:
   m_Children:
   - {fileID: 1791112771}
   m_Father: {fileID: 1734360197}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &920017790
 MonoBehaviour:
@@ -50217,7 +50384,7 @@ Transform:
   m_LocalScale: {x: 28.963646, y: 77.19496, z: 9.9446}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1017760230
 MonoBehaviour:
@@ -52927,7 +53094,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1069823249
 GameObject:
@@ -54355,12 +54522,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 9a2ce9718d63ae542a6eda6350162b78, type: 3}
-  Note: "The path is long but the journey is complete.\r\nGrise into darkness\r\nthe
-    eyes of those how seeth\r\ncannot behold through the veil of imm'rtality\r\nt
-    is not f'r the weak of heart\r\nt is not f'r the sane\r\nbut I alloweth myself
-    beest\r\nand I wast did bless with new eyes\r\nI shalt not beest what I once
-    wast\r\nI shalt beest a s'rvant of the one\r\n\r\nMay the one open your eyes,
-    go in pieces.\r\n    Paul W.\r"
+  Note: "\r\n\r\nThe path is long but the journey is complete.\r\nMay the one open
+    your eyes so you do not fall into the lies of false gods There is only one and
+    he knows you\u2019re here.\r\nGrise into darkness\r\nthe eyes of those how seeth\r\ncannot
+    behold through the veil of imm'rtality\r\nt is not f'r the weak of heart\r\nt
+    is not f'r the sane\r\nbut I alloweth myself beest\r\nand I wast did bless with
+    new eyes\r\nI shalt not beest what I once wast\r\nI shalt beest a s'rvant of
+    the one\r\n    \r\nPaul W."
   active: 0
   Listener: {fileID: 1677718118}
   colliding: 0
@@ -60914,12 +61082,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216153499}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.000022411346, y: -0.7199985, z: -0.07382643}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
+  m_LocalPosition: {x: 0.050026834, y: -1.7377579, z: -0.05383265}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1734360197}
-  m_RootOrder: 12
+  m_Father: {fileID: 645778091}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1219263437
 GameObject:
@@ -61270,7 +61438,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1225845059
 GameObject:
@@ -62140,7 +62308,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1248009115
 GameObject:
@@ -62906,7 +63074,7 @@ RectTransform:
   m_Children:
   - {fileID: 363487378}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -66754,7 +66922,7 @@ Transform:
   m_Children:
   - {fileID: 1521490344}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1336144375
 Animator:
@@ -71685,7 +71853,7 @@ RectTransform:
   m_Children:
   - {fileID: 207532911}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -74090,7 +74258,7 @@ RectTransform:
   - {fileID: 312512184}
   - {fileID: 1981753905}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -74158,7 +74326,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4605737869869458125, guid: 92a2e8fcaf4cacf439bc3ce3f525f556, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4605737869869458125, guid: 92a2e8fcaf4cacf439bc3ce3f525f556, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -75676,7 +75844,7 @@ RectTransform:
   - {fileID: 174419414}
   - {fileID: 27587679}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -80524,6 +80692,7 @@ MonoBehaviour:
   CreepTime: 480
   TrapTime: 1680
   player: {fileID: 1619042896}
+  sanity: {fileID: 1619042899}
   Clock: 0
   minuteHand: {fileID: 2057541904}
   hourHand: {fileID: 2057541905}
@@ -80634,7 +80803,7 @@ Transform:
   - {fileID: 545888524}
   - {fileID: 1462572075}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1619042898
 Animator:
@@ -81123,7 +81292,7 @@ RectTransform:
   - {fileID: 1199351911}
   - {fileID: 856087406}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -84411,7 +84580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4605737869869458125, guid: 92a2e8fcaf4cacf439bc3ce3f525f556, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4605737869869458125, guid: 92a2e8fcaf4cacf439bc3ce3f525f556, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -85752,7 +85921,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1710219382
 Animator:
@@ -85998,7 +86167,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1719050200}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 5a776e4fde8284f458d19bebbf87afbd, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: a51f7d50eb3b015469abad55613f91bd, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 1825635318}
@@ -86097,7 +86266,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -87012,7 +87181,6 @@ Transform:
   - {fileID: 701195843}
   - {fileID: 1252719905}
   - {fileID: 1629177949}
-  - {fileID: 1216153500}
   - {fileID: 167356433}
   - {fileID: 920017789}
   - {fileID: 724388504}
@@ -87307,7 +87475,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1734360197}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1738303943
 MonoBehaviour:
@@ -92840,12 +93008,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 9a2ce9718d63ae542a6eda6350162b78, type: 3}
   Note: "It\u2019s getting late but I think I am onto something. While exploring
-    the mansion I found this mysterious amulet that uncle Russel had back in the
-    day. It's weird that no one took it during all these years. \r\nKnowing Russel
-    he probably built some type of secret safe to hide the necklace and this amulet
-    could be a key to open it, what a bastard. It does not matter I\u2019ll turn
-    this mansion upside down if I have to but I\u2019m not leaving with an empty
-    hand. \r\n\tSadie Wright\r"
+    the mansion I found this mysterious Book that uncle Russel had back in the day.
+    It's weird that no one took it during all these years. \r\nKnowing Russel he
+    probably built some type of secret safe to hide the necklace and this Book could
+    be of help to open it, what a bastard. It does not matter I\u2019ll turn this
+    mansion upside down if I have to but I\u2019m not leaving with an empty hand.
+    \r\n\tSadie Wright\r"
   active: 0
   Listener: {fileID: 1677718118}
   colliding: 0
@@ -96957,7 +97125,7 @@ RectTransform:
   - {fileID: 1918970556}
   - {fileID: 95227743}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -99966,13 +100134,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 9a2ce9718d63ae542a6eda6350162b78, type: 3}
   Note: "It\u2019s so late, I don\u2019t think this is the same day I came to this
-    mansion.\r\nI thought it was just the wind or maybe my imagination, but I actually
-    saw it. \r\nA thing\u2026 blowing out the candles. It didn\u2019t look like Russel,
-    I know because I saw it\u2019s face or the rest of it.\r\nAs terrified as I was,
-    I did not scream because I think I recognized him...\r\nHe\u2019s family.\r\n\r\nHe
-    is outside my room wearing a white mask and making grunting noises as soon as
-    I approach him, that is making me uneasy.\r\nI am gonna make a run for the basement
-    and get that necklace.\r\n\r\n\tSadie Wright\r"
+    mansion but the sun is not rising.\r\nI thought it was just the wind or maybe
+    my imagination, but I actually saw it. \r\nA thing\u2026 blowing out the candles.
+    It didn\u2019t look like Russel, I know because I saw it\u2019s face or the rest
+    of it.\r\nAs terrified as I was, I did not scream because I think I recognized
+    him...\r\nHe\u2019s family.\r\n\r\nHe is outside my room wearing a white mask
+    and making grunting noises as soon as I approach him as if he\u2019s in pain,
+    that is making me uneasy.\r\nI am gonna make a run for the basement and get that
+    necklace.\r\n\r\n\tSadie Wright\r"
   active: 0
   Listener: {fileID: 1677718118}
   colliding: 0
@@ -100686,7 +100855,7 @@ RectTransform:
   - {fileID: 1655684860}
   - {fileID: 1762286275}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

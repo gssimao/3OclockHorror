@@ -11,6 +11,8 @@ public class clockCntrl : MonoBehaviour
     public int CreepTime = 480;
     public int TrapTime = 1680;
     public PlayerMovement player;
+    public SanityManager sanity;
+    private float sanityWait = 10;
     AudioManager manager;
 
     [SerializeField]
@@ -50,15 +52,24 @@ public class clockCntrl : MonoBehaviour
         {
             Clock += Time.deltaTime;
 
-            if (Clock >= endTime) //Check if sys time is beyond end time, if so quit
+            if (Clock >= endTime) //Check if sys time is beyond end time, if so decrease sanity
             {
-                SceneManager.LoadScene(2); //Load the Game Over scene
-                Cursor.visible = true;
+                sanityWait -= Time.deltaTime;
+                if (sanityWait <= 0)
+                {
+                    sanity.ChangeSanity(-20);
+                    sanityWait = 10f;
+                }
             }
             else
             {
                 hourHand.GetComponent<RectTransform>().Rotate(0f, 0f, (-0.25f * Time.deltaTime));
                 minuteHand.GetComponent<RectTransform>().Rotate(0f, 0f, (-3f * Time.deltaTime));
+            }
+            if(sanity.sanityValue <= 0) //Check if the player has any sanity, if not end the game
+            {
+                SceneManager.LoadScene(2); //Load the Game Over scene
+                Cursor.visible = true;
             }
 
             //Check for events
