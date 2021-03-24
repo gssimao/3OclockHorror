@@ -13,7 +13,8 @@ public class SkullTurning : MonoBehaviour
     public int SkullPosition2 = 0;
     public int SkullPosition3 = 0;
     public int SkullPosition4 = 0;
-
+    [Space]
+    public pillarCntrl pillarDisplay;
 
     //Stage booleans
     bool stg1 = false;
@@ -45,18 +46,20 @@ public class SkullTurning : MonoBehaviour
             if (SkullPosition1 == 2 && SkullPosition2 == 0 && SkullPosition3 == 2 && SkullPosition4 == 0)
             {
                 stg1 = true;
+                pillarDisplay.updatePilar("stage1");
                 Debug.Log("Stg 1 Complete");
             }
             if (SkullPosition1 == 1 && SkullPosition2 == 1 && SkullPosition3 == 3 && SkullPosition4 == 3 && stg1)
             {
                 stg2 = true;
+                pillarDisplay.updatePilar("stage2");
                 Debug.Log("Stg 2 complete");
             }
             if (SkullPosition1 == 0 && SkullPosition2 == 2 && SkullPosition3 == 0 && SkullPosition4 == 2 && stg1 && stg2)
             {
                 stg3 = true;
+                pillarDisplay.updatePilar("stage3");
                 Debug.Log("Stg 3 complete, locking puzzle");
-                //taskManager.updateList("Some sort of noise eminated from the Library - What could it be?");
                 this.GetComponent<SkullEnd>().OpenLeftEnding();
             }
         }

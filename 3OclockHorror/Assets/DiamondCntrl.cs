@@ -9,6 +9,7 @@ public class DiamondCntrl : MonoBehaviour
     [SerializeField]
     GameObject EndCanv;
 
+    public invInput Listener;
     bool diamondTaken = false;
 
 
@@ -20,10 +21,13 @@ public class DiamondCntrl : MonoBehaviour
             float dist = Vector2.Distance(this.gameObject.transform.position, player.transform.position);
             if(dist < 1)
             {
-                diamondTaken = true;
-                EndCanv.SetActive(true);
+                Listener.isFocus = false;
+                if (Input.GetKeyDown("e"))
+                {
+                    diamondTaken = true;
+                    EndCanv.SetActive(true);
+                }       
             }
-
             player.GetComponent<PlayerMovement>().leftSide = true;
         }        
     }
