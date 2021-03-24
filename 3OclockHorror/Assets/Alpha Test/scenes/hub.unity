@@ -17330,6 +17330,7 @@ Transform:
   - {fileID: 1552816700}
   - {fileID: 8812623}
   - {fileID: 1128947991}
+  - {fileID: 715710783}
   m_Father: {fileID: 1495247286}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -17359,8 +17360,8 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 3.562814, y: -0.29840243}
-      - {x: 0.4165743, y: -0.3095514}
-      - {x: 0.4326193, y: -0.33087406}
+      - {x: 0.031847738, y: -0.2992873}
+      - {x: 0.092606455, y: -0.30623507}
       - {x: 3.563168, y: -0.309238}
       - {x: 6.4042573, y: -2.655617}
       - {x: 6.39069, y: -2.9196556}
@@ -17368,8 +17369,8 @@ PolygonCollider2D:
       - {x: -6.3773713, y: -2.8028631}
       - {x: -3.4190707, y: -0.30464053}
       - {x: -0.739552, y: -0.31498572}
-      - {x: -0.4183567, y: -0.31426862}
-      - {x: -0.42248592, y: -0.29290172}
+      - {x: 0.082932204, y: -0.30966747}
+      - {x: 0.023648262, y: -0.3005666}
       - {x: -3.4298422, y: -0.2887516}
       - {x: -6.416127, y: -2.790125}
       - {x: -6.3999996, y: -2.9299998}
@@ -34841,6 +34842,87 @@ MonoBehaviour:
   drawConnecRadius: 0
   connections: []
   waypointTag: WaypointF2
+--- !u!1 &715710782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 715710783}
+  - component: {fileID: 715710784}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &715710783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715710782}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4.3625, y: 2.0875, z: 1}
+  m_Children: []
+  m_Father: {fileID: 335776739}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!331 &715710784
+SpriteMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715710782}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: abae175bce7a8aa4eacd96be2ad2898e, type: 3}
+  m_MaskAlphaCutoff: 0.2
+  m_FrontSortingLayerID: 0
+  m_BackSortingLayerID: 0
+  m_FrontSortingLayer: 0
+  m_BackSortingLayer: 0
+  m_FrontSortingOrder: 0
+  m_BackSortingOrder: 0
+  m_IsCustomRangeActive: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &715837060
 GameObject:
   m_ObjectHideFlags: 0
