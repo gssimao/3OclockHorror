@@ -79,9 +79,9 @@ public class Inventory : MonoBehaviour, IItemContainer
                     {
                         itemSlots[i].Item = item;
                         taskList.DisplayMessage("Item has been added to inventory");
-                    }
 
-                    return true;
+                        return true;
+                    }
                 }
             }
             else if(itemSlots[i].Item == null)
@@ -91,6 +91,7 @@ public class Inventory : MonoBehaviour, IItemContainer
                 return true;
             }
         }
+
         return false;
     }
 
