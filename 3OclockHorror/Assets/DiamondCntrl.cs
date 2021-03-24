@@ -23,6 +23,8 @@ public class DiamondCntrl : MonoBehaviour
                 diamondTaken = true;
                 EndCanv.SetActive(true);
             }
+
+            player.GetComponent<PlayerMovement>().leftSide = true;
         }        
     }
 }

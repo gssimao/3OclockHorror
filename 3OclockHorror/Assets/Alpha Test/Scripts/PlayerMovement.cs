@@ -38,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
     public bool canMoveUp = true;
     public bool canMoveDown = true;
 
+
+    public bool leftSide = false;
     void Start()
     {
         manager = FindObjectOfType<AudioManager>();

@@ -21,10 +21,10 @@ public class Tooltip : MonoBehaviour
     public string startupMessage = "";
 
     public float timer = 0;
-    float alottedTime;
+    float alottedTime = 2.5f;
     void Start()
     {
-        alottedTime = timer;
+        timer = alottedTime;
         if (masterSwitch == true)
         {
             TooltipText.text = "";
@@ -35,34 +35,18 @@ public class Tooltip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (TimedMessage != "")
-        {
-            TooltipText.text = TimedMessage;
-        }
-
         if (timer > 0)
         {
             timer -= Time.deltaTime;
         }
-        else if(timer < 0)
+        else if(timer <= 0)
         {
             timer = 0;
-        }
-
-        if(timer == 0)
-        {
             cnvGroup.alpha -= Time.deltaTime;
             if (cnvGroup.alpha == 0)
             {
-                TimedMessage = "";
                 TooltipText.text = "";
             }
-        }
-
-        if (TooltipText.text != "" && timer == 0 && cnvGroup.alpha == 0)
-        {
-            timer = alottedTime;
-            cnvGroup.alpha = 1;
         }
     }
 
@@ -74,5 +58,12 @@ public class Tooltip : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         TooltipText.text = "";
+    }
+
+    public void updateTooltipMessage(string update)
+    {
+        TooltipText.text = update;
+        timer = alottedTime;
+        cnvGroup.alpha = 1;
     }
 }

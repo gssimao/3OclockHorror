@@ -62,7 +62,7 @@ public class roomCntrl : MonoBehaviour
                     if (player.myRoom == room1) //Check the room states then update as necessary
                     {
                         CameraCrossfade(player.gameObject, entrancePointRoom, player, room2);
-                        if(manager != null)
+                        if (manager != null)
                         {
                             manager.Play("Door Open", true);
                         }
@@ -201,7 +201,7 @@ public class roomCntrl : MonoBehaviour
             }
             else
             {
-                toolTipScript.TimedMessage = "The door is locked";
+                toolTipScript.updateTooltipMessage("This door is locked.");
                 if(manager != null)
                 {
                     manager.Play("Locked Door", false);
@@ -219,7 +219,7 @@ public class roomCntrl : MonoBehaviour
         }
         else
         {
-            toolTipScript.TimedMessage = "The door is locked";
+            toolTipScript.updateTooltipMessage("This door is locked.");
             Debug.LogError("Door is locked but there is no key or inv set");
         }
     }

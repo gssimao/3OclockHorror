@@ -26,7 +26,7 @@ public class ClimbLadder : MonoBehaviour
     void Update()
     {
         dist = Vector3.Distance(this.transform.position + posOffset, player.transform.position);
-        if(dist <= 0.5f)
+        if(dist <= 0.75f)
         {
             Listener.isFocus = false;
             if(Input.GetKeyDown("e"))
