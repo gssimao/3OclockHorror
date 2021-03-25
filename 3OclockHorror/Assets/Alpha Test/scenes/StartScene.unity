@@ -6498,12 +6498,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WatcherTime: 240
   CreepTime: 480
+  TrapTime: 1680
   player: {fileID: 638425234}
+  sanity: {fileID: 0}
   Clock: 0
   minuteHand: {fileID: 1331584870}
   hourHand: {fileID: 1331584871}
   watcher: {fileID: 0}
   creep: {fileID: 0}
+  TrapCtrl: {fileID: 0}
   watcherAI: {fileID: 0}
 --- !u!114 &638425227
 MonoBehaviour:
@@ -6539,6 +6542,7 @@ MonoBehaviour:
   timeLeft: 0
   material: {fileID: 2100000, guid: 681daf5b1dc2345458e7d2e532440d59, type: 2}
   effectOn: 0
+  GameOverScene: 
   effectCue: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!95 &638425229
 Animator:
@@ -6708,6 +6712,7 @@ MonoBehaviour:
   canMoveLeft: 1
   canMoveUp: 1
   canMoveDown: 1
+  leftSide: 0
 --- !u!4 &638425235
 Transform:
   m_ObjectHideFlags: 0
@@ -13684,6 +13689,8 @@ MonoBehaviour:
   Gear1: {fileID: 1719525818}
   Gear2: {fileID: 1418232538}
   Gear3: {fileID: 783218341}
+  TrapCtrl: {fileID: 0}
+  basement: {fileID: 0}
   playermovement: {fileID: 638425234}
   showanswer1: 0
   showanswer2: 0
@@ -19522,6 +19529,7 @@ MonoBehaviour:
   jInput: {fileID: 1856493508}
   objs: []
   escCanv: {fileID: 1104969855}
+  isFocus: 1
 --- !u!1 &1931772285
 GameObject:
   m_ObjectHideFlags: 0
