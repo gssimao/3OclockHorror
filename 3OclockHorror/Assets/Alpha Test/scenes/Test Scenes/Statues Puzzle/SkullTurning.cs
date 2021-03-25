@@ -16,6 +16,10 @@ public class SkullTurning : MonoBehaviour
     [Space]
     public pillarCntrl pillarDisplay;
 
+    public CandleScript cn1;
+    public CandleScript cn2;
+    public CandleScript cn3;
+
     //Stage booleans
     bool stg1 = false;
     bool stg2 = false;
@@ -32,6 +36,10 @@ public class SkullTurning : MonoBehaviour
         SkullRotation2.SetInteger("SkullPosition", SkullPosition2);
         SkullRotation3.SetInteger("SkullPosition", SkullPosition3);
         SkullRotation4.SetInteger("SkullPosition", SkullPosition4);
+
+        cn1.CandleToggle(true);
+        cn2.CandleToggle(false);
+        cn3.CandleToggle(false);
     }
     void Update()
     {
@@ -48,18 +56,26 @@ public class SkullTurning : MonoBehaviour
                 stg1 = true;
                 pillarDisplay.updatePilar("stage1");
                 Debug.Log("Stg 1 Complete");
+
+                cn2.CandleToggle(true);
+                cn1.CandleToggle(false);
             }
             if (SkullPosition1 == 1 && SkullPosition2 == 1 && SkullPosition3 == 3 && SkullPosition4 == 3 && stg1)
             {
                 stg2 = true;
                 pillarDisplay.updatePilar("stage2");
                 Debug.Log("Stg 2 complete");
+
+                cn2.CandleToggle(false);
+                cn3.CandleToggle(true);
             }
             if (SkullPosition1 == 0 && SkullPosition2 == 2 && SkullPosition3 == 0 && SkullPosition4 == 2 && stg1 && stg2)
             {
                 stg3 = true;
                 pillarDisplay.updatePilar("stage3");
                 Debug.Log("Stg 3 complete, locking puzzle");
+
+                cn3.CandleToggle(false);
                 this.GetComponent<SkullEnd>().OpenLeftEnding();
             }
         }

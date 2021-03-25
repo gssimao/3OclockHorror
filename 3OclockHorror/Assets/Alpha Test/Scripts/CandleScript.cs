@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CandleScript : MonoBehaviour
 {
+    public bool SkullCandle;
     public GameObject player;
     public GameObject Light;
     public GameObject Flicker;
@@ -33,7 +34,7 @@ public class CandleScript : MonoBehaviour
     {
         dist = Vector3.Distance(player.transform.position, this.transform.position);
 
-        if(dist <= interRange && Input.GetKeyDown("q"))
+        if(dist <= interRange && Input.GetKeyDown("q") && !SkullCandle)
         {
             if (flame.isActiveAndEnabled == false)
             {
