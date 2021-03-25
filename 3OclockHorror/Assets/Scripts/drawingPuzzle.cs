@@ -172,6 +172,8 @@ public class drawingPuzzle : MonoBehaviour
             {
                 symOne = true;
                 sym1.UpdateSprite();
+
+                Debug.Log("Correct");
             }
         }
         if (!symTwo)
@@ -181,6 +183,8 @@ public class drawingPuzzle : MonoBehaviour
             {
                 symTwo = true;
                 sym2.UpdateSprite();
+
+                Debug.Log("Correct");
             }
         }
         if (!symThree)
@@ -190,9 +194,10 @@ public class drawingPuzzle : MonoBehaviour
             {
                 symThree = true;
                 sym3.UpdateSprite();
+
+                Debug.Log("Correct");
             }
         }
-        /*
         if (!symFour)
         {
             check = compareBoards(mainBoard, answerFour);
@@ -200,10 +205,10 @@ public class drawingPuzzle : MonoBehaviour
             {
                 symFour = true;
                 sym4.UpdateSprite();
+
+                Debug.Log("Correct");
             }
         }
-        */
-        //Would do more of the same for each of the other answers, to avoid checking a finished symbol later
 
         if (check)
         {
