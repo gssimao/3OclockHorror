@@ -23684,7 +23684,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Bababooey
+  m_Text: 
 --- !u!222 &460473767
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -40342,7 +40342,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &807807276
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40380,7 +40380,7 @@ MonoBehaviour:
   cnvGroup: {fileID: 807807281}
   PromptMessage: 
   TimedMessage: 
-  masterSwitch: 1
+  masterSwitch: 0
   startupMessage: 
   timer: 5
 --- !u!114 &807807278
@@ -40451,7 +40451,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 807807275}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -83647,7 +83647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WatcherTime: 240
-  CreepTime: 1
+  CreepTime: 480
   TrapTime: 1680
   player: {fileID: 1619042896}
   sanity: {fileID: 1619042899}
@@ -83657,6 +83657,7 @@ MonoBehaviour:
   watcher: {fileID: 1336144371}
   creep: {fileID: 1710219375}
   TrapCtrl: {fileID: 1462572074}
+  popup: {fileID: 807807277}
   watcherAI: {fileID: 0}
   hourIsPlaying: 0
   clipLength: 0
@@ -83743,7 +83744,7 @@ MonoBehaviour:
   countTime: 0
   canMoveRight: 1
   canMoveLeft: 1
-  canMoveUp: 1
+  canMoveUp: 0
   canMoveDown: 1
   leftSide: 0
 --- !u!4 &1619042897
@@ -84180,7 +84181,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1628193634
 MonoBehaviour:
   m_ObjectHideFlags: 0

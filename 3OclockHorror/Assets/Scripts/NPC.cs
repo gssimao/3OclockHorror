@@ -161,7 +161,7 @@ public class NPC : MonoBehaviour
         if(clock != null && targSAN != null && dist <= 0.5 && hitTmr == 0)
         {
             targSAN.ChangeSanity(-10);
-            clock.adjustEndTime(-60);
+            clock.adjustTime(60);
             hitTmr = 200;
 
             if(Random.Range(1, 5) == 1)

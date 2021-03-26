@@ -30,6 +30,10 @@ public class Tooltip : MonoBehaviour
             TooltipText.text = "";
             TooltipText.text = startupMessage;
         }
+        else
+        {
+            cnvGroup.alpha = 0;
+        }
     }
 
     // Update is called once per frame

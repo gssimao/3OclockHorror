@@ -33,14 +33,14 @@ public class ST_Cntrl : MonoBehaviour
         if (player.myRoom.getName() == "F1HubRoom" && clock.hourIsPlaying == false)
         {
             playSound("Clock Tick");
-            clock.hourIsPlaying = true;
+            //clock.hourIsPlaying = true; - These broke the variable's function and caused hours after 5 to trigger no sound. - Noah
         }
         else
         {
             if (clock.hourIsPlaying == true)
             {
                 manager.Stop("Clock Tick");
-                clock.hourIsPlaying = false;
+                //clock.hourIsPlaying = false;
             }
             else
             {
