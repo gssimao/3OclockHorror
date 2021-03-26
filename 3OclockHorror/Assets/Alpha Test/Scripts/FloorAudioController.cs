@@ -120,26 +120,26 @@ public class FloorAudioController : MonoBehaviour
             case 1:
                 manager.StartFade("Drone", 2);
                 manager.StartFade("Game ST", 2);
-                manager.Stop("Drone");
-                manager.Stop("Game ST");
-                manager.Play("Test", false);
+                //manager.Stop("Drone");
+                //manager.Stop("Game ST");
+                //manager.Play("Test", false);
                 prevFloorAudio = floor;
                 break;
             case 2:
                 manager.StartFade("2nd Floor ST", 2);
-                manager.Stop("2nd Floor ST");
+                //manager.Stop("2nd Floor ST");
                 prevFloorAudio = floor;
-                manager.Play("Test", false);
+                //manager.Play("Test", false);
                 break;
             case 3:
                 manager.StartFade("3rd Floor ST", 2);
                 prevFloorAudio = floor;
-                manager.Play("Test", false);
+                //manager.Play("Test", false);
                 break;
             case 4:
                 manager.StartFade("Basement ST", 2);
                 prevFloorAudio = floor;
-                manager.Play("Test", false);    
+                //manager.Play("Test", false);    
                 break;
         }
     }
