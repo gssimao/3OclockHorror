@@ -60,7 +60,7 @@ public class Tooltip : MonoBehaviour
         TooltipText.text = "";
     }
 
-    public void updateTooltipMessage(string update)
+    public void UpdateTooltipMessage(string update)
     {
         TooltipText.text = update;
         timer = alottedTime;

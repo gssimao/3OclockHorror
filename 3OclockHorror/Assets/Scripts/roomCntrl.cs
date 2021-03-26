@@ -201,7 +201,7 @@ public class roomCntrl : MonoBehaviour
             }
             else
             {
-                toolTipScript.updateTooltipMessage("This door is locked.");
+                toolTipScript.UpdateTooltipMessage("This door is locked.");
                 if(manager != null)
                 {
                     manager.Play("Locked Door", false);
@@ -219,7 +219,7 @@ public class roomCntrl : MonoBehaviour
         }
         else
         {
-            toolTipScript.updateTooltipMessage("This door is locked.");
+            toolTipScript.UpdateTooltipMessage("This door is locked.");
             Debug.LogError("Door is locked but there is no key or inv set");
         }
     }

@@ -81,9 +81,11 @@ public class EnterTheHouse : MonoBehaviour
 
         currentScene = SceneManager.GetActiveScene();
 
+        yield return new WaitForSeconds(Fade.GetCurrentAnimatorStateInfo(0).length);
+
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
 
-        while (!asyncLoad.isDone)
+        while (!asyncLoad.isDone)// Runs this code until the next scene is done loading
         {
             yield return null;
         }
