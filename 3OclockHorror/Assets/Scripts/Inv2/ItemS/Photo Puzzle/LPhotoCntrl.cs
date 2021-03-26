@@ -16,11 +16,12 @@ public class LPhotoCntrl : MonoBehaviour, IBeginDragHandler, IDragHandler
     Text numeral;
     [SerializeField]
     PicSlot[] pictureSlots;
+    public bool interactable = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        if(myPhoto != null)
+        if (myPhoto != null)
         {
             me.sprite = myPhoto.Icon;
             date.text = myPhoto.date;
@@ -41,20 +42,25 @@ public class LPhotoCntrl : MonoBehaviour, IBeginDragHandler, IDragHandler
         date.text = myPhoto.date;
         numeral.text = myPhoto.numeral;
     }
-
     public void OnBeginDrag(PointerEventData eventData)
     {
-        transform.localPosition += new Vector3(eventData.delta.x, eventData.delta.y, 0) / transform.lossyScale.x;
-        transform.SetAsLastSibling();
-        for(int i = 0; i < pictureSlots.Length; i++)
+        if (interactable)
         {
-            pictureSlots[i].selectedPhoto = this;
-            pictureSlots[i].pointerData = eventData;
+            transform.localPosition += new Vector3(eventData.delta.x, eventData.delta.y, 0) / transform.lossyScale.x;
+            transform.SetAsLastSibling();
+            for (int i = 0; i < pictureSlots.Length; i++)
+            {
+                pictureSlots[i].selectedPhoto = this;
+                pictureSlots[i].pointerData = eventData;
+            }
         }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.localPosition += new Vector3(eventData.delta.x, eventData.delta.y, 0) / transform.lossyScale.x;
+        if (interactable)
+        {
+            transform.localPosition += new Vector3(eventData.delta.x, eventData.delta.y, 0) / transform.lossyScale.x;
+        }
     }
 }

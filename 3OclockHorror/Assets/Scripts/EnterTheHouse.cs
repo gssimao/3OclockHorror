@@ -88,8 +88,6 @@ public class EnterTheHouse : MonoBehaviour
             yield return null;
         }
 
-        //SceneManager.MoveGameObjectToScene(Instance, SceneManager.GetSceneByName(sceneName));
-
         SceneManager.UnloadSceneAsync(currentScene);
     }
 }
