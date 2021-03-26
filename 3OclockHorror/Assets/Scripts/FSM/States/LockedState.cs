@@ -13,7 +13,7 @@ public class LockedState : abstractFSMState
      * Once the timer runs out, she will exit the state into idle.
     **/
     [SerializeField] //Duration trackers so we don't stay idle longer than desired
-    float duration = 15f;
+    float duration = 30f;
     float totalDuration;
 
     public override void OnEnable()
@@ -33,6 +33,7 @@ public class LockedState : abstractFSMState
     }
     public override void updateState()
     {
+        Debug.Log("I am locked - BC");
         if (enteredState)
         {
             totalDuration += Time.deltaTime;
