@@ -2039,7 +2039,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.92856157, y: 0.3041787}
+  m_Offset: {x: 0.8087815, y: 0.33897144}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2050,7 +2050,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7027333, y: 0.1841402}
+  m_Size: {x: 1.0971193, y: 0.2537256}
   m_EdgeRadius: 0
 --- !u!114 &204964222
 MonoBehaviour:
@@ -2065,7 +2065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UseE: 0
-  UseQ: 1
+  UseQ: 0
   UseWASD: 0
   UseInventory: 0
   isDone: 0
@@ -4210,6 +4210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c4594ceb2298e74ca662811c98b7e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SkullCandle: 0
   player: {fileID: 638425222}
   Light: {fileID: 436997492}
   Flicker: {fileID: 1721438685}
@@ -7117,6 +7118,7 @@ GameObject:
   - component: {fileID: 666724968}
   - component: {fileID: 666724970}
   - component: {fileID: 666724969}
+  - component: {fileID: 666724971}
   m_Layer: 0
   m_Name: BearTrap
   m_TagString: Untagged
@@ -7178,6 +7180,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2340031, y: 0.31172502}
   m_EdgeRadius: 0
+--- !u!114 &666724971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666724967}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5018f41bb4fb1749bddd644d9c0f711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AnswerCheck: {fileID: 1353230632}
+  Puzzle: {fileID: 1125768052}
 --- !u!1 &672734572
 GameObject:
   m_ObjectHideFlags: 0
@@ -8824,6 +8840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c4594ceb2298e74ca662811c98b7e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SkullCandle: 0
   player: {fileID: 638425222}
   Light: {fileID: 923450970}
   Flicker: {fileID: 1055279327}
@@ -9387,6 +9404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c4594ceb2298e74ca662811c98b7e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SkullCandle: 0
   player: {fileID: 638425222}
   Light: {fileID: 980293983}
   Flicker: {fileID: 1348885408}
@@ -14970,6 +14988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c4594ceb2298e74ca662811c98b7e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SkullCandle: 0
   player: {fileID: 638425222}
   Light: {fileID: 1513001652}
   Flicker: {fileID: 672734572}
@@ -18030,6 +18049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c4594ceb2298e74ca662811c98b7e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SkullCandle: 0
   player: {fileID: 638425222}
   Light: {fileID: 1795257765}
   Flicker: {fileID: 1144002496}
@@ -25933,6 +25953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c4594ceb2298e74ca662811c98b7e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SkullCandle: 0
   player: {fileID: 638425222}
   Light: {fileID: 2100224912}
   Flicker: {fileID: 229614911}
