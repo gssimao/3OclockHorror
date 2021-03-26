@@ -34,6 +34,10 @@ public class clockCntrl : MonoBehaviour
     GameObject TrapCtrl;
 
     public WatcherAI watcherAI;
+
+    public bool hourIsPlaying= false;
+    public float clipLength;
+
     // Start is called before the first frame update 
     void Start()
     {
@@ -105,49 +109,75 @@ public class clockCntrl : MonoBehaviour
             }
 
             //Check for each hour, play clock sound each time.
-            if (Clock == 0)
+            if (Clock >= 0 && Clock <= 1  && manager != null && hourIsPlaying == false)
             {
+                hourIsPlaying = true;
                 manager.Play("Clock 5", false);
+                clipLength = 27 + Clock;                //clipLength was added so that Clock Tick would not play while these bells are playing.
             }
-            else if (Clock == 240)
+            else if (Clock >= 240 && Clock <= 241 && manager != null && hourIsPlaying == false)
             {
+                hourIsPlaying = true;
                 manager.Play("Clock 6", false);
+                clipLength = 30 + Clock;
             }
-            else if (Clock == 480)
+            else if (Clock >= 480 && Clock <= 481 && manager != null && hourIsPlaying == false)
             {
+                hourIsPlaying = true;
                 manager.Play("Clock 7", false);
+                clipLength = 33 + Clock;
             }
-            else if (Clock == 720)
+            else if (Clock >= 720 && Clock <= 721 && manager != null && hourIsPlaying == false)
             {
+                hourIsPlaying = true;
                 manager.Play("Clock 8", false);
+                clipLength = 36 + Clock;
             }
-            else if (Clock == 960)
+            else if (Clock >= 960 && Clock <= 961 && manager != null && hourIsPlaying == false)
             {
+                hourIsPlaying = true;
                 manager.Play("Clock 9", false);
+                clipLength = 39 + Clock;
             }
-            else if (Clock == 1200)
+            else if (Clock >= 1200 && Clock <= 1201 && manager != null && hourIsPlaying == false)
             {
+                hourIsPlaying = true;
                 manager.Play("Clock 10", false);
+                clipLength = 42 + Clock;
             }
-            else if (Clock == 1440)
+            else if (Clock >= 1440 && Clock <= 1441 && manager != null && hourIsPlaying == false)
             {
+                hourIsPlaying = true;
                 manager.Play("Clock 11", false);
+                clipLength = 45 + Clock;
             }
-            else if (Clock == 1680)
+            else if (Clock >= 1680 && Clock <= 1681 && manager != null && hourIsPlaying == false)
             {
+                hourIsPlaying = true;
                 manager.Play("Clock 12", false);
+                clipLength = 48 + Clock;
             }
-            else if (Clock == 1920)
+            else if (Clock >= 1920 && Clock <= 1921 && manager != null && hourIsPlaying == false)
             {
+                hourIsPlaying = true;
                 manager.Play("Clock 1", false);
+                clipLength = 15 + Clock;
             }
-            else if (Clock == 2160)
+            else if (Clock >= 2160 && Clock <= 2161 && manager != null && hourIsPlaying == false)
             {
+                hourIsPlaying = true;
                 manager.Play("Clock 2", false);
+                clipLength = 18 + Clock;
             }
-            else if (Clock == 2400)
+            else if (Clock >= 2400 && Clock <= 2401 && manager != null && hourIsPlaying == false)
             {
+                hourIsPlaying = true;
                 manager.Play("Clock 3", false);
+                clipLength = 21 + Clock;
+            }
+            else if (hourIsPlaying == true && (clipLength - Clock) <= 0)
+            {
+                hourIsPlaying = false;
             }
         }
     }

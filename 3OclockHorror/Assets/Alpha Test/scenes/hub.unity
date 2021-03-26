@@ -83659,6 +83659,8 @@ MonoBehaviour:
   creep: {fileID: 1710219375}
   TrapCtrl: {fileID: 1462572074}
   watcherAI: {fileID: 0}
+  hourIsPlaying: 0
+  clipLength: 0
 --- !u!114 &1619042894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83816,7 +83818,8 @@ MonoBehaviour:
   player: {fileID: 1619042896}
   huntTrap: {fileID: 5431648}
   myFloor: {fileID: 1619042902}
-  StopALL: 0
+  clock: {fileID: 1619042893}
+  StopALL: 1
 --- !u!114 &1619042901
 MonoBehaviour:
   m_ObjectHideFlags: 0

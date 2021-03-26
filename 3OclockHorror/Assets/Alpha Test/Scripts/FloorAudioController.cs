@@ -18,7 +18,11 @@ public class FloorAudioController : MonoBehaviour
 
     float t = 0;
     public int floor;
+    public int prevFloorAudio = 0;
     int lFloor;
+    public bool StopALL = false;
+    bool is1stPlaying = false;
+    bool is2ndPlaying = false;
 
     private void Awake()
     {
@@ -28,7 +32,7 @@ public class FloorAudioController : MonoBehaviour
     // Update Function, WIP not yet finished
     void Update()
     {
-        if(t == 0)
+        if (t == 0)
         {
             //Catch the last floor, might be necessary 
             lFloor = floor;
@@ -65,19 +69,19 @@ public class FloorAudioController : MonoBehaviour
     //Update the floor variable
     public void CheckFloor()
     {
-        if(player.playerFloor == "FirstFloor")
+        if (player.playerFloor == "FirstFloor")
         {
             floor = 1;
         }
-        else if(player.playerFloor == "SecondFloor")
+        else if (player.playerFloor == "SecondFloor")
         {
             floor = 2;
         }
-        else if(player.playerFloor == "ThirdFloor")
+        else if (player.playerFloor == "ThirdFloor")
         {
             floor = 3;
         }
-        else if(player.playerFloor == "Basement")
+        else if (player.playerFloor == "Basement")
         {
             floor = 4;
         }
@@ -88,13 +92,73 @@ public class FloorAudioController : MonoBehaviour
         }
     }
 
+    public void StopSoundTrack()
+    {
+        StopALL = true;
+        checkPrevFloor();
+    }
+
+    private void playSound(string sound)
+    {
+        if (manager != null)
+        {
+            manager.Play(sound, false);
+        }
+        else
+        {
+            Debug.LogError("AudioManager not found. Likely not an error.");
+        }
+    }
+
+    public void checkPrevFloor()
+    {
+        switch(prevFloorAudio)
+        {
+            case 0:
+                prevFloorAudio = floor;
+                break;
+            case 1:
+                manager.StartFade("Drone", 2);
+                manager.StartFade("Game ST", 2);
+                manager.Stop("Drone");
+                manager.Stop("Game ST");
+                manager.Play("Test", false);
+                prevFloorAudio = floor;
+                break;
+            case 2:
+                manager.StartFade("2nd Floor ST", 2);
+                manager.Stop("2nd Floor ST");
+                prevFloorAudio = floor;
+                manager.Play("Test", false);
+                break;
+            case 3:
+                manager.StartFade("3rd Floor ST", 2);
+                prevFloorAudio = floor;
+                manager.Play("Test", false);
+                break;
+            case 4:
+                manager.StartFade("Basement ST", 2);
+                prevFloorAudio = floor;
+                manager.Play("Test", false);    
+                break;
+        }
+    }
+
     //Regions for each floor. Click the little plus on the left end of the line to open the region and add in the music files
 
     //Functions for floor one
     #region Floor One
     public void PlayFloorOne()
     {
-        //This is where the music will go.
+        if (StopALL == false && prevFloorAudio != floor)
+        {
+            Debug.Log("Passed check");
+
+            checkPrevFloor();
+            playSound("Drone");
+            playSound("Game ST");
+            manager.Stop("Heavy Wind");
+        }
     }
     #endregion
     //Functions for floor two
@@ -116,7 +180,12 @@ public class FloorAudioController : MonoBehaviour
     }
     public void PlayFloorTwoA()
     {
-        //Music for the left side goes here
+        if (StopALL == false && prevFloorAudio != floor)
+        {
+            checkPrevFloor();
+            //playSound("2nd Floor ST");
+            manager.Play("2nd Floor ST", false);
+        }
     }
     public void PlayFloorTwoB()
     {

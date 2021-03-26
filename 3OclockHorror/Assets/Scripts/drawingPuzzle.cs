@@ -35,10 +35,17 @@ public class drawingPuzzle : MonoBehaviour
     [SerializeField]
     symbolUpdater sym4;
 
+    AudioManager manager;
+
     bool symOne = false;
     bool symTwo = false;
     bool symThree = false;
     bool symFour = false;
+
+    void Start()
+    {
+        manager = FindObjectOfType<AudioManager>();
+    }
 
 
     // Update is called once per frame
@@ -212,11 +219,12 @@ public class drawingPuzzle : MonoBehaviour
 
         if (check)
         {
-            
+            manager.Play("Book success", true);
         }
         else
         {
             Debug.Log("Answer incorrect");
+            manager.Play("Book fail", true);
         }
     }
 

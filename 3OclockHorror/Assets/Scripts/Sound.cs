@@ -77,7 +77,7 @@ public class Sound {
             }
             else
             {
-                float dTime = Time.time - fadeStartTime;
+                float dTime = Time.deltaTime - fadeStartTime;
                 this.source.volume -= startVolume * (dTime / timeToFade);
             }
         }
