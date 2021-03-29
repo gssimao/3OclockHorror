@@ -25,7 +25,7 @@ public class PlaceLadder : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sprite.enabled = false;
+        
     }
 
     // Update is called once per frame
@@ -50,7 +50,7 @@ public class PlaceLadder : MonoBehaviour
 
         if(ladAcquired != null)
         {
-            sprite.enabled = true;
+
             if (dist <= 0.5f)
             {
                 if (Input.GetKeyDown("e"))
