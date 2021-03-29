@@ -16,7 +16,7 @@ public class chaseState : abstractFSMState
     [SerializeField]
     float speed;
     float tmr = 0f;
-    float tmrMax = 1;
+    float tmrMax = 0.5f;
 
     public override void OnEnable() //overide onEnable to set state type
     {

@@ -10,14 +10,18 @@ public class redbookOpener : MonoBehaviour
     GameObject bookCanv;
     [Space]
     [SerializeField]
-    KeyCode interactKey;
+    invInput Listener;
     // Update is called once per frame
     void Update()
     {
         float dist = Vector3.Distance(player.transform.position, this.transform.position);
-        if(dist < 0.5 && Input.GetKeyDown(interactKey) && !bookCanv.activeSelf)
+        if(dist < 0.25)
         {
-            bookCanv.SetActive(true);
+            Listener.isFocus = false;
+            if (Input.GetKeyDown("e") && !bookCanv.activeSelf)
+            {
+                bookCanv.SetActive(true);
+            }
         }
     }
 }
