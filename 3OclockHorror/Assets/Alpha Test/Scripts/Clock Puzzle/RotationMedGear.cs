@@ -29,9 +29,9 @@ public class RotationMedGear : MonoBehaviour
             Medmovement = ControlBound(Medmovement, 6, true);
             smallGear.GetComponent<RotationSmallGear>().Smallmovement = ControlBound(smallGear.GetComponent<RotationSmallGear>().Smallmovement, 3, true);
 
-            LeanTween.rotateZ(BigGear, bigGearPosition[BigGear.GetComponent<RotationBigGear>().Bigmovement], 1); // move big gear
-            LeanTween.rotateZ(gameObject, medGearPosition[Medmovement], 1); // move med gear
-            LeanTween.rotateZ(smallGear, smallGearPosition[smallGear.GetComponent<RotationSmallGear>().Smallmovement], 1); // move small gear
+            LeanTween.rotateZ(BigGear, bigGearPosition[BigGear.GetComponent<RotationBigGear>().Bigmovement], .3f); // move big gear
+            LeanTween.rotateZ(gameObject, medGearPosition[Medmovement], .3f); // move med gear
+            LeanTween.rotateZ(smallGear, smallGearPosition[smallGear.GetComponent<RotationSmallGear>().Smallmovement], .3f); // move small gear
             playSound();
         }
         if (Input.GetMouseButtonUp(0)) //this should turn the big to the left
@@ -40,9 +40,9 @@ public class RotationMedGear : MonoBehaviour
             Medmovement = ControlBound(Medmovement, 6, false);
             smallGear.GetComponent<RotationSmallGear>().Smallmovement = ControlBound(smallGear.GetComponent<RotationSmallGear>().Smallmovement, 3, false);
 
-            LeanTween.rotateZ(BigGear, bigGearPosition[BigGear.GetComponent<RotationBigGear>().Bigmovement], 1);
-            LeanTween.rotateZ(gameObject, medGearPosition[Medmovement], 1); // move med gear
-            LeanTween.rotateZ(smallGear, smallGearPosition[smallGear.GetComponent<RotationSmallGear>().Smallmovement], 1); // move small gear
+            LeanTween.rotateZ(BigGear, bigGearPosition[BigGear.GetComponent<RotationBigGear>().Bigmovement], .3f);
+            LeanTween.rotateZ(gameObject, medGearPosition[Medmovement], .3f); // move med gear
+            LeanTween.rotateZ(smallGear, smallGearPosition[smallGear.GetComponent<RotationSmallGear>().Smallmovement], .3f); // move small gear
             playSound();
         }
     }

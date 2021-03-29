@@ -15,6 +15,7 @@ public class GiveKey : MonoBehaviour
     [SerializeField]
     invInput Listener;
     public GameObject KeyPopUp;
+    public GameObject UseInventory;
     public GameObject DeadGuyBW;
     AudioManager manager;
 
@@ -41,6 +42,7 @@ public class GiveKey : MonoBehaviour
                     manager.Play("Key pickup", true);
                 }
                 KeyPopUp.SetActive(true);
+                UseInventory.SetActive(true);
                 DeadGuyBW.SetActive(true);
                 invCanv.SetActive(true);
                 plyInv.AddItem(key);
