@@ -28,7 +28,7 @@ public class LightMatch : MonoBehaviour
         fLight.enabled = false;
         lightEffect.SetActive(false);
         Light(true);
-        //Light(false);
+        Light(false);
         manager = FindObjectOfType<AudioManager>();
     }
 

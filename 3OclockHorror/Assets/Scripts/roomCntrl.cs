@@ -101,7 +101,7 @@ public class roomCntrl : MonoBehaviour
             {
                 if (player.myRoom != WatcherHallway)
                 {
-                    ActivateWatcherHallway(false);
+                    watcher.WatcherHallway = false;
                 }
             }
         }
@@ -184,7 +184,10 @@ public class roomCntrl : MonoBehaviour
 
         if (WatchHallwayTrigger)
         {
-            ActivateWatcherHallway(true);
+            watcher.WatcherHallway = true;
+            watcher.ChangeRoom(WatcherHallway);
+            player.GetComponent<LightMatch>().Light(false);
+            player.GetComponent<LightMatch>().enabled = false;
         }
     }
 
@@ -218,22 +221,6 @@ public class roomCntrl : MonoBehaviour
         {
             toolTipScript.UpdateTooltipMessage("This door is locked.");
             Debug.LogError("Door is locked but there is no key or inv set");
-        }
-    }
-
-    void ActivateWatcherHallway(bool toggle)
-    {
-        if(toggle)
-        {
-            watcher.WatcherHallway = true;
-            watcher.ChangeRoom(WatcherHallway);
-            player.GetComponent<LightMatch>().Light(false);
-            player.GetComponent<LightMatch>().enabled = false;
-        }
-        else
-        {
-            watcher.WatcherHallway = false;
-            player.GetComponent<LightMatch>().enabled = true;
         }
     }
 }
