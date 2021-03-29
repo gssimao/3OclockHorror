@@ -57,8 +57,12 @@ public class chaseState : abstractFSMState
             {
                 if (!cnt && executor.myRoom == player.myRoom) //Check if its just cnt that has decided it's done, in which case hit that player
                 {
-                    executor.hit(player.gameObject);
-                    fsm.enterState(FSMStateType.LOCKED);
+                    Debug.Log("Hitting");
+                    bool hit = executor.hit(player.gameObject);
+                    if (hit) 
+                    { 
+                        fsm.enterState(FSMStateType.LOCKED); 
+                    }
                 }
                 else if (executor.myRoom != player.myRoom && cnt) //This will only fire if the player has left the room whilst being chased.
                 {

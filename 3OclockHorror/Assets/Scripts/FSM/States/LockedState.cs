@@ -33,7 +33,6 @@ public class LockedState : abstractFSMState
     }
     public override void updateState()
     {
-        Debug.Log("I am locked - BC");
         if (enteredState)
         {
             totalDuration += Time.deltaTime;

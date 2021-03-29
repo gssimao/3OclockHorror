@@ -151,17 +151,17 @@ public class NPC : MonoBehaviour
 
     }
 
-    public void hit(GameObject target)
+    public bool hit(GameObject target)
     {
         SanityManager targSAN = target.GetComponent<SanityManager>();
         clockCntrl clock = target.GetComponent<clockCntrl>();
 
         float dist = Vector2.Distance(target.transform.position, this.gameObject.transform.position);
 
-        if(clock != null && targSAN != null && dist <= 0.5 && hitTmr == 0)
+        if(clock != null && targSAN != null && dist <= 0.4 && hitTmr == 0)
         {
             targSAN.ChangeSanity(-10);
-            clock.adjustTime(60);
+            clock.adjustTime(120);
             hitTmr = 200;
 
             if(Random.Range(1, 5) == 1)
@@ -178,6 +178,13 @@ public class NPC : MonoBehaviour
             myRoom = BCTPPoint.myRoom;
             curPoint = myRoom.getEntrancePoint();
             //Eventually, this should cause her to idle then switch rooms after a while
+
+            return true;
+        }
+        else
+        {
+            Debug.Log("Tried to hit, failed");
+            return false;
         }
     }
 
