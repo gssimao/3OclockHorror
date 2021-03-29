@@ -37,7 +37,7 @@ public class SkullTurning : MonoBehaviour
         SkullRotation3.SetInteger("SkullPosition", SkullPosition3);
         SkullRotation4.SetInteger("SkullPosition", SkullPosition4);
 
-        cn1.CandleToggle(true);
+        cn1.CandleToggle(false);
         cn2.CandleToggle(false);
         cn3.CandleToggle(false);
     }
@@ -51,6 +51,10 @@ public class SkullTurning : MonoBehaviour
         */
         if (!stg3)
         {
+            if (!stg1)
+            {
+                cn1.CandleToggle(true);
+            }
             if (SkullPosition1 == 2 && SkullPosition2 == 0 && SkullPosition3 == 2 && SkullPosition4 == 0)
             {
                 stg1 = true;
