@@ -35,6 +35,11 @@ public class drawingPuzzle : MonoBehaviour
     [SerializeField]
     symbolUpdater sym4;
 
+    [Space]
+    [SerializeField]
+    TaskListTracker taskList;
+    bool msgSent = false;
+
     AudioManager manager;
 
     bool symOne = false;
@@ -171,6 +176,7 @@ public class drawingPuzzle : MonoBehaviour
     {
         //Check through each board in reference to the current board - and if one is found, that would trigger the functions for the door and clear the board
         bool check = false;
+        bool passed = false;
 
         if (!symOne)
         {
@@ -181,6 +187,8 @@ public class drawingPuzzle : MonoBehaviour
                 sym1.UpdateSprite();
 
                 Debug.Log("Correct");
+
+                passed = true;
             }
         }
         if (!symTwo)
@@ -192,6 +200,8 @@ public class drawingPuzzle : MonoBehaviour
                 sym2.UpdateSprite();
 
                 Debug.Log("Correct");
+
+                passed = true;
             }
         }
         if (!symThree)
@@ -203,6 +213,8 @@ public class drawingPuzzle : MonoBehaviour
                 sym3.UpdateSprite();
 
                 Debug.Log("Correct");
+
+                passed = true;
             }
         }
         if (!symFour)
@@ -214,16 +226,25 @@ public class drawingPuzzle : MonoBehaviour
                 sym4.UpdateSprite();
 
                 Debug.Log("Correct");
+
+                passed = true;
             }
         }
 
-        if (check)
+        if (passed)
         {
             manager.Play("Book success", true);
+
+            Debug.Log("Doint correct things");
+
+            if(msgSent == false)
+            {
+                taskList.updateList("\n - When I drew that symbol, one of the lights turned on. I wonder what happens when all four are lit?");
+                msgSent = true;
+            }
         }
         else
         {
-            Debug.Log("Answer incorrect");
             manager.Play("Book fail", true);
         }
     }

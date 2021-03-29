@@ -10515,6 +10515,7 @@ MonoBehaviour:
   player: {fileID: 1619042889}
   bookCanv: {fileID: 1493573191}
   Listener: {fileID: 1677718118}
+  taskList: {fileID: 1223795197}
 --- !u!1 &209860704
 GameObject:
   m_ObjectHideFlags: 0
@@ -15402,6 +15403,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4319032879280252870, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4319032879571133337, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.785
@@ -15473,6 +15478,10 @@ PrefabInstance:
     - target: {fileID: 4319032880085066271, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
       propertyPath: SkullCandle
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4761420719058402616, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
@@ -30221,6 +30230,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4319032879280252870, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4319032879571133337, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.785
@@ -30292,6 +30305,10 @@ PrefabInstance:
     - target: {fileID: 4319032880085066271, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
       propertyPath: SkullCandle
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4761420719058402616, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
@@ -33594,6 +33611,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4319032879280252870, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4319032879571133337, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.785
@@ -33665,6 +33686,10 @@ PrefabInstance:
     - target: {fileID: 4319032880085066271, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
       propertyPath: SkullCandle
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4761420719058402616, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
@@ -42080,6 +42105,7 @@ MonoBehaviour:
   sym2: {fileID: 638825486}
   sym3: {fileID: 2041313176}
   sym4: {fileID: 2073377358}
+  taskList: {fileID: 1223795197}
 --- !u!114 &827630681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96551,6 +96577,26 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4319032879280252870, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319032879280252870, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319032879280252870, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319032879280252870, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319032879280252870, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4319032879571133337, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.07
@@ -96651,10 +96697,30 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4319032880085066268, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8490566
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319032880085066268, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6568174
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319032880085066268, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
+      propertyPath: m_Color.b
+      value: 0.50863296
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319032880085066268, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
+      propertyPath: m_Intensity
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4319032880085066271, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1619042889}
+    - target: {fileID: 4319032880085066271, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
+      propertyPath: SkullCandle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4556068945050171269, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.0016495001
@@ -96674,6 +96740,10 @@ PrefabInstance:
     - target: {fileID: 4556068945050171269, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.037
+      objectReference: {fileID: 0}
+    - target: {fileID: 4761420719058402616, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6637872598815261619, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
       propertyPath: m_ShapeLightParametricSides
