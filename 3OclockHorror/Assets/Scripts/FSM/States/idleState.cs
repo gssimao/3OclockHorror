@@ -18,6 +18,8 @@ public class idleState : abstractFSMState
     float duration = 5f;
     float totalDuration;
 
+    float gracePeriod = 0.3f; //Amount of time that has to pass before the Blind Creep starts listening for the player
+
     public override void OnEnable() //Ovveride on enable, set state to idle
     {
         base.OnEnable();
@@ -50,7 +52,7 @@ public class idleState : abstractFSMState
                 fsm.enterState(FSMStateType.PATROL);
             }
 
-            if(totalDuration >= 0.3f)
+            if(totalDuration >= gracePeriod)
             {
                 if(player.movement.x != 0 && player.myRoom == executor.myRoom)
                 {

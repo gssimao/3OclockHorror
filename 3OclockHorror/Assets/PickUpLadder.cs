@@ -44,6 +44,7 @@ public class PickUpLadder : MonoBehaviour
                 inCanv.SetActive(false);
 
                 sprite.sprite = null;
+                ladTaken = true;
             }
         }
     }
