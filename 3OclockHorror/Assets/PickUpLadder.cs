@@ -14,6 +14,8 @@ public class PickUpLadder : MonoBehaviour
     invInput Listener;
     [SerializeField]
     Item brokenLadder;
+    [SerializeField]
+    SpriteRenderer sprite;
 
     bool ladTaken;
     float dist;
@@ -29,11 +31,20 @@ public class PickUpLadder : MonoBehaviour
     {
         dist = Vector3.Distance(this.transform.position, player.transform.position);
 
+        index += Time.deltaTime;
+
         if(dist <= 0.7f && ladTaken == false)
         {
             Listener.isFocus = false;
 
+            if(Input.GetKeyDown("e"))
+            {
+                inCanv.SetActive(true);
+                Pinv.AddItem(brokenLadder);
+                inCanv.SetActive(false);
 
+                sprite.sprite = null;
+            }
         }
     }
 }
