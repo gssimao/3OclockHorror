@@ -9,8 +9,6 @@ public class Tooltip : MonoBehaviour
     private bool walked = false;
     public GameObject player;
     public CanvasGroup cnvGroup;
-    public bool colliding = false;
-    public Tooltip canvas;
 
     //Prompt Message
     public string PromptMessage;
@@ -23,10 +21,10 @@ public class Tooltip : MonoBehaviour
     public string startupMessage = "";
 
     public float timer = 0;
-    float alottedTime = 2.5f;
+    public float alottedTime = 2.5f;
     void Start()
     {
-        timer = alottedTime;
+        //timer = alottedTime;
         if (masterSwitch == true)
         {
             TooltipText.text = "";
@@ -45,31 +43,26 @@ public class Tooltip : MonoBehaviour
         {
             timer -= Time.deltaTime;
         }
-        else if(timer <= 0)
+        else if (timer <= 0)
         {
             timer = 0;
-            if (!canvas.colliding)
+            cnvGroup.alpha -= Time.deltaTime;
+            if (cnvGroup.alpha <= 0)
             {
-                cnvGroup.alpha -= Time.deltaTime;
-                if (cnvGroup.alpha == 0)
-                {
-                    TooltipText.text = "";
-                }
+                cnvGroup.alpha = 0;
+                TooltipText.text = "";
             }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Entered collider");
         TooltipText.text = PromptMessage;
-        cnvGroup.alpha = 1;
-        canvas.colliding = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        canvas.colliding = false;
+        TooltipText.text = "";
     }
 
     public void UpdateTooltipMessage(string update)
