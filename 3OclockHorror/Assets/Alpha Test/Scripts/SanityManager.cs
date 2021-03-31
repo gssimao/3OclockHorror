@@ -15,7 +15,7 @@ public class SanityManager : MonoBehaviour
    
     public int[] effectCue = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; // total of 11 slots going from 0 to 10 
     //cue list of effect that need to be be played next
-
+    public GameObject ScreenVeins;
 
     /*void Start()
     {
@@ -60,6 +60,10 @@ public class SanityManager : MonoBehaviour
         sanityValue = sanityValue + changeValue;
         
         playEffect(1);//this calls the first effect, the red flicking lights
+        if(sanityValue<=20 && !ScreenVeins.activeSelf)
+        {
+            ScreenVeins.SetActive(true);
+        }
         //exemple for the future playEffect(1, 0.1); 
         //future iterations could have a second input to determine the shader effect intensity in the scene.
     }

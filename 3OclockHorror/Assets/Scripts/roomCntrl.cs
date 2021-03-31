@@ -21,6 +21,7 @@ public class roomCntrl : MonoBehaviour
     public Inventory pInv;
     public Item MyKey;
 
+
     [SerializeField]
     GameObject lockCanv;
     [SerializeField]
@@ -62,6 +63,8 @@ public class roomCntrl : MonoBehaviour
                     if (player.myRoom == room1) //Check the room states then update as necessary
                     {
                         CameraCrossfade(player.gameObject, entrancePointRoom, player, room2);
+                        room2.SnowParticleSwitch(room2.roomName);// turn on or off the snow effect in the room // still testing
+                        room1.SnowParticleSwitch(room1.roomName);// turn on or off the snow effect in the room // still testing
                         if (manager != null)
                         {
                             manager.Play("Door Open", true);
@@ -70,6 +73,8 @@ public class roomCntrl : MonoBehaviour
                     else// player.myRoom == room2
                     {
                         CameraCrossfade(player.gameObject, entrancePointRoom, player, room1);
+                        room2.SnowParticleSwitch(room2.roomName);// turn on or off the snow effect in the room
+                        room1.SnowParticleSwitch(room1.roomName);// turn on or off the snow effect in the room
                         if (manager != null)
                         {
                             manager.Play("Door Open", true);
