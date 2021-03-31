@@ -617,6 +617,7 @@ MonoBehaviour:
   startupMessage: Use WASD to Move - Press E to open the journal, and use the arrows
     to flip pages.
   timer: 6
+  alottedTime: 2.5
 --- !u!114 &36532279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2193,7 +2194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UseE: 0
-  UseQ: 0
+  UseQ: 1
   UseWASD: 0
   UseInventory: 0
   isDone: 0
@@ -6716,6 +6717,7 @@ MonoBehaviour:
   effectOn: 0
   GameOverScene: 
   effectCue: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  ScreenVeins: {fileID: 0}
 --- !u!95 &638425229
 Animator:
   serializedVersion: 3
@@ -8557,6 +8559,7 @@ MonoBehaviour:
   entrance: {fileID: 0}
   roomName: Outside
   floorNum: 0
+  SnowParticle: {fileID: 0}
 --- !u!60 &796928477
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -11228,7 +11231,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1280, y: 620}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.58
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
