@@ -13,6 +13,10 @@ public class AbandonmentEffect : MonoBehaviour
     WatcherAI watcher;
     [SerializeField]
     List<GameObject> beartraps;
+    [SerializeField]
+    PlayerMovement player;
+
+    CandleScript[] Candles;
 
     float gracePeriodDefault = 0.3f;
     // Start is called before the first frame update
@@ -26,7 +30,13 @@ public class AbandonmentEffect : MonoBehaviour
     {
         if(Activate)
         {
+            watcher.abandonment = true;
 
+            //BCIdleState.gracePeriod = 1.5f;
+
+            BCIdleState.abandonment = true;
+
+            Candles = player.myRoom.getRoomObject().GetComponentsInChildren<CandleScript>();
         }
     }
 }

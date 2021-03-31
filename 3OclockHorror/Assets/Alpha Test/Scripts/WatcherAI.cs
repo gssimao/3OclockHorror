@@ -33,6 +33,13 @@ public class WatcherAI : MonoBehaviour
     public float plyAngle = 0;
     public bool WatcherHallway = false;
 
+    [Space]
+    public bool abandonment = false;
+    [SerializeField]
+    GameObject Mask;
+    [SerializeField]
+    GameObject maskStartPosition;
+
     //Room Specific variables
     public room currentRoom;
     public CandleScript[] Candles;
@@ -262,19 +269,22 @@ public class WatcherAI : MonoBehaviour
         int selectedAmt = Random.Range(1, candlesOn.Length + 1);
         int temp;
 
-        if (manager != null)
+        if (Candles != null)
         {
-            manager.Play("Candle Blow Out", true);
-        }
+            if (manager != null)
+            {
+                manager.Play("Candle Blow Out", true);
+            }
 
-        for (int i = 0; i <= selectedAmt; i++)
-        {
-            temp = candlesOn[Random.Range(0, selectedAmt - 1)];
-            Candles[temp].CandleToggle(false);
+            for (int i = 0; i <= selectedAmt; i++)
+            {
+                temp = candlesOn[Random.Range(0, selectedAmt - 1)];
+                Candles[temp].CandleToggle(false);
+            }
         }
     }
 
-    bool CheckCandles()// Checks to see if there is any candles that are on, and if there are it finds out how many there are
+    bool CheckCandles()// Checks to see if there is any candles that are on, if there are, find out how many there are
     {
         int candleCount = 0;
         int j = 0;
@@ -356,9 +366,31 @@ public class WatcherAI : MonoBehaviour
 
     public void ChangeRoom(room target)
     {
-        this.transform.position = target.getWatcherSpawn().transform.position;
-        currentRoom = target;
-        Candles = currentRoom.getRoomObject().GetComponentsInChildren<CandleScript>();
+        if (abandonment)
+        {
+            int rand = Random.Range(0, 2);
+            if (rand == 0)
+            {
+                this.transform.position = target.getWatcherSpawn().transform.position;
+                Debug.Log("Moving Watcher to Location");
+                currentRoom = target;
+                Candles = currentRoom.getRoomObject().GetComponentsInChildren<CandleScript>();
+            }
+            else
+            {
+                Mask.transform.position = target.getWatcherSpawn().transform.position;
+                Debug.Log("Moving Mask to Location");
+                this.transform.position = maskStartPosition.transform.position;
+                currentRoom = target;
+                Candles = null;
+            }
+        }
+        else
+        {
+            this.transform.position = target.getWatcherSpawn().transform.position;
+            currentRoom = target;
+            Candles = currentRoom.getRoomObject().GetComponentsInChildren<CandleScript>();
+        }
     }
 
     void UpdateFace()

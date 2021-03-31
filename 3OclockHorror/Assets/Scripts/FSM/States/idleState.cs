@@ -18,7 +18,9 @@ public class idleState : abstractFSMState
     float duration = 5f;
     float totalDuration;
 
-    float gracePeriod = 0.3f; //Amount of time that has to pass before the Blind Creep starts listening for the player
+    public float gracePeriod = 0.3f; //Amount of time that has to pass before the Blind Creep starts listening for the player
+
+    public bool abandonment = false;
 
     public override void OnEnable() //Ovveride on enable, set state to idle
     {
@@ -54,15 +56,47 @@ public class idleState : abstractFSMState
 
             if(totalDuration >= gracePeriod)
             {
-                if(player.movement.x != 0 && player.myRoom == executor.myRoom)
+                if (abandonment)
                 {
-                    executor.patrolTime = 0f;
-                    fsm.enterState(FSMStateType.CHASE);
+                    int rand = Random.Range(0, 3);
+                    
+                    if (player.movement.x != 0 && player.myRoom == executor.myRoom)
+                    {
+                        if (rand == 0)
+                        {
+                            executor.patrolTime = 0f;
+                            fsm.enterState(FSMStateType.CHASE);
+                        }
+                        else
+                        {
+                            Debug.Log("Must have been the wind.");
+                        }
+                    }
+                    else if (player.movement.y != 0 && player.myRoom == executor.myRoom)
+                    {
+                        if (rand == 0)
+                        {
+                            executor.patrolTime = 0f;
+                            fsm.enterState(FSMStateType.CHASE);
+                        }
+                        else
+                        {
+                            Debug.Log("Must have been the wind.");
+                        }
+                    }
                 }
-                else if (player.movement.y != 0 && player.myRoom == executor.myRoom)
+                else
                 {
-                    executor.patrolTime = 0f;
-                    fsm.enterState(FSMStateType.CHASE);
+                    if (player.movement.x != 0 && player.myRoom == executor.myRoom)
+                    {
+                        executor.patrolTime = 0f;
+                        fsm.enterState(FSMStateType.CHASE);
+                    }
+                    else if (player.movement.y != 0 && player.myRoom == executor.myRoom)
+                    {
+                        executor.patrolTime = 0f;
+                        fsm.enterState(FSMStateType.CHASE);
+                    }
                 }
             }
         }

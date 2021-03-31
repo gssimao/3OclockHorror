@@ -18,6 +18,8 @@ public class CandleScript : MonoBehaviour
 
     AudioManager manager;
     float dist;
+
+    public bool lightOn;
     // Start is called before the first frame update
     void Start()
     {
@@ -74,6 +76,8 @@ public class CandleScript : MonoBehaviour
                 LightMask.enabled = false;
                 lightEffect.SetActive(false);
             }
+
+            lightOn = false;
         }
         else if(trigger == true)
         {
@@ -90,6 +94,8 @@ public class CandleScript : MonoBehaviour
                 LightMask.enabled = true;
                 lightEffect.SetActive(true);
             }
+
+            lightOn = true;
         }
     }
 
