@@ -15,28 +15,83 @@ public class AbandonmentEffect : MonoBehaviour
     List<GameObject> beartraps;
     [SerializeField]
     PlayerMovement player;
+    [SerializeField]
+    SanityManager sanity;
+
+    [SerializeField]
+    GameObject blindCreep;
+    [SerializeField]
+    GameObject trapCntrl;
 
     CandleScript[] Candles;
+    int candleCount = 0;
+    AudioManager manager;
 
     float gracePeriodDefault = 0.3f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        manager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        candleCount = 0;
+
         if(Activate)
         {
-            watcher.abandonment = true;
+            if (watcher.gameObject.activeSelf)
+            {
+                watcher.abandonment = true;
+            }
+            
+            if (blindCreep.activeSelf)
+            {
+                BCIdleState.abandonment = true;
+            }
 
-            //BCIdleState.gracePeriod = 1.5f;
-
-            BCIdleState.abandonment = true;
+            if (trapCntrl.activeSelf)
+            {
+                TurnOffBeartraps();
+            }
 
             Candles = player.myRoom.getRoomObject().GetComponentsInChildren<CandleScript>();
+
+            foreach (CandleScript candle in Candles)
+            {
+                if (candle.lightOn)
+                {
+                    candleCount++;
+                }
+            }
+
+            if(candleCount <= 0)
+            {
+                sanity.ChangeSanity(-5 * Time.deltaTime/2);
+            }
+        }
+    }
+
+    void TurnOffBeartraps()
+    {
+        int total = 0;
+
+        foreach(GameObject beartrap in beartraps)
+        {
+            if(beartrap.activeSelf)
+            {
+                total++;
+            }
+        }
+
+        while(total > 5)
+        {
+            int rand = Random.Range(0, total);
+
+            beartraps[rand].SetActive(false);
+
+            total--;
         }
     }
 }

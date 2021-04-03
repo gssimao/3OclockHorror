@@ -28,6 +28,10 @@ public class CandleScript : MonoBehaviour
         {
             CandleToggle(false);
         }
+        else
+        {
+            lightOn = true;
+        }
         manager = FindObjectOfType<AudioManager>();
     }
 

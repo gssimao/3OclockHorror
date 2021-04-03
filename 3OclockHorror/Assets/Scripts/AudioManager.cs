@@ -48,20 +48,20 @@ public class AudioManager : MonoBehaviour
 		{
 			Debug.LogWarning("Sound: " + name + " not found!");
 			return;
-		}
+		}
 
 
 		if (!s.source.isPlaying) //Check if the sound is playing - if not, have at it.s
-		{
-            if (!isRandom)
-            {
+		{
+            if (!isRandom)
+            {
                 s.source.volume = s.volume; //Set the volume and pitch to the one contained by the sound
-                s.source.pitch = s.pitch;
+                s.source.pitch = s.pitch;
             }
-            else if (isRandom)
-            {
+            else if (isRandom)
+            {
                 s.source.volume = Random.Range(s.volume - 0.1f, s.volume + 0.1f); //Random Volume
-                s.source.pitch = Random.Range(0.8f, 1.2f); // Random Pitch
+                s.source.pitch = Random.Range(0.8f, 1.2f); // Random Pitch
             }
             s.source.Play();
 

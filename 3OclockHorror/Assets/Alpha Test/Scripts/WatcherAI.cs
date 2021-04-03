@@ -183,8 +183,8 @@ public class WatcherAI : MonoBehaviour
             {
                 if (manager != null)
                 {
-                    manager.Stop("Watcher Scream");
-                    isScreamPlaying = false;
+                    /*manager.Stop("Watcher Scream");
+                    isScreamPlaying = false;*/
                     manager.Stop("Watcher Far");
                     isFarPlaying = false;
                     manager.Stop("Watcher Close");
