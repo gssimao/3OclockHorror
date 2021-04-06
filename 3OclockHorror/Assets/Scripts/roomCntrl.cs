@@ -45,11 +45,9 @@ public class roomCntrl : MonoBehaviour
     {
         uControls = new UniversalControls();
         uControls.Enable();
-        uControls.Player.Interact.performed += Interact;
     }
     private void OnDisable()
     {
-        uControls.Player.Interact.performed -= Interact;
         uControls.Disable(); 
     }
     // Start is called before the first frame update
@@ -59,7 +57,37 @@ public class roomCntrl : MonoBehaviour
     }
     private void Interact(InputAction.CallbackContext c)
     {
-        Debug.Log("Do something");
+        if (transitionOnOff)
+        {
+            if (locked)
+            {
+                CheckKey();
+            }
+
+            if (player != null && !locked) //Make sure it's not null, check if door is locked
+            {
+                if (player.myRoom == room1) //Check the room states then update as necessary
+                {
+                    CameraCrossfade(player.gameObject, entrancePointRoom, player, room2);
+                    room2.SnowParticleSwitch(room2.roomName);// turn on or off the snow effect in the room // still testing
+                    room1.SnowParticleSwitch(room1.roomName);// turn on or off the snow effect in the room // still testing
+                    if (manager != null)
+                    {
+                        manager.Play("Door Open", true);
+                    }
+                }
+                else// player.myRoom == room2
+                {
+                    CameraCrossfade(player.gameObject, entrancePointRoom, player, room1);
+                    room2.SnowParticleSwitch(room2.roomName);// turn on or off the snow effect in the room
+                    room1.SnowParticleSwitch(room1.roomName);// turn on or off the snow effect in the room
+                    if (manager != null)
+                    {
+                        manager.Play("Door Open", true);
+                    }
+                }
+            }
+        }
     }
     // Update is called once per frame
     void Update()
@@ -68,7 +96,7 @@ public class roomCntrl : MonoBehaviour
         if (dist <= range)
         {
             Listener.isFocus = false;
-            if (Input.GetKeyDown("e") && transitionOnOff)
+            /*if (Input.GetKeyDown("e") && transitionOnOff)
             {
                 if (locked)
                 {
@@ -98,7 +126,7 @@ public class roomCntrl : MonoBehaviour
                         }
                     }
                 }
-            }
+            }*/
         }
 
         if (Fade != null)
@@ -146,7 +174,12 @@ public class roomCntrl : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && transitionOnOff == false && !locked) //If its a player, this is necessary to determine what class to attempt to grab
+        if(collision.gameObject.tag == "Player" && transitionOnOff == true)
+        {
+            Debug.Log("Player should go to room: " + room2.name);
+            uControls.Player.Interact.performed += Interact;
+        }
+        else if (collision.gameObject.tag == "Player" && transitionOnOff == false && !locked) //If its a player, this is necessary to determine what class to attempt to grab
         {
             PlayerMovement player = collision.gameObject.GetComponent<PlayerMovement>(); //Grab the player movement script
 
@@ -179,6 +212,10 @@ public class roomCntrl : MonoBehaviour
             }
 
         }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        uControls.Player.Interact.performed -= Interact;
     }
 
     public void CameraCrossfade(GameObject player, GameObject entranceP, PlayerMovement play, room RoomNum)

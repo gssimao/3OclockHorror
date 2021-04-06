@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class invInput : MonoBehaviour
 {
@@ -25,26 +26,31 @@ public class invInput : MonoBehaviour
     AudioManager manager;
     public bool isFocus = true;
 
+    private UniversalControls uControls;
+    private void Awake()
+    {
+        uControls = new UniversalControls();
+        uControls.Enable();
+        uControls.Player.Interact.performed += ShowJournal;
+        uControls.Player.PauseMenu.performed += ShowPauseMenu;
+    }
+    private void OnDisable()
+    {
+        uControls.Player.PauseMenu.performed -= ShowPauseMenu;
+        uControls.Player.Interact.performed -= ShowJournal;
+        uControls.Disable();
+    }
+
     void Start()
     {
         manager = FindObjectOfType<AudioManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void ShowJournal(InputAction.CallbackContext c)
     {
-        bool puzOpen = false;
-        foreach(GameObject obj in objs)
-        {
-            if(obj.activeSelf)
-            {
-                puzOpen = true;
-            }
-        }
-
         if (isFocus)
         {
-            if (Input.GetKeyDown(invKey) && !jInput.isFocused && !puzOpen)
+            if (!jInput.isFocused)
             {
                 if (Journal.activeSelf)
                 {
@@ -69,7 +75,48 @@ public class invInput : MonoBehaviour
                     invCanvas.SetActive(true);
                 }
                 */
+            }
+        }
+    }
 
+    void ShowPauseMenu(InputAction.CallbackContext c)
+    {
+        if (!escCanv.activeSelf)
+        {
+            escCanv.SetActive(true);
+        }
+        else
+        {
+            escCanv.SetActive(false);
+        }
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        //bool puzOpen = false;
+        foreach(GameObject obj in objs)
+        {
+            if(obj.activeSelf)
+            {
+                isFocus = false;
+            }
+        }
+
+        /*if (isFocus)
+        {
+            if (Input.GetKeyDown(invKey) && !jInput.isFocused && !puzOpen)
+            {
+                if (Journal.activeSelf)
+                {
+                    Journal.SetActive(false);
+                    playSound();
+
+                }
+                else
+                {
+                    Journal.SetActive(true);
+                    playSound();
+                }
             }
         }
         if (Input.GetKeyDown(escKey))
@@ -82,7 +129,7 @@ public class invInput : MonoBehaviour
             {
                 escCanv.SetActive(false);
             }
-        }
+        }*/
         isFocus = true;
     }
 
@@ -93,4 +140,9 @@ public class invInput : MonoBehaviour
             manager.Play("Journal", true);
         }
     }
+
+    /*private void Interact(InputAction.CallbackContext c)
+    {
+
+    }*/
 }
