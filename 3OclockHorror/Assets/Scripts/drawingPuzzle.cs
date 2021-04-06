@@ -19,6 +19,11 @@ public class drawingPuzzle : MonoBehaviour
     DrawingHolder answerThree;
     [SerializeField]
     DrawingHolder answerFour;
+    [SerializeField]
+    DrawingHolder anxBoard;
+    [SerializeField]
+    AnxEffect anxiety;
+
     [Space]
     [SerializeField]
     GameObject LineParent; //The storage for all lines
@@ -46,6 +51,7 @@ public class drawingPuzzle : MonoBehaviour
     bool symTwo = false;
     bool symThree = false;
     bool symFour = false;
+    bool anx = false;
 
     void Start()
     {
@@ -227,6 +233,15 @@ public class drawingPuzzle : MonoBehaviour
 
                 Debug.Log("Correct");
 
+                passed = true;
+            }
+        }
+        if (!anx)
+        {
+            check = compareBoards(mainBoard, anxBoard);
+            if (check)
+            {
+                anxiety.activateAnxiety();
                 passed = true;
             }
         }

@@ -17,6 +17,9 @@ public class SanityManager : MonoBehaviour
     //cue list of effect that need to be be played next
     public GameObject ScreenVeins;
 
+    [SerializeField]
+    endScreenControl escntrl;
+
     /*void Start()
     {
         //get reference from player's material
@@ -33,6 +36,7 @@ public class SanityManager : MonoBehaviour
         if (sanityValue <= 0)
         {
             SceneManager.LoadScene(GameOverScene); //Load the Game Over scene
+            escntrl.endMessage = "You went insane.";
             Cursor.visible = true;
         }
 
