@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class roomCntrl : MonoBehaviour
 {
@@ -32,18 +33,34 @@ public class roomCntrl : MonoBehaviour
     public Animator Fade;
 
     bool opened = false;
-    
+    private UniversalControls uControls;
+
     [Space]
     public bool WatchHallwayTrigger = false;
     public WatcherAI watcher;
     [SerializeField]
     room WatcherHallway;
+
+    private void Awake()
+    {
+        uControls = new UniversalControls();
+        uControls.Enable();
+        uControls.Player.Interact.performed += Interact;
+    }
+    private void OnDisable()
+    {
+        uControls.Player.Interact.performed -= Interact;
+        uControls.Disable(); 
+    }
     // Start is called before the first frame update
     void Start()
     {
         manager = FindObjectOfType<AudioManager>();
     }
-
+    private void Interact(InputAction.CallbackContext c)
+    {
+        Debug.Log("Do something");
+    }
     // Update is called once per frame
     void Update()
     {

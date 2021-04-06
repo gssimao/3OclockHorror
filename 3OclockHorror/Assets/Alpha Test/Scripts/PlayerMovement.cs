@@ -37,9 +37,19 @@ public class PlayerMovement : MonoBehaviour
     public bool canMoveLeft = true;
     public bool canMoveUp = true;
     public bool canMoveDown = true;
-
+    private UniversalControls uControls;
 
     public bool leftSide = false;
+
+    private void Awake()
+    {
+        uControls = new UniversalControls();
+        uControls.Enable();
+    }
+    private void OnDisable()
+    {
+        uControls.Disable();
+    }
     void Start()
     {
         manager = FindObjectOfType<AudioManager>();
@@ -77,16 +87,16 @@ public class PlayerMovement : MonoBehaviour
         //Check if the player can move and is registering input
         if (canMove)
         {
-            movement.x = Input.GetAxisRaw("Horizontal");
-            movement.y = Input.GetAxisRaw("Vertical");
+            movement.x = uControls.Player.MovePlayer.ReadValue<Vector2>().x;//Input.GetAxisRaw("Horizontal");
+            movement.y = uControls.Player.MovePlayer.ReadValue<Vector2>().y;//Input.GetAxisRaw("Vertical");
         }
         else
         {
             movement.x = 0;
             movement.y = 0;
         }
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        movement.x = uControls.Player.MovePlayer.ReadValue<Vector2>().x;//Input.GetAxisRaw("Horizontal");
+        movement.y = uControls.Player.MovePlayer.ReadValue<Vector2>().y; //Input.GetAxisRaw("Vertical");
 
         #region Depreciated_mouse_control
         /*
