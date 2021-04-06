@@ -24,7 +24,7 @@ public class Writer : MonoBehaviour
         if(uiText != null)
         {
             timer -= Time.deltaTime;
-            while(timer <= 0f)
+            while(timer <= 0f) // printing text one by one according to timePerCharacter variable in "CallHouseText.cs"
             {
                 //display next character
                 timer += timePerCharacter;
@@ -32,7 +32,7 @@ public class Writer : MonoBehaviour
                 string text = textToWrite.Substring(0, characterIndex);
                 if(invisibleCharacters)
                 {
-                    text += "<color=#00000000>" + textToWrite.Substring(characterIndex) + "</color>";
+                    text += "<color=#00000000>" + textToWrite.Substring(characterIndex) + "</color>"; // change the color to transparent and gradually change it back
                 }
                 uiText.text = text;
                 if(characterIndex >= textToWrite.Length)
