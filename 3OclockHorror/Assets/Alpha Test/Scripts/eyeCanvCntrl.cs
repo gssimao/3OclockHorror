@@ -52,7 +52,7 @@ public class eyeCanvCntrl : MonoBehaviour
 
                 if(perChance <= 90)
                 {
-                    perChance += Time.deltaTime;
+                    perChance += Time.deltaTime / 2;
                 }
             }
         }

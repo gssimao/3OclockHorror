@@ -37,6 +37,9 @@ public class clockCntrl : MonoBehaviour
     [SerializeField]
     Tooltip popup;
 
+    [SerializeField]
+    endScreenControl escntrl;
+
     public WatcherAI watcherAI;
 
     public bool hourIsPlaying= false;
@@ -77,6 +80,7 @@ public class clockCntrl : MonoBehaviour
             if(sanity.sanityValue <= 0) //Check if the player has any sanity, if not end the game
             {
                 SceneManager.LoadScene(2); //Load the Game Over scene
+                escntrl.endMessage = "You ran out of time.";
                 Cursor.visible = true;
             }
 
