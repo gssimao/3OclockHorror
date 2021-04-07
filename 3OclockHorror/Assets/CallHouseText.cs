@@ -5,17 +5,72 @@ using UnityEngine.UI;
 
 public class CallHouseText : MonoBehaviour
 {
-    [SerializeField] public Writer textWriter;
+    public GameObject MainSystem;
+    int dialogProgress = 0;
+    private Writer textWriter;
     public Text dialog;
-    string message = "teeeesstt 12345601 29309 12031209302 1930910219 309102 193091021 9309102 193 0910219 3091021 930910 219309129";
-    //this is where the maneger will decide what to play and when to play it.
+    public AudioSource typewriter;
+    public AudioSource DoneWriting;
+    private Writer.TextWriterSingle textWriterSingle;
 
-    private void Start() // this is for testing
+
+
+    private void Awake()
     {
-        textWriter.AddWriter(dialog, message, .1f, true);
+        MainSystem.SetActive(false);
+
     }
+
     public void WriteString(string message) // this is where the calls will happen
     {
-        textWriter.AddWriter(dialog, message, .1f, true);
+       
+    }
+    private void StartTypingSound()
+    {
+        typewriter.Play();
+    }
+    private void StopTypingSound()
+    {
+        typewriter.Stop();
+        DoneWriting.PlayOneShot(DoneWriting.clip);
+    }
+    public void ShowNewMessage()
+    {
+        if(textWriterSingle != null && textWriterSingle.isActive())
+        {
+            // the writer is active
+            textWriterSingle.WriteAndDestroy();
+        }
+        else
+        {
+            string[] messageArray = new string[]
+            {
+            "first message",
+            "Second message",
+            "Third message",
+            "4 message",
+            "5 message"
+            };
+            string message = messageArray[Random.Range(0, messageArray.Length)];
+            StartTypingSound();
+            textWriterSingle = Writer.AddWriter_Static(dialog, message, .1f, true, true, StopTypingSound);
+        }
+        
+
+        
+
+        /*if (messageArray.Length == dialogProgress)
+        {
+            dialogProgress = 0;
+        }
+        else
+        {
+            dialogProgress++;
+        }
+
+        string message = messageArray[dialogProgress];
+        Writer.AddWriter_Static(dialog, message, .2f, true);
+        return dialogProgress;
+        */
     }
 }
