@@ -46,7 +46,7 @@ public class PickUpLadder : MonoBehaviour
 
         if(dist <= 0.7f && ladTaken == false)
         {
-            Listener.isFocus = false;
+            //Listener.isFocus = false;
 
             if(uControls.Player.Interact.triggered)
             {

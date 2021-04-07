@@ -43,7 +43,7 @@ public class GiveKey : MonoBehaviour
 
         if (dist <= 0.6f)
         {
-            Listener.isFocus = false;
+            //Listener.isFocus = false;
 
             if (uControls.Player.Interact.triggered)
             {

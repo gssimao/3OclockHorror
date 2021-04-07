@@ -39,7 +39,7 @@ public class ClimbLadder : MonoBehaviour
         dist = Vector3.Distance(this.transform.position + posOffset, player.transform.position);
         if(dist <= 0.75f)
         {
-            Listener.isFocus = false;
+            //Listener.isFocus = false;
             if(uControls.Player.Interact.triggered)
             {
                 UpdatePlayer();

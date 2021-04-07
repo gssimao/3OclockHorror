@@ -22,7 +22,7 @@ public class riddleOpener : MonoBehaviour
 
         if (dist <= 0.45f)
         {
-            Listener.isFocus = false;
+            //Listener.isFocus = false;
             if (Input.GetKeyDown(interactKey))
             {
                 riddleCanv.SetActive(true);

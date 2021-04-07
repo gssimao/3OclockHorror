@@ -60,7 +60,7 @@ public class ContainerControl : MonoBehaviour
         float dist = Vector3.Distance(player.transform.position, transform.position); //Get the position of player
         if (dist <= interactDist) //If the player is in range
         {
-            Listener.isFocus = false;
+            //Listener.isFocus = false;
             if (uControls.Player.Interact.triggered && !active)
             {
                 openInventory();

@@ -31,10 +31,16 @@ public class invInput : MonoBehaviour
     {
         uControls = new UniversalControls();
         uControls.Enable();
+        uControls.Player.Interact.performed += ShowJournal;
+        InteractibleTrigger.EnableJournal += EnableJournal;
+        InteractibleTrigger.DisableJournal += DisableJournal;
     }
     private void OnDisable()
     {
         uControls.Disable();
+        uControls.Player.Interact.performed -= ShowJournal;
+        InteractibleTrigger.EnableJournal -= EnableJournal;
+        InteractibleTrigger.DisableJournal -= DisableJournal;
     }
 
     void Start()
@@ -42,37 +48,40 @@ public class invInput : MonoBehaviour
         manager = FindObjectOfType<AudioManager>();
     }
 
+    private void EnableJournal() { isFocus = true; }
+    private void DisableJournal() { isFocus = false; }
+
     private void ShowJournal(InputAction.CallbackContext c)
     {
-        if (isFocus)
+        if (!isFocus) return;
+        
+        if (!jInput.isFocused)
         {
-            if (!jInput.isFocused)
+            if (Journal.activeSelf)
             {
-                if (Journal.activeSelf)
-                {
-                    Journal.SetActive(false);
-                    playSound();
+                Journal.SetActive(false);
+                playSound();
 
-                }
-                else
-                {
-                    Journal.SetActive(true);
-                    playSound();
-                }
-
-                /*
-                if (invCanvas.activeSelf)
-                {
-                    tooltip.SetActive(false);
-                    invCanvas.SetActive(false);
-                }
-                else
-                {
-                    invCanvas.SetActive(true);
-                }
-                */
             }
+            else
+            {
+                Journal.SetActive(true);
+                playSound();
+            }
+
+            /*
+            if (invCanvas.activeSelf)
+            {
+                tooltip.SetActive(false);
+                invCanvas.SetActive(false);
+            }
+            else
+            {
+                invCanvas.SetActive(true);
+            }
+            */
         }
+       
     }
 
     void ShowPauseMenu(InputAction.CallbackContext c)
@@ -97,7 +106,7 @@ public class invInput : MonoBehaviour
                 puzOpen = true;
             }
         }
-
+        /*
         if (isFocus)
         {
             if (uControls.Player.Interact.triggered && !jInput.isFocused && !puzOpen)
@@ -114,7 +123,7 @@ public class invInput : MonoBehaviour
                     playSound();
                 }
             }
-        }
+        }*/
         if (uControls.Player.PauseMenu.triggered)
         {
             if (!escCanv.activeSelf)
@@ -126,7 +135,7 @@ public class invInput : MonoBehaviour
                 escCanv.SetActive(false);
             }
         }
-        isFocus = true;
+        //isFocus = true;
     }
 
     void playSound()

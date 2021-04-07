@@ -22,7 +22,7 @@ public class skullInteract : MonoBehaviour
         float dist = Vector2.Distance(player.transform.position, this.transform.position);
         
         if (dist <= 0.25f) {
-            Listener.isFocus = false;
+            //Listener.isFocus = false;
             if (Input.GetKeyDown(interactKey)) {
                 switch (skull)
                 {

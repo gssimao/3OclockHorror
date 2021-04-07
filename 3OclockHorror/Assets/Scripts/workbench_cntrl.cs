@@ -63,7 +63,7 @@ public class workbench_cntrl : MonoBehaviour
         float dist = Vector3.Distance(player.transform.position, transform.position); //Get the position of player
         if (dist <= 0.25f) //If the player is in range
         {
-            Listener.isFocus = false;
+            //Listener.isFocus = false;
             if (uControls.Player.Interact.triggered && !active)
             {
                 IM.ActivateInventory(myInv);
@@ -100,27 +100,4 @@ public class workbench_cntrl : MonoBehaviour
         }
         return false;
     }*/
-
-    //Used for Scene Manager
-
-    public void setPlayerObject(GameObject input)// used for sceneManager script
-    {
-        player = input;
-    }
-    public GameObject getPlayerObject()
-    {
-        return player;
-    }
-    public void setmyInvDisplay(GameObject input)
-    {
-        myInvDisplay = input;
-    }
-    public void setIM(InventoryManager input)
-    {
-        IM = input;
-    }
-    public void settooltip(GameObject input)
-    {
-        tooltip = input;
-    }
 }

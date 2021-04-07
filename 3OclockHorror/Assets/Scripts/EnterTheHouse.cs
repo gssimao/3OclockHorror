@@ -50,7 +50,7 @@ public class EnterTheHouse : MonoBehaviour
 
         if (dist <= range)
         {
-            Listener.isFocus = false;
+            //Listener.isFocus = false;
             if (uControls.Player.Interact.triggered)
             {
                 if (plyinv.ContainsItem(key) && EntrancePuzzle.solved)

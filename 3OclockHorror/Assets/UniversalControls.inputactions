@@ -36,6 +36,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "MouseDown",
+                    "type": "Button",
+                    "id": "f22578ee-c8d5-4689-af5f-4eada7acb5b9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -234,6 +242,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "PauseMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "478d1c60-c6a0-4edf-bae0-a0dc8cda9623",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseDown",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

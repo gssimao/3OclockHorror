@@ -32,7 +32,7 @@ public class redbookOpener : MonoBehaviour
         float dist = Vector3.Distance(player.transform.position, this.transform.position);
         if(dist < 0.25)
         {
-            Listener.isFocus = false;
+            //Listener.isFocus = false;
             if (uControls.Player.Interact.triggered && !bookCanv.activeSelf)
             {
                 bookCanv.SetActive(true);

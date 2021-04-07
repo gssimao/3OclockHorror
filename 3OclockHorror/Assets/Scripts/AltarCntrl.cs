@@ -31,7 +31,7 @@ public class AltarCntrl : MonoBehaviour
         float dist = Vector3.Distance(this.gameObject.transform.position, player.transform.position);
         if (dist < 1.0f)
         {
-            Listener.isFocus = false;
+            //Listener.isFocus = false;
             if (uControls.Player.Interact.triggered)
             {
                 rightEnding.SetActive(true);

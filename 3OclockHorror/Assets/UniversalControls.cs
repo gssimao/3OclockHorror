@@ -49,6 +49,14 @@ public class @UniversalControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""MouseDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""f22578ee-c8d5-4689-af5f-4eada7acb5b9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -249,6 +257,17 @@ public class @UniversalControls : IInputActionCollection, IDisposable
                     ""action"": ""PauseMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""478d1c60-c6a0-4edf-bae0-a0dc8cda9623"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -267,6 +286,7 @@ public class @UniversalControls : IInputActionCollection, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Light = m_Player.FindAction("Light", throwIfNotFound: true);
         m_Player_PauseMenu = m_Player.FindAction("PauseMenu", throwIfNotFound: true);
+        m_Player_MouseDown = m_Player.FindAction("MouseDown", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -320,6 +340,7 @@ public class @UniversalControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Light;
     private readonly InputAction m_Player_PauseMenu;
+    private readonly InputAction m_Player_MouseDown;
     public struct PlayerActions
     {
         private @UniversalControls m_Wrapper;
@@ -328,6 +349,7 @@ public class @UniversalControls : IInputActionCollection, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Light => m_Wrapper.m_Player_Light;
         public InputAction @PauseMenu => m_Wrapper.m_Player_PauseMenu;
+        public InputAction @MouseDown => m_Wrapper.m_Player_MouseDown;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -349,6 +371,9 @@ public class @UniversalControls : IInputActionCollection, IDisposable
                 @PauseMenu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
                 @PauseMenu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
                 @PauseMenu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
+                @MouseDown.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseDown;
+                @MouseDown.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseDown;
+                @MouseDown.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseDown;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -365,6 +390,9 @@ public class @UniversalControls : IInputActionCollection, IDisposable
                 @PauseMenu.started += instance.OnPauseMenu;
                 @PauseMenu.performed += instance.OnPauseMenu;
                 @PauseMenu.canceled += instance.OnPauseMenu;
+                @MouseDown.started += instance.OnMouseDown;
+                @MouseDown.performed += instance.OnMouseDown;
+                @MouseDown.canceled += instance.OnMouseDown;
             }
         }
     }
@@ -384,5 +412,6 @@ public class @UniversalControls : IInputActionCollection, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnLight(InputAction.CallbackContext context);
         void OnPauseMenu(InputAction.CallbackContext context);
+        void OnMouseDown(InputAction.CallbackContext context);
     }
 }

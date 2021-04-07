@@ -95,7 +95,7 @@ public class roomCntrl : MonoBehaviour
         dist = Vector3.Distance(player.gameObject.transform.position, this.gameObject.transform.position);
         if (dist <= range)
         {
-            Listener.isFocus = false;
+            //Listener.isFocus = false;
             /*if (Input.GetKeyDown("e") && transitionOnOff)
             {
                 if (locked)

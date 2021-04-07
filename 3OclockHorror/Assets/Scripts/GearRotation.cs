@@ -15,6 +15,7 @@ public class GearRotation : MonoBehaviour
 
     private void OnMouseOver()
     {
+        Debug.Log("rewa");
         if (Input.GetMouseButtonUp(1)) //this should turn the big to the right
         {
             movement = ControlBound(movement, true);

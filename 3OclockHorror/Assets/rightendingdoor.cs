@@ -53,7 +53,7 @@ public class rightendingdoor : MonoBehaviour
         float dist = Vector3.Distance(player.gameObject.transform.position, this.gameObject.transform.position);
         if (dist <= 1f)
         {
-            Listener.isFocus = false;
+            //Listener.isFocus = false;
             if (uControls.Player.Interact.triggered && transitionOnOff)
             {
                 if(locked)

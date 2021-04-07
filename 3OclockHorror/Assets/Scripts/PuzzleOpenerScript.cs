@@ -58,7 +58,7 @@ public class PuzzleOpenerScript : MonoBehaviour
 
         if(dist <= range)
         {
-            listener.isFocus = false;
+            //listener.isFocus = false;
             if (uControls.Player.Interact.triggered)
             {
                 if (!opened)

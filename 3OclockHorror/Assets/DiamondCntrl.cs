@@ -30,7 +30,7 @@ public class DiamondCntrl : MonoBehaviour
             float dist = Vector2.Distance(this.gameObject.transform.position, player.transform.position);
             if(dist < 1)
             {
-                Listener.isFocus = false;
+                //Listener.isFocus = false;
                 if (uControls.Player.Interact.triggered)
                 {
                     diamondTaken = true;
