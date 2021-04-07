@@ -58,7 +58,6 @@ public class drawingPuzzle : MonoBehaviour
         manager = FindObjectOfType<AudioManager>();
     }
 
-
     // Update is called once per frame
     void Update()
     {
@@ -249,8 +248,6 @@ public class drawingPuzzle : MonoBehaviour
         if (passed)
         {
             manager.Play("Book success", true);
-
-            Debug.Log("Doint correct things");
 
             if(msgSent == false)
             {

@@ -28,6 +28,10 @@ public class rightendingdoor : MonoBehaviour
 
     public Animator Fade;
 
+    [SerializeField]
+    TaskListTracker tasklist;
+    bool taskGiven = false;
+
     bool opened = false;
     public bool transitionOnOff = true; //Use this toggle the transition on and off
     float transitionTime = 0.5f;
@@ -51,7 +55,7 @@ public class rightendingdoor : MonoBehaviour
     void Update()
     {
         float dist = Vector3.Distance(player.gameObject.transform.position, this.gameObject.transform.position);
-        if (dist <= 1f)
+        if (dist <= 0.5f)
         {
             //Listener.isFocus = false;
             if (uControls.Player.Interact.triggered && transitionOnOff)
@@ -59,6 +63,12 @@ public class rightendingdoor : MonoBehaviour
                 if(locked)
                 {
                     CheckKey();
+                }
+
+                if (!taskGiven)
+                {
+                    tasklist.updateList("\n - The door has a cross shaped hole, and appears to be linked to the four surrounding symbols");
+                    taskGiven = true;
                 }
 
                 if (player != null && !locked) //Make sure it's not null, check if door is locked
@@ -91,7 +101,7 @@ public class rightendingdoor : MonoBehaviour
 
             if (locked)
             {
-                toolTipScript.UpdateTooltipMessage("This door is locked.");
+                toolTipScript.UpdateTooltipMessage("The handle won't budge - there appears to be a cross shaped slot.");
                 if (manager != null)
                 {
                     manager.Play("Locked Door", false);

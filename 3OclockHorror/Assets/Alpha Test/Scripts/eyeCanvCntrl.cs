@@ -72,6 +72,7 @@ public class eyeCanvCntrl : MonoBehaviour
         float y = Random.Range(0, maxY);
 
         GameObject eye = Instantiate(prefEye, new Vector3(x, y), new Quaternion(0, 0, 0, 0), this.transform);
+        eye.transform.SetAsFirstSibling();
         eyes.Add(eye);
     }
 }

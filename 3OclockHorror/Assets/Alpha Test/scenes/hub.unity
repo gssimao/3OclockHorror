@@ -2295,7 +2295,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 447375234}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14372,7 +14372,7 @@ RectTransform:
   m_Children:
   - {fileID: 1096585397}
   m_Father: {fileID: 447375234}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -26601,8 +26601,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 261414606}
   - {fileID: 47326319}
+  - {fileID: 261414606}
   m_Father: {fileID: 0}
   m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -26628,7 +26628,7 @@ MonoBehaviour:
   anim: {fileID: 1096585400}
   eyes: []
   prefEye: {fileID: 47326316}
-  perChance: 10
+  perChance: 1
 --- !u!1 &448312948
 GameObject:
   m_ObjectHideFlags: 0
@@ -46959,7 +46959,7 @@ MonoBehaviour:
   answerTwo: {fileID: 1118109762}
   answerThree: {fileID: 1919594503}
   answerFour: {fileID: 1781990238}
-  anxBoard: {fileID: 0}
+  anxBoard: {fileID: 1396992268}
   anxiety: {fileID: 2041845893}
   LineParent: {fileID: 133932641}
   lineConnection: {fileID: 2142433026}
@@ -47182,6 +47182,7 @@ MonoBehaviour:
   - {fileID: 638825486}
   - {fileID: 2041313176}
   Fade: {fileID: 592893175}
+  tasklist: {fileID: 1223795197}
   transitionOnOff: 1
 --- !u!1 &831254953
 GameObject:

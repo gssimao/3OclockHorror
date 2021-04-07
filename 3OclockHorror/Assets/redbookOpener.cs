@@ -38,7 +38,7 @@ public class redbookOpener : MonoBehaviour
                 bookCanv.SetActive(true);
                 if(msgSent == false)
                 {
-                    taskList.updateList("\n - Hmm - I wonder what this book does.");
+                    taskList.updateList("\n - The book appears to have a weird symbol, and part of another one - I wonder what they do");
                     msgSent = true;
                 }
             }
