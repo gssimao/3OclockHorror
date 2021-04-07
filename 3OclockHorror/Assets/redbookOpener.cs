@@ -15,6 +15,17 @@ public class redbookOpener : MonoBehaviour
     [SerializeField]
     TaskListTracker taskList;
     bool msgSent = false;
+
+    UniversalControls uControls;
+    private void Awake()
+    {
+        uControls = new UniversalControls();
+        uControls.Enable();
+    }
+    private void OnDisable()
+    {
+        uControls.Disable();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -22,7 +33,7 @@ public class redbookOpener : MonoBehaviour
         if(dist < 0.25)
         {
             Listener.isFocus = false;
-            if (Input.GetKeyDown("e") && !bookCanv.activeSelf)
+            if (uControls.Player.Interact.triggered && !bookCanv.activeSelf)
             {
                 bookCanv.SetActive(true);
                 if(msgSent == false)

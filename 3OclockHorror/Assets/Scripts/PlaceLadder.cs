@@ -22,6 +22,17 @@ public class PlaceLadder : MonoBehaviour
     Item ladAcquired;
 
     float dist;
+
+    UniversalControls uControls;
+    private void Awake()
+    {
+        uControls = new UniversalControls();
+        uControls.Enable();
+    }
+    private void OnDisable()
+    {
+        uControls.Disable();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +46,7 @@ public class PlaceLadder : MonoBehaviour
 
         if(dist <= 0.5f && ladAcquired == null)
         {
-            if(Input.GetKeyDown("e"))
+            if(uControls.Player.Interact.triggered)
             {
                 if(plyInv.ContainsItem(Ladder))
                 {
@@ -52,7 +63,7 @@ public class PlaceLadder : MonoBehaviour
         {
             if (dist <= 0.5f)
             {
-                if (Input.GetKeyDown("e"))
+                if (uControls.Player.Interact.triggered)
                 {
                     LadderFunction();
                 }

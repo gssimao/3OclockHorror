@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class LightMatch : MonoBehaviour
 {
@@ -18,6 +19,19 @@ public class LightMatch : MonoBehaviour
     Vector3 large = new Vector3(0.5f, 0.5f, 0);
     AudioManager manager;
 
+    UniversalControls uControls;
+
+    private void Awake()
+    {
+        uControls = new UniversalControls();
+        uControls.Enable();
+        //uControls.Player.Light.performed += Light;
+    }
+
+    private void OnDisable()
+    {
+        uControls.Disable();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -35,14 +49,9 @@ public class LightMatch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("q") && timerLock == true)
+        if (uControls.Player.Light.triggered && timerLock == true)
         {
             Light();
-
-            if (manager != null)
-            {
-                manager.Play("Match Strike", true);
-            }
         }
 
         if(timerLock == false)
@@ -65,6 +74,11 @@ public class LightMatch : MonoBehaviour
             fLight.enabled = true;
             timerLock = false;
             lightEffect.SetActive(true);
+
+            if (manager != null)
+            {
+                manager.Play("Match Strike", true);
+            }
 
             lightOn = true;
         }

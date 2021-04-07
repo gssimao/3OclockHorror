@@ -14,6 +14,17 @@ public class AltarCntrl : MonoBehaviour
     GameObject Diamond;
     [SerializeField]
     invInput Listener;
+
+    UniversalControls uControls;
+    private void Awake()
+    {
+        uControls = new UniversalControls();
+        uControls.Enable();
+    }
+    private void OnDisable()
+    {
+        uControls.Disable();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -21,7 +32,7 @@ public class AltarCntrl : MonoBehaviour
         if (dist < 1.0f)
         {
             Listener.isFocus = false;
-            if (Input.GetKeyDown("e"))
+            if (uControls.Player.Interact.triggered)
             {
                 rightEnding.SetActive(true);
 

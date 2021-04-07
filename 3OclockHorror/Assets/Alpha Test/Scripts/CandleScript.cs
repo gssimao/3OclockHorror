@@ -16,10 +16,21 @@ public class CandleScript : MonoBehaviour
 
     public float interRange;
 
+    UniversalControls uControls;
+
     AudioManager manager;
     float dist;
 
     public bool lightOn;
+    private void Awake()
+    {
+        uControls = new UniversalControls();
+        uControls.Enable();
+    }
+    private void OnDisable()
+    {
+        uControls.Disable();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +51,7 @@ public class CandleScript : MonoBehaviour
     {
         dist = Vector3.Distance(player.transform.position, this.transform.position);
 
-        if(dist <= interRange && Input.GetKeyDown("q") && !SkullCandle)
+        if(dist <= interRange && uControls.Player.Light.triggered && !SkullCandle)
         {
             if (flame.isActiveAndEnabled == false)
             {

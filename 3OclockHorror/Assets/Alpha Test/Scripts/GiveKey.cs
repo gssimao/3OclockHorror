@@ -20,6 +20,16 @@ public class GiveKey : MonoBehaviour
     AudioManager manager;
 
     float dist;
+    UniversalControls uControls;
+    private void Awake()
+    {
+        uControls = new UniversalControls();
+        uControls.Enable();
+    }
+    private void OnDisable()
+    {
+        uControls.Disable();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +45,7 @@ public class GiveKey : MonoBehaviour
         {
             Listener.isFocus = false;
 
-            if (Input.GetKeyDown("e"))
+            if (uControls.Player.Interact.triggered)
             {
                 if (manager != null)
                 {

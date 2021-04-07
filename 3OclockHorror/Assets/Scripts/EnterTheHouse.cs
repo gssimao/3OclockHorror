@@ -26,6 +26,17 @@ public class EnterTheHouse : MonoBehaviour
 
     public float dist;
     float range = 0.5f;
+
+    UniversalControls uControls;
+    private void Awake()
+    {
+        uControls = new UniversalControls();
+        uControls.Enable();
+    }
+    private void OnDisable()
+    {
+        uControls.Disable();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +51,7 @@ public class EnterTheHouse : MonoBehaviour
         if (dist <= range)
         {
             Listener.isFocus = false;
-            if (Input.GetKeyDown("e"))
+            if (uControls.Player.Interact.triggered)
             {
                 if (plyinv.ContainsItem(key) && EntrancePuzzle.solved)
                 {

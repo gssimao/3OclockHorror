@@ -22,6 +22,17 @@ public class ContainerControl : MonoBehaviour
     public invInput Listener;
     public GameObject invCanv;
 
+    UniversalControls uControls;
+    private void Awake()
+    {
+        uControls = new UniversalControls();
+        uControls.Enable();
+    }
+    private void OnDisable()
+    {
+        uControls.Disable();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,11 +61,11 @@ public class ContainerControl : MonoBehaviour
         if (dist <= interactDist) //If the player is in range
         {
             Listener.isFocus = false;
-            if (Input.GetKeyDown("e") && !active)
+            if (uControls.Player.Interact.triggered && !active)
             {
                 openInventory();
             }
-            else if (Input.GetKeyDown("e") && active)
+            else if (uControls.Player.Interact.triggered && active)
             {
                 if (invCanv.activeSelf) 
                 {

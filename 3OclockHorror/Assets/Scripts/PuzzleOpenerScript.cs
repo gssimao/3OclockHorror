@@ -34,6 +34,17 @@ public class PuzzleOpenerScript : MonoBehaviour
     bool canvasActive = false;
     bool havCoins = false;
     bool opened = false;
+
+    UniversalControls uControls;
+    private void Awake()
+    {
+        uControls = new UniversalControls();
+        uControls.Enable();
+    }
+    private void OnDisable()
+    {
+        uControls.Disable();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +59,7 @@ public class PuzzleOpenerScript : MonoBehaviour
         if(dist <= range)
         {
             listener.isFocus = false;
-            if (Input.GetKeyDown("e"))
+            if (uControls.Player.Interact.triggered)
             {
                 if (!opened)
                 {

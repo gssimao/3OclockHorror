@@ -23,6 +23,16 @@ public class FloorChanger : MonoBehaviour
 
     AudioManager manager;
 
+    UniversalControls uControls;
+    private void Awake()
+    {
+        uControls = new UniversalControls();
+        uControls.Enable();
+    }
+    private void OnDisable()
+    {
+        uControls.Disable();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +46,7 @@ public class FloorChanger : MonoBehaviour
         if (Mathf.Abs(dist) <= 0.6f)
         {
             Listener.isFocus = false;
-            if (Input.GetKeyDown("e"))
+            if (uControls.Player.Interact.triggered)
             {
                 StartCoroutine(ChangeCamera());   
             }

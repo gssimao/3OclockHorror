@@ -23,6 +23,17 @@ public class WatcherHallway : MonoBehaviour
     float dist;
     float spwnDist;
     int i = 0;
+
+    UniversalControls uControls;
+    private void Awake()
+    {
+        uControls = new UniversalControls();
+        uControls.Enable();
+    }
+    private void OnDisable()
+    {
+        uControls.Disable();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +48,7 @@ public class WatcherHallway : MonoBehaviour
         dist = Vector3.Distance(this.transform.position, player.transform.position);
         if(dist <= thisDoor.range)
         {
-            if(Input.GetKeyDown("e"))
+            if(uControls.Player.Interact.triggered)
             {
                 toggle = true;
             }

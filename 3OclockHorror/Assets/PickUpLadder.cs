@@ -20,6 +20,17 @@ public class PickUpLadder : MonoBehaviour
     bool ladTaken;
     float dist;
     float index;
+
+    UniversalControls uControls;
+    private void Awake()
+    {
+        uControls = new UniversalControls();
+        uControls.Enable();
+    }
+    private void OnDisable()
+    {
+        uControls.Disable();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +48,7 @@ public class PickUpLadder : MonoBehaviour
         {
             Listener.isFocus = false;
 
-            if(Input.GetKeyDown("e"))
+            if(uControls.Player.Interact.triggered)
             {
                 inCanv.SetActive(true);
                 Pinv.AddItem(brokenLadder);

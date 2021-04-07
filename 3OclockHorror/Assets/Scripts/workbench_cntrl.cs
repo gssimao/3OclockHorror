@@ -24,6 +24,16 @@ public class workbench_cntrl : MonoBehaviour
     public GameObject invCanv;
     //private GameObject[] ItemPopups;
 
+    UniversalControls uControls;
+    private void Awake()
+    {
+        uControls = new UniversalControls();
+        uControls.Enable();
+    }
+    private void OnDisable()
+    {
+        uControls.Disable();
+    }
     private void Start()
     {
         //ItemPopups = GameObject.FindGameObjectsWithTag("ItemPopup");
@@ -54,7 +64,7 @@ public class workbench_cntrl : MonoBehaviour
         if (dist <= 0.25f) //If the player is in range
         {
             Listener.isFocus = false;
-            if (Input.GetKeyDown("e") && !active)
+            if (uControls.Player.Interact.triggered && !active)
             {
                 IM.ActivateInventory(myInv);
                 myInv.OpenInv(); //Update the items to be in accordance with the items array
@@ -64,7 +74,7 @@ public class workbench_cntrl : MonoBehaviour
                 IM.craftField.SetActive(true);
                 tooltip.SetActive(false);
             }
-            else if (Input.GetKeyDown("e") && active)
+            else if (uControls.Player.Interact.triggered && active)
             {
                 if (invCanv.activeSelf)
                 {

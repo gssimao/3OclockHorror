@@ -31,13 +31,9 @@ public class invInput : MonoBehaviour
     {
         uControls = new UniversalControls();
         uControls.Enable();
-        uControls.Player.Interact.performed += ShowJournal;
-        uControls.Player.PauseMenu.performed += ShowPauseMenu;
     }
     private void OnDisable()
     {
-        uControls.Player.PauseMenu.performed -= ShowPauseMenu;
-        uControls.Player.Interact.performed -= ShowJournal;
         uControls.Disable();
     }
 
@@ -93,18 +89,18 @@ public class invInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //bool puzOpen = false;
+        bool puzOpen = false;
         foreach(GameObject obj in objs)
         {
             if(obj.activeSelf)
             {
-                isFocus = false;
+                puzOpen = true;
             }
         }
 
-        /*if (isFocus)
+        if (isFocus)
         {
-            if (Input.GetKeyDown(invKey) && !jInput.isFocused && !puzOpen)
+            if (uControls.Player.Interact.triggered && !jInput.isFocused && !puzOpen)
             {
                 if (Journal.activeSelf)
                 {
@@ -119,7 +115,7 @@ public class invInput : MonoBehaviour
                 }
             }
         }
-        if (Input.GetKeyDown(escKey))
+        if (uControls.Player.PauseMenu.triggered)
         {
             if (!escCanv.activeSelf)
             {
@@ -129,7 +125,7 @@ public class invInput : MonoBehaviour
             {
                 escCanv.SetActive(false);
             }
-        }*/
+        }
         isFocus = true;
     }
 

@@ -15,6 +15,17 @@ public class LockUnlock : MonoBehaviour
     float dist;
     float timer = 5f;
     float ov;
+
+    UniversalControls uControls;
+    private void Awake()
+    {
+        uControls = new UniversalControls();
+        uControls.Enable();
+    }
+    private void OnDisable()
+    {
+        uControls.Disable();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +47,7 @@ public class LockUnlock : MonoBehaviour
                         timer = ov;
                         textBox.text = "Press E to unlock the door";
 
-                        if (Input.GetKeyDown("e"))
+                        if (uControls.Player.Interact.triggered)
                         {
                             isLocked = false;
                             hasKey = false;
@@ -46,7 +57,7 @@ public class LockUnlock : MonoBehaviour
                     }
                     else
                     {
-                        if (Input.GetKeyDown("e"))
+                        if (uControls.Player.Interact.triggered)
                         {
                             timer = ov;
                             textBox.text = "The door is locked, You need a key";
@@ -58,7 +69,7 @@ public class LockUnlock : MonoBehaviour
                     timer = ov;
                     textBox.text = "Press E to unlock the door";
 
-                    if (Input.GetKeyDown("e"))
+                    if (uControls.Player.Interact.triggered)
                     {
                         isLocked = false;//unlocks the door
                     }
@@ -71,7 +82,7 @@ public class LockUnlock : MonoBehaviour
                 timer = ov;
                 textBox.text = "Press E to lock the door";
 
-                if (Input.GetKeyDown("e"))
+                if (uControls.Player.Interact.triggered)
                 {
                     isLocked = true;// locks the door
                 }

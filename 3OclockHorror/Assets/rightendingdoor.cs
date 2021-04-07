@@ -32,6 +32,16 @@ public class rightendingdoor : MonoBehaviour
     public bool transitionOnOff = true; //Use this toggle the transition on and off
     float transitionTime = 0.5f;
 
+    UniversalControls uControls;
+    private void Awake()
+    {
+        uControls = new UniversalControls();
+        uControls.Enable();
+    }
+    private void OnDisable()
+    {
+        uControls.Disable();
+    }
     void Start()
     {
         manager = FindObjectOfType<AudioManager>();
@@ -44,7 +54,7 @@ public class rightendingdoor : MonoBehaviour
         if (dist <= 1f)
         {
             Listener.isFocus = false;
-            if (Input.GetKeyDown("e") && transitionOnOff)
+            if (uControls.Player.Interact.triggered && transitionOnOff)
             {
                 if(locked)
                 {

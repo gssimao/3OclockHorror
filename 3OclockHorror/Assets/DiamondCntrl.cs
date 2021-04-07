@@ -12,7 +12,16 @@ public class DiamondCntrl : MonoBehaviour
     public invInput Listener;
     bool diamondTaken = false;
 
-
+    UniversalControls uControls;
+    private void Awake()
+    {
+        uControls = new UniversalControls();
+        uControls.Enable();
+    }
+    private void OnDisable()
+    {
+        uControls.Disable();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -22,7 +31,7 @@ public class DiamondCntrl : MonoBehaviour
             if(dist < 1)
             {
                 Listener.isFocus = false;
-                if (Input.GetKeyDown("e"))
+                if (uControls.Player.Interact.triggered)
                 {
                     diamondTaken = true;
                     EndCanv.SetActive(true);
