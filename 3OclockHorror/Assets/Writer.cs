@@ -8,27 +8,29 @@ public class Writer : MonoBehaviour
 {
     private static Writer instance;
 
-    private List <TextWriterSingle> textWriterSingleList;
+    private List<TextWriterSingle> textWriterSingleList;
 
     private void Awake()
     {
         instance = this;
         textWriterSingleList = new List<TextWriterSingle>();
     }
+
     public static TextWriterSingle AddWriter_Static(Text uiText, string textToWrite, float timePerCharacter, bool invisibleCharacters, bool removeWriterBeforeAdd, Action onComplete)
     {
-        if(removeWriterBeforeAdd)
+        if (removeWriterBeforeAdd)
         {
             instance.RemoveWriter(uiText);
         }
         return instance.AddWriter(uiText, textToWrite, timePerCharacter, invisibleCharacters, onComplete);
     }
+
     private TextWriterSingle AddWriter(Text uiText, string textToWrite, float timePerCharacter, bool invisibleCharacters, Action onComplete)
     {
         TextWriterSingle textWriterSingle = new TextWriterSingle(uiText, textToWrite, timePerCharacter, invisibleCharacters, onComplete);
         textWriterSingleList.Add(textWriterSingle);
         return textWriterSingle;
-       
+
     }
 
     public static void RemoveWriter_Static(Text uiText)
@@ -38,9 +40,9 @@ public class Writer : MonoBehaviour
 
     private void RemoveWriter(Text uiText)
     {
-        for(int i = 0; i < textWriterSingleList.Count; i++)
+        for (int i = 0; i < textWriterSingleList.Count; i++)
         {
-            if(textWriterSingleList[i].GetUIText() == uiText)
+            if (textWriterSingleList[i].GetUIText() == uiText)
             {
                 textWriterSingleList.RemoveAt(i);
                 i--;
@@ -49,8 +51,8 @@ public class Writer : MonoBehaviour
     }
     private void Update()
     {
-        /*
-         * if(textWriterSingleList.Count > 1)
+        /*TESTING
+         * if(textWriterSingleList.Count > 1) // so they do not play all at once
         {
             //if there is more than one text to be print in the list...
             //then finish playing number 1 
@@ -58,10 +60,10 @@ public class Writer : MonoBehaviour
             //play until there is no more text in the list
         }*/
 
-        for (int i =0; i < textWriterSingleList.Count; i++)
+        for (int i = 0; i < textWriterSingleList.Count; i++)
         {
             bool destroyInstance = textWriterSingleList[i].Update();
-            if(destroyInstance)
+            if (destroyInstance)
             {
                 textWriterSingleList.RemoveAt(i);
                 i--;
@@ -93,25 +95,25 @@ public class Writer : MonoBehaviour
         public bool Update()
         {
 
-             timer -= Time.deltaTime;
-             while (timer <= 0f) // printing text one by one according to timePerCharacter variable in "CallHouseText.cs"
-             {
-                  //display next character
-                  timer += timePerCharacter;
-                  characterIndex++;
-                  string text = textToWrite.Substring(0, characterIndex);
-                  if (invisibleCharacters)
-                  {
-                     text += "<color=#00000000>" + textToWrite.Substring(characterIndex) + "</color>"; // change the color to transparent and gradually change it back
-                  }
-                  uiText.text = text;
-                  if (characterIndex >= textToWrite.Length)
-                  {
+            timer -= Time.deltaTime;
+            while (timer <= 0f) // printing text one by one according to timePerCharacter variable in "CallHouseText.cs"
+            {
+                //display next character
+                timer += timePerCharacter;
+                characterIndex++;
+                string text = textToWrite.Substring(0, characterIndex);
+                if (invisibleCharacters)
+                {
+                    text += "<color=#00000000>" + textToWrite.Substring(characterIndex) + "</color>"; // change the color to transparent and gradually change it back
+                }
+                uiText.text = text;
+                if (characterIndex >= textToWrite.Length)
+                {
                     // Entire String displayed
                     if (onComplete != null) onComplete();
-                       return true;
-                  }
-             }
+                    return true;
+                }
+            }
             return false;
         }
         public Text GetUIText()

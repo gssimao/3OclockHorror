@@ -5,25 +5,86 @@ using UnityEngine.UI;
 
 public class CallHouseText : MonoBehaviour
 {
-    public GameObject MainSystem;
     int dialogProgress = 0;
+    private Queue<string> messageQueue;
     private Writer textWriter;
-    public Text dialog;
+    public Text TextUi;
     public AudioSource typewriter;
     public AudioSource DoneWriting;
     private Writer.TextWriterSingle textWriterSingle;
-
+    public Image blackTop;
+    public Button Button;
+    [SerializeField]
+    //public string[] messageArray = new string[] { }; //this is for testing
 
 
     private void Awake()
     {
-        MainSystem.SetActive(false);
+        messageQueue = new Queue<string>();
+
+        Color newColor = blackTop.color;
+        newColor.a = 0;                 // changing Alpha to zero
+        blackTop.color = newColor;      // starting transparent
+
+        Button.interactable = false;//turn off the button
 
     }
 
-    public void WriteString(string message) // this is where the calls will happen
+
+    public void ShowNewMessage()
     {
-       
+        string message; //local string that will pass on the message to the writer
+        if (textWriterSingle != null && textWriterSingle.isActive())
+        {
+            // the writer is active and currently writting
+            Debug.Log("Finishing writer");
+            textWriterSingle.WriteAndDestroy();
+        }
+        else
+        {
+            if (messageQueue.Count == 0)
+            {
+                CompleteAndTurnOff();
+
+
+            }
+            else
+            {
+                message = messageQueue.Dequeue();
+                StartTypingSound();
+                textWriterSingle = Writer.AddWriter_Static(TextUi, message, .1f, true, true, StopTypingSound);
+            }
+        }
+    }
+
+    public void SetActivateAndGrabString(Message dialogue)
+    {
+
+        Button.interactable = true;
+        messageQueue.Clear();
+
+        foreach (string message in dialogue.messagesToWrite)
+        {
+            messageQueue.Enqueue(message);
+
+        }
+
+        ShowNewMessage();
+        LeanTween.alpha(blackTop.gameObject, 1f, .7f);
+    }
+    private void CompleteAndTurnOff()
+    {
+        dialogProgress = 0;
+        TextUi.text = "";
+        Button.interactable = false;
+        //fade out with leanTween
+        LeanTween.value(blackTop.gameObject, 1f, 0, .5f).setOnUpdate((float val) =>
+        {
+            Image BlackTop = blackTop;
+            Color newColor = BlackTop.color;
+            newColor.a = val; // changing Alpha
+            BlackTop.color = newColor;
+        });
     }
     private void StartTypingSound()
     {
@@ -33,44 +94,5 @@ public class CallHouseText : MonoBehaviour
     {
         typewriter.Stop();
         DoneWriting.PlayOneShot(DoneWriting.clip);
-    }
-    public void ShowNewMessage()
-    {
-        if(textWriterSingle != null && textWriterSingle.isActive())
-        {
-            // the writer is active
-            textWriterSingle.WriteAndDestroy();
-        }
-        else
-        {
-            string[] messageArray = new string[]
-            {
-            "first message",
-            "Second message",
-            "Third message",
-            "4 message",
-            "5 message"
-            };
-            string message = messageArray[Random.Range(0, messageArray.Length)];
-            StartTypingSound();
-            textWriterSingle = Writer.AddWriter_Static(dialog, message, .1f, true, true, StopTypingSound);
-        }
-        
-
-        
-
-        /*if (messageArray.Length == dialogProgress)
-        {
-            dialogProgress = 0;
-        }
-        else
-        {
-            dialogProgress++;
-        }
-
-        string message = messageArray[dialogProgress];
-        Writer.AddWriter_Static(dialog, message, .2f, true);
-        return dialogProgress;
-        */
     }
 }
