@@ -10,7 +10,7 @@ public class sendMessage : MonoBehaviour
     public void TriggerMessage()
     {
         CallHouse.GetComponent<CallHouseText>().SetActivateAndGrabString(message);
-        CallHouse.GetComponent<CallHouseText>().ShowNewMessage();
+        //CallHouse.GetComponent<CallHouseText>().ShowNewMessage();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
