@@ -47,7 +47,6 @@ public class CallHouseText : MonoBehaviour
         {
             // the writer is active and currently writting
             textWriterSingle.WriteAndDestroy();
-            Debug.Log("we typpig I gueesss");
         }
         else
         {
@@ -62,7 +61,6 @@ public class CallHouseText : MonoBehaviour
                 message = messageQueue.Dequeue();
                 StartTypingSound();
                 textWriterSingle = Writer.AddWriter_Static(TextUi, message, .1f, true, true, StopTypingSound);
-                Debug.Log("We just sent something up to writer");
             }
         }
     }
@@ -75,14 +73,11 @@ public class CallHouseText : MonoBehaviour
         
         foreach (string message in dialogue.messagesToWrite)
         {
-            Debug.Log("got here set active nd bla ba lba");
             messageQueue.Enqueue(message);
-            Debug.Log(message + " this was a message aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
            
         }
         
         ShowNewMessage();
-        Debug.Log("got here this is the end");
         //LeanTween.alpha(blackTop.gameObject, 1f, .7f);
     }
 /*    public void DisplayNextMessage()
