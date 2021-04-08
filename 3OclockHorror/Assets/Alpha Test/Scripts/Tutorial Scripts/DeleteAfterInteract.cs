@@ -10,31 +10,42 @@ public class DeleteAfterInteract : MonoBehaviour
     public bool UseInventory;
     public bool isDone = false;
     public bool enter = false;
+
+    UniversalControls uControls;
     private void Awake()
     {
+        uControls = new UniversalControls();
+        uControls.Enable();
+
         SpriteRenderer ImageTutorial = gameObject.GetComponent<SpriteRenderer>();
         Color newColor = ImageTutorial.color;
         newColor.a = 0; // changing Alpha to zero
         ImageTutorial.color = newColor;
     }
+
+    private void OnDisable()
+    {
+        uControls.Disable();
+    }
+
     private void Update()
     {
-        if(UseE && Input.GetKeyDown(KeyCode.E) && enter)
+        if(UseE && uControls.Player.Interact.triggered && enter)
         {
             FadeoutAlpha();
             isDone = true;
         }
-        if(UseQ && Input.GetKeyDown(KeyCode.Q) && enter)
+        if(UseQ && uControls.Player.Light.triggered && enter)
         {
             FadeoutAlpha();
             isDone = true;
         }
-        if (UseWASD && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)) && enter)
+        if (UseWASD && uControls.Player.MovePlayer.triggered && enter)
         {
             FadeoutAlpha();
             isDone = true;
         }
-        if(UseInventory && Input.GetKeyDown(KeyCode.E) && enter)
+        if(UseInventory && uControls.Player.Interact.triggered && enter)
         {
             FadeoutAlpha();
             isDone = true;

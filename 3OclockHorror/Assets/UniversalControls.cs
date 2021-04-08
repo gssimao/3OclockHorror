@@ -49,14 +49,6 @@ public class @UniversalControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
-                },
-                {
-                    ""name"": ""MouseDown"",
-                    ""type"": ""Button"",
-                    ""id"": ""f22578ee-c8d5-4689-af5f-4eada7acb5b9"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -257,15 +249,69 @@ public class @UniversalControls : IInputActionCollection, IDisposable
                     ""action"": ""PauseMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""71c33e87-f7d0-4af4-a878-adca1588c9c8"",
+            ""actions"": [
+                {
+                    ""name"": ""CursorPosition"",
+                    ""type"": ""Value"",
+                    ""id"": ""08b658c3-a26b-4b13-a92a-b394d61b0507"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 },
                 {
+                    ""name"": ""Select"",
+                    ""type"": ""Button"",
+                    ""id"": ""592554d2-445d-4654-a83b-69d2551ef230"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""OtherSelect"",
+                    ""type"": ""Button"",
+                    ""id"": ""257aeca1-083e-4a75-9b06-0bc64be407f5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
                     ""name"": """",
-                    ""id"": ""478d1c60-c6a0-4edf-bae0-a0dc8cda9623"",
+                    ""id"": ""07c4b5a6-a4ce-41eb-80cb-9cc486443e41"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""MouseDown"",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f4fde8b0-2e55-4257-992f-ab0a7a0c15c5"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CursorPosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a43c9bbd-ed94-46b3-b737-99108a5f48f8"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OtherSelect"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -286,7 +332,11 @@ public class @UniversalControls : IInputActionCollection, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Light = m_Player.FindAction("Light", throwIfNotFound: true);
         m_Player_PauseMenu = m_Player.FindAction("PauseMenu", throwIfNotFound: true);
-        m_Player_MouseDown = m_Player.FindAction("MouseDown", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_CursorPosition = m_UI.FindAction("CursorPosition", throwIfNotFound: true);
+        m_UI_Select = m_UI.FindAction("Select", throwIfNotFound: true);
+        m_UI_OtherSelect = m_UI.FindAction("OtherSelect", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -340,7 +390,6 @@ public class @UniversalControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Light;
     private readonly InputAction m_Player_PauseMenu;
-    private readonly InputAction m_Player_MouseDown;
     public struct PlayerActions
     {
         private @UniversalControls m_Wrapper;
@@ -349,7 +398,6 @@ public class @UniversalControls : IInputActionCollection, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Light => m_Wrapper.m_Player_Light;
         public InputAction @PauseMenu => m_Wrapper.m_Player_PauseMenu;
-        public InputAction @MouseDown => m_Wrapper.m_Player_MouseDown;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -371,9 +419,6 @@ public class @UniversalControls : IInputActionCollection, IDisposable
                 @PauseMenu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
                 @PauseMenu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
                 @PauseMenu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
-                @MouseDown.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseDown;
-                @MouseDown.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseDown;
-                @MouseDown.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseDown;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -390,13 +435,59 @@ public class @UniversalControls : IInputActionCollection, IDisposable
                 @PauseMenu.started += instance.OnPauseMenu;
                 @PauseMenu.performed += instance.OnPauseMenu;
                 @PauseMenu.canceled += instance.OnPauseMenu;
-                @MouseDown.started += instance.OnMouseDown;
-                @MouseDown.performed += instance.OnMouseDown;
-                @MouseDown.canceled += instance.OnMouseDown;
             }
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private IUIActions m_UIActionsCallbackInterface;
+    private readonly InputAction m_UI_CursorPosition;
+    private readonly InputAction m_UI_Select;
+    private readonly InputAction m_UI_OtherSelect;
+    public struct UIActions
+    {
+        private @UniversalControls m_Wrapper;
+        public UIActions(@UniversalControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @CursorPosition => m_Wrapper.m_UI_CursorPosition;
+        public InputAction @Select => m_Wrapper.m_UI_Select;
+        public InputAction @OtherSelect => m_Wrapper.m_UI_OtherSelect;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void SetCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterface != null)
+            {
+                @CursorPosition.started -= m_Wrapper.m_UIActionsCallbackInterface.OnCursorPosition;
+                @CursorPosition.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnCursorPosition;
+                @CursorPosition.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnCursorPosition;
+                @Select.started -= m_Wrapper.m_UIActionsCallbackInterface.OnSelect;
+                @Select.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnSelect;
+                @Select.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnSelect;
+                @OtherSelect.started -= m_Wrapper.m_UIActionsCallbackInterface.OnOtherSelect;
+                @OtherSelect.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnOtherSelect;
+                @OtherSelect.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnOtherSelect;
+            }
+            m_Wrapper.m_UIActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @CursorPosition.started += instance.OnCursorPosition;
+                @CursorPosition.performed += instance.OnCursorPosition;
+                @CursorPosition.canceled += instance.OnCursorPosition;
+                @Select.started += instance.OnSelect;
+                @Select.performed += instance.OnSelect;
+                @Select.canceled += instance.OnSelect;
+                @OtherSelect.started += instance.OnOtherSelect;
+                @OtherSelect.performed += instance.OnOtherSelect;
+                @OtherSelect.canceled += instance.OnOtherSelect;
+            }
+        }
+    }
+    public UIActions @UI => new UIActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -412,6 +503,11 @@ public class @UniversalControls : IInputActionCollection, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnLight(InputAction.CallbackContext context);
         void OnPauseMenu(InputAction.CallbackContext context);
-        void OnMouseDown(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
+        void OnCursorPosition(InputAction.CallbackContext context);
+        void OnSelect(InputAction.CallbackContext context);
+        void OnOtherSelect(InputAction.CallbackContext context);
     }
 }

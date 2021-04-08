@@ -15,6 +15,16 @@ public class riddleOpener : MonoBehaviour
     [SerializeField]
     KeyCode interactKey;
 
+    UniversalControls uControls;
+    private void Awake()
+    {
+        uControls = new UniversalControls();
+        uControls.Enable();
+    }
+    private void OnDisable()
+    {
+        uControls.Disable();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -23,7 +33,7 @@ public class riddleOpener : MonoBehaviour
         if (dist <= 0.45f)
         {
             //Listener.isFocus = false;
-            if (Input.GetKeyDown(interactKey))
+            if (uControls.Player.Interact.triggered)
             {
                 riddleCanv.SetActive(true);
                 riddle.SetActive(true);

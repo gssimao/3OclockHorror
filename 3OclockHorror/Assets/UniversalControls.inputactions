@@ -36,14 +36,6 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
-                },
-                {
-                    "name": "MouseDown",
-                    "type": "Button",
-                    "id": "f22578ee-c8d5-4689-af5f-4eada7acb5b9",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -244,15 +236,69 @@
                     "action": "PauseMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "71c33e87-f7d0-4af4-a878-adca1588c9c8",
+            "actions": [
+                {
+                    "name": "CursorPosition",
+                    "type": "Value",
+                    "id": "08b658c3-a26b-4b13-a92a-b394d61b0507",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 },
                 {
+                    "name": "Select",
+                    "type": "Button",
+                    "id": "592554d2-445d-4654-a83b-69d2551ef230",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "OtherSelect",
+                    "type": "Button",
+                    "id": "257aeca1-083e-4a75-9b06-0bc64be407f5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
                     "name": "",
-                    "id": "478d1c60-c6a0-4edf-bae0-a0dc8cda9623",
+                    "id": "07c4b5a6-a4ce-41eb-80cb-9cc486443e41",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MouseDown",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f4fde8b0-2e55-4257-992f-ab0a7a0c15c5",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CursorPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a43c9bbd-ed94-46b3-b737-99108a5f48f8",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OtherSelect",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

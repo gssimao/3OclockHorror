@@ -25,12 +25,20 @@ public class InventoryManager : MonoBehaviour
     Inventory workbenchInv;
     ItemSlot orgSlot;
     bool dropped = false;
-    
+
+    UniversalControls uControls;
     private void Awake()
     {
+        uControls = new UniversalControls();
+        uControls.Enable();
         //Add the events to player invenotry and craft inventory as these are static. Workbench inventory will be dynamic and thus is not set.
         AddEvents(inventory);
         AddEvents(craftInventory);
+    }
+
+    private void OnDisable()
+    {
+        uControls.Disable();
     }
 
     private void Start()
@@ -95,7 +103,9 @@ public class InventoryManager : MonoBehaviour
         if(slot.Item != null)
         {
             draggableSlot.Item = slot.Item;
-            draggableSlot.transform.position = Input.mousePosition;
+            draggableSlot.transform.position = Input.mousePosition; /*new Vector3( uControls.UI.CursorPosition.ReadValue<Vector2>().x,
+                                                            uControls.UI.CursorPosition.ReadValue<Vector2>().y,
+                                                            0);*/ 
             draggableSlot.gameObject.SetActive(true);
             orgSlot = slot;
             slot.Item = null;
@@ -122,7 +132,9 @@ public class InventoryManager : MonoBehaviour
     {
         if (draggableSlot.gameObject.activeSelf)
         {
-            draggableSlot.transform.position = Input.mousePosition;
+            draggableSlot.transform.position = Input.mousePosition;/*new Vector3( uControls.UI.CursorPosition.ReadValue<Vector2>().x, 
+                                                            uControls.UI.CursorPosition.ReadValue<Vector2>().y,
+                                                            0);*/ 
         }
     }
 

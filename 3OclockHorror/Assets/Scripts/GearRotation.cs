@@ -8,7 +8,17 @@ public class GearRotation : MonoBehaviour
     public int movement = 0;
     AudioManager manager;
 
-     void Start()
+    UniversalControls uControls;
+    private void Awake()
+    {
+        uControls = new UniversalControls();
+        uControls.Enable();
+    }
+    private void OnDisable()
+    {
+        uControls.Disable();
+    }
+    void Start()
     {
         manager = FindObjectOfType<AudioManager>();
     }
@@ -16,13 +26,13 @@ public class GearRotation : MonoBehaviour
     private void OnMouseOver()
     {
         Debug.Log("rewa");
-        if (Input.GetMouseButtonUp(1)) //this should turn the big to the right
+        if (uControls.UI.OtherSelect.triggered/*Input.GetMouseButtonUp(1)*/) //this should turn the big to the right
         {
             movement = ControlBound(movement, true);
             LeanTween.rotateZ(gameObject, GearPosition[movement], .3f); // move gear
             manager.Play("Gear Turn", true);
         }
-        if (Input.GetMouseButtonUp(0)) //this should turn the big to the left
+        if (uControls.UI.Select.triggered/*Input.GetMouseButtonUp(0)*/) //this should turn the big to the left
         {
             movement = ControlBound(movement, false);
             LeanTween.rotateZ(gameObject, GearPosition[movement], .3f); // move gear

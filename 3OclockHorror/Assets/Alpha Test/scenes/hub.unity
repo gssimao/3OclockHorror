@@ -5352,7 +5352,7 @@ GameObject:
   - component: {fileID: 105141802}
   m_Layer: 8
   m_Name: Workbench
-  m_TagString: Untagged
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6353,7 +6353,7 @@ GameObject:
   - component: {fileID: 117113299}
   m_Layer: 8
   m_Name: Workbench
-  m_TagString: Untagged
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11842,7 +11842,7 @@ GameObject:
   - component: {fileID: 208140178}
   m_Layer: 8
   m_Name: RedBook
-  m_TagString: Untagged
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34626,7 +34626,7 @@ GameObject:
   - component: {fileID: 627670217}
   m_Layer: 8
   m_Name: Library (Fin)
-  m_TagString: NoteContainer
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35899,7 +35899,7 @@ GameObject:
   - component: {fileID: 653787223}
   m_Layer: 0
   m_Name: OutsideToRoom
-  m_TagString: Untagged
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36285,9 +36285,10 @@ GameObject:
   - component: {fileID: 657142128}
   - component: {fileID: 657142130}
   - component: {fileID: 657142129}
+  - component: {fileID: 657142131}
   m_Layer: 8
   m_Name: Riddle2
-  m_TagString: Untagged
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36374,6 +36375,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!58 &657142131
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657142127}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.2
 --- !u!1 &658808801
 GameObject:
   m_ObjectHideFlags: 0
@@ -42601,7 +42618,7 @@ GameObject:
   - component: {fileID: 740882891}
   m_Layer: 8
   m_Name: Ladder
-  m_TagString: Untagged
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53179,7 +53196,7 @@ GameObject:
   - component: {fileID: 937828936}
   m_Layer: 8
   m_Name: Container
-  m_TagString: Container
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57959,7 +57976,7 @@ GameObject:
   - component: {fileID: 1003445310}
   m_Layer: 8
   m_Name: Workbench
-  m_TagString: Untagged
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63279,7 +63296,7 @@ GameObject:
   - component: {fileID: 1090724819}
   m_Layer: 0
   m_Name: Pathway(HubToWestHall)
-  m_TagString: Untagged
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68751,9 +68768,10 @@ GameObject:
   - component: {fileID: 1172352723}
   - component: {fileID: 1172352725}
   - component: {fileID: 1172352724}
+  - component: {fileID: 1172352726}
   m_Layer: 8
   m_Name: Riddle1
-  m_TagString: Untagged
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68840,6 +68858,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!58 &1172352726
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172352722}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.2
 --- !u!1001 &1172391333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72213,7 +72247,7 @@ GameObject:
   - component: {fileID: 1231345893}
   m_Layer: 8
   m_Name: Spare Room
-  m_TagString: NoteContainer
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74878,7 +74912,7 @@ Transform:
   m_GameObject: {fileID: 1275899269}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.39999998, y: 0.39999998, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 1075851190}
   m_RootOrder: 0
@@ -74945,7 +74979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587a05ffee9d31248b795d76be6d5cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteMask: {fileID: 0}
+  spriteMask: {fileID: 1275899271}
   lightEffect: {fileID: 2100000, guid: 42ed5379127f09f4dbfd1b3a9be43932, type: 2}
   flick: 0
   amplitude: 0.5
@@ -79511,7 +79545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1365728518
 Transform:
   m_ObjectHideFlags: 0
@@ -92788,7 +92822,7 @@ GameObject:
   - component: {fileID: 1518529696}
   m_Layer: 0
   m_Name: BasementToOutside
-  m_TagString: Untagged
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95918,7 +95952,7 @@ GameObject:
   - component: {fileID: 1575333282}
   m_Layer: 8
   m_Name: Library (Fin)
-  m_TagString: NoteContainer
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107027,7 +107061,7 @@ GameObject:
   - component: {fileID: 1740517200}
   m_Layer: 0
   m_Name: OutsideToBasement
-  m_TagString: Untagged
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111163,9 +111197,10 @@ GameObject:
   - component: {fileID: 1805438135}
   - component: {fileID: 1805438137}
   - component: {fileID: 1805438136}
+  - component: {fileID: 1805438138}
   m_Layer: 8
   m_Name: Riddle3
-  m_TagString: Untagged
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111252,6 +111287,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!58 &1805438138
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805438134}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.2
 --- !u!1 &1806284797
 GameObject:
   m_ObjectHideFlags: 0
@@ -121312,7 +121363,7 @@ GameObject:
   - component: {fileID: 1971497859}
   m_Layer: 8
   m_Name: Library
-  m_TagString: NoteContainer
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -49,7 +49,7 @@ public class LightMatch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (uControls.Player.Light.triggered && timerLock == true)
+        if (uControls.Player.Light.triggered/*Input.GetKeyDown("q")*/ && timerLock == true)
         {
             Light();
         }

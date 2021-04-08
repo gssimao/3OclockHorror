@@ -9,6 +9,17 @@ public class BackImage : MonoBehaviour
     public int StarLocation = 0;
     public GameObject combination; // reference to the combination game object.
     Combination combine; // where the script to show or hide symbols are coded.
+
+    UniversalControls uControls;
+    private void Awake()
+    {
+        uControls = new UniversalControls();
+        uControls.Enable();
+    }
+    private void OnDisable()
+    {
+        uControls.Disable();
+    }
     private void Start()
     {
         combine = combination.GetComponent<Combination>();
@@ -16,7 +27,7 @@ public class BackImage : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (Input.GetMouseButtonUp(1)) //this should turn to the right
+        if (uControls.UI.OtherSelect.triggered/*Input.GetMouseButtonUp(1)*/) //this should turn to the right
         {
             StarLocation++;
             if (StarLocation > 3)
@@ -31,7 +42,7 @@ public class BackImage : MonoBehaviour
             combine.callImage();
             
         }
-        if (Input.GetMouseButtonUp(0)) //this should turn to the left
+        if (uControls.UI.Select.triggered/*Input.GetMouseButtonUp(0)*/) //this should turn to the left
         {
             StarLocation--;
             if (StarLocation < 0)

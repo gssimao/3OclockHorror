@@ -53,6 +53,17 @@ public class drawingPuzzle : MonoBehaviour
     bool symFour = false;
     bool anx = false;
 
+    UniversalControls uControls;
+    private void Awake()
+    {
+        uControls = new UniversalControls();
+        uControls.Enable();
+    }
+    private void OnDisable()
+    {
+        uControls.Disable();
+    }
+
     void Start()
     {
         manager = FindObjectOfType<AudioManager>();
@@ -61,7 +72,7 @@ public class drawingPuzzle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1) && selected != null) //If the mouse is right clicked and there is a selected point, deselect it
+        if (uControls.UI.OtherSelect.triggered/*Input.GetMouseButtonDown(1)*/ && selected != null) //If the mouse is right clicked and there is a selected point, deselect it
         {
             resetSelection();
         }

@@ -136,6 +136,16 @@ public class TableManager : MonoBehaviour
     public GameObject blackaqr2;
     public GameObject blackaqr3;
 
+    UniversalControls uControls;
+    private void Awake()
+    {
+        uControls = new UniversalControls();
+        uControls.Enable();
+    }
+    private void OnDisable()
+    {
+        uControls.Disable();
+    }
     private void Start()
     {
         
@@ -207,7 +217,7 @@ public class TableManager : MonoBehaviour
     private void OnMouseOver()
     {
 
-        if (Input.GetMouseButtonUp(0)) //this should turn the big to the left
+        if (uControls.UI.Select.triggered/*Input.GetMouseButtonUp(0)*/) //this should turn the big to the left
         {
 
             //adjusting table before rotating
@@ -235,7 +245,7 @@ public class TableManager : MonoBehaviour
                 
             }
         }
-        if (Input.GetMouseButtonUp(1)) //this should turn the big to the right
+        if (uControls.UI.OtherSelect.triggered/*Input.GetMouseButtonUp(1)*/) //this should turn the big to the right
         {
             //adjusting table before rotating
             tablePosition--;

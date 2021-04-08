@@ -92,6 +92,9 @@ public class roomCntrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Input: " + Input.mousePosition + "\n uControls: " + new Vector3(uControls.UI.CursorPosition.ReadValue<Vector2>().x,
+                                                            uControls.UI.CursorPosition.ReadValue<Vector2>().y,
+                                                            0));
         dist = Vector3.Distance(player.gameObject.transform.position, this.gameObject.transform.position);
         if (dist <= range)
         {

@@ -17,7 +17,16 @@ public class RotationBigGear : MonoBehaviour
     // we need this reference to keep track of the position of the other gears. 
     //smallGear.GetComponent<RotationSmallGear>().Smallmovement;
 
-
+    UniversalControls uControls;
+    private void Awake()
+    {
+        uControls = new UniversalControls();
+        uControls.Enable();
+    }
+    private void OnDisable()
+    {
+        uControls.Disable();
+    }
     void Start()
     {
         manager = FindObjectOfType<AudioManager>();
@@ -26,7 +35,7 @@ public class RotationBigGear : MonoBehaviour
     private void OnMouseOver()
     {
         
-        if (Input.GetMouseButtonUp(1)) //this should turn the big to the right
+        if (uControls.UI.Select.triggered/*Input.GetMouseButtonUp(1)*/) //this should turn the big to the right
         {
             manager.Play("Lock Turn",true);
             Bigmovement = ControlBound(Bigmovement, 13, true);
@@ -38,7 +47,7 @@ public class RotationBigGear : MonoBehaviour
             LeanTween.rotateZ(smallGear, smallGearPosition[smallGear.GetComponent<RotationSmallGear>().Smallmovement], .3f); // move small gear
             playSound();
         }
-        if (Input.GetMouseButtonUp(0)) //this should turn the big to the left
+        if (uControls.UI.OtherSelect.triggered/*Input.GetMouseButtonUp(0)*/) //this should turn the big to the left
         {
             Bigmovement = ControlBound(Bigmovement, 13, false);
             medGear.GetComponent<RotationMedGear>().Medmovement = ControlBound(medGear.GetComponent<RotationMedGear>().Medmovement, 6, true);

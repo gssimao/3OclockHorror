@@ -16,6 +16,16 @@ public class skullInteract : MonoBehaviour
     [SerializeField]
     invInput Listener;
 
+    UniversalControls uControls;
+    private void Awake()
+    {
+        uControls = new UniversalControls();
+        uControls.Enable();
+    }
+    private void OnDisable()
+    {
+        uControls.Disable();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -23,7 +33,7 @@ public class skullInteract : MonoBehaviour
         
         if (dist <= 0.25f) {
             //Listener.isFocus = false;
-            if (Input.GetKeyDown(interactKey)) {
+            if (uControls.Player.Interact.triggered) {
                 switch (skull)
                 {
                     case 1:
