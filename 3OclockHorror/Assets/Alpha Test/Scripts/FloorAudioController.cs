@@ -18,11 +18,12 @@ public class FloorAudioController : MonoBehaviour
 
     float t = 0;
     public int floor;
-    public int prevFloorAudio = 0;
-    int lFloor;
+    //public room Rfloor;
+    //public int prevFloorAudio = 0;
+    public int lFloor;
     public bool StopALL = false;
-    bool is1stPlaying = false;
-    bool is2ndPlaying = false;
+    public bool is2ATrue = false;
+    public bool is2BTrue = false;
 
     private void Awake()
     {
@@ -31,12 +32,14 @@ public class FloorAudioController : MonoBehaviour
 
     // Update Function, WIP not yet finished
     void Update()
-    {
-        if (t == 0)
+    {   
+        if (t <= 0)
         {
-            //Catch the last floor, might be necessary 
-            lFloor = floor;
+            lFloor = floor; //Catch the last floor
             CheckFloor();
+
+            //Rfloor = player.myRoom;
+            //lFloor = floor.floorNum;
 
             //Determine which functions are to be called
             switch (floor)
@@ -50,7 +53,7 @@ public class FloorAudioController : MonoBehaviour
                 case 3:
                     PlayFloorThree();
                     break;
-                case 4:
+                case 0:
                     PlayBasement();
                     break;
                 case 20:
@@ -95,7 +98,7 @@ public class FloorAudioController : MonoBehaviour
     public void StopSoundTrack()
     {
         StopALL = true;
-        checkPrevFloor();
+        checkPrevFloor(floor);
     }
 
     private void playSound(string sound)
@@ -110,36 +113,29 @@ public class FloorAudioController : MonoBehaviour
         }
     }
 
-    public void checkPrevFloor()
+    public void checkPrevFloor(int floorN)
     {
-        switch(prevFloorAudio)
-        {
-            case 0:
-                prevFloorAudio = floor;
-                break;
+        switch(floorN)
+        { 
             case 1:
-                manager.StartFade("Drone", 2);
-                manager.StartFade("Game ST", 2);
-                //manager.Stop("Drone");
-                //manager.Stop("Game ST");
-                //manager.Play("Test", false);
-                prevFloorAudio = floor;
+                //manager.StartFade("Drone", 2);
+                //manager.StartFade("Game ST", 2);
+                manager.Stop("Drone");
+                manager.Stop("Game ST");
                 break;
             case 2:
-                manager.StartFade("2nd Floor ST", 2);
-                //manager.Stop("2nd Floor ST");
-                prevFloorAudio = floor;
-                //manager.Play("Test", false);
+                //manager.StartFade("2nd Floor ST", 2);
+                manager.Stop("2nd Floor ST");
                 break;
             case 3:
-                manager.StartFade("3rd Floor ST", 2);
-                prevFloorAudio = floor;
-                //manager.Play("Test", false);
+                manager.Stop("3rd Floor ST");
+                //manager.StartFade("3rd Floor ST", 2);
                 break;
             case 4:
-                manager.StartFade("Basement ST", 2);
-                prevFloorAudio = floor;
-                //manager.Play("Test", false);    
+                //manager.StartFade("Basement ST", 2);
+                manager.Stop("Basement ST");
+                break;
+            default:
                 break;
         }
     }
@@ -150,11 +146,10 @@ public class FloorAudioController : MonoBehaviour
     #region Floor One
     public void PlayFloorOne()
     {
-        if (StopALL == false && prevFloorAudio != floor)
+        if (StopALL == false && floor != lFloor && player.myRoom.getName() != "Outside")
         {
             Debug.Log("Passed check");
-
-            checkPrevFloor();
+            checkPrevFloor(lFloor);
             playSound("Drone");
             playSound("Game ST");
             manager.Stop("Heavy Wind");
@@ -165,45 +160,69 @@ public class FloorAudioController : MonoBehaviour
     #region Floor Two
     public void CheckFloorTwo()
     {
-        foreach(room room in Floor2A)
+        PlayFloorTwoA(); // Test
+        foreach (room room in Floor2A)
         {
             if(player.myRoom == room)
             {
-                PlayFloorTwoB();
+                //Debug.Log("Passed check2B");
+                PlayFloorTwoA();
             }
             else
             {
                 //Can either keep as is or write code to check rooms on left side
-                PlayFloorTwoA();
+                PlayFloorTwoB();
+                //Debug.Log("Passed check2A");
             }
         }
     }
     public void PlayFloorTwoA()
     {
-        if (StopALL == false && prevFloorAudio != floor)
+        if (StopALL == false && floor != lFloor && is2ATrue == false)
         {
-            checkPrevFloor();
-            //playSound("2nd Floor ST");
+            checkPrevFloor(lFloor);
             manager.Play("2nd Floor ST", false);
+            is2ATrue = true;
+            if (is2BTrue == true)
+                manager.Stop("Heavy Wind");
+            is2BTrue = false;
         }
     }
     public void PlayFloorTwoB()
     {
-        //Music for the right side goes here
+        if (StopALL == false && floor != lFloor && is2BTrue == false)
+        {
+            checkPrevFloor(lFloor);
+            manager.Play("Heavy Wind", false);
+            is2BTrue = true;
+            if (is2ATrue == true)
+                manager.Stop("2nd Floor ST");
+            is2ATrue = false;
+        }
     }
     #endregion
     //Functions for floor three
     #region Floor Three
     public void PlayFloorThree()
     {
-        //Music for floor 3 should be played here
+        if (StopALL == false && floor != lFloor)
+        {
+            Debug.Log("Passed 3rd floor check");
+            checkPrevFloor(lFloor);
+            playSound("3rd Floor ST");
+        }
     }
-    #endregion
+    #endregion 
     //Functions for basement
     #region Basement
     public void PlayBasement()
     {
-        //Music for the basement would be played from here
+        if (StopALL == false && floor != lFloor)
+        {
+            Debug.Log("Passed Basement check");
+            checkPrevFloor(lFloor);
+            playSound("Basemment");
+        }
     }
     #endregion
     //In case of error
@@ -211,7 +230,7 @@ public class FloorAudioController : MonoBehaviour
     public void FloorControlError()
     {
         Debug.LogError("The Audio Floor Controller script has broken, due to a bug.");
-        if(floor == 20)
+        if(lFloor == 20)
         {
             Debug.Log("The error was in the Player's floor. The floor could not be reconciled with possible floors.");
         }

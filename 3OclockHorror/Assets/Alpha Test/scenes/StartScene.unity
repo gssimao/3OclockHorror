@@ -4383,6 +4383,7 @@ MonoBehaviour:
   flame: {fileID: 436997495}
   LeaveOn: 1
   interRange: 1
+  lightOn: 0
 --- !u!108 &436997495
 Light:
   m_ObjectHideFlags: 0
@@ -5001,9 +5002,9 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - name: Snow footsteps
-    clip: {fileID: 8300000, guid: 243203fb20472fa4985db739c25ac67f, type: 3}
-    volume: 0.5
+  - name: Snow Footsteps
+    clip: {fileID: 8300000, guid: 2e0869fbc90e7064d83010a9906d7d0e, type: 3}
+    volume: 0.2
     pitch: 1
     loop: 0
     mixerGroup: {fileID: 0}
@@ -6617,8 +6618,10 @@ MonoBehaviour:
   player: {fileID: 638425234}
   Floor2A: []
   floor: 0
-  prevFloorAudio: 0
+  lFloor: 0
   StopALL: 0
+  is2ATrue: 0
+  is2BTrue: 0
 --- !u!114 &638425224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6678,6 +6681,7 @@ MonoBehaviour:
   creep: {fileID: 0}
   TrapCtrl: {fileID: 0}
   popup: {fileID: 0}
+  escntrl: {fileID: 0}
   watcherAI: {fileID: 0}
   hourIsPlaying: 0
   clipLength: 0
@@ -6718,6 +6722,7 @@ MonoBehaviour:
   GameOverScene: 
   effectCue: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   ScreenVeins: {fileID: 0}
+  escntrl: {fileID: 0}
 --- !u!95 &638425229
 Animator:
   serializedVersion: 3
@@ -9020,6 +9025,7 @@ MonoBehaviour:
   flame: {fileID: 923450973}
   LeaveOn: 0
   interRange: 1
+  lightOn: 0
 --- !u!108 &923450973
 Light:
   m_ObjectHideFlags: 0
@@ -9584,6 +9590,7 @@ MonoBehaviour:
   flame: {fileID: 980293986}
   LeaveOn: 0
   interRange: 1
+  lightOn: 0
 --- !u!108 &980293986
 Light:
   m_ObjectHideFlags: 0
@@ -15168,6 +15175,7 @@ MonoBehaviour:
   flame: {fileID: 1513001655}
   LeaveOn: 1
   interRange: 1
+  lightOn: 0
 --- !u!108 &1513001655
 Light:
   m_ObjectHideFlags: 0
@@ -18230,6 +18238,7 @@ MonoBehaviour:
   flame: {fileID: 1795257768}
   LeaveOn: 0
   interRange: 1
+  lightOn: 0
 --- !u!108 &1795257768
 Light:
   m_ObjectHideFlags: 0
@@ -26135,6 +26144,7 @@ MonoBehaviour:
   flame: {fileID: 2100224915}
   LeaveOn: 0
   interRange: 1
+  lightOn: 0
 --- !u!108 &2100224915
 Light:
   m_ObjectHideFlags: 0

@@ -204,9 +204,14 @@ public class PlayerMovement : MonoBehaviour
             walking = false;
         }
 
-        if (walking == true && isPlaying == false && manager != null)
+        if (walking == true && isPlaying == false && manager != null && myRoom.getName() != "Outside")
         {
             manager.Play("Player Footsteps", true);
+            isPlaying = true;
+        }
+        else if (walking == true && isPlaying == false && manager != null && myRoom.getName() == "Outside")
+        {
+            manager.Play("Snow Footsteps", true);
             isPlaying = true;
         }
         else
