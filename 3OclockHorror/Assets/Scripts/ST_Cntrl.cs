@@ -5,6 +5,7 @@ using UnityEngine;
 public class ST_Cntrl : MonoBehaviour
 {
     AudioManager manager;
+    public GameObject CallHouse;
     public PlayerMovement player;
     public HuntCheckSolved huntTrap;
     public FloorAudioController myFloor;

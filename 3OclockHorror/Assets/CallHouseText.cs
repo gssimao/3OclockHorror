@@ -26,22 +26,13 @@ public class CallHouseText : MonoBehaviour
         newColor.a = 0;                 // changing Alpha to zero
         blackTop.color = newColor;      // starting transparent
 
-        //TextUi.text = ""; // setting so dialog is equalt o nothing at the start
         Button.interactable = false;//turn off the button
 
-
-
-       /* //ShowNewMessage(); //this is for testing
-        string[] localmessageArray = new string[] {"this is 1 message", "2 this is a second test", "3 test again again", "4 test test test"};
-        
-        SetActivateAndGrabString(localmessageArray);
-        ShowNewMessage();*/
     }
 
 
     public void ShowNewMessage()
     {
-        //string[]
         string message; //local string that will pass on the message to the writer
         if(textWriterSingle != null && textWriterSingle.isActive())
         {
@@ -54,7 +45,6 @@ public class CallHouseText : MonoBehaviour
             if (messageQueue.Count == 0)
             {
                 CompleteAndTurnOff();
-                Debug.Log("no more text bro");
 
 
             } 
@@ -81,15 +71,6 @@ public class CallHouseText : MonoBehaviour
         ShowNewMessage();
         LeanTween.alpha(blackTop.gameObject, 1f, .7f);
     }
-/*    public void DisplayNextMessage()
-    {
-        if (messages.Count == 0)
-        {
-            CompleteAndTurnOff();
-            return;
-        }
-        string Currentmessage = messages.Dequeue();
-    }*/
     private void CompleteAndTurnOff()
     {
         dialogProgress = 0;
