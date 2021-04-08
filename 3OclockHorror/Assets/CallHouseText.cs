@@ -46,6 +46,7 @@ public class CallHouseText : MonoBehaviour
         if(textWriterSingle != null && textWriterSingle.isActive())
         {
             // the writer is active and currently writting
+            Debug.Log("Finishing writer");
             textWriterSingle.WriteAndDestroy();
         }
         else
@@ -78,7 +79,7 @@ public class CallHouseText : MonoBehaviour
         }
         
         ShowNewMessage();
-        //LeanTween.alpha(blackTop.gameObject, 1f, .7f);
+        LeanTween.alpha(blackTop.gameObject, 1f, .7f);
     }
 /*    public void DisplayNextMessage()
     {

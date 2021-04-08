@@ -7,6 +7,8 @@ public class sendMessage : MonoBehaviour
     public Message message;
     public GameObject CallHouse;
 
+    bool active = false;
+
     public void TriggerMessage()
     {
         CallHouse.GetComponent<CallHouseText>().SetActivateAndGrabString(message);
@@ -14,7 +16,16 @@ public class sendMessage : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        TriggerMessage();
+        if (!active)
+        {
+            TriggerMessage();
+            active = true;
+            Debug.Log("Triggered");
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        active = false;
     }
 }
 
