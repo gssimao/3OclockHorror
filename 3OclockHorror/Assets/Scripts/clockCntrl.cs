@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class clockCntrl : MonoBehaviour
 {
+    //CallHouseText DialogueSript;
+    public GameObject Calltext;
     float endTime; //Stores the current end time, allows easier modification than tracking and moding systime directly
     public int WatcherTime = 240;
     public int CreepTime = 480;
@@ -48,11 +50,13 @@ public class clockCntrl : MonoBehaviour
     // Start is called before the first frame update 
     void Start()
     {
+       
         endTime = 2400.0f; //set endtime, to however long we want it to run 
         watcher.SetActive(false);
         creep.SetActive(false);
         manager = FindObjectOfType<AudioManager>();
         watcherAI = watcher.GetComponent<WatcherAI>();
+        //DialogueSript = Calltext.GetComponent<CallHouseText>();
     }
 
     // Update is called once per frame
@@ -122,8 +126,11 @@ public class clockCntrl : MonoBehaviour
                 hourIsPlaying = true;
                 manager.Play("Clock 5", false);
                 clipLength = 27 + Clock;                //clipLength was added so that Clock Tick would not play while these bells are playing.
-
-                popup.UpdateTooltipMessage("5PM: 10 hours remain.");
+                /*string[] messageArray = new string[]
+                {"5PM: 10 hours remain.", "5PM: 10 hours remain.", "test test test test ", "test test test "};
+                DialogueSript.SetActivateAndGrabString(messageArray);
+                DialogueSript.ShowNewMessage();*/
+                //popup.UpdateTooltipMessage("5PM: 10 hours remain.");
             }
             else if (Clock >= 240 && Clock <= 242 && manager != null && hourIsPlaying == false)
             {

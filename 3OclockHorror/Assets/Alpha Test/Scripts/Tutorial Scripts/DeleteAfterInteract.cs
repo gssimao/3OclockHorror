@@ -70,4 +70,5 @@ public class DeleteAfterInteract : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+   // LeanTween.alpha(gameObject, 1f, .7f);
 }

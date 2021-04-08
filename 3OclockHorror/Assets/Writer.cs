@@ -15,6 +15,7 @@ public class Writer : MonoBehaviour
         instance = this;
         textWriterSingleList = new List<TextWriterSingle>();
     }
+
     public static TextWriterSingle AddWriter_Static(Text uiText, string textToWrite, float timePerCharacter, bool invisibleCharacters, bool removeWriterBeforeAdd, Action onComplete)
     {
         if(removeWriterBeforeAdd)
@@ -23,6 +24,7 @@ public class Writer : MonoBehaviour
         }
         return instance.AddWriter(uiText, textToWrite, timePerCharacter, invisibleCharacters, onComplete);
     }
+
     private TextWriterSingle AddWriter(Text uiText, string textToWrite, float timePerCharacter, bool invisibleCharacters, Action onComplete)
     {
         TextWriterSingle textWriterSingle = new TextWriterSingle(uiText, textToWrite, timePerCharacter, invisibleCharacters, onComplete);
@@ -49,8 +51,8 @@ public class Writer : MonoBehaviour
     }
     private void Update()
     {
-        /*
-         * if(textWriterSingleList.Count > 1)
+        /*TESTING
+         * if(textWriterSingleList.Count > 1) // so they do not play all at once
         {
             //if there is more than one text to be print in the list...
             //then finish playing number 1 
