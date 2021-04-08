@@ -17,19 +17,25 @@ public class ObjectRender : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        active = true;
-        image.sprite = sprite;
-        NoteText.SetActive(true);
-        NoteText.GetComponent<Text>().text = Note;
+        if (collision.gameObject.tag == "Player")
+        {
+            active = true;
+            image.sprite = sprite;
+            NoteText.SetActive(true);
+            NoteText.GetComponent<Text>().text = Note;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        image.sprite = transparent;
-        NoteText.GetComponent<Text>().text = "";
-        NoteText.SetActive(false);
-        image.sprite = transparent;
-        active = false;
+        if (collision.gameObject.tag == "Player")
+        {
+            image.sprite = transparent;
+            NoteText.GetComponent<Text>().text = "";
+            NoteText.SetActive(false);
+            image.sprite = transparent;
+            active = false;
+        }
     }
 
     void Awake()
