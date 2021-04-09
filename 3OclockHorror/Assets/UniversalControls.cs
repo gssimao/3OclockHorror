@@ -258,9 +258,9 @@ public class @UniversalControls : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""CursorPosition"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""08b658c3-a26b-4b13-a92a-b394d61b0507"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
                 },

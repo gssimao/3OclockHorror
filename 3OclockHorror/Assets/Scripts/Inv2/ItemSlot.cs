@@ -64,11 +64,6 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
         onPointerExitEvent?.Invoke(this);
     }
 
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        onEndDragEvent?.Invoke(this);
-    }
-
     public void OnBeginDrag(PointerEventData eventData)
     {
         onBeginDragEvent?.Invoke(this);
@@ -77,6 +72,11 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
     public void OnDrag(PointerEventData eventData)
     {
         onDragEvent?.Invoke(this);
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        onEndDragEvent?.Invoke(this);
     }
 
     public void OnDrop(PointerEventData eventData)

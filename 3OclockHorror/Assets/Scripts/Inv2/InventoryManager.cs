@@ -105,7 +105,7 @@ public class InventoryManager : MonoBehaviour
             draggableSlot.Item = slot.Item;
             draggableSlot.transform.position = Input.mousePosition; /*new Vector3( uControls.UI.CursorPosition.ReadValue<Vector2>().x,
                                                             uControls.UI.CursorPosition.ReadValue<Vector2>().y,
-                                                            0);*/ 
+                                                            0);*/
             draggableSlot.gameObject.SetActive(true);
             orgSlot = slot;
             slot.Item = null;
@@ -132,9 +132,9 @@ public class InventoryManager : MonoBehaviour
     {
         if (draggableSlot.gameObject.activeSelf)
         {
-            draggableSlot.transform.position = Input.mousePosition;/*new Vector3( uControls.UI.CursorPosition.ReadValue<Vector2>().x, 
+            draggableSlot.transform.position = Input.mousePosition; /*new Vector3( uControls.UI.CursorPosition.ReadValue<Vector2>().x,
                                                             uControls.UI.CursorPosition.ReadValue<Vector2>().y,
-                                                            0);*/ 
+                                                            0);*/
         }
     }
 
