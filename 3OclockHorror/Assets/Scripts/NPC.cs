@@ -21,6 +21,10 @@ public class NPC : MonoBehaviour
     TeleportPoint BCTPPoint;
     [SerializeField]
     GameObject BCAnimationCanvas;
+    [SerializeField]
+    timePassAnimator timePasser;
+    [SerializeField]
+    GameObject TimePasserCanv;
 
     //Public (editor assigned) Variables
     public GameObject player; //The player target for the Blind Creep to head towards / check against
@@ -160,6 +164,9 @@ public class NPC : MonoBehaviour
 
         if(clock != null && targSAN != null && dist <= 0.4 && hitTmr == 0)
         {
+            TimePasserCanv.SetActive(true);
+            timePasser.prepareAnimation();
+            TimePasserCanv.SetActive(false);
             targSAN.ChangeSanity(-10);
             clock.adjustTime(120);
             hitTmr = 200;

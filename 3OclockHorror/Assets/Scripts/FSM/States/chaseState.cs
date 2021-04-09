@@ -57,7 +57,6 @@ public class chaseState : abstractFSMState
             {
                 if (!cnt && executor.myRoom == player.myRoom) //Check if its just cnt that has decided it's done, in which case hit that player
                 {
-                    Debug.Log("Hitting");
                     bool hit = executor.hit(player.gameObject);
                     if (hit) 
                     { 
