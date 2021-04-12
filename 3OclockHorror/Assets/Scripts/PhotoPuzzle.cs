@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PhotoPuzzle : MonoBehaviour
 {
+    public bool openWithNoPhotos = true; // this will determine if we open the puzzle with a photo in our inventory or not
+    public int photoFoundCount = 0;
     [SerializeField]
     Inventory plyInv;
     [SerializeField]
@@ -39,10 +41,17 @@ public class PhotoPuzzle : MonoBehaviour
                 else
                 {
                     invCanv.SetActive(true);
-
+                    photoFoundCount++;
                     photos[i].gameObject.SetActive(true);
                     plyInv.RemoveItem(photos[i].myPhoto);
-                    Debug.Log("Item: " + photos[i].myPhoto.ItemName + " at index: " + i + " has been removed");
+                    openWithNoPhotos = false;
+                    GameObject photoPuzzle = GameObject.Find("Photo Frame");
+                    photoPuzzle.GetComponent<PuzzleOpenerScript>().havePhoto = true;
+                    if(photoFoundCount == 4)
+                    {
+                        photoPuzzle.GetComponent<PuzzleOpenerScript>().allPhotoFounds = true;
+                    }
+                    //Debug.Log("Item: " + photos[i].myPhoto.ItemName + " at index: " + i + " has been removed");
                     photos.RemoveAt(i);
 
                     invCanv.SetActive(false);

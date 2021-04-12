@@ -5,8 +5,7 @@ using UnityEngine;
 public class Padlock : MonoBehaviour
 {
     [SerializeField]
-    bool solved;
-
+    public bool solved;
     //Rotating elements of the lock
     [SerializeField]
     LockControl lock1;
@@ -45,27 +44,18 @@ public class Padlock : MonoBehaviour
 
     public void CheckAnswer()
     {
-        if (!solved) //Before checking, see if the puzzle is solved already
+        //Before checking, see if the puzzle is solved already
+        if (!solved && 
+        lock1.numeral == Photo1.numeral && lock2.numeral == Photo2.numeral &&
+        lock3.numeral == Photo3.numeral && lock4.numeral == Photo4.numeral) 
         {
-            if (lock1.numeral == Photo1.numeral) //Check each photo and rotor combination to see if they match properly
+            foreach (roomCntrl door in doors) //If they all match, unlock all respective doors assigned to this function
             {
-                if (lock2.numeral == Photo2.numeral)
-                {
-                    if (lock3.numeral == Photo3.numeral)
-                    {
-                        if (lock4.numeral == Photo4.numeral)
-                        {
-                            foreach (roomCntrl door in doors) //If they all match, unlock all respective doors assigned to this function
-                            {
-                                door.locked = false;
-                            }
-                            solved = true;
-                            isSolved.SetActive(true);
-                            manager.Play("Success", false);
-                        }
-                    }
-                }
+                door.locked = false;
             }
+            solved = true;
+            isSolved.SetActive(true);
+            manager.Play("Success", false);
         }
     }
 }

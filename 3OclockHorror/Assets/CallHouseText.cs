@@ -13,19 +13,17 @@ public class CallHouseText : MonoBehaviour
     public AudioSource DoneWriting;
     private Writer.TextWriterSingle textWriterSingle;
     public Image blackTop;
+    public Image mouse;
     public Button Button;
-    [SerializeField]
-    //public string[] messageArray = new string[] { }; //this is for testing
-
+    public bool destroyBlackTop = false;
 
     private void Awake()
     {
         messageQueue = new Queue<string>();
-
         Color newColor = blackTop.color;
         newColor.a = 0;                 // changing Alpha to zero
-        blackTop.color = newColor;      // starting transparent
-
+        blackTop.color = newColor;// starting transparent
+        mouse.gameObject.SetActive(false);
         Button.interactable = false;//turn off the button
 
     }
@@ -45,14 +43,12 @@ public class CallHouseText : MonoBehaviour
             if (messageQueue.Count == 0)
             {
                 CompleteAndTurnOff();
-
-
             }
             else
             {
                 message = messageQueue.Dequeue();
                 StartTypingSound();
-                textWriterSingle = Writer.AddWriter_Static(TextUi, message, .1f, true, true, StopTypingSound);
+                textWriterSingle = Writer.AddWriter_Static(TextUi, message, .05f, true, true, StopTypingSound);
             }
         }
     }
@@ -63,14 +59,14 @@ public class CallHouseText : MonoBehaviour
         Button.interactable = true;
         messageQueue.Clear();
 
-        foreach (string message in dialogue.messagesToWrite)
+        foreach (string message in dialogue.messagesToWrite) // loading the messages
         {
             messageQueue.Enqueue(message);
-
         }
 
-        ShowNewMessage();
-        LeanTween.alpha(blackTop.gameObject, 1f, .7f);
+        ShowNewMessage(); // calling to print the first message
+        LeanTween.alpha(blackTop.rectTransform, 1f, .7f);
+        mouse.gameObject.SetActive(true);
     }
     private void CompleteAndTurnOff()
     {
@@ -78,13 +74,12 @@ public class CallHouseText : MonoBehaviour
         TextUi.text = "";
         Button.interactable = false;
         //fade out with leanTween
-        LeanTween.value(blackTop.gameObject, 1f, 0, .5f).setOnUpdate((float val) =>
+        LeanTween.alpha(blackTop.rectTransform, 0f, .7f);
+        mouse.gameObject.SetActive(false);
+        if(destroyBlackTop)
         {
-            Image BlackTop = blackTop;
-            Color newColor = BlackTop.color;
-            newColor.a = val; // changing Alpha
-            BlackTop.color = newColor;
-        });
+            Destroy(blackTop.gameObject);
+        }
     }
     private void StartTypingSound()
     {

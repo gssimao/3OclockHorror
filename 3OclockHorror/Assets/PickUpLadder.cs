@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PickUpLadder : MonoBehaviour
 {
+    public sendMessage CoinHint;
     [SerializeField]
     GameObject player;
     [SerializeField]
@@ -56,6 +57,7 @@ public class PickUpLadder : MonoBehaviour
 
                 sprite.sprite = null;
                 ladTaken = true;
+                CoinHint.TriggerMessage();
             }
         }
     }

@@ -4,8 +4,18 @@ using UnityEngine;
 
 public class PuzzleOpenerScript : MonoBehaviour
 {
+    public sendMessage CoinPuzzleIntroMessage;
+    public sendMessage CoinPuzzleReminder;
+    public sendMessage PhotoPuzzleIntroMessageNoPhotos;
+    public sendMessage PhotoPuzzleIntroMessageWithPhotos;
+    public sendMessage PhotoPuzzleMessageAllPhotosFound;
+    public bool allPhotoFounds = false;
+    public bool havePhoto = false;
+    bool reminder = false;
     [SerializeField]
     bool coinPuzzle = false;
+    [SerializeField]
+    bool PhotoPuzzle = false;
     [SerializeField]
     GameObject player;
     [SerializeField]
@@ -73,31 +83,31 @@ public class PuzzleOpenerScript : MonoBehaviour
                 }
                 else
                 {
-                   if(plyInv.ContainsItem(coins[0]))
+                   if(plyInv.ContainsItem(coins[0]) && plyInv.ContainsItem(coins[1]) && plyInv.ContainsItem(coins[2]) && plyInv.ContainsItem(coins[3]))
                    {
-                        if (plyInv.ContainsItem(coins[1]))
-                        {
-                            if (plyInv.ContainsItem(coins[2]))
-                            {
-                                if (plyInv.ContainsItem(coins[3]))
-                                {
-                                    havCoins = true;
-                                    OpenInventoryToggle();
+                        havCoins = true;
+                        OpenInventoryToggle();
 
-                                    invCan.SetActive(true);
-                                    plyInv.RemoveItem(coins[0]);
-                                    plyInv.RemoveItem(coins[1]);
-                                    plyInv.RemoveItem(coins[2]);
-                                    plyInv.RemoveItem(coins[3]);
-                                    invCan.SetActive(false);
-
-                                    taskManager.updateList("\n - I have to get the coins in their matching slots, but how?");
-                                }
-                            }
-                        }
+                         invCan.SetActive(true);
+                         plyInv.RemoveItem(coins[0]);
+                         plyInv.RemoveItem(coins[1]);
+                         plyInv.RemoveItem(coins[2]);
+                         plyInv.RemoveItem(coins[3]);
+                         invCan.SetActive(false);
+                          //taskManager.updateList("\n - I have to get the coins in their matching slots, but how?");
                    }
                    else
                     {
+                        if(!reminder)
+                        {
+                            CoinPuzzleIntroMessage.TriggerMessage();
+                            reminder = true;
+                        }
+                        else
+                        {
+                            CoinPuzzleReminder.TriggerMessage();
+                        }
+
                         //toolTipScript.TimedMessage = "I need four coins";
                     }
                 }
@@ -120,9 +130,24 @@ public class PuzzleOpenerScript : MonoBehaviour
         }
         else
         {
-
             Puzzle.SetActive(false);
             canvasActive = false;
+            if (PhotoPuzzle && allPhotoFounds == false)
+            {
+                if (havePhoto)
+                {
+                    PhotoPuzzleIntroMessageWithPhotos.TriggerMessage();
+                }
+                else
+                {
+                    PhotoPuzzleIntroMessageNoPhotos.TriggerMessage();
+                }
+                PhotoPuzzle = false;
+            }
+            if(allPhotoFounds)
+            {
+                PhotoPuzzleMessageAllPhotosFound.TriggerMessage();
+            }
         }
 
     }
