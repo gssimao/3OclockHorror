@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class rightendingdoor : MonoBehaviour
 {
+    public sendMessage MessageRedBookHint;
     //The background data for the door to work
     [SerializeField]
     PlayerMovement player;
@@ -67,7 +68,9 @@ public class rightendingdoor : MonoBehaviour
 
                 if (!taskGiven)
                 {
-                    tasklist.updateList("\n - The door has a cross shaped hole, and appears to be linked to the four surrounding symbols");
+                    //tasklist.updateList("\n - The door has a cross shaped hole, and appears to be linked to the four surrounding symbols");
+                    //message here
+                    //MessageRedBookHint.TriggerMessage();
                     taskGiven = true;
                 }
 
@@ -101,7 +104,8 @@ public class rightendingdoor : MonoBehaviour
 
             if (locked)
             {
-                toolTipScript.UpdateTooltipMessage("The handle won't budge - there appears to be a cross shaped slot.");
+                //toolTipScript.UpdateTooltipMessage("The handle won't budge - there appears to be a cross shaped slot.");
+                MessageRedBookHint.TriggerMessage();
                 if (manager != null)
                 {
                     manager.Play("Locked Door", false);

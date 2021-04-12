@@ -10,7 +10,6 @@ public class sendMessage : MonoBehaviour
     bool active = false;
     public bool instaPlay;
     public bool playOnlyOnce = true;
-    public bool gettingPadlock;
     public bool destroyMessage = false;
 
     private void Awake() // if true, it makes the message play instantly when the object attached is set to gameObject.SetActive(true);
@@ -35,18 +34,18 @@ public class sendMessage : MonoBehaviour
         }
     }
 
-    /* private void OnTriggerEnter2D(Collider2D collision)
-     {
-         if (!active)
-         {
-             TriggerMessage();
-             active = true;
-             Debug.Log("Triggered");
-         }
-     }
-     private void OnTriggerExit2D(Collider2D collision)
-     {
-         active = false;
-     }*/
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!active)
+        {
+            TriggerMessage();
+            active = true;
+            Debug.Log("Triggered");
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        active = false;
+    }
 }
 

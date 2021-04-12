@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SkullTurning : MonoBehaviour
 {
-
+    public sendMessage EndPuzzleMessage;
     public Animator SkullRotation1;
     public Animator SkullRotation2;
     public Animator SkullRotation3;
@@ -81,6 +81,8 @@ public class SkullTurning : MonoBehaviour
 
                 cn3.CandleToggle(false);
                 this.GetComponent<SkullEnd>().OpenLeftEnding();
+                EndPuzzleMessage.TriggerMessage();
+
             }
         }
     }
