@@ -59,6 +59,7 @@ public class roomCntrl : MonoBehaviour
     {
         if (transitionOnOff)
         {
+            Debug.Log("Inside Interact");
             if (locked)
             {
                 CheckKey();
@@ -249,6 +250,7 @@ public class roomCntrl : MonoBehaviour
 
     public void CheckKey()
     {
+        Debug.Log("Inside Check Key");
         if (pInv != null && MyKey != null)
         {
             if (pInv.ContainsItem(MyKey))

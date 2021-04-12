@@ -69,6 +69,18 @@ public class AbandonmentEffect : MonoBehaviour
             if(candleCount <= 0)
             {
                 sanity.ChangeSanity(-5 * Time.deltaTime/2);
+
+                if (manager != null)
+                {
+                    manager.Play("Evil_Laugh", false);
+                }
+            }
+            else
+            {
+                if (manager != null)
+                {
+                    manager.Stop("Evil_Laugh");
+                }
             }
         }
     }

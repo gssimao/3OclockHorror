@@ -8,6 +8,8 @@ public class BCKnockoutPlayer : MonoBehaviour
     timePassAnimator timePasser;
     [SerializeField]
     GameObject TimePasserCanv;
+    [SerializeField]
+    Animator plyAnim;
 
     public float x = 0;
 
