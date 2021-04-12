@@ -19,6 +19,7 @@ public class timePassAnimator : MonoBehaviour
     bool waitingToStart = false;
     bool animating = false;
     float timePassed;
+    float zdif;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,10 @@ public class timePassAnimator : MonoBehaviour
             if (animating)
             {
                 timePassed += Time.deltaTime;
+                if(timePassed >= 0.75)
+                {
+                    LeanTween.rotate(thisMinHand, new Vector3(0, 0, zdif / 2), 0.75f);
+                }
                 if (timePassed >= 2)
                 {
                     animating = false;
@@ -58,8 +63,10 @@ public class timePassAnimator : MonoBehaviour
     {
         this.gameObject.SetActive(true);
 
+        zdif = thisMinHand.transform.rotation.eulerAngles.z - referenceMinHand.transform.eulerAngles.z;
+
         LeanTween.rotate(thisHourHand, new Vector3(0, 0, referenceHourHand.transform.eulerAngles.z - 175), 1.5f);
-        LeanTween.rotate(thisMinHand, referenceMinHand.transform.eulerAngles, 1.5f);
+        LeanTween.rotate(thisMinHand, new Vector3(0, 0, zdif/2), 0.75f);
 
         Debug.LogError("Activating animation");
 
