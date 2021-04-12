@@ -25829,7 +25829,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &433479472
 RectTransform:
   m_ObjectHideFlags: 0
@@ -74732,7 +74732,7 @@ MonoBehaviour:
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
     cacheStartup: 0
-  showNavGraphs: 0
+  showNavGraphs: 1
   showUnwalkableNodes: 1
   debugMode: 0
   debugFloor: 0
@@ -108469,6 +108469,256 @@ MonoBehaviour:
   drawConnecRadius: 0
   connections: []
   waypointTag: WaypointF1
+--- !u!1 &1729292803
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1729292806}
+  - component: {fileID: 1729292805}
+  - component: {fileID: 1729292804}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1729292804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729292803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c30fb2fa80a1f7141b44bec9685d1546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: 0943e0b23b5b5294cbc3c5ba8f72c24f, type: 2}
+  slider: {fileID: 0}
+--- !u!114 &1729292805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729292803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b982c7fca211cd449950ebf61f67d8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTutorial: 1
+  mixerGroup: {fileID: 0}
+  sounds:
+  - name: Player Footsteps
+    clip: {fileID: 8300000, guid: bbbf013c78e1283428f2e3978f81074c, type: 3}
+    volume: 0.103
+    pitch: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Match Strike
+    clip: {fileID: 8300000, guid: ce8429d568acec943acb26c771321248, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Candle Light
+    clip: {fileID: 8300000, guid: 37a9309358c2d664ea12f6a4b5238a16, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Heavy Wind
+    clip: {fileID: 8300000, guid: 7e37e78550c33d648b81aba03a658387, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Door Open
+    clip: {fileID: 8300000, guid: e8c0881c742baf84ab24a45dc65dccf1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Candle Blow Out
+    clip: {fileID: 8300000, guid: bbd22c84871fbc942b895f0a46bab6c9, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Watcher Scream
+    clip: {fileID: 8300000, guid: 10e617080cfbd2c408a18861933393b0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Theme
+    clip: {fileID: 8300000, guid: 33e6adbbcba88f340a30210d53442c76, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Clock Tick
+    clip: {fileID: 8300000, guid: 4fe6836b86f56cf44a16a5234331022e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Blind Creep Footsteps
+    clip: {fileID: 8300000, guid: b82b73dd7c574df40827a55c32f490cf, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: BC Wander
+    clip: {fileID: 8300000, guid: fabb47d2ff1c3d0409df6305622eefbd, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Watcher Close
+    clip: {fileID: 8300000, guid: dcb8551d4faca28449df204e37b1b664, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Watcher Far
+    clip: {fileID: 8300000, guid: c60fd01a45f493541a0094aefeac780a, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Drone
+    clip: {fileID: 8300000, guid: 90f3c8d00f257954b8f34033a0a358df, type: 3}
+    volume: 0.34
+    pitch: 1
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Game ST
+    clip: {fileID: 8300000, guid: e22f897b3c6788249b3ea5a5a8a95ed5, type: 3}
+    volume: 0.12
+    pitch: 1
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: BC Chase
+    clip: {fileID: 8300000, guid: cb7f848dcd95e92459ffcdea8579a5ab, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Door Open
+    clip: {fileID: 8300000, guid: ab90edea3595ed24c803e5e6b05754c3, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Locked Door
+    clip: {fileID: 8300000, guid: 104accf4568c6974eb207efa1b92f56c, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Lock Turn
+    clip: {fileID: 8300000, guid: 5ffb97b82aa0b7b4eb1df15bd3ac4d59, type: 3}
+    volume: 0.502
+    pitch: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Writing
+    clip: {fileID: 8300000, guid: ecd341ded3c0fa846a70c57d0213980f, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Journal
+    clip: {fileID: 8300000, guid: 1533ff7ee80c92540975eda06f9981bf, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Success
+    clip: {fileID: 8300000, guid: 243203fb20472fa4985db739c25ac67f, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Fail
+    clip: {fileID: 8300000, guid: 58779ebed4d57934e815a28fac72ee2d, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Test
+    clip: {fileID: 8300000, guid: 243203fb20472fa4985db739c25ac67f, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: 2nd Floor ST
+    clip: {fileID: 8300000, guid: 243203fb20472fa4985db739c25ac67f, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Key pickup
+    clip: {fileID: 8300000, guid: a1879b234f1a4ed44ad10583f8c35247, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Snow Footsteps
+    clip: {fileID: 8300000, guid: 2e0869fbc90e7064d83010a9906d7d0e, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+--- !u!4 &1729292806
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729292803}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 37
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1729611763
 GameObject:
   m_ObjectHideFlags: 0
@@ -125485,7 +125735,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1987353006
 RectTransform:
   m_ObjectHideFlags: 0

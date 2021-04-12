@@ -166,7 +166,7 @@ public class NPC : MonoBehaviour
         {
             TimePasserCanv.SetActive(true);
             timePasser.prepareAnimation();
-            TimePasserCanv.SetActive(false);
+
             targSAN.ChangeSanity(-10);
             clock.adjustTime(120);
             hitTmr = 200;

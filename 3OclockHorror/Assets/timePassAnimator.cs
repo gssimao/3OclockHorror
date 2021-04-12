@@ -23,18 +23,13 @@ public class timePassAnimator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LeanTween.rotate(thisHourHand, new Vector3(0, 0, referenceHourHand.transform.eulerAngles.z - 175), 1f);
-        LeanTween.rotate(thisMinHand, referenceMinHand.transform.eulerAngles, 1f);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!waitingToStart)
-        {
-            //UpdateHandPos();
-        }
-        else
+        if(waitingToStart)
         {
             if (animating)
             {
@@ -66,6 +61,8 @@ public class timePassAnimator : MonoBehaviour
         LeanTween.rotate(thisHourHand, new Vector3(0, 0, referenceHourHand.transform.eulerAngles.z - 175), 1.5f);
         LeanTween.rotate(thisMinHand, referenceMinHand.transform.eulerAngles, 1.5f);
 
+        Debug.LogError("Activating animation");
+
         animating = true;
         timePassed = 0f;
     }
@@ -74,5 +71,9 @@ public class timePassAnimator : MonoBehaviour
     {
         UpdateHandPos();
         waitingToStart = true;
+
+        Debug.LogError("Called prepareAnimation");
+
+        this.gameObject.SetActive(false);
     }
 }
