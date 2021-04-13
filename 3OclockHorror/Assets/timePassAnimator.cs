@@ -16,6 +16,12 @@ public class timePassAnimator : MonoBehaviour
     [SerializeField]
     GameObject thisHourHand;
 
+    [Space]
+    [SerializeField]
+    Animator plyAnim;
+    [SerializeField]
+    Animator Fade;
+
     bool waitingToStart = false;
     bool animating = false;
     float timePassed;
@@ -44,8 +50,16 @@ public class timePassAnimator : MonoBehaviour
                     animating = false;
                     waitingToStart = false;
                     this.gameObject.SetActive(false);
+                    StartCoroutine(PlayWakeUpAnimation());
                 }
             }
+        }
+
+        if(Fade.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
+        {
+            Fade.gameObject.SetActive(false);
+
+            plyAnim.SetTrigger("wake");
         }
     }
 
@@ -80,5 +94,14 @@ public class timePassAnimator : MonoBehaviour
         zdif = 0f;
 
         this.gameObject.SetActive(false);
+    }
+
+    IEnumerator PlayWakeUpAnimation()
+    {
+        Fade.gameObject.SetActive(true);
+        Fade.SetTrigger("fadeOut");
+
+        yield return new WaitForSeconds(0.5f);
+        Fade.SetTrigger("fadeIn");
     }
 }

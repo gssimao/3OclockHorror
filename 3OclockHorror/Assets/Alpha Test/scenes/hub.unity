@@ -19944,9 +19944,10 @@ GameObject:
   - component: {fileID: 335026184}
   - component: {fileID: 335026183}
   - component: {fileID: 335026180}
+  - component: {fileID: 335026181}
   m_Layer: 8
   m_Name: PuzzleTable
-  m_TagString: Furniture
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20002,6 +20003,32 @@ MonoBehaviour:
   invCan: {fileID: 1044781339}
   TaskString: -Four slots for four coins, they must have some importance.
   listener: {fileID: 1677718118}
+--- !u!61 &335026181
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335026178}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.96, y: 0.67}
+    newSize: {x: 0.57, y: 0.55}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.96, y: 0.67}
+  m_EdgeRadius: 0
 --- !u!60 &335026183
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -24372,7 +24399,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timePasser: {fileID: 1631104239}
   TimePasserCanv: {fileID: 1631104234}
-  plyAnim: {fileID: 1619042898}
   x: 0
 --- !u!114 &404624916
 MonoBehaviour:
@@ -102158,6 +102184,8 @@ MonoBehaviour:
   thisMinHand: {fileID: 1030938737}
   referenceHourHand: {fileID: 2057541905}
   thisHourHand: {fileID: 2118062733}
+  plyAnim: {fileID: 1619042898}
+  Fade: {fileID: 0}
 --- !u!1 &1631481821
 GameObject:
   m_ObjectHideFlags: 0
