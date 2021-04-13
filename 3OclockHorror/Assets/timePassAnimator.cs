@@ -78,10 +78,25 @@ public class timePassAnimator : MonoBehaviour
     {
         this.gameObject.SetActive(true);
 
-        zdif = (thisMinHand.transform.rotation.eulerAngles.z - referenceMinHand.transform.eulerAngles.z);
+        Debug.Log(referenceMinHand.transform.rotation.eulerAngles);
+        if (thisMinHand.transform.rotation.eulerAngles.z >= 0 && thisMinHand.transform.rotation.eulerAngles.z <= 180)
+        {
+            zdif = (thisMinHand.transform.rotation.eulerAngles.z - referenceMinHand.transform.eulerAngles.z);
+        }
+        else if(thisMinHand.transform.rotation.eulerAngles.z >= 180 && thisMinHand.transform.rotation.eulerAngles.z <= 360)
+        {
+            zdif = (thisMinHand.transform.rotation.eulerAngles.z + referenceMinHand.transform.eulerAngles.z);
+        }
 
         LeanTween.rotate(thisHourHand, new Vector3(0, 0, referenceHourHand.transform.eulerAngles.z - 175), 1.5f);
-        LeanTween.rotate(thisMinHand, new Vector3(0, 0, zdif/2), 0.75f);
+        if (thisMinHand.transform.rotation.eulerAngles.z >= 180 && thisMinHand.transform.rotation.eulerAngles.z <= 270)
+        {
+            LeanTween.rotate(thisMinHand, new Vector3(0, 0, thisMinHand.transform.eulerAngles.z - zdif / 2), 0.75f);
+        }
+        else
+        {
+            LeanTween.rotate(thisMinHand, new Vector3(0, 0, thisMinHand.transform.eulerAngles.z + zdif / 2), 0.75f);
+        }
 
         animating = true;
         timePassed = 0f;
