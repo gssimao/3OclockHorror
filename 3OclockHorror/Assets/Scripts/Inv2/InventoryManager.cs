@@ -132,7 +132,7 @@ public class InventoryManager : MonoBehaviour
     {
         if (draggableSlot.gameObject.activeSelf)
         {
-            draggableSlot.transform.position =  new Vector3( uControls.UI.CursorPosition.ReadValue<Vector2>().x,
+            draggableSlot.transform.position = new Vector3( uControls.UI.CursorPosition.ReadValue<Vector2>().x,
                                                             uControls.UI.CursorPosition.ReadValue<Vector2>().y,
                                                             0);/*Input.mousePosition;*/
         }
