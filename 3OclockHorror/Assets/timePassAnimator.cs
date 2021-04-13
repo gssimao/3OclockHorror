@@ -35,9 +35,9 @@ public class timePassAnimator : MonoBehaviour
             if (animating)
             {
                 timePassed += Time.deltaTime;
-                if(timePassed >= 0.75)
+                if(timePassed >= 0.76)
                 {
-                    LeanTween.rotate(thisMinHand, new Vector3(0, 0, zdif / 2), 0.75f);
+                    LeanTween.rotate(thisMinHand, referenceMinHand.transform.rotation.eulerAngles, 0.75f);
                 }
                 if (timePassed >= 2)
                 {
@@ -52,6 +52,7 @@ public class timePassAnimator : MonoBehaviour
     public void UpdateHandPos()
     {
         thisMinHand.transform.rotation = referenceMinHand.transform.rotation;
+        Debug.Log(thisMinHand.transform.rotation.eulerAngles);
         //thisHourHand.transform.rotation = referenceHourHand.transform.rotation;
         //thisHourHand.transform.rotation = new Quaternion(thisHourHand.transform.rotation.x, thisHourHand.transform.rotation.y, thisHourHand.transform.rotation.z - 175, 0f);
         Vector3 rotationVector = new Vector3(0, 0, referenceHourHand.transform.eulerAngles.z - 175);
@@ -63,12 +64,10 @@ public class timePassAnimator : MonoBehaviour
     {
         this.gameObject.SetActive(true);
 
-        zdif = thisMinHand.transform.rotation.eulerAngles.z - referenceMinHand.transform.eulerAngles.z;
+        zdif = (thisMinHand.transform.rotation.eulerAngles.z - referenceMinHand.transform.eulerAngles.z);
 
         LeanTween.rotate(thisHourHand, new Vector3(0, 0, referenceHourHand.transform.eulerAngles.z - 175), 1.5f);
         LeanTween.rotate(thisMinHand, new Vector3(0, 0, zdif/2), 0.75f);
-
-        Debug.LogError("Activating animation");
 
         animating = true;
         timePassed = 0f;
@@ -78,8 +77,7 @@ public class timePassAnimator : MonoBehaviour
     {
         UpdateHandPos();
         waitingToStart = true;
-
-        Debug.LogError("Called prepareAnimation");
+        zdif = 0f;
 
         this.gameObject.SetActive(false);
     }
