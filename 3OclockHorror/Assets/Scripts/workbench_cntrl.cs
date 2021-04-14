@@ -100,4 +100,22 @@ public class workbench_cntrl : MonoBehaviour
         }
         return false;
     }*/
+    public void open()
+    {
+        IM.ActivateInventory(myInv);
+        myInv.OpenInv(); //Update the items to be in accordance with the items array
+        active = true;
+        myInvDisplay.SetActive(true);
+        invCanv.SetActive(true);
+        IM.craftField.SetActive(true);
+        tooltip.SetActive(false);
+    }
+    public void close()
+    {
+        IM.DeactivateInventory(myInv);
+        active = false;
+        invCanv.SetActive(false);
+        myInvDisplay.SetActive(false);
+        IM.craftField.SetActive(false);
+    }
 }

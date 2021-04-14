@@ -54,5 +54,6 @@ public class AnxEffect : MonoBehaviour
     {
         anxActive = true;
         eyeCanv.SetActive(true);
+        FindObjectOfType<LightMatch>().ExpandMask();
     }
 }

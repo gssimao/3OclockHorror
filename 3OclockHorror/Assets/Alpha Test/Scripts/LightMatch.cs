@@ -130,4 +130,12 @@ public class LightMatch : MonoBehaviour
             match.gameObject.SetActive(false);
         }
     }
+
+    public void ExpandMask()
+    {
+        small = new Vector3(0.6f, 0.6f, 0);
+        large = new Vector3(1f, 1f, 0);
+
+        lightMask.transform.LeanScale(small, 0.5f);
+    }
 }

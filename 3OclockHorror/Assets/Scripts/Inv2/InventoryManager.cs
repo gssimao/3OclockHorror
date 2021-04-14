@@ -167,10 +167,12 @@ public class InventoryManager : MonoBehaviour
 
                     dropItemSlot.Item = null;
                 }
+                /*
                 else if (draggedItem.photo && !photoControl.Distributed)
                 {
                     photoControl.DistPhotos();
                 }
+                */
             }
         }
     }
