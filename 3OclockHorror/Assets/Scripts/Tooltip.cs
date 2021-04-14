@@ -22,6 +22,8 @@ public class Tooltip : MonoBehaviour
 
     public float timer = 0;
     public float alottedTime = 2.5f;
+
+    
     void Start()
     {
         //timer = alottedTime;
@@ -39,6 +41,13 @@ public class Tooltip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float dist = Vector3.Distance(player.transform.position, transform.position); //Get the position of player
+        if(dist <= 0.4f)
+        {
+            TooltipText.text = PromptMessage;
+            timer = 1;
+            cnvGroup.alpha = 1;
+        }
         if (timer > 0)
         {
             timer -= Time.deltaTime;
@@ -55,7 +64,7 @@ public class Tooltip : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
         TooltipText.text = PromptMessage;
     }
@@ -63,7 +72,7 @@ public class Tooltip : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         TooltipText.text = "";
-    }
+    }*/
 
     public void UpdateTooltipMessage(string update)
     {

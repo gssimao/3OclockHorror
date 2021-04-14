@@ -14,6 +14,7 @@ public class clockCntrl : MonoBehaviour
     public SanityManager sanity;
     private float sanityWait = 10;
     AudioManager manager;
+    public bool pause;
 
     [SerializeField]
     public float Clock = 0;
@@ -58,6 +59,7 @@ public class clockCntrl : MonoBehaviour
     // Start is called before the first frame update 
     void Start()
     {
+        pause = false;
         endTime = 2400.0f; //set endtime, to however long we want it to run 
         watcher.SetActive(false);
         creep.SetActive(false);
@@ -69,7 +71,7 @@ public class clockCntrl : MonoBehaviour
     void Update()
     {
 
-        if (player.myRoom != null && player.myRoom.getName() != "Outside")
+        if (player.myRoom != null && player.myRoom.getName() != "Outside" && !pause)
         {
             Clock += Time.deltaTime;
 
