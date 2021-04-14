@@ -20,8 +20,6 @@ public class EnterTheHouse : MonoBehaviour
     invInput Listener;
     [SerializeField]
     Item key;
-    [SerializeField]
-    Tooltip tooltipScript;
     AudioManager manager;
 
     public float dist;
@@ -60,7 +58,7 @@ public class EnterTheHouse : MonoBehaviour
                 }
                 else
                 {
-                    tooltipScript.TimedMessage = "Hmmm, looks like I need a key of some sort?";
+                    Tooltip.Message = "Hmmm, looks like I need a key of some sort?";
                 }
             }
         }

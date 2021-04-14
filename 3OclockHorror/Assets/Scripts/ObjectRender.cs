@@ -63,7 +63,7 @@ public class ObjectRender : MonoBehaviour
             clockctrl.pause = true;
             Debug.Log("triggered");
         }
-        if (uControls.Player.Interact.triggered && colliding && active)
+        else if (uControls.Player.Interact.triggered && colliding && active)
         {
             image.sprite = transparent;
             NoteText.GetComponent<Text>().text = "";

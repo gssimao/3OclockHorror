@@ -34,10 +34,6 @@ public class clockCntrl : MonoBehaviour
     [SerializeField]
     GameObject TrapCtrl;
 
-    [Space]
-    [SerializeField]
-    Tooltip popup;
-
     [SerializeField]
     endScreenControl escntrl;
 
@@ -231,14 +227,5 @@ public class clockCntrl : MonoBehaviour
         hourHand.GetComponent<RectTransform>().Rotate(0f, 0f, (-0.25f * (tta/2)));
         minuteHand.GetComponent<RectTransform>().Rotate(0f, 0f, (-3f * (tta/2)));
         Clock += tta;
-    }
-
-    public void SetWatcher(GameObject Input)
-    {
-        watcher = Input;
-    }
-    public void SetCreep(GameObject Input)
-    {
-        creep = Input;
     }
 }

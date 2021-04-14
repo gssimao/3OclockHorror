@@ -5,23 +5,23 @@ using UnityEngine.UI;
 
 public class Tooltip : MonoBehaviour
 {
-    public Text TooltipText;
-    private bool walked = false;
-    public GameObject player;
-    public CanvasGroup cnvGroup;
+    [SerializeField]
+    Text TooltipText;
+    [SerializeField]
+    GameObject player;
+    [SerializeField]
+    CanvasGroup cnvGroup;
 
-    //Prompt Message
-    public string PromptMessage;
-
-    //Timed Message
-    public string TimedMessage;
+    public static string Message = "";
 
     //OnStartup Message
     public bool masterSwitch = false;
     public string startupMessage = "";
 
-    public float timer = 0;
-    public float alottedTime = 2.5f;
+    [SerializeField]
+    float timer = 0;
+    [SerializeField]
+    float alottedTime = 2.5f;
 
     
     void Start()
@@ -41,12 +41,17 @@ public class Tooltip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float dist = Vector3.Distance(player.transform.position, transform.position); //Get the position of player
+        /*float dist = Vector3.Distance(player.transform.position, transform.position); //Get the position of player
         if(dist <= 0.4f)
         {
-            TooltipText.text = PromptMessage;
+            TooltipText.text = Message;
             timer = 1;
             cnvGroup.alpha = 1;
+        }*/
+        if(Message != "")
+        {
+            UpdateTooltipMessage(Message);
+            Debug.Log(Message);
         }
         if (timer > 0)
         {
@@ -74,10 +79,11 @@ public class Tooltip : MonoBehaviour
         TooltipText.text = "";
     }*/
 
-    public void UpdateTooltipMessage(string update)
+    void UpdateTooltipMessage(string update)//Type Tooltip.UpdateToolTipMessage("string goes here"), to change tooltip message from anywhere
     {
         TooltipText.text = update;
         timer = alottedTime;
         cnvGroup.alpha = 1;
+        Message = "";
     }
 }

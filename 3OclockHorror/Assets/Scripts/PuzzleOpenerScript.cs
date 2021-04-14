@@ -29,8 +29,6 @@ public class PuzzleOpenerScript : MonoBehaviour
     [SerializeField]
     float range;
     [SerializeField]
-    Tooltip toolTipScript;
-    [SerializeField]
     GameObject invCan;
 
     [Space]
@@ -107,8 +105,6 @@ public class PuzzleOpenerScript : MonoBehaviour
                         {
                             CoinPuzzleReminder.TriggerMessage();
                         }
-
-                        //toolTipScript.TimedMessage = "I need four coins";
                     }
                 }
             }

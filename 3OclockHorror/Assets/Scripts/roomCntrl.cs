@@ -11,7 +11,6 @@ public class roomCntrl : MonoBehaviour
     public GameObject entrancePointRoom;
     public PlayerMovement player;
     public invInput Listener;
-    public Tooltip toolTipScript;
 
     public bool transitionOnOff = true; //Use this toggle the transition on and off
     public float range = 0.5f;
@@ -59,7 +58,6 @@ public class roomCntrl : MonoBehaviour
     {
         if (transitionOnOff)
         {
-            Debug.Log("Inside Interact");
             if (locked)
             {
                 CheckKey();
@@ -177,7 +175,6 @@ public class roomCntrl : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player" && transitionOnOff == true)
         {
-            Debug.Log("Player should go to room: " + room2.name);
             uControls.Player.Interact.performed += Interact;
         }
         else if (collision.gameObject.tag == "Player" && transitionOnOff == false && !locked) //If its a player, this is necessary to determine what class to attempt to grab
@@ -250,7 +247,6 @@ public class roomCntrl : MonoBehaviour
 
     public void CheckKey()
     {
-        Debug.Log("Inside Check Key");
         if (pInv != null && MyKey != null)
         {
             if (pInv.ContainsItem(MyKey))
@@ -259,7 +255,7 @@ public class roomCntrl : MonoBehaviour
             }
             else
             {
-                toolTipScript.UpdateTooltipMessage("This door is locked.");
+                Tooltip.Message = "This door is locked.";
                 if(manager != null)
                 {
                     manager.Play("Locked Door", false);
@@ -277,7 +273,7 @@ public class roomCntrl : MonoBehaviour
         }
         else
         {
-            toolTipScript.UpdateTooltipMessage("This door is locked.");
+            Tooltip.Message = "This door is locked.";
             Debug.LogError("Door is locked but there is no key or inv set");
         }
     }

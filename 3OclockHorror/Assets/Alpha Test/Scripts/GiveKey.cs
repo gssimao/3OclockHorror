@@ -9,8 +9,6 @@ public class GiveKey : MonoBehaviour
     [SerializeField]
     Item key;
     [SerializeField]
-    Tooltip tooltipScript;
-    [SerializeField]
     GameObject invCanv;
     [SerializeField]
     invInput Listener;
