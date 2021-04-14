@@ -11,6 +11,7 @@ public class sendMessage : MonoBehaviour
     public bool instaPlay;
     public bool playOnlyOnce = true;
     public bool destroyMessage = false;
+    public bool StatueRoomMessageTriger = false;
 
     private void Awake() // if true, it makes the message play instantly when the object attached is set to gameObject.SetActive(true);
     {
@@ -36,7 +37,7 @@ public class sendMessage : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!active)
+        if (!active && collision.gameObject.tag == "Message")
         {
             TriggerMessage();
             active = true;
