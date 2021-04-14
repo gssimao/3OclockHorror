@@ -62,7 +62,7 @@ public class PhotoController : MonoBehaviour
 
         photoRecipie.Pieces.Clear();
         InitPuzzle();
-        Distributed = false;
+        Distributed = true;
     }
 
     public void DistPhotos() //Called once to distribute photos. Only occurs when the first photo is grabbed
@@ -126,5 +126,7 @@ public class PhotoController : MonoBehaviour
         photo.date = SelectedDate[0];
 
         LPhotos[0].InitLargePhoto(photo);
+
+        DistPhotos();
     }
 }
