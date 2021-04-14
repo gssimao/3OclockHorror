@@ -24,6 +24,7 @@ public class CallHouseText : MonoBehaviour
         newColor.a = 0;                 // changing Alpha to zero
         blackTop.color = newColor;// starting transparent
         mouse.gameObject.SetActive(false);
+        blackTop.gameObject.SetActive(false);
         Button.interactable = false;//turn off the button
 
     }
@@ -55,7 +56,7 @@ public class CallHouseText : MonoBehaviour
 
     public void SetActivateAndGrabString(Message dialogue)
     {
-
+        blackTop.gameObject.SetActive(true);
         Button.interactable = true;
         messageQueue.Clear();
 
@@ -80,6 +81,7 @@ public class CallHouseText : MonoBehaviour
         {
             Destroy(blackTop.gameObject);
         }
+        blackTop.gameObject.SetActive(false);
     }
     private void StartTypingSound()
     {
