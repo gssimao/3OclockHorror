@@ -23,6 +23,14 @@ public class drawingPuzzle : MonoBehaviour
     DrawingHolder anxBoard;
     [SerializeField]
     AnxEffect anxiety;
+    [SerializeField]
+    DrawingHolder abanBoard;
+    [SerializeField]
+    AbandonmentEffect abnEffect;
+    [SerializeField]
+    DrawingHolder profBoard;
+    [SerializeField]
+    profaneEffect profEffect;
 
     [Space]
     [SerializeField]
@@ -52,6 +60,8 @@ public class drawingPuzzle : MonoBehaviour
     bool symThree = false;
     bool symFour = false;
     bool anx = false;
+    bool abn = false; 
+    bool prof = false;
 
     UniversalControls uControls;
     private void Awake()
@@ -252,6 +262,24 @@ public class drawingPuzzle : MonoBehaviour
             if (check)
             {
                 anxiety.activateAnxiety();
+                passed = true;
+            }
+        }
+        if (!abn)
+        {
+            check = compareBoards(mainBoard, abanBoard);
+            if (check)
+            {
+                abnEffect.Activate = true;
+                passed = true;
+            }
+        }
+        if (!prof)
+        {
+            check = compareBoards(mainBoard, profBoard);
+            if (check)
+            {
+                profEffect.activateProfane();
                 passed = true;
             }
         }
