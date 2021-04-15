@@ -27,9 +27,9 @@ public class PicSlot : MonoBehaviour
         if (selectedPhoto != null)
         {
             dist = Vector3.Distance(this.transform.position, selectedPhoto.transform.position);
-            if (dist <= lockRange)
+            if (!pointerData.dragging)
             {
-                if (!pointerData.dragging)
+                if (dist <= lockRange)
                 {
                     selectedPhoto.transform.position = this.transform.position;
                     photoinSlot = selectedPhoto;

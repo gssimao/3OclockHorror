@@ -60,8 +60,7 @@ public class ObjectRender : MonoBehaviour
             image.sprite = sprite;
             NoteText.SetActive(true);
             NoteText.GetComponent<Text>().text = Note;
-            clockctrl.pause = true;
-            Debug.Log("triggered");
+            Time.timeScale = 0;
         }
         else if (uControls.Player.Interact.triggered && colliding && active)
         {
@@ -69,8 +68,8 @@ public class ObjectRender : MonoBehaviour
             NoteText.GetComponent<Text>().text = "";
             NoteText.SetActive(false);
             image.sprite = transparent;
-            clockctrl.pause = false;
             active = false;
+            Time.timeScale = 1;
         }
     }
 }

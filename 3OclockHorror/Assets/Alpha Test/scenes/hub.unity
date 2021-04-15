@@ -202,7 +202,7 @@ Transform:
   m_LocalScale: {x: 0.9105983, y: 2.0199752, z: 1.2815475}
   m_Children: []
   m_Father: {fileID: 1281250009}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 36.405}
 --- !u!68 &3078204
 EdgeCollider2D:
@@ -4524,7 +4524,7 @@ Transform:
   m_LocalScale: {x: 0.9105983, y: 2.0199752, z: 1.2815475}
   m_Children: []
   m_Father: {fileID: 1281250009}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.997}
 --- !u!68 &89703916
 EdgeCollider2D:
@@ -8179,83 +8179,6 @@ MonoBehaviour:
   WatchHallwayTrigger: 0
   watcher: {fileID: 0}
   WatcherHallway: {fileID: 0}
---- !u!1 &140408486
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 140408487}
-  - component: {fileID: 140408491}
-  - component: {fileID: 140408488}
-  m_Layer: 0
-  m_Name: Pathway(EastHallToHub)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &140408487
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140408486}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.906, y: -0.432, z: -0.01}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 721918284}
-  m_Father: {fileID: 1281250009}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &140408488
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140408486}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
---- !u!114 &140408491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140408486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7538c88a3e26da141bda21ab1ee22228, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  room1: {fileID: 1281250006}
-  room2: {fileID: 690108782}
-  entrancePointRoom: {fileID: 1557083971}
-  player: {fileID: 1619042896}
-  Listener: {fileID: 1677718118}
-  transitionOnOff: 0
-  range: 0.5
-  locked: 0
-  pInv: {fileID: 0}
-  MyKey: {fileID: 0}
-  lockCanv: {fileID: 0}
-  taskManager: {fileID: 0}
-  Fade: {fileID: 592893175}
-  WatchHallwayTrigger: 0
-  watcher: {fileID: 0}
-  WatcherHallway: {fileID: 0}
 --- !u!1 &141012631
 GameObject:
   m_ObjectHideFlags: 0
@@ -10900,10 +10823,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myPhoto: {fileID: 0}
-  me: {fileID: 192224939}
+  me: {fileID: 1138370859}
   back: {fileID: 21300000, guid: fcb572d14141a494ebf7c64f7450de89, type: 3}
-  date: {fileID: 279182673}
-  numeral: {fileID: 1316915867}
+  date: {fileID: 1266134769}
+  numeral: {fileID: 1593964598}
   pictureSlots:
   - {fileID: 1308470732}
   - {fileID: 402794858}
@@ -11022,7 +10945,7 @@ Transform:
   - {fileID: 1990577204}
   - {fileID: 285512912}
   m_Father: {fileID: 1281250009}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &195407498
 GameObject:
@@ -11326,7 +11249,7 @@ Transform:
   m_LocalScale: {x: 2.9785435, y: 0.8854757, z: 0.9664763}
   m_Children: []
   m_Father: {fileID: 1281250009}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1.134}
 --- !u!68 &199872562
 EdgeCollider2D:
@@ -11923,7 +11846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4319032879928100929, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4319032879928100929, guid: e4614c90a581e714a8d970b569b23dac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -12973,7 +12896,7 @@ Transform:
   m_LocalScale: {x: 0.9105983, y: 2.0199752, z: 1.2815475}
   m_Children: []
   m_Father: {fileID: 1281250009}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.758}
 --- !u!68 &225062553
 EdgeCollider2D:
@@ -30223,7 +30146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2422191158755921884, guid: 88e2b8f8676cf15428a1a69aa8d61b5b, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2422191158755921884, guid: 88e2b8f8676cf15428a1a69aa8d61b5b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -35895,7 +35818,7 @@ Transform:
   m_Children:
   - {fileID: 1801091898}
   m_Father: {fileID: 1281250009}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &626419259
 BoxCollider2D:
@@ -40403,7 +40326,6 @@ Transform:
   - {fileID: 590769087}
   - {fileID: 1460040879}
   - {fileID: 1090724814}
-  - {fileID: 1795530409}
   - {fileID: 1977698685}
   - {fileID: 1082024076}
   - {fileID: 204820861}
@@ -42855,36 +42777,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
---- !u!1 &721918283
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 721918284}
-  m_Layer: 0
-  m_Name: EntPoint(HEh)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &721918284
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 721918283}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.61064816, y: -0.033, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 140408487}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &722387489
 GameObject:
   m_ObjectHideFlags: 0
@@ -44425,7 +44317,7 @@ Transform:
   - {fileID: 1272704263}
   - {fileID: 281173589}
   m_Father: {fileID: 1281250009}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &741651434
 GameObject:
@@ -45413,7 +45305,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1281250009}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &753385002
 GameObject:
@@ -46124,10 +46016,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myPhoto: {fileID: 0}
-  me: {fileID: 770322183}
+  me: {fileID: 1138370859}
   back: {fileID: 21300000, guid: fcb572d14141a494ebf7c64f7450de89, type: 3}
-  date: {fileID: 269417712}
-  numeral: {fileID: 785340613}
+  date: {fileID: 1266134769}
+  numeral: {fileID: 1593964598}
   pictureSlots:
   - {fileID: 1308470732}
   - {fileID: 402794858}
@@ -49438,7 +49330,7 @@ Transform:
   m_LocalScale: {x: 1.1858922, y: 1.1858925, z: 1.1858925}
   m_Children: []
   m_Father: {fileID: 690108785}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &839082087
 BoxCollider2D:
@@ -51346,7 +51238,7 @@ Transform:
   m_Children:
   - {fileID: 59200200}
   m_Father: {fileID: 1281250009}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &873314574
 SpriteRenderer:
@@ -56222,7 +56114,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.0000038146973}
@@ -57964,7 +57856,7 @@ Transform:
   m_LocalScale: {x: 1.9244967, y: 0.9664763, z: 0.9664763}
   m_Children: []
   m_Father: {fileID: 1281250009}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!68 &973739307
 EdgeCollider2D:
@@ -65406,7 +65298,7 @@ Transform:
   - {fileID: 744439384}
   - {fileID: 1389363358}
   m_Father: {fileID: 690108785}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1082262197
 GameObject:
@@ -65757,7 +65649,7 @@ GameObject:
   - component: {fileID: 1090724819}
   - component: {fileID: 1090724815}
   m_Layer: 0
-  m_Name: Pathway(HubToWestHall)
+  m_Name: Door(HubToWestHall)
   m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65778,8 +65670,8 @@ Transform:
   m_Father: {fileID: 690108785}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &1090724815
-PolygonCollider2D:
+--- !u!58 &1090724815
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -65792,21 +65684,8 @@ PolygonCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.17, y: 1.16}
-    newSize: {x: 0.17, y: 1.16}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.18782714, y: 0.31550407}
-      - {x: -0.30814454, y: -0.10325238}
-      - {x: -0.2244336, y: -0.33708397}
-      - {x: 0.32021728, y: -0.16911721}
+  serializedVersion: 2
+  m_Radius: 0.4452957
 --- !u!114 &1090724818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76089,7 +75968,7 @@ MonoBehaviour:
     file_cachedStartup: {fileID: 4900000, guid: ab1724f28592b7546ae7e7f230245fe3, type: 3}
     data_cachedStartup: 
     cacheStartup: 1
-  showNavGraphs: 1
+  showNavGraphs: 0
   showUnwalkableNodes: 1
   debugMode: 0
   debugFloor: 0
@@ -78636,7 +78515,6 @@ Transform:
   - {fileID: 92118736}
   - {fileID: 643326179}
   - {fileID: 333776811}
-  - {fileID: 140408487}
   - {fileID: 626419258}
   - {fileID: 1956795700}
   - {fileID: 873314573}
@@ -81216,7 +81094,7 @@ Transform:
   m_LocalScale: {x: 1.1461371, y: 1.1461369, z: 1.1461369}
   m_Children: []
   m_Father: {fileID: 1281250009}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1327650362
 BoxCollider2D:
@@ -83876,10 +83754,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1381804282}
   - component: {fileID: 1381804286}
-  - component: {fileID: 1381804285}
+  - component: {fileID: 1381804283}
   m_Layer: 0
-  m_Name: Pathway(WestHallToHub)
-  m_TagString: Untagged
+  m_Name: Door(WestHallToHub)
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83899,8 +83777,8 @@ Transform:
   m_Father: {fileID: 1206698826}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &1381804285
-PolygonCollider2D:
+--- !u!58 &1381804283
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -83913,21 +83791,8 @@ PolygonCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.28586093, y: 0.64270705}
-      - {x: -0.30276686, y: 0.09974231}
-      - {x: 0.3004129, y: -0.20672056}
-      - {x: 0.32836807, y: 0.42641637}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!114 &1381804286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86880,12 +86745,12 @@ MonoBehaviour:
   date: {fileID: 1044428743}
   numeral: {fileID: 2133208134}
   pictureSlots:
-  - {fileID: 1308470732}
-  - {fileID: 402794858}
-  - {fileID: 324636042}
-  - {fileID: 901818602}
-  - {fileID: 1843004361}
-  - {fileID: 1484911534}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   interactable: 0
 --- !u!114 &1432521273
 MonoBehaviour:
@@ -98787,36 +98652,6 @@ MonoBehaviour:
   drawConnecRadius: 1
   connections: []
   waypointTag: WaypointF1
---- !u!1 &1557083971
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1557083972}
-  m_Layer: 0
-  m_Name: EntPoint(EhHub)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1557083972
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1557083971}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.31393147, y: 0.10630641, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1795530409}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1559001981
 GameObject:
   m_ObjectHideFlags: 0
@@ -101041,10 +100876,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myPhoto: {fileID: 0}
-  me: {fileID: 1586681889}
+  me: {fileID: 1138370859}
   back: {fileID: 21300000, guid: fcb572d14141a494ebf7c64f7450de89, type: 3}
-  date: {fileID: 576046205}
-  numeral: {fileID: 988181347}
+  date: {fileID: 1266134769}
+  numeral: {fileID: 1593964598}
   pictureSlots:
   - {fileID: 1308470732}
   - {fileID: 402794858}
@@ -102634,7 +102469,6 @@ MonoBehaviour:
   TrapTime: 1680
   player: {fileID: 1619042896}
   sanity: {fileID: 1619042899}
-  pause: 0
   Clock: 0
   minuteHand: {fileID: 2057541904}
   hourHand: {fileID: 2057541905}
@@ -104732,7 +104566,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -113305,7 +113139,7 @@ Transform:
   m_Children:
   - {fileID: 418686556}
   m_Father: {fileID: 1281250009}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1764798264
 MonoBehaviour:
@@ -115188,120 +115022,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
---- !u!1 &1795530408
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1795530409}
-  - component: {fileID: 1795530413}
-  - component: {fileID: 1795530412}
-  - component: {fileID: 1795530410}
-  m_Layer: 0
-  m_Name: Pathway(HubToEastHall)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1795530409
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1795530408}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.92, y: 0.052, z: -0.01}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1557083972}
-  m_Father: {fileID: 690108785}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1795530410
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1795530408}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.2276539, y: 1}
-  m_EdgeRadius: 0
---- !u!61 &1795530412
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1795530408}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.1774292, y: 1}
-  m_EdgeRadius: 0
---- !u!114 &1795530413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1795530408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7538c88a3e26da141bda21ab1ee22228, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  room1: {fileID: 690108782}
-  room2: {fileID: 1281250006}
-  entrancePointRoom: {fileID: 721918283}
-  player: {fileID: 1619042896}
-  Listener: {fileID: 1677718118}
-  transitionOnOff: 0
-  range: 0.5
-  locked: 0
-  pInv: {fileID: 0}
-  MyKey: {fileID: 0}
-  lockCanv: {fileID: 0}
-  taskManager: {fileID: 0}
-  Fade: {fileID: 592893175}
-  WatchHallwayTrigger: 1
-  watcher: {fileID: 1336144372}
-  WatcherHallway: {fileID: 1281250006}
 --- !u!1 &1796023526
 GameObject:
   m_ObjectHideFlags: 0
@@ -124786,12 +124506,12 @@ MonoBehaviour:
   date: {fileID: 1686840297}
   numeral: {fileID: 2029560488}
   pictureSlots:
-  - {fileID: 1308470732}
-  - {fileID: 402794858}
-  - {fileID: 324636042}
-  - {fileID: 901818602}
-  - {fileID: 1843004361}
-  - {fileID: 1484911534}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   interactable: 0
 --- !u!114 &1951906753
 MonoBehaviour:
@@ -125315,7 +125035,7 @@ Transform:
   m_Children:
   - {fileID: 856991123}
   m_Father: {fileID: 1281250009}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1956795701
 BoxCollider2D:
@@ -126755,7 +126475,7 @@ Transform:
   m_Children:
   - {fileID: 1006422597}
   m_Father: {fileID: 690108785}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &1977698686
 MonoBehaviour:
@@ -135333,7 +135053,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2422191158755921884, guid: 88e2b8f8676cf15428a1a69aa8d61b5b, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2422191158755921884, guid: 88e2b8f8676cf15428a1a69aa8d61b5b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

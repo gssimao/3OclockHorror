@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class LPhotoCntrl : MonoBehaviour, IBeginDragHandler, IDragHandler
+public class LPhotoCntrl : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Item myPhoto;
     public Image me;
@@ -62,5 +62,34 @@ public class LPhotoCntrl : MonoBehaviour, IBeginDragHandler, IDragHandler
         {
             transform.localPosition += new Vector3(eventData.delta.x, eventData.delta.y, 0) / transform.lossyScale.x;
         }
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        /*GetClosestObject(this.gameObject, pictureSlots);*/
+    }
+
+    void GetClosestObject(GameObject target, PicSlot[] objects)
+    {
+        int closestObject = 0;
+        int j = 0;
+        float closestDist = Mathf.Infinity;
+        Vector3 Position = target.transform.position;
+
+        foreach (PicSlot obj in objects)
+        {
+            Vector3 directionToTarget = obj.transform.position - Position;
+            float distanceToTarget = directionToTarget.sqrMagnitude;
+
+            if (distanceToTarget < closestDist)
+            {
+                closestObject = j;
+                closestDist = distanceToTarget;
+            }
+
+            j++;
+        }
+
+        target.transform.position = objects[j].transform.position;
     }
 }
