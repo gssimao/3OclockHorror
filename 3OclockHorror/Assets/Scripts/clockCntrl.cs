@@ -7,9 +7,9 @@ using UnityEngine.SceneManagement;
 public class clockCntrl : MonoBehaviour
 {
     float endTime; //Stores the current end time, allows easier modification than tracking and moding systime directly
-    public int WatcherTime = 240;
-    public int CreepTime = 480;
-    public int TrapTime = 1680;
+    public float WatcherTime = 240;
+    public float CreepTime = 480;
+    public float TrapTime = 1680;
     public PlayerMovement player;
     public SanityManager sanity;
     private float sanityWait = 10;
@@ -51,6 +51,8 @@ public class clockCntrl : MonoBehaviour
     public sendMessage Message2am;
     public sendMessage Message3am;
 
+    bool profane;
+
     // Start is called before the first frame update 
     void Start()
     {
@@ -67,7 +69,14 @@ public class clockCntrl : MonoBehaviour
 
         if (player.myRoom != null && player.myRoom.getName() != "Outside")
         {
-            Clock += Time.deltaTime;
+            if (!profane)
+            {
+                Clock += Time.deltaTime;
+            }
+            else
+            {
+                Clock += (Time.deltaTime / 2);
+            }
 
             if (Clock >= endTime) //Check if sys time is beyond end time, if so decrease sanity
             {
@@ -225,5 +234,13 @@ public class clockCntrl : MonoBehaviour
         hourHand.GetComponent<RectTransform>().Rotate(0f, 0f, (-0.25f * (tta/2)));
         minuteHand.GetComponent<RectTransform>().Rotate(0f, 0f, (-3f * (tta/2)));
         Clock += tta;
+    }
+
+    public void activateProfane()
+    {
+        profane = true;
+        WatcherTime = Time.realtimeSinceStartup;
+        CreepTime = Time.realtimeSinceStartup;
+        TrapTime = Time.realtimeSinceStartup;
     }
 }
