@@ -8,6 +8,7 @@ public class LPhotoCntrl : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 {
     public Item myPhoto;
     public Image me;
+    PicSlot currentSlot = null;
     [SerializeField]
     Sprite back;
     [SerializeField]
@@ -46,13 +47,16 @@ public class LPhotoCntrl : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     {
         if (interactable)
         {
+            if(currentSlot != null)
+            {
+                if(currentSlot.photo != null)
+                {
+                    currentSlot.photo = null;
+                    currentSlot = null;
+                }
+            }
             transform.localPosition += new Vector3(eventData.delta.x, eventData.delta.y, 0) / transform.lossyScale.x;
             transform.SetAsLastSibling();
-            for (int i = 0; i < pictureSlots.Length; i++)
-            {
-                pictureSlots[i].selectedPhoto = this;
-                pictureSlots[i].pointerData = eventData;
-            }
         }
     }
 
@@ -66,13 +70,15 @@ public class LPhotoCntrl : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        /*GetClosestObject(this.gameObject, pictureSlots);*/
+        if (interactable)
+        {
+            GetClosestObject(this, pictureSlots);
+        }
     }
 
-    void GetClosestObject(GameObject target, PicSlot[] objects)
+    void GetClosestObject(LPhotoCntrl target, PicSlot[] objects)
     {
-        int closestObject = 0;
-        int j = 0;
+        PicSlot closestObject = null;
         float closestDist = Mathf.Infinity;
         Vector3 Position = target.transform.position;
 
@@ -83,13 +89,16 @@ public class LPhotoCntrl : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
             if (distanceToTarget < closestDist)
             {
-                closestObject = j;
+                closestObject = obj;
                 closestDist = distanceToTarget;
             }
-
-            j++;
         }
 
-        target.transform.position = objects[j].transform.position;
+        if (closestObject.photo == null)
+        {
+            closestObject.photo = target;
+            currentSlot = closestObject;
+            target.transform.position = closestObject.transform.position;
+        }
     }
 }

@@ -611,8 +611,6 @@ MonoBehaviour:
   TooltipText: {fileID: 1659172460}
   player: {fileID: 0}
   cnvGroup: {fileID: 36532282}
-  PromptMessage: 
-  TimedMessage: 
   masterSwitch: 1
   startupMessage: Use WASD to Move - Press E to open the journal, and use the arrows
     to flip pages.
@@ -6680,11 +6678,19 @@ MonoBehaviour:
   watcher: {fileID: 0}
   creep: {fileID: 0}
   TrapCtrl: {fileID: 0}
-  popup: {fileID: 0}
   escntrl: {fileID: 0}
   watcherAI: {fileID: 0}
   hourIsPlaying: 0
   clipLength: 0
+  Message5pm: {fileID: 0}
+  Message6pm: {fileID: 0}
+  Message7pm: {fileID: 0}
+  Message8pm: {fileID: 0}
+  Message10pm: {fileID: 0}
+  MessageMidnight: {fileID: 0}
+  Message1am: {fileID: 0}
+  Message2am: {fileID: 0}
+  Message3am: {fileID: 0}
 --- !u!114 &638425227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14184,7 +14190,6 @@ MonoBehaviour:
   Fade: {fileID: 1213580888}
   Listener: {fileID: 1926333123}
   key: {fileID: 11400000, guid: 66f84c16d75a6944f946268d7ec5a146, type: 2}
-  tooltipScript: {fileID: 36532278}
   dist: 0
 --- !u!1 &1384614716
 GameObject:
@@ -17911,7 +17916,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plyInv: {fileID: 271317097}
   key: {fileID: 11400000, guid: 66f84c16d75a6944f946268d7ec5a146, type: 2}
-  tooltipScript: {fileID: 36532278}
   invCanv: {fileID: 1316188963}
   Listener: {fileID: 1926333123}
   KeyPopUp: {fileID: 0}
@@ -19295,7 +19299,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plyInv: {fileID: 271317097}
   key: {fileID: 11400000, guid: 66f84c16d75a6944f946268d7ec5a146, type: 2}
-  tooltipScript: {fileID: 36532278}
   invCanv: {fileID: 1316188963}
   Listener: {fileID: 1926333123}
   KeyPopUp: {fileID: 197211595}
