@@ -53,6 +53,7 @@ public class invInput : MonoBehaviour
 
     private void ShowJournal(InputAction.CallbackContext c)
     {
+        Debug.Log("E Pressed " + isFocus);
         if (!isFocus) return;
         
         if (!jInput.isFocused)

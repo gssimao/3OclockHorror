@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Inventory))]
 public class workbench_cntrl : MonoBehaviour
@@ -63,9 +64,11 @@ public class workbench_cntrl : MonoBehaviour
         float dist = Vector3.Distance(player.transform.position, transform.position); //Get the position of player
         if (dist <= 0.25f) //If the player is in range
         {
+            Debug.Log("Within Range");
             //Listener.isFocus = false;
             if (uControls.Player.Interact.triggered && !active)
             {
+                Debug.Log("Inside Trigger/off");
                 IM.ActivateInventory(myInv);
                 myInv.OpenInv(); //Update the items to be in accordance with the items array
                 active = true;
@@ -76,14 +79,15 @@ public class workbench_cntrl : MonoBehaviour
             }
             else if (uControls.Player.Interact.triggered && active)
             {
-                if (invCanv.activeSelf)
-                {
+                Debug.Log("Inside Trigger/on");
+                //if (invCanv.activeSelf)
+                //{
                     IM.DeactivateInventory(myInv);
                     active = false;
                     invCanv.SetActive(false);
                     myInvDisplay.SetActive(false);
                     IM.craftField.SetActive(false);
-                }
+                //}
             }
         }
     }
@@ -118,4 +122,41 @@ public class workbench_cntrl : MonoBehaviour
         myInvDisplay.SetActive(false);
         IM.craftField.SetActive(false);
     }
+
+    /*private void Inventory(InputAction.CallbackContext c)
+    {
+        if(!active)
+        {
+            IM.ActivateInventory(myInv);
+            myInv.OpenInv(); //Update the items to be in accordance with the items array
+            active = true;
+            myInvDisplay.SetActive(true);
+            invCanv.SetActive(true);
+            IM.craftField.SetActive(true);
+            tooltip.SetActive(false);
+        }
+        else
+        {
+            IM.DeactivateInventory(myInv);
+            active = false;
+            invCanv.SetActive(false);
+            myInvDisplay.SetActive(false);
+            IM.craftField.SetActive(false);
+        }
+    }*/
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(this.transform.position, 0.25f);
+    }
+
+    /*private void OnTriggerEnter2D(Collider2D collision)
+    {
+        uControls.Player.Interact.performed += Inventory;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        uControls.Player.Interact.performed -= Inventory;
+    }*/
 }
