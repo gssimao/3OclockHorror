@@ -23,6 +23,9 @@ public class ClimbLadder : MonoBehaviour
     public bool transitionOnOff = true; //Use this toggle the transition on and off
     float transitionTime = 0.5f;
 
+    [SerializeField]
+    string destString;
+
     UniversalControls uControls;
     private void Awake()
     {
@@ -56,6 +59,7 @@ public class ClimbLadder : MonoBehaviour
     void UpdatePlayer()
     {
         CameraCrossfade(player, dest, player.GetComponent<PlayerMovement>(), destRoom);
+        player.GetComponent<PlayerMovement>().playerFloor = destString;
         
     }
 

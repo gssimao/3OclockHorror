@@ -40,6 +40,12 @@ public class roomCntrl : MonoBehaviour
     [SerializeField]
     room WatcherHallway;
 
+    [Space]
+    [SerializeField]
+    bool floorChanger;
+    [SerializeField]
+    string destString;
+
     private void Awake()
     {
         uControls = new UniversalControls();
@@ -74,6 +80,11 @@ public class roomCntrl : MonoBehaviour
                     if (manager != null)
                     {
                         manager.Play("Door Open", true);
+                    }
+
+                    if (floorChanger)
+                    {
+                        player.playerFloor = destString;
                     }
                 }
                 else// player.myRoom == room2

@@ -31,6 +31,9 @@ public class PlaceLadder : MonoBehaviour
 
     float dist;
 
+    [SerializeField]
+    string destString;
+
     UniversalControls uControls;
     private void Awake()
     {
@@ -99,6 +102,8 @@ public class PlaceLadder : MonoBehaviour
         player.transform.position = destination.transform.position;
 
         player.myRoom = desRoom;
+
+        player.playerFloor = destString;
     }
 
     void CallLadderFade()
