@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class HuntCheckSolved : MonoBehaviour
 {
+    public sendMessage NeedKeyMessage;
     public GameObject Player;
     public GameObject TP;
     public GameObject Gear1;
@@ -127,6 +128,7 @@ public class HuntCheckSolved : MonoBehaviour
                 if (!playermovement.plyInv.ContainsItem(key))
                 {
                     KeyPopUp.SetActive(true);
+                    NeedKeyMessage.TriggerMessage();
                 }
                 else
                 {
