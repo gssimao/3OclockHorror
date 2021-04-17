@@ -21,6 +21,8 @@ public class ContainerControl : MonoBehaviour
     GameObject tooltip;
     public invInput Listener;
     public GameObject invCanv;
+    [SerializeField]
+    GameObject cntbackground;
 
     UniversalControls uControls;
     private void Awake()
@@ -64,11 +66,13 @@ public class ContainerControl : MonoBehaviour
             if (uControls.Player.Interact.triggered && !active)
             {
                 openInventory();
+                cntbackground.SetActive(true);
             }
             else if (uControls.Player.Interact.triggered && active)
             {
                 if (invCanv.activeSelf) 
                 {
+                    cntbackground.SetActive(false);
                     closeInventory();
                 }
             }
