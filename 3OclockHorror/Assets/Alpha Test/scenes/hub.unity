@@ -5269,10 +5269,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: c2b4119846e767d4e89635acf2d06934, type: 3}
-    m_FontSize: 14
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -16969,10 +16969,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: c2b4119846e767d4e89635acf2d06934, type: 3}
-    m_FontSize: 14
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -34191,10 +34191,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: c2b4119846e767d4e89635acf2d06934, type: 3}
-    m_FontSize: 14
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -65389,6 +65389,7 @@ GameObject:
   - component: {fileID: 1021653038}
   - component: {fileID: 1021653037}
   - component: {fileID: 1021653036}
+  - component: {fileID: 1021653040}
   m_Layer: 8
   m_Name: SWBedroomCnt1
   m_TagString: Interactible
@@ -65535,6 +65536,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1021653040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021653034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49f8f7fec7a85c94a9e6c0d2ea872570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BlindCreep: {fileID: 1710219375}
+  TPRoom: {fileID: 262800666}
+  TPPoint: {fileID: 527442591}
+  ItemContainer: {fileID: 1021653036}
+  trigger: {fileID: 11400000, guid: dc25ec32e2c7c3d49854208511f370e9, type: 2}
+  player: {fileID: 1619042896}
 --- !u!1 &1028201696
 GameObject:
   m_ObjectHideFlags: 0
@@ -111389,10 +111408,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: c2b4119846e767d4e89635acf2d06934, type: 3}
-    m_FontSize: 14
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -123038,7 +123057,7 @@ MonoBehaviour:
   TPPoint: {fileID: 1732006934}
   ItemContainer: {fileID: 1814495920}
   trigger: {fileID: 11400000, guid: 0a6bc6523a2dcaa4abefd749a2e8d193, type: 2}
-  player: {fileID: 0}
+  player: {fileID: 1619042896}
 --- !u!1 &1816277615
 GameObject:
   m_ObjectHideFlags: 0
@@ -126205,6 +126224,7 @@ GameObject:
   - component: {fileID: 1874293109}
   - component: {fileID: 1874293108}
   - component: {fileID: 1874293107}
+  - component: {fileID: 1874293111}
   m_Layer: 8
   m_Name: ChildsRoomCnt
   m_TagString: Interactible
@@ -126350,6 +126370,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1874293111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874293105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49f8f7fec7a85c94a9e6c0d2ea872570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BlindCreep: {fileID: 1710219375}
+  TPRoom: {fileID: 983347894}
+  TPPoint: {fileID: 1096079423}
+  ItemContainer: {fileID: 1874293107}
+  trigger: {fileID: 11400000, guid: 6c7fb91a9917f0344a456a3fb10ba204, type: 2}
+  player: {fileID: 1619042896}
 --- !u!1 &1878640985
 GameObject:
   m_ObjectHideFlags: 0
@@ -135814,6 +135852,7 @@ GameObject:
   - component: {fileID: 2014068690}
   - component: {fileID: 2014068689}
   - component: {fileID: 2014068688}
+  - component: {fileID: 2014068692}
   m_Layer: 8
   m_Name: SWBathroomCnt
   m_TagString: Interactible
@@ -135959,6 +135998,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &2014068692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014068686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49f8f7fec7a85c94a9e6c0d2ea872570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BlindCreep: {fileID: 1710219375}
+  TPRoom: {fileID: 1137405009}
+  TPPoint: {fileID: 1010288353}
+  ItemContainer: {fileID: 2014068688}
+  trigger: {fileID: 11400000, guid: 21a4f74f1e9023f4ca4dfe069b49bdad, type: 2}
+  player: {fileID: 1619042896}
 --- !u!1 &2017324749
 GameObject:
   m_ObjectHideFlags: 0
