@@ -139,7 +139,9 @@ public class TableManager : MonoBehaviour
     UniversalControls uControls;
 
     public bool fin = false;
-
+    [SerializeField]
+    GameObject endCanv;
+    float endCanvTime;
     private void Awake()
     {
         uControls = new UniversalControls();
@@ -174,6 +176,14 @@ public class TableManager : MonoBehaviour
             //puzzleSelected = true;
         //}
         setPosition();
+    }
+
+    private void Update()
+    {
+        if(fin && Time.realtimeSinceStartup >= endCanvTime && Time.realtimeSinceStartup <= endCanvTime + 1f)
+        {
+            endCanv.SetActive(true);
+        }
     }
     public void ResetAllcoinPusition(int SelectPuzzle)
     {
@@ -996,6 +1006,7 @@ public class TableManager : MonoBehaviour
                     if(checking == 4)
                     {
                         fin = true;
+                        endCanvTime = Time.realtimeSinceStartup + 2;
                         return true;
                     }
                 }
