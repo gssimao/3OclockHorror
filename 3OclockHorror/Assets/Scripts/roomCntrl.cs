@@ -289,7 +289,7 @@ public class roomCntrl : MonoBehaviour
         {
             watcher.WatcherHallway = true;
             watcher.ChangeRoom(WatcherHallway);
-            player.GetComponent<LightMatch>().Light(false);
+            player.GetComponent<LightMatch>().MatchOn(false);
             player.GetComponent<LightMatch>().enabled = false;
         }
         else

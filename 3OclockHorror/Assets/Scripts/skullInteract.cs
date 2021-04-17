@@ -52,4 +52,9 @@ public class skullInteract : MonoBehaviour
             }
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(this.transform.position, 0.25f);
+    }
 }

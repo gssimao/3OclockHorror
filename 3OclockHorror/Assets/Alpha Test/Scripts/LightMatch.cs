@@ -41,7 +41,7 @@ public class LightMatch : MonoBehaviour
         fLight.spriteMask = lightMask;
         fLight.enabled = false;
         lightEffect.SetActive(false);
-        Light(true);
+        Light();
         //Light(false);
         manager = FindObjectOfType<AudioManager>();
     }
@@ -94,7 +94,7 @@ public class LightMatch : MonoBehaviour
             lightOn = false;
         }
     }
-    public void Light(bool toggle)
+    public void MatchOn(bool toggle)
     {
         if (toggle)
         {
