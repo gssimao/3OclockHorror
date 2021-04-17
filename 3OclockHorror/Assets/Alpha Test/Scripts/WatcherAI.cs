@@ -164,6 +164,11 @@ public class WatcherAI : MonoBehaviour
                 }
 
                 else isClosePlaying = false;
+
+                if(WatcherHallway)
+                {
+
+                }
             }
             else if (distance <= 1.25) //Player is getting closer to Watcher
             {
@@ -178,6 +183,11 @@ public class WatcherAI : MonoBehaviour
                     isFarPlaying = true;
                 }
                 else isFarPlaying = false;
+
+                if (WatcherHallway)
+                {
+
+                }
             }
             else
             {
@@ -189,6 +199,10 @@ public class WatcherAI : MonoBehaviour
                     isFarPlaying = false;
                     manager.Stop("Watcher Close");
                     isClosePlaying = false;
+                }
+                if (WatcherHallway)
+                {
+
                 }
             }
 

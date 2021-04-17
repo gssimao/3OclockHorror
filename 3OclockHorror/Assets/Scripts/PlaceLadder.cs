@@ -19,7 +19,15 @@ public class PlaceLadder : MonoBehaviour
     [SerializeField]
     room desRoom;
 
-    Item ladAcquired;
+    [Space]
+    [SerializeField]
+    Animator Fade;
+    [SerializeField]
+    SpriteRenderer Room;
+    [SerializeField]
+    Sprite newRoom;
+
+    bool ladAcquired = false;
 
     float dist;
 
@@ -44,31 +52,46 @@ public class PlaceLadder : MonoBehaviour
     {
         dist = Vector3.Distance(this.transform.position, player.transform.position);
 
-        if(dist <= 0.5f && ladAcquired == null)
+        if (dist <= 0.5f)
         {
-            if(uControls.Player.Interact.triggered)
-            {
-                if(plyInv.ContainsItem(Ladder))
-                {
-                    invCanvas.SetActive(true);
-                    plyInv.RemoveItem(Ladder);
-                    invCanvas.SetActive(false);
-
-                    ladAcquired = Ladder;
-                }
-            }
-        }
-
-        if(ladAcquired != null)
-        {
-            if (dist <= 0.5f)
+            if (ladAcquired)
             {
                 if (uControls.Player.Interact.triggered)
                 {
                     LadderFunction();
                 }
             }
+            else if (!ladAcquired)
+            {
+                if (uControls.Player.Interact.triggered)
+                {
+                    if (plyInv.ContainsItem(Ladder))
+                    {
+                        invCanvas.SetActive(true);
+                        plyInv.RemoveItem(Ladder);
+                        invCanvas.SetActive(false);
+
+                        ladAcquired = true;
+
+                        CallLadderFade();
+                    }
+                }
+            }
         }
+        
+
+        if (Fade != null)
+        {
+            if (Fade.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
+            {
+                Fade.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(this.transform.position, 0.5f);
     }
 
     void LadderFunction()
@@ -76,5 +99,21 @@ public class PlaceLadder : MonoBehaviour
         player.transform.position = destination.transform.position;
 
         player.myRoom = desRoom;
+    }
+
+    void CallLadderFade()
+    {
+        StartCoroutine(LadderFadeOut());
+    }
+
+    IEnumerator LadderFadeOut()
+    {
+        Fade.gameObject.SetActive(true);
+        Fade.SetTrigger("fadeOut");
+
+        yield return new WaitForSeconds(Fade.GetCurrentAnimatorStateInfo(0).length);
+        Room.sprite = newRoom;
+
+        Fade.SetTrigger("fadeIn");
     }
 }
