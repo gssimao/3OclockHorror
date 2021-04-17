@@ -133,6 +133,19 @@ public class Inventory : MonoBehaviour, IItemContainer
         return true;
     }
 
+    public int Count()
+    {
+        int count = 0;
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            if (itemSlots[i].Item != null)
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+
     public bool ContainsItem(Item item)
     {
         for (int i = 0; i < itemSlots.Length; i++)

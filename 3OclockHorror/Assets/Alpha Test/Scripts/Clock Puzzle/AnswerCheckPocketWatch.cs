@@ -78,6 +78,7 @@ public class AnswerCheckPocketWatch : MonoBehaviour
 
     public void startClock()
     {
+        solved = true;
         isSolved.SetActive(true);
         isSolved.transform.SetAsLastSibling();
 
