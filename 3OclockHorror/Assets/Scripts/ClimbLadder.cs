@@ -17,6 +17,12 @@ public class ClimbLadder : MonoBehaviour
 
     float dist;
 
+    [Space]
+
+    public Animator Fade;
+    public bool transitionOnOff = true; //Use this toggle the transition on and off
+    float transitionTime = 0.5f;
+
     UniversalControls uControls;
     private void Awake()
     {
@@ -49,8 +55,8 @@ public class ClimbLadder : MonoBehaviour
 
     void UpdatePlayer()
     {
-        player.transform.position = dest.transform.position;
-        player.GetComponent<PlayerMovement>().changeRoom(destRoom);
+        CameraCrossfade(player, dest, player.GetComponent<PlayerMovement>(), destRoom);
+        
     }
 
     void OnDrawGizmos()//Shows how far the play needs to be in order to use the door
@@ -67,5 +73,28 @@ public class ClimbLadder : MonoBehaviour
         Gizmos.DrawLine(gameObject.transform.position, dest.transform.position);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(dest.transform.position, 0.1f);
+    }
+
+    public void CameraCrossfade(GameObject player, GameObject entranceP, PlayerMovement play, room RoomNum)
+    {
+        StartCoroutine(ChangeCamera(player, entranceP, play, RoomNum));
+    }
+
+    IEnumerator ChangeCamera(GameObject player, GameObject entranceP, PlayerMovement play, room RoomNum)
+    {
+        if (transitionOnOff)
+        {
+            Fade.gameObject.SetActive(true);
+            Fade.SetTrigger("fadeOut");
+        }
+        if (transitionOnOff)
+        {
+            yield return new WaitForSeconds(transitionTime);
+            Fade.SetTrigger("fadeIn");
+            player.transform.position = dest.transform.position;
+            player.GetComponent<PlayerMovement>().changeRoom(destRoom);
+        }
+
+        play.myRoom = RoomNum;
     }
 }
