@@ -107755,7 +107755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WatcherTime: 240
-  CreepTime: 480
+  CreepTime: 1
   TrapTime: 1680
   player: {fileID: 1619042896}
   sanity: {fileID: 1619042899}
@@ -107848,15 +107848,6 @@ MonoBehaviour:
   - {fileID: 404624914}
   - {fileID: 592893174}
   - {fileID: 1493573191}
-  tempCanvases:
-  - {fileID: 1525165273}
-  - {fileID: 1978921846}
-  - {fileID: 1450514288}
-  - {fileID: 1628193632}
-  - {fileID: 1921423378}
-  - {fileID: 910554211}
-  - {fileID: 1258266022}
-  - {fileID: 404624914}
   walkTime: 0.5
   countTime: 0
   canMoveRight: 1
@@ -108871,12 +108862,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e493be407a53a144093c53e689620184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clock: {fileID: 1371696775}
   referenceMinHand: {fileID: 2057541904}
   thisMinHand: {fileID: 1030938737}
   referenceHourHand: {fileID: 2057541905}
   thisHourHand: {fileID: 2118062733}
   plyAnim: {fileID: 1619042898}
-  Fade: {fileID: 0}
+  Fade: {fileID: 592893175}
 --- !u!1 &1631481821
 GameObject:
   m_ObjectHideFlags: 0

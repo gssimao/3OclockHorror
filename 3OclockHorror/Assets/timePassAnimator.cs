@@ -5,6 +5,10 @@ using UnityEngine;
 public class timePassAnimator : MonoBehaviour
 {
     [SerializeField]
+    GameObject clock;
+
+    [Space]
+    [SerializeField]
     GameObject referenceMinHand;
     [SerializeField]
     GameObject thisMinHand;
@@ -49,8 +53,8 @@ public class timePassAnimator : MonoBehaviour
                 {
                     animating = false;
                     waitingToStart = false;
+                    plyAnim.SetTrigger("wake");
                     this.gameObject.SetActive(false);
-                    StartCoroutine(PlayWakeUpAnimation());
                 }
             }
         }
@@ -59,7 +63,9 @@ public class timePassAnimator : MonoBehaviour
         {
             Fade.gameObject.SetActive(false);
 
-            plyAnim.SetTrigger("wake");
+
+
+            this.gameObject.SetActive(false);
         }
     }
 
@@ -104,6 +110,7 @@ public class timePassAnimator : MonoBehaviour
 
     public void prepareAnimation()
     {
+        clock.SetActive(true);
         UpdateHandPos();
         waitingToStart = true;
         zdif = 0f;
