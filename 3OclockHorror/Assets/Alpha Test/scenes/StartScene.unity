@@ -6889,7 +6889,6 @@ MonoBehaviour:
   - {fileID: 1316188963}
   - {fileID: 1596966458}
   - {fileID: 1125768052}
-  tempCanvases:
   - {fileID: 1104969855}
   walkTime: 0.5
   countTime: 0
@@ -6906,7 +6905,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 638425222}
   m_LocalRotation: {x: 0, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 999.95, y: 2.69, z: 2.64}
+  m_LocalPosition: {x: 999.95, y: 2.69, z: 2.697}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1528219778}
@@ -6915,6 +6914,7 @@ Transform:
   - {fileID: 1316188964}
   - {fileID: 1926333122}
   - {fileID: 1596966463}
+  - {fileID: 1472550970}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14150,9 +14150,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1370340544}
   - component: {fileID: 1370340545}
+  - component: {fileID: 1370340546}
   m_Layer: 0
   m_Name: FrontDoor
-  m_TagString: Untagged
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14191,6 +14192,22 @@ MonoBehaviour:
   Listener: {fileID: 1926333123}
   key: {fileID: 11400000, guid: 66f84c16d75a6944f946268d7ec5a146, type: 2}
   dist: 0
+--- !u!58 &1370340546
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370340543}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &1384614716
 GameObject:
   m_ObjectHideFlags: 0
@@ -15000,6 +15017,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1470943074}
   m_CullTransparentMesh: 0
+--- !u!1 &1472550969
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1472550970}
+  - component: {fileID: 1472550972}
+  - component: {fileID: 1472550971}
+  m_Layer: 0
+  m_Name: PlayerTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1472550970
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472550969}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.315, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 638425235}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1472550971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472550969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c743e7388e722e045a85516fcc200429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &1472550972
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472550969}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.2
 --- !u!1 &1491805810
 GameObject:
   m_ObjectHideFlags: 0
@@ -19186,9 +19263,10 @@ GameObject:
   - component: {fileID: 1887692083}
   - component: {fileID: 1887692084}
   - component: {fileID: 1887692085}
+  - component: {fileID: 1887692086}
   m_Layer: 0
   m_Name: DeadGuy
-  m_TagString: Untagged
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19304,6 +19382,22 @@ MonoBehaviour:
   KeyPopUp: {fileID: 197211595}
   UseInventory: {fileID: 64820877}
   DeadGuyBW: {fileID: 1754759383}
+--- !u!58 &1887692086
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887692081}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.42}
+  serializedVersion: 2
+  m_Radius: 0.4
 --- !u!1 &1899158116
 GameObject:
   m_ObjectHideFlags: 0

@@ -50,7 +50,6 @@ public class HuntCheckSolved : MonoBehaviour
 
     private void Start()
     {
-        playermovement.enabled = false;
         answer1 = Random.Range(0, 5);
         answer2 = Random.Range(0, 5);
         answer3 = Random.Range(0, 5);
@@ -105,7 +104,6 @@ public class HuntCheckSolved : MonoBehaviour
             solved = true;
             Solved.SetActive(true);
             //yield return new WaitForSeconds(2);
-            playermovement.enabled = true;
             GameObject.Find("BeartrapPuzzle").SetActive(false);
             if (manager != null)
             {
@@ -121,7 +119,6 @@ public class HuntCheckSolved : MonoBehaviour
             TrapCtrl.DeactivateTraps();
         }
         GameObject.Find("BeartrapPuzzle").SetActive(false);
-        playermovement.enabled = true;
 
     }
 

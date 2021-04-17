@@ -53,7 +53,6 @@ public class EnterTheHouse : MonoBehaviour
             {
                 if (plyinv.ContainsItem(key) && EntrancePuzzle.solved)
                 {
-                    Debug.Log("This works");
                     Enterthehouse();
                 }
                 else
@@ -63,13 +62,13 @@ public class EnterTheHouse : MonoBehaviour
             }
         }
 
-        if (Fade != null)
+        /*if (Fade != null)
         {
             if (Fade.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
             {
                 Fade.gameObject.SetActive(false);
             }
-        }
+        }*/
     }
 
     private void OnDrawGizmos()

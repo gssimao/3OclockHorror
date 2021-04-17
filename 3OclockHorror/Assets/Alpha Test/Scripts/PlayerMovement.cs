@@ -25,11 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     //A list of all canvases that should block player movement
     public List<GameObject> Canvases; //Canvases that won't be deleted between scenes
-    public List<GameObject> tempCanvases; //Canvases that will be deleted
     bool canMove;
-
-    //bool RightLeg = true;
-    //bool LeftLeg = true;
 
     public float walkTime = .5f;
     public float countTime = 0;
@@ -74,16 +70,6 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-        if (tempCanvases != null)
-        {
-            foreach (GameObject canv in tempCanvases)
-            {
-                if (canv.activeSelf)
-                {
-                    canMove = false;
-                }
-            }
-        }
 
         //Check if the player can move and is registering input
         if (canMove)
@@ -96,8 +82,8 @@ public class PlayerMovement : MonoBehaviour
             movement.x = 0;
             movement.y = 0;
         }
-        movement.x = uControls.Player.MovePlayer.ReadValue<Vector2>().x;//Input.GetAxisRaw("Horizontal");
-        movement.y = uControls.Player.MovePlayer.ReadValue<Vector2>().y; //Input.GetAxisRaw("Vertical");
+        /*movement.x = uControls.Player.MovePlayer.ReadValue<Vector2>().x;//Input.GetAxisRaw("Horizontal");
+        movement.y = uControls.Player.MovePlayer.ReadValue<Vector2>().y; //Input.GetAxisRaw("Vertical");*/
 
         #region Depreciated_mouse_control
         /*
