@@ -25,15 +25,16 @@ public class GearRotation : MonoBehaviour
 
     private void OnMouseOver()
     {
-        Debug.Log("rewa");
-        if (uControls.UI.OtherSelect.triggered/*Input.GetMouseButtonUp(1)*/) //this should turn the big to the right
+        if (/*uControls.UI.OtherSelect.triggered*/Input.GetMouseButtonUp(1)) //this should turn the big to the right
         {
+            Debug.Log("Inside Right Click");
             movement = ControlBound(movement, true);
             LeanTween.rotateZ(gameObject, GearPosition[movement], .3f); // move gear
             manager.Play("Gear Turn", true);
         }
-        if (uControls.UI.Select.triggered/*Input.GetMouseButtonUp(0)*/) //this should turn the big to the left
+        if (/*uControls.UI.Select.triggered*/Input.GetMouseButtonUp(0)) //this should turn the big to the left
         {
+            Debug.Log("Inside Left Click");
             movement = ControlBound(movement, false);
             LeanTween.rotateZ(gameObject, GearPosition[movement], .3f); // move gear
             manager.Play("Gear Turn", true);
