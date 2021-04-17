@@ -45,6 +45,14 @@ public class HuntCheckSolved : MonoBehaviour
     AudioManager manager;
     public bool HunterTrapActive = false; // When this is true, the SoundTrack plays. You can use it or anything else though as well.
 
+    [Space]
+    [SerializeField]
+    bool isTutorial = false;
+    [SerializeField]
+    Item key;
+    [SerializeField]
+    GameObject KeyPopUp;
+
     //[SerializeField]
     //GameObject isSolved;
 
@@ -87,11 +95,15 @@ public class HuntCheckSolved : MonoBehaviour
         timeractive = false;
         timerObject = GameObject.Find("Timer");
         ExitButton = GameObject.Find("ExitButton");
-        ExitButton.SetActive(false);
         if (GameObject.Find("Jumpscare") != null)
         {
             JumpscareCanvas = GameObject.Find("Jumpscare");
             JumpscareCanvas.SetActive(false);
+            ExitButton.SetActive(false);
+        }
+        else
+        {
+            ExitButton.SetActive(true);
         }
         GameObject.Find("SolvedText").SetActive(false);
         GameObject.Find("BeartrapPuzzle").SetActive(false);
@@ -108,6 +120,19 @@ public class HuntCheckSolved : MonoBehaviour
             if (manager != null)
             {
                 manager.Play("Success", false);
+            }
+
+            if(isTutorial)
+            {
+                if (!playermovement.plyInv.ContainsItem(key))
+                {
+                    KeyPopUp.SetActive(true);
+                }
+                else
+                {
+                    EnterTheHouse ETC = new EnterTheHouse();
+                    StartCoroutine(ETC.LoadYourAsyncScene());
+                }
             }
         }
     }

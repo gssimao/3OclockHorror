@@ -20,6 +20,10 @@ public class EnterTheHouse : MonoBehaviour
     invInput Listener;
     [SerializeField]
     Item key;
+    [SerializeField]
+    GameObject BTPuzzle;
+    [SerializeField]
+    GameObject KeyPopUp;
     AudioManager manager;
 
     public float dist;
@@ -51,24 +55,20 @@ public class EnterTheHouse : MonoBehaviour
             //Listener.isFocus = false;
             if (uControls.Player.Interact.triggered)
             {
-                if (plyinv.ContainsItem(key) && EntrancePuzzle.solved)
+                if (!EntrancePuzzle.solved)
+                {
+                    BTPuzzle.SetActive(true);
+                }
+                else if(!plyinv.ContainsItem(key))
+                {
+                    KeyPopUp.SetActive(true);
+                }
+                if (EntrancePuzzle.solved && plyinv.ContainsItem(key))
                 {
                     Enterthehouse();
                 }
-                else
-                {
-                    Tooltip.Message = "Hmmm, looks like I need a key of some sort?";
-                }
             }
         }
-
-        /*if (Fade != null)
-        {
-            if (Fade.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
-            {
-                Fade.gameObject.SetActive(false);
-            }
-        }*/
     }
 
     private void OnDrawGizmos()
@@ -77,12 +77,12 @@ public class EnterTheHouse : MonoBehaviour
         Gizmos.DrawWireSphere(this.transform.position, range);
     }
 
-    void Enterthehouse()
+    public void Enterthehouse()
     {
         StartCoroutine(LoadYourAsyncScene());
     }
 
-    IEnumerator LoadYourAsyncScene()
+    public IEnumerator LoadYourAsyncScene()
     {
         Fade.gameObject.SetActive(true);
         Fade.SetTrigger("fadeOut");

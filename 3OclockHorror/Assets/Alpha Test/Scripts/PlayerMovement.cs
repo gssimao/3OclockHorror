@@ -15,13 +15,8 @@ public class PlayerMovement : MonoBehaviour
     public AudioManager manager;
     public bool isPlaying = false; //for audio
     public string playerFloor = "FirstFloor";
-
-    //For Changing Scenes
-    public GameObject Cntnr;
-    public InventoryManager charPanel;
-    public GameObject ToolTip;
-    public GameObject wbInventory;
-    public Transform contSlots;
+    
+    public Inventory plyInv;
 
     //A list of all canvases that should block player movement
     public List<GameObject> Canvases; //Canvases that won't be deleted between scenes
