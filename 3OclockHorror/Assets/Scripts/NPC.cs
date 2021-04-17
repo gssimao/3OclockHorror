@@ -171,11 +171,9 @@ public class NPC : MonoBehaviour
             clock.adjustTime(120);
             hitTmr = 200;
 
-            if(Random.Range(1, 5) == 1)
-            {
-                target.transform.position = playerTPPoint.transform.position;
-                target.GetComponent<PlayerMovement>().changeRoom(playerTPPoint.myRoom);
-            }
+            target.transform.position = playerTPPoint.transform.position;
+            target.GetComponent<PlayerMovement>().changeRoom(playerTPPoint.myRoom);
+
             //Script to fade to black and transfer rooms to cover time change
             //Trigger animation / fade to black, on timer
             //timer is inherent to the screen for now, as it's a temporary placeholder feature
