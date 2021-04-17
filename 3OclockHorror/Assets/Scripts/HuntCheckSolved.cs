@@ -44,6 +44,7 @@ public class HuntCheckSolved : MonoBehaviour
     bool lost = false;
 
     AudioManager manager;
+    FloorAudioController SoundTrack;
     public bool HunterTrapActive = false; // When this is true, the SoundTrack plays. You can use it or anything else though as well.
 
     [Space]
@@ -153,7 +154,9 @@ public class HuntCheckSolved : MonoBehaviour
     {
         if (!solved)
         {
-            HunterTrapActive = true; //This is called from ST_Ctrl.cs, where the SoundTrack is played.
+            HunterTrapActive = true;
+            manager.Play("Hunter Build up", false);
+            SoundTrack.StopSoundTrack();
             Puzzle.SetActive(true);
             Puzzle.SetActive(true); //Second call is needed to avoid a bug of trap not activating.
             if (!timercheck)
@@ -168,6 +171,8 @@ public class HuntCheckSolved : MonoBehaviour
             }
         }
         HunterTrapActive = false;
+        SoundTrack.StopALL = false;
+        manager.Stop("Hunter Build up");
     }
 
     void Update()

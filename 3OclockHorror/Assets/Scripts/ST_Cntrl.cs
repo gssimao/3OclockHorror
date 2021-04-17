@@ -42,21 +42,14 @@ public class ST_Cntrl : MonoBehaviour
                 manager.Stop("Clock Tick");
                 //clock.hourIsPlaying = false;
             }
+            else if (player.myRoom.getName() != "F1HubRoom")
+            {
+                manager.Stop("Clock Tick");
+            }
             else
             {
                 Debug.LogError("AudioManager not found. Likely not an error.");
             }
-        }
-
-        if (huntTrap.HunterTrapActive == true)
-        {
-            floorAudio.StopSoundTrack();
-            manager.Play("Hunter Build up", false);
-        }
-        else if (huntTrap.HunterTrapActive == false)
-        {
-            floorAudio.StopALL = false;
-            manager.StartFade("Hunter Build up", 2);
         }
     }
 
