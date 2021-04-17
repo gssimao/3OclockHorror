@@ -56,6 +56,7 @@ public class roomCntrl : MonoBehaviour
     }
     private void Interact(InputAction.CallbackContext c)
     {
+        Tooltip.Message = "";
         if (transitionOnOff)
         {
             if (locked)
@@ -92,6 +93,10 @@ public class roomCntrl : MonoBehaviour
     void Update()
     {
         dist = Vector3.Distance(player.gameObject.transform.position, this.gameObject.transform.position);
+        if(uControls.Player.Interact.triggered)
+        {
+            Tooltip.Message = "";
+        }
         if (dist <= range)
         {
             //Listener.isFocus = false;

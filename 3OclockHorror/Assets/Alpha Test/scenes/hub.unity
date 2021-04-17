@@ -434,6 +434,9 @@ MonoBehaviour:
   solved: 0
   timercheck: 1
   HunterTrapActive: 0
+  isTutorial: 0
+  key: {fileID: 0}
+  KeyPopUp: {fileID: 0}
 --- !u!224 &5431649
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6823,7 +6826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4605737869869458125, guid: 92a2e8fcaf4cacf439bc3ce3f525f556, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4605737869869458125, guid: 92a2e8fcaf4cacf439bc3ce3f525f556, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -36036,7 +36039,7 @@ RectTransform:
   m_Children:
   - {fileID: 745173286}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -50282,7 +50285,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &800239861
 GameObject:
@@ -51800,6 +51803,7 @@ GameObject:
   - component: {fileID: 831066347}
   - component: {fileID: 831066348}
   - component: {fileID: 831066349}
+  - component: {fileID: 831066350}
   m_Layer: 0
   m_Name: Door
   m_TagString: Interactible
@@ -51908,6 +51912,22 @@ MonoBehaviour:
   Fade: {fileID: 592893175}
   tasklist: {fileID: 1223795197}
   transitionOnOff: 1
+--- !u!58 &831066350
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831066346}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.5}
+  serializedVersion: 2
+  m_Radius: 0.3
 --- !u!1 &831254953
 GameObject:
   m_ObjectHideFlags: 0
@@ -65042,7 +65062,7 @@ Transform:
   m_LocalScale: {x: 28.963646, y: 77.19496, z: 9.9446}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1017760230
 MonoBehaviour:
@@ -80469,7 +80489,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1248009115
 GameObject:
@@ -86202,7 +86222,7 @@ Transform:
   m_Children:
   - {fileID: 1521490344}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1336144375
 Animator:
@@ -90308,7 +90328,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -95920,7 +95940,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4605737869869458125, guid: 92a2e8fcaf4cacf439bc3ce3f525f556, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4605737869869458125, guid: 92a2e8fcaf4cacf439bc3ce3f525f556, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -108201,11 +108221,7 @@ MonoBehaviour:
   manager: {fileID: 0}
   isPlaying: 0
   playerFloor: FirstFloor
-  Cntnr: {fileID: 1192421596}
-  charPanel: {fileID: 1932810098}
-  ToolTip: {fileID: 858607486}
-  wbInventory: {fileID: 1114499257}
-  contSlots: {fileID: 1108702598}
+  plyInv: {fileID: 0}
   Canvases:
   - {fileID: 1044781339}
   - {fileID: 545888523}
@@ -108238,7 +108254,7 @@ Transform:
   - {fileID: 503345848}
   - {fileID: 1379048342}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1619042898
 Animator:
@@ -113621,7 +113637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4605737869869458125, guid: 92a2e8fcaf4cacf439bc3ce3f525f556, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4605737869869458125, guid: 92a2e8fcaf4cacf439bc3ce3f525f556, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -115214,7 +115230,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1710219382
 Animator:
@@ -118163,7 +118179,7 @@ GameObject:
   - component: {fileID: 1748934023}
   m_Layer: 8
   m_Name: LadderToF3
-  m_TagString: Untagged
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123602,7 +123618,7 @@ Transform:
   m_Children:
   - {fileID: 705380744}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1825635320
 MonoBehaviour:
@@ -138690,7 +138706,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4605737869869458125, guid: 92a2e8fcaf4cacf439bc3ce3f525f556, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4605737869869458125, guid: 92a2e8fcaf4cacf439bc3ce3f525f556, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

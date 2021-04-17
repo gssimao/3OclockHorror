@@ -98,22 +98,13 @@ public class LightMatch : MonoBehaviour
     {
         if (toggle)
         {
-            match.enabled = true;
-            lightMask.transform.LeanScale(large, leanTime);
-            fLight.enabled = true;
-            timerLock = false;
-            lightEffect.SetActive(true);
+            match.gameObject.SetActive(true);
 
             lightOn = true;
         }
         else
         {
-            timerLock = true;
-            match.enabled = false;
-            lightMask.transform.LeanScale(small, leanTime);
-            fLight.enabled = false;
-            lifeTime = ov;
-            lightEffect.SetActive(false);
+            match.gameObject.SetActive(false);
 
             lightOn = false;
         }
