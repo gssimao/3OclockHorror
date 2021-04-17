@@ -19,6 +19,7 @@ public class BCSummoner : MonoBehaviour
 
     AudioManager manager;
     public PlayerMovement player;
+    bool active = false;
 
     // Start is called before the first frame update
     void Start()
@@ -37,21 +38,33 @@ public class BCSummoner : MonoBehaviour
     {
         if(ItemContainer.getActive() == true && BlindCreep.activeSelf)
         {
+            active = true;
+        }
+        else if (active)
+        {
             bool found = ItemContainer.containsItem(trigger);
 
             if (!found)
             {//Tp the Blind Creep into the desired location, adjust state/room as well.
-                BCNPC.forceStateChangeIdle();
-                BCNPC.myRoom = TPRoom;
-                
-                BlindCreep.transform.position = TPPoint.transform.position;
-                Debug.Log("TP BC");
-
-                if (manager != null && player.myRoom == BCNPC.myRoom)
-                {
-                    manager.Play("Watcher room", true);
-                }
+                TPBlindCreep();
             }
+            active = false;
+        }
+    }
+
+    public void TPBlindCreep()
+    {
+        Debug.Log("Item not found");
+
+        BCNPC.forceStateChangeIdle();
+        BCNPC.myRoom = TPRoom;
+
+        BlindCreep.transform.position = TPPoint.transform.position;
+        Debug.Log("TP BC");
+
+        if (manager != null && player.myRoom == BCNPC.myRoom)
+        {
+            manager.Play("Watcher room", true);
         }
     }
 }

@@ -35,7 +35,7 @@ public class GearRotation : MonoBehaviour
         {
             movement = ControlBound(movement, false);
             LeanTween.rotateZ(gameObject, GearPosition[movement], .3f); // move gear
-            manager.Play("Gear Turn", true);
+            manager.Play("Gear Turn", false);
         }
     }
     private int ControlBound(int moviment, bool addOrSubtract) // the bool should tell if the we are adding or subtracting. True is adding

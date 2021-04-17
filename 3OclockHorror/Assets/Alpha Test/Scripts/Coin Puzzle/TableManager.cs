@@ -137,6 +137,9 @@ public class TableManager : MonoBehaviour
     public GameObject blackaqr3;
 
     UniversalControls uControls;
+
+    public bool fin = false;
+
     private void Awake()
     {
         uControls = new UniversalControls();
@@ -216,60 +219,62 @@ public class TableManager : MonoBehaviour
 
     private void OnMouseOver()
     {
-
-        if (uControls.UI.Select.triggered/*Input.GetMouseButtonUp(0)*/) //this should turn the big to the left
+        if (!fin)
         {
-
-            //adjusting table before rotating
-            tablePosition++;
-            if (tablePosition > 3)
+            if (uControls.UI.Select.triggered/*Input.GetMouseButtonUp(0)*/) //this should turn the big to the left
             {
-                tablePosition = 0;
+
+                //adjusting table before rotating
+                tablePosition++;
+                if (tablePosition > 3)
+                {
+                    tablePosition = 0;
+                }
+
+                //rotating table
+                LeanTween.rotateZ(gameObject, table[tablePosition], .8f);
+
+                //Add coins to a cue to be update
+                coinCue = cueCoinUpdate();
+
+                //update coin position with new position
+                ManagePosition();
+
+                //check for the right answer
+                if (checkAnswer(allCoinsPos, puzzleAnswer))
+                {
+                    UnityEngine.Debug.Log("Yaaaaaaaayyyyy you win");
+                    plyInv.AddItem(brokenLadder);
+                    taskManager.updateList("\n - A broken piece of a ladder, I bet I can fix this.");
+
+                }
             }
-
-            //rotating table
-            LeanTween.rotateZ(gameObject, table[tablePosition], .8f); 
-            
-            //Add coins to a cue to be update
-            coinCue = cueCoinUpdate();
-
-            //update coin position with new position
-            ManagePosition();
-
-            //check for the right answer
-            if(checkAnswer(allCoinsPos, puzzleAnswer))
+            if (uControls.UI.OtherSelect.triggered/*Input.GetMouseButtonUp(1)*/) //this should turn the big to the right
             {
-                UnityEngine.Debug.Log("Yaaaaaaaayyyyy you win");
-                plyInv.AddItem(brokenLadder);
-                taskManager.updateList("\n - A broken piece of a ladder, I bet I can fix this.");
-                
-            }
-        }
-        if (uControls.UI.OtherSelect.triggered/*Input.GetMouseButtonUp(1)*/) //this should turn the big to the right
-        {
-            //adjusting table before rotating
-            tablePosition--;
-            if (tablePosition < 0)
-            {
-                tablePosition = 3;
-            }
+                //adjusting table before rotating
+                tablePosition--;
+                if (tablePosition < 0)
+                {
+                    tablePosition = 3;
+                }
 
-            //rotating table
-            LeanTween.rotateZ(gameObject, table[tablePosition], .8f);
-            
-            //Add coins to a cue to be update
-            coinCue = cueCoinUpdate();
+                //rotating table
+                LeanTween.rotateZ(gameObject, table[tablePosition], .8f);
 
-            //update coin position with new position
-            ManagePosition();
+                //Add coins to a cue to be update
+                coinCue = cueCoinUpdate();
+
+                //update coin position with new position
+                ManagePosition();
 
 
-            //check for the right answer
-            if (checkAnswer(allCoinsPos, puzzleAnswer))
-            {
-                UnityEngine.Debug.Log("Yaaaaaaaayyyyy you win");
-                plyInv.AddItem(brokenLadder);
-                taskManager.updateList("\n - A broken piece of a ladder, I bet I can fix this.");
+                //check for the right answer
+                if (checkAnswer(allCoinsPos, puzzleAnswer))
+                {
+                    UnityEngine.Debug.Log("Yaaaaaaaayyyyy you win");
+                    plyInv.AddItem(brokenLadder);
+                    taskManager.updateList("\n - A broken piece of a ladder, I bet I can fix this.");
+                }
             }
         }
 
@@ -990,6 +995,7 @@ public class TableManager : MonoBehaviour
                     checking++;
                     if(checking == 4)
                     {
+                        fin = true;
                         return true;
                     }
                 }
