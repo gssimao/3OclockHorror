@@ -434,6 +434,9 @@ MonoBehaviour:
   solved: 0
   timercheck: 1
   HunterTrapActive: 0
+  isTutorial: 0
+  key: {fileID: 0}
+  KeyPopUp: {fileID: 0}
 --- !u!224 &5431649
 RectTransform:
   m_ObjectHideFlags: 0
@@ -103842,6 +103845,7 @@ MonoBehaviour:
   blackaqr1: {fileID: 1109737151}
   blackaqr2: {fileID: 549205118}
   blackaqr3: {fileID: 313471839}
+  fin: 0
 --- !u!212 &1550702871
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -108138,7 +108142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WatcherTime: 240
-  CreepTime: 1
+  CreepTime: 480
   TrapTime: 1680
   player: {fileID: 1619042896}
   sanity: {fileID: 1619042899}
@@ -108220,11 +108224,7 @@ MonoBehaviour:
   manager: {fileID: 0}
   isPlaying: 0
   playerFloor: FirstFloor
-  Cntnr: {fileID: 1192421596}
-  charPanel: {fileID: 1932810098}
-  ToolTip: {fileID: 858607486}
-  wbInventory: {fileID: 1114499257}
-  contSlots: {fileID: 1108702598}
+  plyInv: {fileID: 0}
   Canvases:
   - {fileID: 1044781339}
   - {fileID: 545888523}
