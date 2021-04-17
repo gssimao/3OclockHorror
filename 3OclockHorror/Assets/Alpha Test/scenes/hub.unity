@@ -412,6 +412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75cf07d61a4cd7c4d93157289a87f83d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NeedKeyMessage: {fileID: 0}
   Player: {fileID: 1619042889}
   TP: {fileID: 1216153499}
   Gear1: {fileID: 2120105017}
@@ -59397,7 +59398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7735849, g: 0.5424521, b: 0.3539516, a: 0.043137256}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -78443,6 +78444,7 @@ GameObject:
   - component: {fileID: 1212530268}
   - component: {fileID: 1212530270}
   - component: {fileID: 1212530269}
+  - component: {fileID: 1212530271}
   m_Layer: 5
   m_Name: BenchSlider
   m_TagString: Untagged
@@ -78507,6 +78509,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1212530267}
   m_CullTransparentMesh: 0
+--- !u!114 &1212530271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212530267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3776ab1d3b9c52243a5576199fd05f6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holder: {fileID: 945060882}
 --- !u!1 &1213663624
 GameObject:
   m_ObjectHideFlags: 0
@@ -90711,9 +90726,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 945060882}
-        m_TargetAssemblyTypeName: RecipieHolder, Assembly-CSharp
-        m_MethodName: Craft
+      - m_Target: {fileID: 1212530271}
+        m_TargetAssemblyTypeName: BenchSlider, Assembly-CSharp
+        m_MethodName: slideSlider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
