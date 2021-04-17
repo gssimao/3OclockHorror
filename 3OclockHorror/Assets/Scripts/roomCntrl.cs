@@ -300,12 +300,13 @@ public class roomCntrl : MonoBehaviour
         {
             watcher.WatcherHallway = true;
             watcher.ChangeRoom(WatcherHallway);
-            player.GetComponent<LightMatch>().MatchOn(false);
+            player.GetComponent<LightMatch>().TurnOffLight(false);
             player.GetComponent<LightMatch>().enabled = false;
         }
         else
         {
             watcher.WatcherHallway = false;
+            player.GetComponent<LightMatch>().TurnOffLight(true);
             player.GetComponent<LightMatch>().enabled = true;
         }
     }
