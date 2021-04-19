@@ -7,6 +7,10 @@ public class SanityManager : MonoBehaviour
 {
     public float sanityValue; //Variable that holds how much sanity the player has
 
+    public sendMessage MidSanityMessage;
+    public sendMessage MidLowSanityMessage;
+    public sendMessage LowSanityMessage;
+
     public float timeLeft; // how long will the flick go for.
     public Material material; //reference to the sprite renderer
     public bool effectOn = false; //see if there is something playing
@@ -33,6 +37,19 @@ public class SanityManager : MonoBehaviour
 
     private void Update()
     {
+        if (sanityValue < 60 && sanityValue > 40)
+        {
+            MidSanityMessage.TriggerMessage();
+        }
+        if (sanityValue < 40 && sanityValue > 20)
+        {
+            MidLowSanityMessage.TriggerMessage();
+        }
+        if (sanityValue < 20 && sanityValue > 0)
+        {
+            LowSanityMessage.TriggerMessage();
+        }
+
         if (sanityValue <= 0)
         {
             SceneManager.LoadScene(GameOverScene); //Load the Game Over scene
