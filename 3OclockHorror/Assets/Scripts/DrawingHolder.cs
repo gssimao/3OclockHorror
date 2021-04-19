@@ -12,6 +12,8 @@ public class DrawingHolder : MonoBehaviour
     public List<DrawPoint> midRight;
     public List<DrawPoint> rightRight;
 
+    public bool debug;
+
     public void ClearConnections()
     {
         //Run through each list, grab each point, and clear it

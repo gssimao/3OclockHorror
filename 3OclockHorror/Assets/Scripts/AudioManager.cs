@@ -81,6 +81,10 @@ public class AudioManager : MonoBehaviour
 	public void Stop(string sound)
 	{
 		Sound s = Array.Find(sounds, item => item.name == sound); //Find the sound we want to play, ensure it's not null
+        if(s.source == null)
+        {
+            Debug.Log(sound + " does not have its source assigned anymore");
+        }
         if (s != null & s.source.isPlaying)
         {
             s.source.Stop();

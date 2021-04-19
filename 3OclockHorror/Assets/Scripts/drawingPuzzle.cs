@@ -60,7 +60,7 @@ public class drawingPuzzle : MonoBehaviour
     bool symThree = false;
     bool symFour = false;
     bool anx = false;
-    bool abn = false; 
+    bool abn = false;
     bool prof = false;
 
     UniversalControls uControls;
@@ -87,7 +87,7 @@ public class drawingPuzzle : MonoBehaviour
             resetSelection();
         }
 
-        if(sr != null)
+        if (sr != null)
         {
             sr.color = Color.red; //Show the selected point, if any, in a special color.
         }
@@ -317,6 +317,10 @@ public class drawingPuzzle : MonoBehaviour
                 {
                     if (!answer.leftLeft[i].connections.Contains(connection))
                     {
+                        if (answer.debug)
+                        {
+                            Debug.Log("Point " + point.name + "in left-left did not contain the same connections as " + answer.leftLeft[i].name + " from " + answer.name);
+                        }
                         rtrn = false;
                     }
                 }
@@ -341,6 +345,10 @@ public class drawingPuzzle : MonoBehaviour
                     {
                         if (!answer.midLeft[i].connections.Contains(connection))
                         {
+                            if (answer.debug)
+                            {
+                                Debug.Log("Point " + point.name + "in mid-left did not contain the same connections as " + answer.leftLeft[i].name + " from " + answer.name);
+                            }
                             rtrn = false;
                         }
                     }
@@ -366,6 +374,10 @@ public class drawingPuzzle : MonoBehaviour
                     {
                         if (!answer.mid[i].connections.Contains(connection))
                         {
+                            if (answer.debug)
+                            {
+                                Debug.Log("Point " + point.name + "in mid did not contain the same connections as " + answer.leftLeft[i].name + " from " + answer.name);
+                            }
                             rtrn = false;
                         }
                     }
@@ -391,6 +403,10 @@ public class drawingPuzzle : MonoBehaviour
                     {
                         if (!answer.midRight[i].connections.Contains(connection))
                         {
+                            if (answer.debug)
+                            {
+                                Debug.Log("Point " + point.name + "in mid-right did not contain the same connections as " + answer.leftLeft[i].name + " from " + answer.name);
+                            }
                             rtrn = false;
                         }
                     }
@@ -416,6 +432,10 @@ public class drawingPuzzle : MonoBehaviour
                     {
                         if (!answer.rightRight[i].connections.Contains(connection))
                         {
+                            if (answer.debug)
+                            {
+                                Debug.Log("Point " + point.name + "in right-right did not contain the same connections as " + answer.leftLeft[i].name + " from " + answer.name);
+                            }
                             rtrn = false;
                         }
                     }
