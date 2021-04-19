@@ -90,6 +90,6 @@ public class CallHouseText : MonoBehaviour
     private void StopTypingSound()
     {
         typewriter.Stop();
-        DoneWriting.PlayOneShot(DoneWriting.clip);
+        //DoneWriting.PlayOneShot(DoneWriting.clip); // this is the Ding sound when the typewriter is done writting
     }
 }

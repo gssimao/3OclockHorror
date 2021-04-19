@@ -40,6 +40,7 @@ public class clockCntrl : MonoBehaviour
 
     public bool hourIsPlaying= false;
     public float clipLength;
+    public WatchCtrl BrockenWatchSolved;
 
     public sendMessage Message5pm;
     public sendMessage Message6pm;
@@ -50,6 +51,8 @@ public class clockCntrl : MonoBehaviour
     public sendMessage Message1am;
     public sendMessage Message2am;
     public sendMessage Message3am;
+    public sendMessage Message1amNoClock;
+    public sendMessage Message2amNoClock;
 
     bool profane;
 
@@ -195,6 +198,7 @@ public class clockCntrl : MonoBehaviour
                 hourIsPlaying = true;
                 manager.Play("Clock 12", false);
                 clipLength = 43 + Clock;
+
                 MessageMidnight.TriggerMessage();
                 //popup.UpdateTooltipMessage("12AM: 3 hours remain.");
             }
@@ -203,7 +207,14 @@ public class clockCntrl : MonoBehaviour
                 hourIsPlaying = true;
                 manager.Play("Clock 1", false);
                 clipLength = 10 + Clock;
-                Message1am.TriggerMessage();
+                if (BrockenWatchSolved.solved)
+                {
+                    Message1amNoClock.TriggerMessage();
+                }
+                else
+                {
+                    Message1am.TriggerMessage();
+                }
                 //popup.UpdateTooltipMessage("1AM: 2 hours remain.");
             }
             else if (Clock >= 2160 && Clock <= 2162 && manager != null && hourIsPlaying == false)
@@ -211,7 +222,15 @@ public class clockCntrl : MonoBehaviour
                 hourIsPlaying = true;
                 manager.Play("Clock 2", false);
                 clipLength = 13 + Clock;
-                Message2am.TriggerMessage();
+                if (BrockenWatchSolved.solved)
+                {
+                    Message2amNoClock.TriggerMessage();
+                }
+                else
+                {
+                    Message2am.TriggerMessage();
+                }
+                
                 //popup.UpdateTooltipMessage("22AM: 1 hours remain.");
             }
             else if (Clock >= 2400 && Clock <= 2402 && manager != null && hourIsPlaying == false)

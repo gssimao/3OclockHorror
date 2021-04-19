@@ -16,6 +16,8 @@ public class WatchCtrl : MonoBehaviour
     public AnswerCheckPocketWatch pwcheck;
     public bool solved;
     public bool disabled;
+
+    public sendMessage MessageBreakClock;
     // Start is called before the first frame update
     void Start()
     {
