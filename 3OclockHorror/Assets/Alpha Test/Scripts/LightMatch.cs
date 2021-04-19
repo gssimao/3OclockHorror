@@ -42,14 +42,13 @@ public class LightMatch : MonoBehaviour
         fLight.enabled = false;
         lightEffect.SetActive(false);
         Light();
-        //Light(false);
         manager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (uControls.Player.Light.triggered/*Input.GetKeyDown("q")*/ && timerLock == true)
+        if (uControls.Player.Light.triggered/*Input.GetKeyDown("q")*/ && timerLock == true && match.gameObject.activeSelf)
         {
             Light();
         }
@@ -94,17 +93,31 @@ public class LightMatch : MonoBehaviour
             lightOn = false;
         }
     }
-    public void MatchOn(bool toggle)
+    void Light(bool toggle)
     {
-        if (toggle)
+        if (!lightOn && toggle)
         {
-            match.gameObject.SetActive(true);
+            match.enabled = true;
+            lightMask.transform.LeanScale(large, leanTime);
+            fLight.enabled = true;
+            timerLock = false;
+            lightEffect.SetActive(true);
+
+            if (manager != null)
+            {
+                manager.Play("Match Strike", true);
+            }
 
             lightOn = true;
         }
         else
         {
-            match.gameObject.SetActive(false);
+            timerLock = true;
+            match.enabled = false;
+            lightMask.transform.LeanScale(small, leanTime);
+            fLight.enabled = false;
+            lifeTime = ov;
+            lightEffect.SetActive(false);
 
             lightOn = false;
         }
@@ -118,6 +131,7 @@ public class LightMatch : MonoBehaviour
         }
         else
         {
+            Light(false);
             match.gameObject.SetActive(false);
         }
     }

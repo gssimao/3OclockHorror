@@ -1,6 +1,7 @@
 using UnityEngine.Audio;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -15,6 +16,9 @@ public class AudioManager : MonoBehaviour
 	public AudioMixerGroup mixerGroup; //For audio source mixing
 
 	public Sound[] sounds; //List of sounds managed by the manager
+
+    /*[SerializeField]
+    List<string> soundList;*/
 
 	void Awake()
 	{
@@ -31,14 +35,16 @@ public class AudioManager : MonoBehaviour
 			}
 		}
 
-		foreach (Sound s in sounds) //Init each sound - give it a source and init that source to make it playable
-		{
-			s.source = gameObject.AddComponent<AudioSource>();
-			s.source.clip = s.clip;
-			s.source.loop = s.loop;
+        foreach (Sound s in sounds) //Init each sound - give it a source and init that source to make it playable
+        {
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+            s.source.loop = s.loop;
 
-			s.source.outputAudioMixerGroup = mixerGroup;
-		}
+            s.source.outputAudioMixerGroup = mixerGroup;
+
+            //soundList.Add(s.name);
+        }
 	}
 
 	public void Play(string sound, bool isRandom) 

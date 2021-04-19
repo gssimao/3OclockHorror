@@ -18,6 +18,7 @@ public class WatcherAI : MonoBehaviour
     public GameObject inventoryUI;
     public SanityManager sanityManager;
     public Animator watcherAnim;
+    public Animator circleAnim;
 
     int randInd;
     public bool candlesOut;
@@ -63,6 +64,7 @@ public class WatcherAI : MonoBehaviour
         Rooms = floor1Rooms;
         Candles = currentRoom.getRoomObject().GetComponentsInChildren<CandleScript>();
 
+        circleAnim.gameObject.SetActive(false);
         ovTimer = coolDownTimer;;
         sanityManager = player.GetComponent<SanityManager>();
         playerRoom = player.GetComponent<PlayerMovement>().myRoom;
@@ -167,7 +169,7 @@ public class WatcherAI : MonoBehaviour
 
                 if(WatcherHallway)
                 {
-
+                    
                 }
             }
             else if (distance <= 1.25) //Player is getting closer to Watcher
@@ -186,7 +188,7 @@ public class WatcherAI : MonoBehaviour
 
                 if (WatcherHallway)
                 {
-
+                    
                 }
             }
             else
@@ -202,10 +204,10 @@ public class WatcherAI : MonoBehaviour
                 }
                 if (WatcherHallway)
                 {
-
+                    circleAnim.gameObject.SetActive(false);
                 }
             }
-
+            //1.25, 0.4
         }
     }
 
@@ -519,10 +521,5 @@ public class WatcherAI : MonoBehaviour
         }
         #endregion
 
-        /*Gizmos.color = Color.white;
-        foreach (GameObject spawn in Spawns)
-        {
-            Gizmos.DrawWireSphere(spawn.transform.position, 0.9f);
-        }*/
     }
 }

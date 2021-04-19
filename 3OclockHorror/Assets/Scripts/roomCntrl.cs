@@ -299,15 +299,15 @@ public class roomCntrl : MonoBehaviour
         if (toggle)
         {
             watcher.WatcherHallway = true;
+            watcher.circleAnim.gameObject.SetActive(true);
             watcher.ChangeRoom(WatcherHallway);
             player.GetComponent<LightMatch>().TurnOffLight(false);
-            player.GetComponent<LightMatch>().enabled = false;
         }
         else
         {
             watcher.WatcherHallway = false;
+            watcher.circleAnim.gameObject.SetActive(false);
             player.GetComponent<LightMatch>().TurnOffLight(true);
-            player.GetComponent<LightMatch>().enabled = true;
         }
     }
 }
