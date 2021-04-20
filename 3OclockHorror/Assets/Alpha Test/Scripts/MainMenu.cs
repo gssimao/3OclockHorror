@@ -31,6 +31,10 @@ public class MainMenu : MonoBehaviour
     }
     private void Update()
     {
+        if(menuAudio == null)
+        {
+            menuAudio = FindObjectOfType<AudioManager>();
+        }
 /*        index += Time.deltaTime;
         wave = Mathf.Abs(amplitude * Mathf.Sin(omega * index));
         material.SetFloat("_LightWave", wave);*/

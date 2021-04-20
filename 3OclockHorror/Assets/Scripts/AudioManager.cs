@@ -84,6 +84,7 @@ public class AudioManager : MonoBehaviour
         if(s.source == null)
         {
             Debug.Log(sound + " does not have its source assigned anymore");
+            s.source = gameObject.AddComponent<AudioSource>(); //attempt to add a new one
         }
         if (s != null & s.source.isPlaying)
         {
@@ -107,7 +108,26 @@ public class AudioManager : MonoBehaviour
 
     }
 
+    public void recreateSounds()
+    {
+        //First, run through and destory each instance of audio source
+        Component[] sources = this.gameObject.GetComponents<AudioSource>() as Component[];
+        foreach(Component source in sources)
+        {
+            Destroy(source as AudioSource);
+        }
 
+        foreach (Sound s in sounds) //Then recreate it
+        {
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+            s.source.loop = s.loop;
+
+            s.source.outputAudioMixerGroup = mixerGroup;
+
+            //soundList.Add(s.name);
+        }
+    }
 
  /*   public void PlaySFX(string sound) // Same as play, but the volume and pitch are random
 
