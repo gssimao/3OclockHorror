@@ -57,7 +57,6 @@ public class WatcherAI : MonoBehaviour
     GameObject[] Spawns;
     int i;
     public float spwnDist;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -166,11 +165,6 @@ public class WatcherAI : MonoBehaviour
                 }
 
                 else isClosePlaying = false;
-
-                if(WatcherHallway)
-                {
-                    
-                }
             }
             else if (distance <= 1.25) //Player is getting closer to Watcher
             {
@@ -188,7 +182,7 @@ public class WatcherAI : MonoBehaviour
 
                 if (WatcherHallway)
                 {
-                    
+                    circleAnim.gameObject.SetActive(true);
                 }
             }
             else

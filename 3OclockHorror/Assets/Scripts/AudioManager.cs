@@ -95,7 +95,6 @@ public class AudioManager : MonoBehaviour
 
 
     public void StartFade(string sound, float ttq)
-
     {
 
         Sound s = Array.Find(sounds, item => item.name == sound);
