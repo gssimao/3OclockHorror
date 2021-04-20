@@ -182,7 +182,6 @@ public class NPC : MonoBehaviour
             this.gameObject.transform.position = BCTPPoint.gameObject.transform.position;
             myRoom = BCTPPoint.myRoom;
             curPoint = myRoom.getEntrancePoint();
-            //Eventually, this should cause her to idle then switch rooms after a while
 
             return true;
         }

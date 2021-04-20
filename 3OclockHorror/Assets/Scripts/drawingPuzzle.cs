@@ -310,6 +310,11 @@ public class drawingPuzzle : MonoBehaviour
         {
             if (point.connections.Count != answer.leftLeft[i].connections.Count)
             {
+                if (answer.debug)
+                {
+                    Debug.Log("Point " + point.name + "in left-left did not contain the same number of connections as " + answer.leftLeft[i].name + " from " + answer.name);
+                }
+
                 rtrn = false;
             }
             else {
@@ -337,6 +342,11 @@ public class drawingPuzzle : MonoBehaviour
             {
                 if (point.connections.Count != answer.midLeft[i].connections.Count)
                 {
+                    if (answer.debug)
+                    {
+                        Debug.Log("Point " + point.name + "in mid-left did not contain the same number of connections as " + answer.midLeft[i].name + " from " + answer.name);
+                    }
+
                     rtrn = false;
                 }
                 else
@@ -347,7 +357,7 @@ public class drawingPuzzle : MonoBehaviour
                         {
                             if (answer.debug)
                             {
-                                Debug.Log("Point " + point.name + "in mid-left did not contain the same connections as " + answer.leftLeft[i].name + " from " + answer.name);
+                                Debug.Log("Point " + point.name + "in mid-left did not contain the same connections as " + answer.midLeft[i].name + " from " + answer.name);
                             }
                             rtrn = false;
                         }
@@ -366,6 +376,11 @@ public class drawingPuzzle : MonoBehaviour
             {
                 if (point.connections.Count != answer.mid[i].connections.Count)
                 {
+                    if (answer.debug)
+                    {
+                        Debug.Log("Point " + point.name + "in mid-mid did not contain the same number of connections as " + answer.mid[i].name + " from " + answer.name);
+                    }
+
                     rtrn = false;
                 }
                 else
@@ -376,7 +391,7 @@ public class drawingPuzzle : MonoBehaviour
                         {
                             if (answer.debug)
                             {
-                                Debug.Log("Point " + point.name + "in mid did not contain the same connections as " + answer.leftLeft[i].name + " from " + answer.name);
+                                Debug.Log("Point " + point.name + "in mid did not contain the same connections as " + answer.mid[i].name + " from " + answer.name);
                             }
                             rtrn = false;
                         }
@@ -395,6 +410,11 @@ public class drawingPuzzle : MonoBehaviour
             {
                 if (point.connections.Count != answer.midRight[i].connections.Count)
                 {
+                    if (answer.debug)
+                    {
+                        Debug.Log("Point " + point.name + "in mid-right did not contain the same number of connections as " + answer.midRight[i].name + " from " + answer.name);
+                    }
+
                     rtrn = false;
                 }
                 else
@@ -405,7 +425,7 @@ public class drawingPuzzle : MonoBehaviour
                         {
                             if (answer.debug)
                             {
-                                Debug.Log("Point " + point.name + "in mid-right did not contain the same connections as " + answer.leftLeft[i].name + " from " + answer.name);
+                                Debug.Log("Point " + point.name + "in mid-right did not contain the same connections as " + answer.midRight[i].name + " from " + answer.name);
                             }
                             rtrn = false;
                         }
@@ -424,6 +444,11 @@ public class drawingPuzzle : MonoBehaviour
             {
                 if (point.connections.Count != answer.rightRight[i].connections.Count)
                 {
+                        if (answer.debug)
+                        {
+                            Debug.Log("Point " + point.name + "in right-right did not contain the same number of connections as " + answer.rightRight[i].name + " from " + answer.name);
+                        }
+
                     rtrn = false;
                 }
                 else
@@ -434,7 +459,7 @@ public class drawingPuzzle : MonoBehaviour
                         {
                             if (answer.debug)
                             {
-                                Debug.Log("Point " + point.name + "in right-right did not contain the same connections as " + answer.leftLeft[i].name + " from " + answer.name);
+                                Debug.Log("Point " + point.name + "in right-right did not contain the same connections as " + answer.rightRight[i].name + " from " + answer.name);
                             }
                             rtrn = false;
                         }
