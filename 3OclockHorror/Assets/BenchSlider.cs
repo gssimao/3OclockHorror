@@ -27,10 +27,13 @@ public class BenchSlider : MonoBehaviour
 
     public void slideSlider()
     {
-        this.gameObject.transform.SetAsLastSibling();
-        LeanTween.moveLocalY(this.gameObject, 135f, 1f);
-        moving = true;
-        time = Time.realtimeSinceStartup;
-        childplace = true;
+        if (!moving && !childplace)
+        {
+            this.gameObject.transform.SetAsLastSibling();
+            LeanTween.moveLocalY(this.gameObject, 135f, 1f);
+            moving = true;
+            time = Time.realtimeSinceStartup;
+            childplace = true;
+        }
     }
 }

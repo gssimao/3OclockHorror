@@ -82,8 +82,10 @@ public class roomCntrl : MonoBehaviour
                         manager.Play("Door Open", true);
                     }
 
+                    Debug.Log("outside if");
                     if (floorChanger)
                     {
+                        Debug.Log("inside if");
                         player.playerFloor = destString;
                     }
                 }
@@ -96,7 +98,15 @@ public class roomCntrl : MonoBehaviour
                     {
                         manager.Play("Door Open", true);
                     }
+
+                    Debug.Log("outside if");
+                    if (floorChanger)
+                    {
+                        Debug.Log("inside if");
+                        player.playerFloor = destString;
+                    }
                 }
+
             }
         }
     }
@@ -258,6 +268,11 @@ public class roomCntrl : MonoBehaviour
         if (WatchHallwayTrigger)
         {
             ActivateHallway(true);
+        }
+
+        if (floorChanger)
+        {
+            player.GetComponent<PlayerMovement>().playerFloor = destString;
         }
     }
 
