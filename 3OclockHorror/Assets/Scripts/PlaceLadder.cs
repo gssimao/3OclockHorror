@@ -99,11 +99,7 @@ public class PlaceLadder : MonoBehaviour
 
     void LadderFunction()
     {
-        player.transform.position = destination.transform.position;
-
-        player.myRoom = desRoom;
-
-        player.playerFloor = destString;
+        StartCoroutine(Transition());
     }
 
     void CallLadderFade()
@@ -118,6 +114,20 @@ public class PlaceLadder : MonoBehaviour
 
         yield return new WaitForSeconds(Fade.GetCurrentAnimatorStateInfo(0).length);
         Room.sprite = newRoom;
+
+        Fade.SetTrigger("fadeIn");
+    }
+
+    IEnumerator Transition()
+    {
+        Fade.gameObject.SetActive(true);
+        Fade.SetTrigger("fadeOut");
+
+        yield return new WaitForSeconds(Fade.GetCurrentAnimatorStateInfo(0).length);
+
+        player.transform.position = destination.transform.position;
+        player.myRoom = desRoom;
+        player.playerFloor = destString;
 
         Fade.SetTrigger("fadeIn");
     }
