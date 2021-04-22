@@ -32,7 +32,7 @@ public class DrawPoint : MonoBehaviour, IPointerClickHandler
                 PuzzleCntrl.setSelected(gameObject);
                 PuzzleCntrl.setSR(sr);
             }
-            else
+            else if(PuzzleCntrl.getSelected() != gameObject)
             {
                 PuzzleCntrl.DrawLine(gameObject);
             }
