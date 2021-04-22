@@ -51,7 +51,15 @@ public class LockControl : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        UpdateNumeral();
+        if(eventData.button == PointerEventData.InputButton.Right) 
+        { 
+            UpdateNumeral(); 
+        }
+        else
+        {
+            UpdateNumeralReverse();
+        }
+
         if (manager != null)
         {
             manager.Play("Lock turn", true);
@@ -59,6 +67,73 @@ public class LockControl : MonoBehaviour, IPointerClickHandler
     }
 
     public void UpdateNumeral()
+    {
+        switch (numeral)
+        {
+            case "I":
+                numeral = "X";
+                left.sprite = numeralIX;
+                center.sprite = numeralX;
+                right.sprite = numeralI;
+                break;
+            case "II":
+                numeral = "I";
+                left.sprite = numeralX;
+                center.sprite = numeralI;
+                right.sprite = numeralII;
+                break;
+            case "III":
+                numeral = "II";
+                left.sprite = numeralI;
+                center.sprite = numeralII;
+                right.sprite = numeralIII;
+                break;
+            case "IV":
+                numeral = "III";
+                left.sprite = numeralII;
+                center.sprite = numeralIII;
+                right.sprite = numeralIV;
+                break;
+            case "V":
+                numeral = "IV";
+                left.sprite = numeralIII;
+                center.sprite = numeralIV;
+                right.sprite = numeralV;
+                break;
+            case "VI":
+                numeral = "V";
+                left.sprite = numeralIV;
+                center.sprite = numeralV;
+                right.sprite = numeralVI;
+                break;
+            case "VII":
+                numeral = "VI";
+                left.sprite = numeralV;
+                center.sprite = numeralVI;
+                right.sprite = numeralVII;
+                break;
+            case "VIII":
+                numeral = "VII";
+                left.sprite = numeralVI;
+                center.sprite = numeralVII;
+                right.sprite = numeralVIII;
+                break;
+            case "IX":
+                numeral = "VIII";
+                left.sprite = numeralVII;
+                center.sprite = numeralVIII;
+                right.sprite = numeralIX;
+                break;
+            case "X":
+                numeral = "IX";
+                left.sprite = numeralVIII;
+                center.sprite = numeralIX;
+                right.sprite = numeralX;
+                break;
+        }
+    }
+
+    public void UpdateNumeralReverse()
     {
         switch (numeral)
         {
