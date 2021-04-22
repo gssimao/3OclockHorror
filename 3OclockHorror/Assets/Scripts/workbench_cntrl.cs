@@ -64,11 +64,9 @@ public class workbench_cntrl : MonoBehaviour
         float dist = Vector3.Distance(player.transform.position, transform.position); //Get the position of player
         if (dist <= 0.25f) //If the player is in range
         {
-            Debug.Log("Within Range");
             //Listener.isFocus = false;
             if (uControls.Player.Interact.triggered && !active)
             {
-                Debug.Log("Inside Trigger/off");
                 IM.ActivateInventory(myInv);
                 myInv.OpenInv(); //Update the items to be in accordance with the items array
                 active = true;
@@ -79,7 +77,6 @@ public class workbench_cntrl : MonoBehaviour
             }
             else if (uControls.Player.Interact.triggered && active)
             {
-                Debug.Log("Inside Trigger/on");
                 //if (invCanv.activeSelf)
                 //{
                     IM.DeactivateInventory(myInv);
