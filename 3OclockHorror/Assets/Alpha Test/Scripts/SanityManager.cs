@@ -37,15 +37,15 @@ public class SanityManager : MonoBehaviour
 
     private void Update()
     {
-        if (sanityValue < 60 && sanityValue > 40)
+        if (sanityValue < 70 && sanityValue > 60 && MidSanityMessage.gameObject != null)
         {
             MidSanityMessage.TriggerMessage();
         }
-        if (sanityValue < 40 && sanityValue > 20)
+        if (sanityValue < 50 && sanityValue > 30 && MidLowSanityMessage.gameObject != null)
         {
             MidLowSanityMessage.TriggerMessage();
         }
-        if (sanityValue < 20 && sanityValue > 0)
+        if (sanityValue < 20 && sanityValue > 0 && LowSanityMessage != null)
         {
             LowSanityMessage.TriggerMessage();
         }
