@@ -20,67 +20,46 @@ public class Sound {
 
 	//[HideInInspector]
 	public AudioSource source; //Source associated with this sound - not in editor, controlled behind the scene
-    [HideInInspector]
-    float fadeStartTime;
-    bool isFading = false;
+
     float timeToFade;
+    float dTime;
 
     #region get/set
-    public float getStartTime()
-    {
-        return fadeStartTime;
-    }
-    public void setStartTIme(float newStartTime)
-    {
-        fadeStartTime = newStartTime;
-    }
-    public bool getFading()
-    {
-        return isFading;
-    }
-    public void setFading(bool fading)
-    {
-        isFading = fading;
-    }
     public void setFadeTime(float nF)
     {
         timeToFade = nF;
     }
     #endregion
 
-    void Update()
-    {
-        if (isFading)
-        {
-            AudioFadeOut();
-        }
-    }
-
-    public void AudioFadeOut()
+    public bool AudioFadeOut()
     { 
         float startVolume = this.source.volume;
 
-        if (this.source.isPlaying && isFading)
-        {
-            /*
-            while (s.source.volume > 0)
-            {
-                s.source.volume -= startVolume * (Time.deltaTime / FadeTime);
-            }
-            */
+        Debug.Log("We are in the fade function: " + this.name);
 
-            if (this.source.volume < 0)
+        if (this.source.isPlaying)
+        {
+            if (this.source.volume <= 0)
             {
                 this.source.Stop();
                 this.source.volume = startVolume;
-                isFading = false;
+                dTime = 0f;
+                return true;
             }
             else
             {
-                float dTime = Time.deltaTime - fadeStartTime;
+                dTime += Time.deltaTime;
+                if(dTime > timeToFade)
+                {
+                    dTime = timeToFade;
+                }
                 this.source.volume -= startVolume * (dTime / timeToFade);
+                return false;
             }
         }
-
+        else
+        {
+            return false;
+        }
     }
 }

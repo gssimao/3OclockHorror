@@ -17,8 +17,7 @@ public class AudioManager : MonoBehaviour
 
 	public Sound[] sounds; //List of sounds managed by the manager
 
-    /*[SerializeField]
-    List<string> soundList;*/
+    public List<Sound> fadingSounds = new List<Sound>();
 
 	void Awake()
 	{
@@ -47,7 +46,12 @@ public class AudioManager : MonoBehaviour
         }
 	}
 
-	public void Play(string sound, bool isRandom) 
+    void Update()
+    {
+        //doFade();
+    }
+
+    public void Play(string sound, bool isRandom) 
 	{
 		Sound s = Array.Find(sounds, item => item.name == sound); //Find the sound we want to play, ensure it's not null
 		if (s == null)
@@ -98,13 +102,33 @@ public class AudioManager : MonoBehaviour
     {
 
         Sound s = Array.Find(sounds, item => item.name == sound);
-
-        s.setStartTIme(Time.time);
-
-        s.setFading(true);
-
         s.setFadeTime(ttq);
 
+        fadingSounds.Add(s);
+
+    }
+    public void doFade()
+    {
+        if (fadingSounds.Count != 0)
+        {
+            List<Sound> toremove = new List<Sound>();
+            foreach (Sound s in fadingSounds)
+            {
+                bool remove = s.AudioFadeOut();
+                if (remove)
+                {
+                    toremove.Add(s);
+                }
+            }
+            if(toremove.Count != 0)
+            {
+                foreach(Sound s in toremove)
+                {
+                    fadingSounds.Remove(s);
+                }
+                toremove.Clear();
+            }
+        }
     }
 
     public void recreateSounds()
@@ -127,122 +151,4 @@ public class AudioManager : MonoBehaviour
             //soundList.Add(s.name);
         }
     }
-
- /*   public void PlaySFX(string sound) // Same as play, but the volume and pitch are random
-
-    {
-
-        Sound s = Array.Find(sounds, item => item.name == sound); 
-
-        if (s == null)
-
-        {
-
-            Debug.LogWarning("Sound: " + name + " not found!");
-
-            return;
-
-        }
-
-
-
-        s.source.volume = Random.Range(s.volume - 0.1f, s.volume + 0.1f); //Random Volume
-
-        s.source.pitch = Random.Range(0.8f, 1.2f); // Random Pitch
-
-
-
-        if (!s.source.isPlaying) //Check if the sound is playing - if not, have at it.s
-
-        {
-
-            s.source.Play();
-
-        }
-
-    }*/
-
-        
-
-        /*
-
-    public static IEnumerator AudioFadeOut(string sound, float fadingTime, Func<float, float, float, float> Interpolate)
-
-    {
-
-        Sound s = Array.Find(sounds, item => item.name == sound);
-
-        float startVolume = s.source.volume;
-
-        float frameCount = fadingTime / Time.deltaTime;
-
-        float framesPassed = 0;
-
-
-
-        while (framesPassed <= frameCount)
-
-        {
-
-            var t = framesPassed++ / frameCount;
-
-            s.source.volume = Interpolate(startVolume, 0, t);
-
-            yield return null;
-
-        }
-
-
-
-        s.source.volume = 0;
-
-        s.source.Pause();
-
-    }
-
-    public void StartFade(string sound, float ttq)
-    {
-        Sound s = Array.Find(sounds, item => item.name == sound);
-        s.setStartTIme(Time.time);
-        s.setFading(true);
-        s.setFadeTime(ttq);
-    }
-
-    public void PlaySFX(string sound) // Same as play, but the volume and pitch are random
-    {
-        Sound s = Array.Find(sounds, item => item.name == sound); 
-        if (s == null)
-        {
-            Debug.LogWarning("Sound: " + name + " not found!");
-            return;
-        }
-
-        s.source.volume = Random.Range(s.volume - 0.1f, s.volume + 0.1f); //Random Volume
-        s.source.pitch = Random.Range(0.8f, 1.2f); // Random Pitch
-
-        if (!s.source.isPlaying) //Check if the sound is playing - if not, have at it.s
-        {
-            s.source.Play();
-        }
-    }
-        
-        /*
-    public static IEnumerator AudioFadeOut(string sound, float fadingTime, Func<float, float, float, float> Interpolate)
-    {
-        Sound s = Array.Find(sounds, item => item.name == sound);
-        float startVolume = s.source.volume;
-        float frameCount = fadingTime / Time.deltaTime;
-        float framesPassed = 0;
-
-        while (framesPassed <= frameCount)
-        {
-            var t = framesPassed++ / frameCount;
-            s.source.volume = Interpolate(startVolume, 0, t);
-            yield return null;
-        }
-
-        s.source.volume = 0;
-        s.source.Pause();
-    }
-    */
 }

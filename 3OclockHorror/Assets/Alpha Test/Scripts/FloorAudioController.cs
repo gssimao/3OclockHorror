@@ -37,6 +37,10 @@ public class FloorAudioController : MonoBehaviour
         {
             lFloor = floor; //Catch the last floor
             CheckFloor();
+            if(lFloor != floor)
+            {
+                stopSoundPerFloor();
+            }
 
             //Rfloor = player.myRoom;
             //lFloor = floor.floorNum;
@@ -81,7 +85,7 @@ public class FloorAudioController : MonoBehaviour
         {
             manager.Stop("Drone");
             manager.Stop("Game ST");
-            manager.Stop("3rd Floor ST");
+            manager.Stop("3rd Floor ST" );
             manager.Stop("Basement ST");
         }
         else if (player.playerFloor == "ThirdFloor")
@@ -129,7 +133,6 @@ public class FloorAudioController : MonoBehaviour
     public void StopSoundTrack()
     {
         StopALL = true;
-        checkPrevFloor(floor);
     }
 
     private void playSound(string sound)
@@ -144,33 +147,6 @@ public class FloorAudioController : MonoBehaviour
         }
     }
 
-    public void checkPrevFloor(int floorN)
-    {
-        switch(floorN)
-        { 
-            case 1:
-                //manager.StartFade("Drone", 2);
-                //manager.StartFade("Game ST", 2);
-                manager.Stop("Drone");
-                manager.Stop("Game ST");
-                break;
-            case 2:
-                //manager.StartFade("2nd Floor ST", 2);
-                manager.Stop("2nd Floor ST");
-                break;
-            case 3:
-                manager.Stop("3rd Floor ST");
-                //manager.StartFade("3rd Floor ST", 2);
-                break;
-            case 4:
-                //manager.StartFade("Basement ST", 2);
-                manager.Stop("Basement ST");
-                break;
-            default:
-                break;
-        }
-    }
-
     //Regions for each floor. Click the little plus on the left end of the line to open the region and add in the music files
 
     //Functions for floor one
@@ -179,7 +155,6 @@ public class FloorAudioController : MonoBehaviour
     {
         playSound("Drone");
         playSound("Game ST");
-        stopSoundPerFloor();
     }
     #endregion
     //Functions for floor two
@@ -208,7 +183,6 @@ public class FloorAudioController : MonoBehaviour
             is2BTrue = false;
         }
         manager.Play("Heavy Wind", false);
-        stopSoundPerFloor();
     }
     public void PlayFloorTwoB() //Normal side
     {
@@ -220,7 +194,6 @@ public class FloorAudioController : MonoBehaviour
             is2ATrue = false;
         }
         manager.Play("2nd Floor ST", false);
-        stopSoundPerFloor();
     }
     #endregion
     //Functions for floor three
@@ -228,7 +201,6 @@ public class FloorAudioController : MonoBehaviour
     public void PlayFloorThree()
     {
         playSound("3rd Floor ST");
-        stopSoundPerFloor();
     }
     #endregion 
     //Functions for basement
@@ -236,7 +208,6 @@ public class FloorAudioController : MonoBehaviour
     public void PlayBasement()
     {
         playSound("Basement ST");
-        stopSoundPerFloor();
     }
     #endregion
     //In case of error
