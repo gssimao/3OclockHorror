@@ -47,4 +47,10 @@ public class AltarCntrl : MonoBehaviour
             }
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(this.transform.position, 1.0f);
+    }
 }

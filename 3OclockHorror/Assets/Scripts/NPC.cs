@@ -278,12 +278,14 @@ public class NPC : MonoBehaviour
             if (fsm.GetState() != FSMStateType.CHASE && isWanPlaying == false && manager != null && pmove.myRoom == myRoom)
             {
                 manager.Play("BC Wander", false);
-                manager.Play("BC Chase", false);
+                manager.Stop("BC Chase");
+                isWanPlaying = true;
             }
             else if (fsm.GetState() == FSMStateType.CHASE && isChasePlaying == false && manager != null && pmove.myRoom == myRoom)
             {
                 manager.Stop("BC Wander");
                 manager.Play("BC Chase", false);
+                isChasePlaying = true;
             }
             else
             {
