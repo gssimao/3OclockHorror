@@ -28,6 +28,8 @@ public class Padlock : MonoBehaviour
 
     [SerializeField]
     GameObject isSolved;
+    [SerializeField]
+    Animator lockAnim;
 
     AudioManager manager;
 
@@ -40,6 +42,11 @@ public class Padlock : MonoBehaviour
     void Update()
     {
         CheckAnswer();
+
+        /*if(lockAnim.GetCurrentAnimatorStateInfo(0).IsName("PadlockOpen") && solved)
+        {
+            lockAnim.gameObject.SetActive(false);
+        }*/
     }
 
     public void CheckAnswer()
@@ -54,8 +61,9 @@ public class Padlock : MonoBehaviour
                 door.locked = false;
             }
             solved = true;
-            isSolved.SetActive(true);
+            lockAnim.SetTrigger("unlock");
             manager.Play("Success", false);
         }
     }
 }
+
