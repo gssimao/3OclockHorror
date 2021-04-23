@@ -14,6 +14,7 @@ public class ST_Cntrl : MonoBehaviour
     public bool StopALL = false;
     bool is1stPlaying = false;
     bool is2ndPlaying = false;
+    bool windplaying = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,31 +25,38 @@ public class ST_Cntrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.myRoom != null && player.myRoom.getName() == "Outside")
+        if (manager != null)
         {
-            playSound("Heavy Wind");
-        }
-
-
-        if (player.myRoom.getName() == "F1HubRoom" && clock.hourIsPlaying == false)
-        {
-            playSound("Clock Tick");
-            //clock.hourIsPlaying = true; - These broke the variable's function and caused hours after 5 to trigger no sound. - Noah
-        }
-        else
-        {
-            if (clock.hourIsPlaying == true)
+            if (player.myRoom != null && player.myRoom.getName() == "Outside")
             {
-                manager.Stop("Clock Tick");
-                //clock.hourIsPlaying = false;
+                playSound("Heavy Wind");
+                windplaying = true;
             }
-            else if (player.myRoom.getName() != "F1HubRoom")
+            else if (player.myRoom.getName() == "F1HubRoom" && clock.hourIsPlaying == false)
             {
-                manager.Stop("Clock Tick");
+                playSound("Clock Tick");
+                //clock.hourIsPlaying = true; - These broke the variable's function and caused hours after 5 to trigger no sound. - Noah
             }
             else
             {
-                Debug.LogError("AudioManager not found. Likely not an error.");
+                if (windplaying)
+                {
+                    manager.Stop("Heavy Wind");
+                    windplaying = false;
+                }
+                if (clock.hourIsPlaying == true)
+                {
+                    manager.Stop("Clock Tick");
+                    //clock.hourIsPlaying = false;
+                }
+                else if (player.myRoom.getName() != "F1HubRoom")
+                {
+                    manager.Stop("Clock Tick");
+                }
+                else
+                {
+                    Debug.LogError("AudioManager not found. Likely not an error.");
+                }
             }
         }
     }
