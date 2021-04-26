@@ -58,6 +58,8 @@ public class InventoryManager : MonoBehaviour
         //Ongoing drag and drops
         inv.onDragEvent += Drag;
         inv.onDropEvent += Drop;
+
+        inv.onRightClickEvent += TransferCheck;
     }
     private void RemoveEvents(Inventory inv)
     {
@@ -70,6 +72,8 @@ public class InventoryManager : MonoBehaviour
         //Ongoing drag and drops
         inv.onDragEvent -= Drag;
         inv.onDropEvent -= Drop;
+
+        inv.onRightClickEvent -= TransferCheck;
     }
 
     public void ActivateInventory(Inventory inv)
@@ -98,18 +102,32 @@ public class InventoryManager : MonoBehaviour
         itemTooltip.HideTooltip();
     }
 
+    private void TransferCheck(ItemSlot slot)
+    {
+        if(slot.Item != null)
+        {
+            if (!slot.PlayerInv && !inventory.IsFull())
+            {
+                inventory.AddItem(slot.Item);
+                slot.Item = null;
+            }
+        }
+    }
+
     private void BeginDrag(ItemSlot slot)
     {
         if(slot.Item != null)
         {
-            draggableSlot.Item = slot.Item;
-            draggableSlot.transform.position = Input.mousePosition; /*new Vector3( uControls.UI.CursorPosition.ReadValue<Vector2>().x,
+            
+                draggableSlot.Item = slot.Item;
+                draggableSlot.transform.position = Input.mousePosition; /*new Vector3( uControls.UI.CursorPosition.ReadValue<Vector2>().x,
                                                             uControls.UI.CursorPosition.ReadValue<Vector2>().y,
-                                                            0);*/ 
-            draggableSlot.gameObject.SetActive(true);
-            orgSlot = slot;
-            slot.Item = null;
-            dropped = false;
+                                                            0);*/
+                draggableSlot.gameObject.SetActive(true);
+                orgSlot = slot;
+                slot.Item = null;
+                dropped = false;
+            
         }
         else if(slot.Item == null)
         {

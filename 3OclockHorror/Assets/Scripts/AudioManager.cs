@@ -83,12 +83,13 @@ public class AudioManager : MonoBehaviour
 	public void Stop(string sound)
 	{
 		Sound s = Array.Find(sounds, item => item.name == sound); //Find the sound we want to play, ensure it's not null
-        if(s.source == null)
+        if(s == null)
         {
-            Debug.Log(sound + " does not have its source assigned anymore");
-            s.source = gameObject.AddComponent<AudioSource>(); //attempt to add a new one
+            Debug.Log("S: " + sound + " is missing");
+            return;
         }
-        if (s != null & s.source.isPlaying)
+
+        if (s.source != null && s.source.isPlaying)
         {
             s.source.Stop();
         }

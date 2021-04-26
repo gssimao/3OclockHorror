@@ -170,6 +170,16 @@ public class Inventory : MonoBehaviour, IItemContainer
         }
         return c;
     }
+
+    public int countArrayItems()
+    {
+        int count = 0;
+        foreach(Item item in items)
+        {
+            count++;
+        }
+        return count;
+    }
     #endregion
 
     //Opening, closing, and linking dynamic inventories. 
