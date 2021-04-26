@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class SanityManager : MonoBehaviour
 {
@@ -24,6 +25,9 @@ public class SanityManager : MonoBehaviour
     [SerializeField]
     endScreenControl escntrl;
 
+    [SerializeField]
+    VideoPlayer deathVP;
+
     /*void Start()
     {
         //get reference from player's material
@@ -33,6 +37,7 @@ public class SanityManager : MonoBehaviour
     void Awake()
     {
         material.SetFloat("_Flick", 0f);
+        //deathVP.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -52,9 +57,7 @@ public class SanityManager : MonoBehaviour
 
         if (sanityValue <= 0)
         {
-            SceneManager.LoadScene(GameOverScene); //Load the Game Over scene
-            escntrl.endMessage = "You went insane.";
-            Cursor.visible = true;
+            PlayGameOver();
         }
 
         if (effectOn)
@@ -176,4 +179,34 @@ public class SanityManager : MonoBehaviour
         effectCue[10] = 0;
     }
 
+    void PlayGameOver()
+    {
+        StartCoroutine(GameOver());
+    }
+
+    IEnumerator GameOver()
+    {
+        yield return StartCoroutine(PlayDeathAnimation());
+
+        SceneManager.LoadScene(GameOverScene); //Load the Game Over scene
+        escntrl.endMessage = "You went insane.";
+        Cursor.visible = true;
+    }
+
+    IEnumerator PlayDeathAnimation()
+    {
+        deathVP.gameObject.SetActive(true);
+
+        while(!deathVP.isPrepared)
+        {
+            yield return null;
+        }
+
+        while (deathVP.isPlaying)
+        {
+            Debug.Log("Inside Loop");
+            yield return null;
+        }
+        Debug.Log("After Loop");
+    }
 }

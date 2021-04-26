@@ -95,12 +95,12 @@ public class clockCntrl : MonoBehaviour
                 hourHand.GetComponent<RectTransform>().Rotate(0f, 0f, ((-0.25f * Time.deltaTime)/2));
                 minuteHand.GetComponent<RectTransform>().Rotate(0f, 0f, ((-3f * Time.deltaTime)/2));
             }
-            if(sanity.sanityValue <= 0) //Check if the player has any sanity, if not end the game
+            /*if(sanity.sanityValue <= 0) //Check if the player has any sanity, if not end the game
             {
                 SceneManager.LoadScene(2); //Load the Game Over scene
                 escntrl.endMessage = "You ran out of time.";
                 Cursor.visible = true;
-            }
+            }*/
 
             //Check for events
             if (Clock >= WatcherTime)

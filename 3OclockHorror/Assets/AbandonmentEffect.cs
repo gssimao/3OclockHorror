@@ -83,6 +83,15 @@ public class AbandonmentEffect : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            watcher.abandonment = false;
+            BCIdleState.abandonment = false;
+            if (manager != null)
+            {
+                manager.Stop("Evil_Laugh");
+            }
+        }
     }
 
     void TurnOffBeartraps()

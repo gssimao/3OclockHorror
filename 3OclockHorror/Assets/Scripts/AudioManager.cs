@@ -41,8 +41,6 @@ public class AudioManager : MonoBehaviour
             s.source.loop = s.loop;
 
             s.source.outputAudioMixerGroup = mixerGroup;
-
-            //soundList.Add(s.name);
         }
 	}
 
@@ -96,11 +94,8 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-
-
     public void StartFade(string sound, float ttq)
     {
-
         Sound s = Array.Find(sounds, item => item.name == sound);
         s.setFadeTime(ttq);
 
@@ -147,8 +142,14 @@ public class AudioManager : MonoBehaviour
             s.source.loop = s.loop;
 
             s.source.outputAudioMixerGroup = mixerGroup;
+        }
+    }
 
-            //soundList.Add(s.name);
+    public void StopAll()
+    {
+        foreach(Sound s in sounds)
+        {
+            s.source.Stop();
         }
     }
 }
