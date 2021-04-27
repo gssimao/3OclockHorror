@@ -44,6 +44,7 @@ public class HuntCheckSolved : MonoBehaviour
     bool lost = false;
 
     AudioManager manager;
+    [SerializeField]
     FloorAudioController SoundTrack;
     public bool HunterTrapActive = false; // When this is true, the SoundTrack plays. You can use it or anything else though as well.
 
@@ -60,6 +61,8 @@ public class HuntCheckSolved : MonoBehaviour
 
     private void Start()
     {
+        manager = FindObjectOfType<AudioManager>();
+
         answer1 = Random.Range(0, 5);
         answer2 = Random.Range(0, 5);
         answer3 = Random.Range(0, 5);
@@ -86,8 +89,6 @@ public class HuntCheckSolved : MonoBehaviour
             timer = 15.0f;
         }
         TrapCtrl.triggered++;
-
-        manager = FindObjectOfType<AudioManager>();
 
         //TimerText = GameObject.Find("Timer").Text;
     }
@@ -117,7 +118,6 @@ public class HuntCheckSolved : MonoBehaviour
         {
             solved = true;
             Solved.SetActive(true);
-            //yield return new WaitForSeconds(2);
             GameObject.Find("BeartrapPuzzle").SetActive(false);
             if (manager != null)
             {
@@ -155,10 +155,12 @@ public class HuntCheckSolved : MonoBehaviour
         if (!solved)
         {
             HunterTrapActive = true;
-            manager.Play("Hunter Build up", false);
-            SoundTrack.StopSoundTrack();
+            if (manager != null && SoundTrack != null)
+            {
+                manager.Play("Hunter Build up", false);
+                SoundTrack.StopSoundTrack();
+            }
             Puzzle.SetActive(true);
-            Puzzle.SetActive(true); //Second call is needed to avoid a bug of trap not activating.
             if (!timercheck)
             {
                 timerObject.SetActive(false);
@@ -172,7 +174,10 @@ public class HuntCheckSolved : MonoBehaviour
         }
         HunterTrapActive = false;
         SoundTrack.StopALL = false;
-        manager.Stop("Hunter Build up");
+        if(manager != null)
+        {
+            manager.Stop("Hunter Build up");
+        }
     }
 
     void Update()
