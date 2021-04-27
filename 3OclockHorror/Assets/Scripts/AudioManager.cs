@@ -153,4 +153,12 @@ public class AudioManager : MonoBehaviour
             s.source.Stop();
         }
     }
+
+    public void updateVolume(float val)
+    {
+        foreach(Sound s in sounds)
+        {
+            s.volume = val;
+        }
+    }
 }
