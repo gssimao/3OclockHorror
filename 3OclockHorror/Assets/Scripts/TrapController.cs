@@ -23,19 +23,27 @@ public class TrapController : MonoBehaviour
     {
         if(!active)
         {
-                ActivateTraps();
-                wait = 0f;
-                active = true;
+            ActivateTraps();
+            wait = 0f;
+            active = true;
         }
         if (active)
         {
             wait += Time.deltaTime;
             if(wait > 120 && wait < 122)
             {
+                int total = 0;
                 full = true;
                 foreach (GameObject Trap in Traps)
                 {
-                    if (!Trap.activeSelf) { full = false; } //Checks to make sure not all traps are active
+                    if (!Trap.activeSelf) 
+                    {
+                        total++;
+                    } //Checks to make sure not all traps are active
+                }
+                if(total < Traps.Length)
+                {
+                    full = false;
                 }
                 if (!full)
                 {
@@ -58,15 +66,27 @@ public class TrapController : MonoBehaviour
 
     private void ActivateTraps()
     {
-        for (int i = 0; i < 3; i++)
+        int total = 0;
+
+        foreach(GameObject Trap in Traps)
         {
-            int rand = Mathf.RoundToInt(Random.Range(0, Traps.Length));
-            while (Traps[rand].activeSelf)
+            if(Trap.activeSelf)
             {
-                rand = Mathf.RoundToInt(Random.Range(0, Traps.Length));
+                total++;
             }
-            Traps[rand].SetActive(true);
-            Debug.Log("Trap " + Traps[rand].name + " Activated");
+        }
+        if (total > Mathf.RoundToInt(Traps.Length / 2))
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                int rand = Mathf.RoundToInt(Random.Range(0, Traps.Length));
+                while (Traps[rand].activeSelf)
+                {
+                    rand = Mathf.RoundToInt(Random.Range(0, Traps.Length));
+                }
+                Traps[rand].SetActive(true);
+                Debug.Log("Trap " + Traps[rand].name + " Activated");
+            }
         }
     }
 
