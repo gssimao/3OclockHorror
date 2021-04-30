@@ -63,8 +63,6 @@ public class timePassAnimator : MonoBehaviour
         {
             Fade.gameObject.SetActive(false);
 
-
-
             this.gameObject.SetActive(false);
         }
     }
@@ -118,12 +116,15 @@ public class timePassAnimator : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    IEnumerator PlayWakeUpAnimation()
+    void PlayWakeAnimation()
     {
-        Fade.gameObject.SetActive(true);
-        Fade.SetTrigger("fadeOut");
-
+        StartCoroutine(WakeUpAnimation());
+    }
+    IEnumerator WakeUpAnimation()
+    {
         yield return new WaitForSeconds(0.5f);
         Fade.SetTrigger("fadeIn");
+
+        plyAnim.SetTrigger("wake");
     }
 }

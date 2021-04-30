@@ -57,6 +57,13 @@ public class WatcherAI : MonoBehaviour
     GameObject[] Spawns;
     int i;
     public float spwnDist;
+    [SerializeField]
+    room roomBFHallway;
+    [SerializeField]
+    Animator Fade;
+    [SerializeField]
+    Animator plyAnim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,7 +76,7 @@ public class WatcherAI : MonoBehaviour
         playerRoom = player.GetComponent<PlayerMovement>().myRoom;
         manager = FindObjectOfType<AudioManager>();
 
-        Debug.Log("Watcher Current Room: " + currentRoom.name + "Floor: " + currentRoom.floorNum);
+        Debug.Log("Watcher Current Room: " + currentRoom.name + ", Floor: " + currentRoom.floorNum);
     }
 
     // Update is called once per frame
@@ -135,6 +142,13 @@ public class WatcherAI : MonoBehaviour
                     sanityManager.ChangeSanity(-5);
 
                     player.transform.position = startPoint.transform.position;
+                    player.GetComponent<PlayerMovement>().changeRoom(roomBFHallway);
+
+                    if (isScreamPlaying == false && manager != null)
+                    {
+                        manager.Play("Watcher Scream", true);
+                        isScreamPlaying = true;
+                    }
                 }
 
                 if (manager != null && isClosePlaying == true)
@@ -515,5 +529,28 @@ public class WatcherAI : MonoBehaviour
         }
         #endregion
 
+    }
+
+    void PlayJumpscare()
+    {
+        StartCoroutine(Jumpscare());
+    }
+
+    IEnumerator Jumpscare()
+    {
+        Fade.SetTrigger("fadOut");
+
+        yield return new WaitForSeconds(0.5f);
+
+        Fade.SetTrigger("fadeIn");
+
+        while(Fade.GetCurrentAnimatorStateInfo(0).normalizedTime < 1)
+        {
+            yield return null;
+        }
+
+        Fade.gameObject.SetActive(false);
+
+        plyAnim.SetTrigger("wake");
     }
 }

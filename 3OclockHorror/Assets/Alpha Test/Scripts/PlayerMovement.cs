@@ -79,8 +79,6 @@ public class PlayerMovement : MonoBehaviour
             movement.x = 0;
             movement.y = 0;
         }
-        /*movement.x = uControls.Player.MovePlayer.ReadValue<Vector2>().x;//Input.GetAxisRaw("Horizontal");
-        movement.y = uControls.Player.MovePlayer.ReadValue<Vector2>().y; //Input.GetAxisRaw("Vertical");*/
 
         #region Depreciated_mouse_control
         /*

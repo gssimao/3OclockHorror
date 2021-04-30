@@ -58,6 +58,9 @@ public class NPC : MonoBehaviour
 
     int hitTmr;
 
+    [SerializeField]
+    Animator Fade;
+
     // Start is called before the first frame update
     void Awake()
     {
