@@ -26,11 +26,23 @@ public class NPC : MonoBehaviour
     [SerializeField]
     GameObject TimePasserCanv;
 
+    [Space]
+
+    [SerializeField]
+    GameObject InvCanv;
+    [SerializeField]
+    InventoryManager InvManager;
+
+    [Space]
+
     //Public (editor assigned) Variables
+    [SerializeField]
     public GameObject player; //The player target for the Blind Creep to head towards / check against
     PlayerMovement pmove;
     public Animator anim;
     //Watcher reference as well perhaps?
+
+    [Space]
 
     //Internals
     FiniteStateMachine fsm; //Finite state machine reference
@@ -49,7 +61,10 @@ public class NPC : MonoBehaviour
     public Rigidbody2D rb;
     public float pTime = 0f; //Time since last transfer
 
+    [Space]
+
     AudioManager manager;
+
     public bool isWalking = false;
     public bool isRunning = false;
     public bool isPlaying = false;
@@ -174,8 +189,8 @@ public class NPC : MonoBehaviour
             clock.adjustTime(120);
             hitTmr = 200;
 
-            target.transform.position = playerTPPoint.transform.position;
-            target.GetComponent<PlayerMovement>().changeRoom(playerTPPoint.myRoom);
+            InvManager.closeCurrInv();
+            InvCanv.SetActive(false);
 
             //Script to fade to black and transfer rooms to cover time change
             //Trigger animation / fade to black, on timer
@@ -185,6 +200,9 @@ public class NPC : MonoBehaviour
             this.gameObject.transform.position = BCTPPoint.gameObject.transform.position;
             myRoom = BCTPPoint.myRoom;
             curPoint = myRoom.getEntrancePoint();
+
+            target.transform.position = playerTPPoint.transform.position;
+            target.GetComponent<PlayerMovement>().changeRoom(playerTPPoint.myRoom);
 
             return true;
         }

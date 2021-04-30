@@ -293,6 +293,8 @@ public class drawingPuzzle : MonoBehaviour
                 taskList.updateList("\n - When I drew that symbol, one of the lights turned on. I wonder what happens when all four are lit?");
                 msgSent = true;
             }
+
+            Reset();
         }
         else
         {

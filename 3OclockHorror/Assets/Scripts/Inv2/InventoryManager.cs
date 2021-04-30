@@ -88,6 +88,16 @@ public class InventoryManager : MonoBehaviour
         RemoveEvents(inv);
     }
 
+    public void closeCurrInv() //Designed only to emergency close, do not use unless absolutely necessary 
+    {
+        if(workbenchInv != null)
+        {
+            workbenchInv.CloseInv();
+            RemoveEvents(workbenchInv);
+        }
+        workbenchInv = null;
+    }
+
     #region Event Functions
     private void ShowTooltip(ItemSlot slot)
     {
