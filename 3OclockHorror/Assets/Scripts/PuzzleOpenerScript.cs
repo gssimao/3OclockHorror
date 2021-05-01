@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PuzzleOpenerScript : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class PuzzleOpenerScript : MonoBehaviour
     float range;
     [SerializeField]
     GameObject invCan;
+    [SerializeField]
+    GameObject coinCanv;
 
     [Space]
     [SerializeField]
@@ -42,6 +45,7 @@ public class PuzzleOpenerScript : MonoBehaviour
     bool canvasActive = false;
     bool havCoins = false;
     bool opened = false;
+    
 
     UniversalControls uControls;
     private void Awake()
@@ -71,6 +75,8 @@ public class PuzzleOpenerScript : MonoBehaviour
             {
                 if (!opened)
                 {
+                    coinCanv.SetActive(true);
+
                     TaskString = "\n " + TaskString;
                     taskManager.updateList(TaskString);
                     opened = true;

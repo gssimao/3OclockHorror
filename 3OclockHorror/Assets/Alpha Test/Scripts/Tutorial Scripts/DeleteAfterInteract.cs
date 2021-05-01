@@ -11,6 +11,7 @@ public class DeleteAfterInteract : MonoBehaviour
     public bool isDone = false;
     public bool enter = false;
     public bool isLetter = false;
+    bool active = false;
 
     UniversalControls uControls;
     private void Awake()
@@ -51,13 +52,15 @@ public class DeleteAfterInteract : MonoBehaviour
             FadeoutAlpha();
             isDone = true;
         }
-        if(isLetter && uControls.Player.Interact.triggered && enter)
+        if(isLetter && uControls.Player.Interact.triggered && enter && !active)
         {
             LeanTween.alpha(gameObject, 1f, .7f);
+            active = true;
         }
-        else if(isLetter && uControls.Player.Interact.triggered && enter)
+        else if(isLetter && uControls.Player.Interact.triggered && enter && active)
         {
             LeanTween.alpha(gameObject, 0, .7f);
+            active = false;
         }
     }
 
@@ -68,6 +71,10 @@ public class DeleteAfterInteract : MonoBehaviour
             //fade in with leanTween
             LeanTween.alpha(gameObject, 1f, .7f);
         }
+        else if(isLetter)
+        {
+            Tooltip.Message = "E";
+        }
             enter = true;
     }
     
@@ -77,7 +84,11 @@ public class DeleteAfterInteract : MonoBehaviour
         {
             FadeoutAlpha();
         }
-            enter = false;
+        else if (isLetter)
+        {
+            Tooltip.Message = "";
+        }
+        enter = false;
     }
 
     private void FadeoutAlpha()

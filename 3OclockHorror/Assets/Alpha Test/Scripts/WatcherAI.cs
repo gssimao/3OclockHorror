@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class WatcherAI : MonoBehaviour
 {
@@ -63,6 +64,9 @@ public class WatcherAI : MonoBehaviour
     Animator Fade;
     [SerializeField]
     Animator plyAnim;
+    int tick = 0;
+    [SerializeField]
+    VideoPlayer watchClip;
 
     // Start is called before the first frame update
     void Start()
@@ -139,10 +143,11 @@ public class WatcherAI : MonoBehaviour
                 }
                 else
                 {
-                    sanityManager.ChangeSanity(-5);
-
-                    player.transform.position = startPoint.transform.position;
-                    player.GetComponent<PlayerMovement>().changeRoom(roomBFHallway);
+                    if (tick == 0)
+                    {
+                        tick++;
+                        PlayJumpscare();
+                    }
 
                     if (isScreamPlaying == false && manager != null)
                     {
@@ -538,19 +543,48 @@ public class WatcherAI : MonoBehaviour
 
     IEnumerator Jumpscare()
     {
-        Fade.SetTrigger("fadOut");
+        Fade.gameObject.SetActive(true);
+        Fade.SetTrigger("fadeOut");
 
-        yield return new WaitForSeconds(0.5f);
+        while(Fade.GetComponent<CanvasGroup>().alpha < 0.9)
+        {
+            yield return null;
+        }
 
+        yield return StartCoroutine(WatchVideo());
+
+        Fade.gameObject.SetActive(true);
         Fade.SetTrigger("fadeIn");
 
-        while(Fade.GetCurrentAnimatorStateInfo(0).normalizedTime < 1)
+        while (Fade.GetComponent<CanvasGroup>().alpha > 0)
         {
             yield return null;
         }
 
         Fade.gameObject.SetActive(false);
-
         plyAnim.SetTrigger("wake");
+        tick = 0;
+    }
+
+    IEnumerator WatchVideo()
+    {
+        watchClip.gameObject.SetActive(true);
+        
+
+        while(!watchClip.isPrepared)
+        {
+            yield return null;
+        }
+
+        while(watchClip.isPlaying)
+        {
+            yield return null;
+        }
+
+        player.transform.position = startPoint.transform.position;
+        player.GetComponent<PlayerMovement>().changeRoom(roomBFHallway);
+        sanityManager.ChangeSanity(-5);
+
+        watchClip.gameObject.SetActive(false);
     }
 }

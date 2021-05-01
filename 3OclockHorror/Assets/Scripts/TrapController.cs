@@ -70,23 +70,9 @@ public class TrapController : MonoBehaviour
 
         foreach(GameObject Trap in Traps)
         {
-            if(Trap.activeSelf)
-            {
-                total++;
-            }
-        }
-        if (total > Mathf.RoundToInt(Traps.Length / 2))
-        {
-            for (int i = 0; i < 3; i++)
-            {
-                int rand = Mathf.RoundToInt(Random.Range(0, Traps.Length));
-                while (Traps[rand].activeSelf)
-                {
-                    rand = Mathf.RoundToInt(Random.Range(0, Traps.Length));
-                }
-                Traps[rand].SetActive(true);
-                Debug.Log("Trap " + Traps[rand].name + " Activated");
-            }
+            Trap.SetActive(true);
+
+            total++;
         }
     }
 

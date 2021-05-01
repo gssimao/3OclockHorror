@@ -15,9 +15,12 @@ public class MainMenu : MonoBehaviour
 
     public float amplitude = 1.4f;
     public float omega = .3f;
-/*    float index;
-    float wave;*/
+    /*    float index;
+        float wave;*/
 
+    [SerializeField]
+    Animator Fade;
+    Scene currentScene;
 
     void Awake()
     {
@@ -45,7 +48,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         menuAudio.Stop("Theme");
-        SceneManager.LoadScene(mMenuScene);
+        ChangeScene();
     }
 
     public void QuitGame()
@@ -53,4 +56,27 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void ChangeScene()
+    {
+        StartCoroutine(LoadYourAsyncScene());
+    }
+
+    public IEnumerator LoadYourAsyncScene()
+    {
+        Fade.gameObject.SetActive(true);
+        Fade.SetTrigger("fadeOut");
+
+        currentScene = SceneManager.GetActiveScene();
+
+        yield return new WaitForSeconds(0.5f);
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(mMenuScene, LoadSceneMode.Additive);
+
+        while (!asyncLoad.isDone)// Runs this code until the next scene is done loading
+        {
+            yield return null;
+        }
+
+        SceneManager.UnloadSceneAsync(currentScene);
+    }
 }
