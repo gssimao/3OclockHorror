@@ -203,6 +203,7 @@ public class NPC : MonoBehaviour
 
             target.transform.position = playerTPPoint.transform.position;
             target.GetComponent<PlayerMovement>().changeRoom(playerTPPoint.myRoom);
+            target.GetComponent<PlayerMovement>().playerFloor = "FirstFloor";
 
             return true;
         }
