@@ -46,22 +46,25 @@ public class FloorAudioController : MonoBehaviour
             //lFloor = floor.floorNum;
 
             //Determine which functions are to be called
-            switch (floor)
+            if (StopALL != true)
             {
-                case 1:
-                    PlayFloorOne();
-                    break;
-                case 2:
-                    CheckFloorTwo();
-                    break;
-                case 3:
-                    PlayFloorThree();
-                    break;
-                case 4:
-                    PlayBasement();
-                    break;
-                case 20:
-                    break;
+                switch (floor)
+                {
+                    case 1:
+                        PlayFloorOne();
+                        break;
+                    case 2:
+                        CheckFloorTwo();
+                        break;
+                    case 3:
+                        PlayFloorThree();
+                        break;
+                    case 4:
+                        PlayBasement();
+                        break;
+                    case 20:
+                        break;
+                }
             }
 
             //Reset the timer
@@ -77,6 +80,7 @@ public class FloorAudioController : MonoBehaviour
     {
         if (player.playerFloor == "FirstFloor")
         {
+            manager.Stop("Heavy Wind");
             manager.Stop("2nd Floor ST");
             manager.Stop("3rd Floor ST");
             manager.Stop("Basement ST");
@@ -85,11 +89,12 @@ public class FloorAudioController : MonoBehaviour
         {
             manager.Stop("Drone");
             manager.Stop("Game ST");
-            manager.Stop("3rd Floor ST" );
+            manager.Stop("3rd Floor ST");
             manager.Stop("Basement ST");
         }
         else if (player.playerFloor == "ThirdFloor")
         {
+            manager.Stop("Heavy Wind");
             manager.Stop("Drone");
             manager.Stop("Game ST");
             manager.Stop("2nd Floor ST");
@@ -97,6 +102,7 @@ public class FloorAudioController : MonoBehaviour
         }
         else if (player.playerFloor == "Basement")
         {
+            manager.Stop("Heavy Wind");
             manager.Stop("Drone");
             manager.Stop("Game ST");
             manager.Stop("2nd Floor ST");
@@ -107,7 +113,11 @@ public class FloorAudioController : MonoBehaviour
     //Update the floor variable
     public void CheckFloor()
     {
-        if (player.playerFloor == "FirstFloor")
+        if (StopALL == true)
+        {
+            floor = 5;
+        }
+        else if (player.playerFloor == "FirstFloor")
         {
             floor = 1;
         }
@@ -133,6 +143,12 @@ public class FloorAudioController : MonoBehaviour
     public void StopSoundTrack()
     {
         StopALL = true;
+        manager.Stop("Heavy Wind");
+        manager.Stop("Drone");
+        manager.Stop("Game ST");
+        manager.Stop("2nd Floor ST");
+        manager.Stop("3rd Floor ST");
+        manager.Stop("Basement ST");
     }
 
     private void playSound(string sound)

@@ -121,6 +121,12 @@ public class HuntCheckSolved : MonoBehaviour
             GameObject.Find("BeartrapPuzzle").SetActive(false);
             if (manager != null)
             {
+                if (!isTutorial)
+                {
+                    manager.Stop("Hunter Build up");
+                    SoundTrack.StopALL = false;
+                    SoundTrack.CheckFloor();
+                }
                 manager.Play("Success", false);
             }
 
@@ -155,7 +161,7 @@ public class HuntCheckSolved : MonoBehaviour
         if (!solved)
         {
             HunterTrapActive = true;
-            if (manager != null && SoundTrack != null)
+            if (manager != null && SoundTrack != null && !isTutorial)
             {
                 manager.Play("Hunter Build up", false);
                 SoundTrack.StopSoundTrack();
@@ -173,11 +179,6 @@ public class HuntCheckSolved : MonoBehaviour
             }
         }
         HunterTrapActive = false;
-        SoundTrack.StopALL = false;
-        if(manager != null)
-        {
-            manager.Stop("Hunter Build up");
-        }
     }
 
     void Update()
