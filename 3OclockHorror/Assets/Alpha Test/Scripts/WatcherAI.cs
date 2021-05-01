@@ -68,6 +68,17 @@ public class WatcherAI : MonoBehaviour
     [SerializeField]
     VideoPlayer watchClip;
 
+    public sendMessage message1;
+    public sendMessage message2;
+    public sendMessage message3;
+    public bool sendMessage1 = true;
+    public bool sendMessage2 = false;
+    public bool sendMessage3 = false;
+    bool playingMessage = false;
+    public float waitTime = 30;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -86,6 +97,10 @@ public class WatcherAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(playingMessage)
+        {
+            WaitMessageTimer();
+        }
         playerRoom = player.GetComponent<PlayerMovement>().myRoom;
         CheckRoom();
         UpdateFace();
@@ -139,7 +154,12 @@ public class WatcherAI : MonoBehaviour
             {
                 if (!WatcherHallway)
                 {
-                    sanityManager.ChangeSanity(-2 * Time.deltaTime);
+                    sanityManager.ChangeSanity(-2 * Time.deltaTime); // could trigger messega here
+                    if(!playingMessage)
+                    {
+                        SendMessageInOrder();
+                    }
+                    
                 }
                 else
                 {
@@ -221,6 +241,30 @@ public class WatcherAI : MonoBehaviour
                 }
             }
             //1.25, 0.4
+        }
+    }
+
+    private void SendMessageInOrder()
+    {
+        if(sendMessage3)
+        {
+            playingMessage = true;
+            sendMessage3 = false;
+            message3.TriggerMessage();
+        }
+        if (sendMessage2)
+        {
+            playingMessage = true;
+            sendMessage2 = false;
+            sendMessage3 = true;
+            message2.TriggerMessage();
+        }
+        if (sendMessage1 && playingMessage == false)
+        {
+            playingMessage = true;
+            sendMessage1 = false;
+            sendMessage2 = true;
+            message1.TriggerMessage();
         }
     }
 
@@ -538,7 +582,8 @@ public class WatcherAI : MonoBehaviour
 
     void PlayJumpscare()
     {
-        StartCoroutine(Jumpscare());
+        StartCoroutine(Jumpscare()); 
+        //could play message here
     }
 
     IEnumerator Jumpscare()
@@ -586,5 +631,14 @@ public class WatcherAI : MonoBehaviour
         sanityManager.ChangeSanity(-5);
 
         watchClip.gameObject.SetActive(false);
+    }
+    public void WaitMessageTimer()
+    {
+        if (waitTime < 0)
+        {
+            playingMessage = false;
+            waitTime = 30;
+        }
+        waitTime -= Time.deltaTime;
     }
 }

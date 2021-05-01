@@ -2,10 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using System;
 
 [RequireComponent(typeof(FiniteStateMachine), typeof(Seeker), typeof(Rigidbody2D))]
 public class NPC : MonoBehaviour
 {
+
+    public sendMessage BCMessage1;
+    public sendMessage BCMessage2;
+    public sendMessage BCMessage3;
+    int messageOrder = 0;
+
     [SerializeField]
     public ArrayLayout FirstFloor;
     [SerializeField]
@@ -204,6 +211,8 @@ public class NPC : MonoBehaviour
             target.transform.position = playerTPPoint.transform.position;
             target.GetComponent<PlayerMovement>().changeRoom(playerTPPoint.myRoom);
             target.GetComponent<PlayerMovement>().playerFloor = "FirstFloor";
+            //Send Typewriter Message
+            SendMessageInOrder();
 
             return true;
         }
@@ -211,6 +220,25 @@ public class NPC : MonoBehaviour
         {
             Debug.Log("Tried to hit, failed");
             return false;
+        }
+    }
+
+    private void SendMessageInOrder()
+    {
+        if(messageOrder == 1)
+        {
+            BCMessage1.TriggerMessage();
+            messageOrder++;
+        }
+        if (messageOrder == 2)
+        {
+            BCMessage2.TriggerMessage();
+            messageOrder++;
+        }
+        if (messageOrder == 3)
+        {
+            BCMessage3.TriggerMessage();
+            messageOrder++;
         }
     }
 
