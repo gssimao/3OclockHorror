@@ -799,9 +799,9 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - name: Skull rotate
+  - name: Skull success
     clip: {fileID: 8300000, guid: 2097fe22f1aa2cd4c9561bb268380436, type: 3}
-    volume: 0.6
+    volume: 0.4
     pitch: 1
     loop: 0
     mixerGroup: {fileID: 0}
@@ -948,7 +948,21 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Evil_Laugh
     clip: {fileID: 8300000, guid: 1813c59aa3ae9f24dbd218e593965621, type: 3}
-    volume: 0.103
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Skull light
+    clip: {fileID: 8300000, guid: 297b0997a7f74de48921e73c2b13fb9f, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Skull turn
+    clip: {fileID: 8300000, guid: 0d4091200bccb0342bd192aa9ba09916, type: 3}
+    volume: 0.4
     pitch: 1
     loop: 1
     mixerGroup: {fileID: 0}
@@ -5831,8 +5845,8 @@ MonoBehaviour:
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: Skull rotate
-    clip: {fileID: 8300000, guid: 2097fe22f1aa2cd4c9561bb268380436, type: 3}
-    volume: 0.6
+    clip: {fileID: 8300000, guid: 0d4091200bccb0342bd192aa9ba09916, type: 3}
+    volume: 0.3
     pitch: 1
     loop: 0
     mixerGroup: {fileID: 0}
@@ -5979,9 +5993,23 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Evil_Laugh
     clip: {fileID: 8300000, guid: 1813c59aa3ae9f24dbd218e593965621, type: 3}
-    volume: 0.103
+    volume: 0.3
     pitch: 1
     loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Skull success
+    clip: {fileID: 8300000, guid: 2097fe22f1aa2cd4c9561bb268380436, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Skull light
+    clip: {fileID: 8300000, guid: 297b0997a7f74de48921e73c2b13fb9f, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   fadingSounds: []
@@ -13580,7 +13608,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.94, y: 6.61}
+    oldSize: {x: 6.46, y: 7.2}
     newSize: {x: 1.82, y: 0.44}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
