@@ -15,12 +15,13 @@ public class skullInteract : MonoBehaviour
     KeyCode interactKey;
     [SerializeField]
     invInput Listener;
-
+    AudioManager manager;
     UniversalControls uControls;
     private void Awake()
     {
         uControls = new UniversalControls();
         uControls.Enable();
+        manager = FindObjectOfType<AudioManager>();
     }
     private void OnDisable()
     {
@@ -34,6 +35,7 @@ public class skullInteract : MonoBehaviour
         if (dist <= 0.25f) {
             //Listener.isFocus = false;
             if (uControls.Player.Interact.triggered) {
+                manager.Play("Skull turn", true);
                 switch (skull)
                 {
                     case 1:

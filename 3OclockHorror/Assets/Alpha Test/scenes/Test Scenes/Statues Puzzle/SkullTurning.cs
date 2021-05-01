@@ -24,7 +24,7 @@ public class SkullTurning : MonoBehaviour
     bool stg1 = false;
     bool stg2 = false;
     bool stg3 = false;
-
+    AudioManager manager;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +36,7 @@ public class SkullTurning : MonoBehaviour
         SkullRotation2.SetInteger("SkullPosition", SkullPosition2);
         SkullRotation3.SetInteger("SkullPosition", SkullPosition3);
         SkullRotation4.SetInteger("SkullPosition", SkullPosition4);
-
+        manager = FindObjectOfType<AudioManager>();
         cn1.CandleToggle(false);
         cn2.CandleToggle(false);
         cn3.CandleToggle(false);
@@ -55,12 +55,12 @@ public class SkullTurning : MonoBehaviour
             {
                 cn1.CandleToggle(true);
             }
-            if (SkullPosition1 == 2 && SkullPosition2 == 0 && SkullPosition3 == 2 && SkullPosition4 == 0)
+            if (SkullPosition1 == 2 && SkullPosition2 == 0 && SkullPosition3 == 2 && SkullPosition4 == 0 && !stg1)
             {
                 stg1 = true;
                 pillarDisplay.updatePilar("stage1");
                 Debug.Log("Stg 1 Complete");
-
+                manager.Play("Skull light", true);
                 cn2.CandleToggle(true);
                 cn1.CandleToggle(false);
             }
@@ -69,7 +69,7 @@ public class SkullTurning : MonoBehaviour
                 stg2 = true;
                 pillarDisplay.updatePilar("stage2");
                 Debug.Log("Stg 2 complete");
-
+                manager.Play("Skull light", true);
                 cn2.CandleToggle(false);
                 cn3.CandleToggle(true);
             }
@@ -78,7 +78,7 @@ public class SkullTurning : MonoBehaviour
                 stg3 = true;
                 pillarDisplay.updatePilar("stage3");
                 Debug.Log("Stg 3 complete, locking puzzle");
-
+                manager.Play("Skull success", false);
                 cn3.CandleToggle(false);
                 this.GetComponent<SkullEnd>().OpenLeftEnding();
                 EndPuzzleMessage.TriggerMessage();
