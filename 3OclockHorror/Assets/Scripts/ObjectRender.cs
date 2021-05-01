@@ -13,7 +13,6 @@ public class ObjectRender : MonoBehaviour
     private Sprite transparent;
     [SerializeField]
     public bool active;
-    private clockCntrl clockctrl;
     public invInput Listener;
     [SerializeField]
     private bool colliding;
@@ -38,7 +37,6 @@ public class ObjectRender : MonoBehaviour
 
     void Awake()
     {
-        clockctrl = GameObject.Find("Player2").GetComponent<clockCntrl>();
         uControls = new UniversalControls();
         uControls.Enable();
         active = false;

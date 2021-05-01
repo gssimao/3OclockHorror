@@ -10,6 +10,7 @@ public class DeleteAfterInteract : MonoBehaviour
     public bool UseInventory;
     public bool isDone = false;
     public bool enter = false;
+    public bool isLetter = false;
 
     UniversalControls uControls;
     private void Awake()
@@ -50,20 +51,33 @@ public class DeleteAfterInteract : MonoBehaviour
             FadeoutAlpha();
             isDone = true;
         }
+        if(isLetter && uControls.Player.Interact.triggered && enter)
+        {
+            LeanTween.alpha(gameObject, 1f, .7f);
+        }
+        else if(isLetter && uControls.Player.Interact.triggered && enter)
+        {
+            LeanTween.alpha(gameObject, 0, .7f);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //fade in with leanTween
-        LeanTween.alpha(gameObject, 1f, .7f);
-        enter = true;
-        
+        if (!isLetter)
+        {
+            //fade in with leanTween
+            LeanTween.alpha(gameObject, 1f, .7f);
+        }
+            enter = true;
     }
     
     private void OnTriggerExit2D(Collider2D collision)
     {
-        FadeoutAlpha();
-        enter = false;
+        if (!isLetter)
+        {
+            FadeoutAlpha();
+        }
+            enter = false;
     }
 
     private void FadeoutAlpha()
@@ -80,5 +94,16 @@ public class DeleteAfterInteract : MonoBehaviour
         { 
             Destroy(this.gameObject);
         }
+    }
+
+    void FadeInAlpha()
+    {
+        LeanTween.value(gameObject, 0, 1f, .5f).setOnUpdate((float val) =>
+        {
+            SpriteRenderer ImageTutorial = gameObject.GetComponent<SpriteRenderer>();
+            Color newColor = ImageTutorial.color;
+            newColor.a = val; // changing Alpha
+            ImageTutorial.color = newColor;
+        });
     }
 }

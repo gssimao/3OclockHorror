@@ -21,5 +21,13 @@ public class FadeController : MonoBehaviour
         fadeAnimS = fadeAnim;
     }
 
-    
+    void PlayFadeOutFadeIn()
+    {
+
+    }
+
+    void PlayFadeOut()
+    {
+
+    }
 }

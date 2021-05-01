@@ -27,6 +27,8 @@ public class SanityManager : MonoBehaviour
 
     [SerializeField]
     VideoPlayer deathVP;
+    Scene currentScene;
+    int tick = 0;
 
     /*void Start()
     {
@@ -57,7 +59,11 @@ public class SanityManager : MonoBehaviour
 
         if (sanityValue <= 0)
         {
-            PlayGameOver();
+            if (tick == 0)
+            {
+                tick++;
+                PlayGameOver();
+            }
         }
 
         if (effectOn)
@@ -186,9 +192,20 @@ public class SanityManager : MonoBehaviour
 
     IEnumerator GameOver()
     {
+        currentScene = SceneManager.GetActiveScene();
+
         yield return StartCoroutine(PlayDeathAnimation());
 
-        SceneManager.LoadScene(GameOverScene); //Load the Game Over scene
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(GameOverScene, LoadSceneMode.Additive);
+
+        while (!asyncLoad.isDone)// Runs this code until the next scene is done loading
+        {
+            Debug.Log("Inside Async Loop");
+            yield return null;
+        }
+        Debug.Log("Outside Async Loop, Current Scene is: " + currentScene.name);
+        SceneManager.UnloadSceneAsync(currentScene);
+        Debug.Log("After Unload Scene");
         escntrl.endMessage = "You went insane.";
         Cursor.visible = true;
     }
@@ -204,9 +221,7 @@ public class SanityManager : MonoBehaviour
 
         while (deathVP.isPlaying)
         {
-            Debug.Log("Inside Loop");
             yield return null;
         }
-        Debug.Log("After Loop");
     }
 }
