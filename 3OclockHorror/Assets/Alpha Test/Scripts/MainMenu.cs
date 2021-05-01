@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     public string mMenuScene;
-    public AudioManager menuAudio;
+    AudioManager menuAudio;
     public Material material;
     public Image Background;
     public Image effect1;
@@ -21,6 +21,8 @@ public class MainMenu : MonoBehaviour
 
     void Awake()
     {
+        menuAudio = FindObjectOfType<AudioManager>();
+        menuAudio.StopAll();
         menuAudio.Play("Theme", false);
     }
     public void FadeBackground()
