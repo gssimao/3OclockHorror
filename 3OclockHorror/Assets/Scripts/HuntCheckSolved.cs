@@ -40,7 +40,7 @@ public class HuntCheckSolved : MonoBehaviour
 
     bool endTriggered = false;
 
-    float timer = 10.0f;
+    private float timer = 10.0f;
     bool lost = false;
 
     AudioManager manager;
@@ -83,13 +83,16 @@ public class HuntCheckSolved : MonoBehaviour
         Text1.text = showanswer1.ToString();
         Text2.text = showanswer2.ToString();
         Text3.text = showanswer3.ToString();
-
+        if (timer < 1)
+        {
+            timer = 15f;
+        }
         if (TrapCtrl.triggered == 0)
         {
             timer = 15.0f;
         }
         TrapCtrl.triggered++;
-
+        ExitButton.gameObject.SetActive(false);
         //TimerText = GameObject.Find("Timer").Text;
     }
 
@@ -98,6 +101,8 @@ public class HuntCheckSolved : MonoBehaviour
         timeractive = false;
         timerObject = GameObject.Find("Timer");
         ExitButton = GameObject.Find("ExitButton");
+        
+        
         if (GameObject.Find("Jumpscare") != null)
         {
             JumpscareCanvas = GameObject.Find("Jumpscare");
@@ -116,6 +121,8 @@ public class HuntCheckSolved : MonoBehaviour
     {
         if (Gear1.GetComponent<GearRotation>().movement == answer1 && Gear2.GetComponent<GearRotation>().movement == answer2 && Gear3.GetComponent<GearRotation>().movement == answer3 && !lost)
         {
+            timer = 15f;
+            ExitButton.gameObject.SetActive(true);
             solved = true;
             Solved.SetActive(true);
             GameObject.Find("BeartrapPuzzle").SetActive(false);
@@ -145,7 +152,10 @@ public class HuntCheckSolved : MonoBehaviour
             }
         }
     }
-
+    public void SetSolveToFalse()
+    {
+        solved = false;
+    }
     public void ExitPuzzle()
     {
         if (TrapCtrl != null)
@@ -185,10 +195,12 @@ public class HuntCheckSolved : MonoBehaviour
     {
         if (!lost && !solved && timercheck && timeractive)
         {
+            solved = false;
             timer -= Time.deltaTime;
             TimerText.text = System.Math.Round(timer,2).ToString();
             if(timer <= 0)
             {
+                ExitButton.gameObject.SetActive(true);
                 lost = true;
                 TrapCtrl.DeactivateTraps();
                 JumpscareCanvas.SetActive(true);
@@ -200,6 +212,7 @@ public class HuntCheckSolved : MonoBehaviour
                 //Solved.SetActive(true);
                 //GameObject.Find("AnswerButton").SetActive(false);
             }
+            
         }
 
     }
