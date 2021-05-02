@@ -8,6 +8,8 @@ public class ActivateBeartrap : MonoBehaviour
     public GameObject Puzzle;
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         AnswerCheck.GetComponent<HuntCheckSolved>().Activate(Puzzle);
+        AnswerCheck.RestartingPuzzle();
     }
 }

@@ -41,7 +41,7 @@ public class HuntCheckSolved : MonoBehaviour
     bool endTriggered = false;
 
     private float timer = 10.0f;
-    bool lost = false;
+    public bool lost = false;
 
     AudioManager manager;
     [SerializeField]
@@ -62,38 +62,8 @@ public class HuntCheckSolved : MonoBehaviour
     private void Start()
     {
         manager = FindObjectOfType<AudioManager>();
-
-        answer1 = Random.Range(0, 5);
-        answer2 = Random.Range(0, 5);
-        answer3 = Random.Range(0, 5);
-        while (answer2 == answer1 && answer3 == answer1)
-        {
-            answer1 = Random.Range(0, 5);
-            answer2 = Random.Range(0, 5);
-            answer3 = Random.Range(0, 5);
-        }
-
-        showanswer1 = answer1 + 1;
-        showanswer2 = answer2 + 1;
-        showanswer3 = answer3 + 1;
-        Debug.Log("Answer 1: " + answer1);
-        Debug.Log("Answer 2: " + answer2);
-        Debug.Log("Answer 3: " + answer3);
-
-        Text1.text = showanswer1.ToString();
-        Text2.text = showanswer2.ToString();
-        Text3.text = showanswer3.ToString();
-        if (timer < 1)
-        {
-            timer = 15f;
-        }
-        if (TrapCtrl.triggered == 0)
-        {
-            timer = 15.0f;
-        }
-        TrapCtrl.triggered++;
-        ExitButton.gameObject.SetActive(false);
-        //TimerText = GameObject.Find("Timer").Text;
+        RestartingPuzzle();
+        
     }
 
     public void Awake()
@@ -155,6 +125,9 @@ public class HuntCheckSolved : MonoBehaviour
     public void SetSolveToFalse()
     {
         solved = false;
+        lost = false;
+        timeractive = true;
+        timercheck = true;
     }
     public void ExitPuzzle()
     {
@@ -162,6 +135,7 @@ public class HuntCheckSolved : MonoBehaviour
         {
             TrapCtrl.DeactivateTraps();
         }
+        RestartingPuzzle();
         GameObject.Find("BeartrapPuzzle").SetActive(false);
 
     }
@@ -190,7 +164,41 @@ public class HuntCheckSolved : MonoBehaviour
         }
         HunterTrapActive = false;
     }
+    public void RestartingPuzzle()
+    {
+        SetSolveToFalse();
+        answer1 = Random.Range(0, 5);
+        answer2 = Random.Range(0, 5);
+        answer3 = Random.Range(0, 5);
+        while (answer2 == answer1 && answer3 == answer1 && answer3 == answer2)
+        {
+            answer1 = Random.Range(0, 5);
+            answer2 = Random.Range(0, 5);
+            answer3 = Random.Range(0, 5);
+        }
 
+        showanswer1 = answer1 + 1;
+        showanswer2 = answer2 + 1;
+        showanswer3 = answer3 + 1;
+        Debug.Log("Answer 1: " + answer1);
+        Debug.Log("Answer 2: " + answer2);
+        Debug.Log("Answer 3: " + answer3);
+
+        Text1.text = showanswer1.ToString();
+        Text2.text = showanswer2.ToString();
+        Text3.text = showanswer3.ToString();
+        if (timer < 1)
+        {
+            timer = 15f;
+        }
+        if (TrapCtrl.triggered == 0)
+        {
+            timer = 15.0f;
+        }
+        TrapCtrl.triggered++;
+        ExitButton.gameObject.SetActive(false);
+        //TimerText = GameObject.Find("Timer").Text;
+    }
     void Update()
     {
         if (!lost && !solved && timercheck && timeractive)
@@ -198,16 +206,18 @@ public class HuntCheckSolved : MonoBehaviour
             solved = false;
             timer -= Time.deltaTime;
             TimerText.text = System.Math.Round(timer,2).ToString();
-            if(timer <= 0)
+            ExitButton.gameObject.SetActive(false);
+            if (timer <= 0)
             {
                 ExitButton.gameObject.SetActive(true);
                 lost = true;
-                TrapCtrl.DeactivateTraps();
+                //TrapCtrl.DeactivateTraps();
                 JumpscareCanvas.SetActive(true);
                 Player.transform.position = TP.transform.position;
                 playermovement.myRoom = basement;
                 playermovement.enabled = true;
                 GameObject.Find("BeartrapPuzzle").SetActive(false);
+                RestartingPuzzle();
                 //SolvedText.text = "Lost";
                 //Solved.SetActive(true);
                 //GameObject.Find("AnswerButton").SetActive(false);
