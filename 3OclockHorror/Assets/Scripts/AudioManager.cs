@@ -70,9 +70,9 @@ public class AudioManager : MonoBehaviour
 
             else if (isRandom)
             {
-                s.source.volume = Random.Range(s.volume - 0.1f, s.volume + 0.1f); //Random Volume
+                s.source.volume = Random.Range(s.volume - 0.05f, s.volume + 0.05f); //Random Volume
 
-                s.source.pitch = Random.Range(0.8f, 1.2f); // Random Pitch
+                s.source.pitch = Random.Range(0.9f, 1.1f); // Random Pitch
             }
 
             s.source.Play();

@@ -33,7 +33,7 @@ public class FloorAudioController : MonoBehaviour
     // Update Function, WIP not yet finished
     void Update()
     {
-        if (t <= 0)
+        if (t <= 0 && player.myRoom.getName() != "Outside")
         {
             lFloor = floor; //Catch the last floor
             CheckFloor();
@@ -143,7 +143,7 @@ public class FloorAudioController : MonoBehaviour
     public void StopSoundTrack()
     {
         StopALL = true;
-        manager.Stop("Heavy Wind");
+       manager.Stop("Heavy Wind");
         manager.Stop("Drone");
         manager.Stop("Game ST");
         manager.Stop("2nd Floor ST");

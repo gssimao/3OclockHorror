@@ -6,7 +6,7 @@ public class volumeHolder : MonoBehaviour
 {
     public static volumeHolder instance;
     [SerializeField]
-    float volume;
+    float volume = 1;
     AudioManager manager;
 
     // Start is called before the first frame update
