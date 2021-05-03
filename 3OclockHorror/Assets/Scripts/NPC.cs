@@ -191,7 +191,7 @@ public class NPC : MonoBehaviour
         {
             TimePasserCanv.SetActive(true);
             timePasser.prepareAnimation();
-
+            manager.StopAll();
             targSAN.ChangeSanity(-10);
             clock.adjustTime(120);
             hitTmr = 200;
@@ -330,14 +330,16 @@ public class NPC : MonoBehaviour
                 manager.Play("BC Wander", false);
                 manager.Stop("BC Chase");
                 isWanPlaying = true;
+                isChasePlaying = false;
             }
             else if (fsm.GetState() == FSMStateType.CHASE && isChasePlaying == false && manager != null && pmove.myRoom == myRoom)
             {
                 manager.Stop("BC Wander");
                 manager.Play("BC Chase", false);
                 isChasePlaying = true;
+                isWanPlaying = false;
             }
-            else
+            else if (manager != null && pmove.myRoom != myRoom)
             {
                 manager.Stop("BC Wander");
                 isWanPlaying = false;
