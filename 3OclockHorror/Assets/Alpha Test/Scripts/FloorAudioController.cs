@@ -143,12 +143,15 @@ public class FloorAudioController : MonoBehaviour
     public void StopSoundTrack()
     {
         StopALL = true;
+        manager.StopAll(); 
+        /*
        manager.Stop("Heavy Wind");
         manager.Stop("Drone");
         manager.Stop("Game ST");
         manager.Stop("2nd Floor ST");
         manager.Stop("3rd Floor ST");
         manager.Stop("Basement ST");
+        */
     }
 
     private void playSound(string sound)

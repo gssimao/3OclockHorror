@@ -61,7 +61,6 @@ public class HuntCheckSolved : MonoBehaviour
 
     private void Start()
     {
-        manager = FindObjectOfType<AudioManager>();
         RestartingPuzzle();
         
     }
@@ -71,8 +70,7 @@ public class HuntCheckSolved : MonoBehaviour
         timeractive = false;
         timerObject = GameObject.Find("Timer");
         ExitButton = GameObject.Find("ExitButton");
-        
-        
+        manager = FindObjectOfType<AudioManager>();
         if (GameObject.Find("Jumpscare") != null)
         {
             JumpscareCanvas = GameObject.Find("Jumpscare");
@@ -96,16 +94,13 @@ public class HuntCheckSolved : MonoBehaviour
             solved = true;
             Solved.SetActive(true);
             GameObject.Find("BeartrapPuzzle").SetActive(false);
-            if (manager != null)
+            if (!isTutorial)
             {
-                if (!isTutorial)
-                {
-                    manager.Stop("Hunter Build up");
-                    SoundTrack.StopALL = false;
-                    SoundTrack.CheckFloor();
-                }
-                manager.Play("Success", false);
+                manager.Stop("Hunter");
+                SoundTrack.StopALL = false;
+                SoundTrack.CheckFloor();
             }
+            manager.Play("Success", false);
 
             if(isTutorial)
             {
@@ -145,11 +140,6 @@ public class HuntCheckSolved : MonoBehaviour
         if (!solved)
         {
             HunterTrapActive = true;
-            if (manager != null && SoundTrack != null && !isTutorial)
-            {
-                manager.Play("Hunter Build up", false);
-                SoundTrack.StopSoundTrack();
-            }
             Puzzle.SetActive(true);
             if (!timercheck)
             {
@@ -160,6 +150,11 @@ public class HuntCheckSolved : MonoBehaviour
             {
                 Debug.Log("True TimerCheck");
                 timeractive = true;
+            }
+            if (!isTutorial)
+            {
+                SoundTrack.StopSoundTrack();
+                manager.Play("Hunter", false);
             }
         }
         HunterTrapActive = false;
@@ -209,6 +204,12 @@ public class HuntCheckSolved : MonoBehaviour
             ExitButton.gameObject.SetActive(false);
             if (timer <= 0)
             {
+                if (!isTutorial)
+                {
+                    manager.Stop("Hunter");
+                    SoundTrack.StopALL = false;
+                    SoundTrack.CheckFloor();
+                }
                 ExitButton.gameObject.SetActive(true);
                 lost = true;
                 //TrapCtrl.DeactivateTraps();

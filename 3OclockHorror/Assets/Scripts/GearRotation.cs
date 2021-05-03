@@ -29,7 +29,7 @@ public class GearRotation : MonoBehaviour
         {
             movement = ControlBound(movement, true);
             LeanTween.rotateZ(gameObject, GearPosition[movement], .3f); // move gear
-            manager.Play("Gear Turn", true);
+            manager.Play("Gear Turn", false);
         }
         if (Input.GetMouseButtonUp(0)) //this should turn the big to the left
         {

@@ -62,7 +62,7 @@ public class LockControl : MonoBehaviour, IPointerClickHandler
 
         if (manager != null)
         {
-            manager.Play("Lock turn", true);
+            manager.Play("Lock Turn", false);
         }
     }
 

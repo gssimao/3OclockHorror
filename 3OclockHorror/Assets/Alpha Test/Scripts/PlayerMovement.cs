@@ -186,12 +186,12 @@ public class PlayerMovement : MonoBehaviour
             walking = false;
         }
 
-        if (walking == true && isPlaying == false && manager != null && myRoom.getName() != "Outside" && InvCanvas.activeSelf != true && Journal.activeSelf != true)
+        if (walking && !isPlaying && manager != null && myRoom.getName() != "Outside" && !InvCanvas.activeSelf  && !Journal.activeSelf  && canMove)
         {
             manager.Play("Player Footsteps", true);
             isPlaying = true;
         }
-        else if (walking == true && isPlaying == false && manager != null && myRoom.getName() == "Outside" && InvCanvas.activeSelf != true && Journal.activeSelf != true)
+        if (walking && !isPlaying && manager != null && myRoom.getName() == "Outside" && !InvCanvas.activeSelf && !Journal.activeSelf && canMove)
         {
             manager.Play("Snow Footsteps", true);
             isPlaying = true;

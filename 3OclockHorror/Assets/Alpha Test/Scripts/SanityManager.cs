@@ -29,7 +29,8 @@ public class SanityManager : MonoBehaviour
     VideoPlayer deathVP;
     Scene currentScene;
     int tick = 0;
-
+    AudioManager manager;
+    public FloorAudioController sound;
     /*void Start()
     {
         //get reference from player's material
@@ -192,6 +193,9 @@ public class SanityManager : MonoBehaviour
 
     IEnumerator GameOver()
     {
+        manager = FindObjectOfType<AudioManager>();
+        sound.StopSoundTrack();
+
         currentScene = SceneManager.GetActiveScene();
 
         yield return StartCoroutine(PlayDeathAnimation());
@@ -200,6 +204,7 @@ public class SanityManager : MonoBehaviour
 
         while (!asyncLoad.isDone)// Runs this code until the next scene is done loading
         {
+            manager.Play("Theme", false);
             Debug.Log("Inside Async Loop");
             yield return null;
         }

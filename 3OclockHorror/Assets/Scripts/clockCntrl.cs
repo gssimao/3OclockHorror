@@ -140,7 +140,7 @@ public class clockCntrl : MonoBehaviour
                 Debug.Log("got here 1111");
                 hourIsPlaying = true;
                 manager.Play("Clock 5", false);
-                clipLength = 22 + Clock;                //clipLength was added so that Clock Tick would not play while these bells are playing.
+                clipLength = 20 + Clock;                //clipLength was added so that Clock Tick would not play while these bells are playing.
 
                 Message5pm.TriggerMessage();
                 //popup.UpdateTooltipMessage("5PM: 10 hours remain.");
@@ -149,7 +149,7 @@ public class clockCntrl : MonoBehaviour
             {
                 hourIsPlaying = true;
                 manager.Play("Clock 6", false);
-                clipLength = 25 + Clock;
+                clipLength = 23 + Clock;
                 Message6pm.TriggerMessage();
                 // popup.UpdateTooltipMessage("6PM: 9 hours remain.");
             }
@@ -157,7 +157,7 @@ public class clockCntrl : MonoBehaviour
             {
                 hourIsPlaying = true;
                 manager.Play("Clock 7", false);
-                clipLength = 28 + Clock;
+                clipLength = 26 + Clock;
                 Message7pm.TriggerMessage();
                 //popup.UpdateTooltipMessage("7PM: 8 hours remain.");
             }
@@ -165,7 +165,7 @@ public class clockCntrl : MonoBehaviour
             {
                 hourIsPlaying = true;
                 manager.Play("Clock 8", false);
-                clipLength = 31 + Clock;
+                clipLength = 29 + Clock;
                 Message8pm.TriggerMessage();
                 //popup.UpdateTooltipMessage("8PM: 7 hours remain.");
             }
@@ -173,7 +173,7 @@ public class clockCntrl : MonoBehaviour
             {
                 hourIsPlaying = true;
                 manager.Play("Clock 9", false);
-                clipLength = 34 + Clock;
+                clipLength = 32 + Clock;
 
                 //popup.UpdateTooltipMessage("9PM: 6 hours remain.");
             }
@@ -181,7 +181,7 @@ public class clockCntrl : MonoBehaviour
             {
                 hourIsPlaying = true;
                 manager.Play("Clock 10", false);
-                clipLength = 37 + Clock;
+                clipLength = 35 + Clock;
                 Message10pm.TriggerMessage();
                 //popup.UpdateTooltipMessage("10PM: 5 hours remain.");
             }
@@ -189,7 +189,7 @@ public class clockCntrl : MonoBehaviour
             {
                 hourIsPlaying = true;
                 manager.Play("Clock 11", false);
-                clipLength = 40 + Clock;
+                clipLength = 38 + Clock;
 
                 //popup.UpdateTooltipMessage("11PM: 4 hours remain.");
             }
@@ -197,7 +197,7 @@ public class clockCntrl : MonoBehaviour
             {
                 hourIsPlaying = true;
                 manager.Play("Clock 12", false);
-                clipLength = 43 + Clock;
+                clipLength = 40 + Clock;
 
                 MessageMidnight.TriggerMessage();
                 //popup.UpdateTooltipMessage("12AM: 3 hours remain.");
@@ -206,7 +206,7 @@ public class clockCntrl : MonoBehaviour
             {
                 hourIsPlaying = true;
                 manager.Play("Clock 1", false);
-                clipLength = 10 + Clock;
+                clipLength = 8 + Clock;
                 if (BrockenWatchSolved.solved)
                 {
                     Message1amNoClock.TriggerMessage();
@@ -221,7 +221,7 @@ public class clockCntrl : MonoBehaviour
             {
                 hourIsPlaying = true;
                 manager.Play("Clock 2", false);
-                clipLength = 13 + Clock;
+                clipLength = 11 + Clock;
                 if (BrockenWatchSolved.solved)
                 {
                     Message2amNoClock.TriggerMessage();
@@ -237,7 +237,7 @@ public class clockCntrl : MonoBehaviour
             {
                 hourIsPlaying = true;
                 manager.Play("Clock 3", false);
-                clipLength = 16 + Clock;
+                clipLength = 14 + Clock;
                 Message3am.TriggerMessage();
                 //popup.UpdateTooltipMessage("3AM: Time's Up");
             }
