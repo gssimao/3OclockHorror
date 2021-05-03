@@ -75,7 +75,10 @@ public class PuzzleOpenerScript : MonoBehaviour
             {
                 if (!opened)
                 {
-                    coinCanv.SetActive(true);
+                    if (coinPuzzle)
+                    {
+                        coinCanv.SetActive(true);
+                    }
 
                     TaskString = "\n " + TaskString;
                     taskManager.updateList(TaskString);
